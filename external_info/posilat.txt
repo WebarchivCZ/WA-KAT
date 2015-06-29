@@ -1,0 +1,8 @@
+url
+název
+autor / vydavatel
+konspekt seznam?
+subkonspekt seznam?
+frekvence seznam?
+periodicita
+periodicita seznam?

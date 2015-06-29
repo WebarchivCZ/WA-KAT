@@ -1,0 +1,14 @@
+ISSN | input
+Název | input
+Datum vzniku | date picker
+Autor, Vydavatel | input
+Místo | input
+Předmětová hesla | select
+Konspekt | option
+SubKonspekt | option
+Frekvence | select 5 hodnot
+Jazyk | input / select
+Anotace | textarea
+periodicita | select / input
+pravidla | přepínače
+hlavička | textarea
