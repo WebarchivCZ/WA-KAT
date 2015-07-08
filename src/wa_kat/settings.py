@@ -38,7 +38,7 @@ PROJECT_KEY = "wa_kat"  #: This is used in ZODB. DON'T CHANGE THIS.
 
 WEB_ADDR = "localhost"  #: Address where the webserver should listen.
 WEB_PORT = 8080  #: Port for the webserver.
-WEB_SERVER = 'wsgiref'  #: Use `paste` for threading.
+WEB_SERVER = 'paste'  #: Use `paste` for threading.
 WEB_DB_TIMEOUT = 30  #: How often should web refresh connection to DB.
 
 REMOTE_INFO_URL = "http://%s:%d/remote_info_mock" % (WEB_ADDR, WEB_PORT)
