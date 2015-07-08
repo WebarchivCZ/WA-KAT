@@ -4,16 +4,37 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import os
+import os.path
+
 import requests
 from bottle import get
+from bottle import abort
 from bottle import request
+from bottle import static_file
 
 from . import settings
 
 
+# Variables ===================================================================
+TEMPLATE_PATH = os.path.join(
+    os.path.abspath(os.path.dirname(__file__)),
+    "templates"
+)
+INDEX_PATH = os.path.join(TEMPLATE_PATH, "index_vertical.html")
+STATIC_PATH = os.path.join(TEMPLATE_PATH, "static")
+
+
 # Functions & classes =========================================================
+def _read_template():
+    with open(INDEX_PATH) as f:
+        return f.read()
+
+
 def render_registered(remote_info):
-    return "registered"
+    template = _read_template()
+
+    return template
 
 
 def render_unregistered():
@@ -37,6 +58,20 @@ def mock_data():
         "url": "http://seznam.cz",
     }
 # TODO: REMOVE
+
+
+@get("/<fn:path>")
+def static_data(fn):
+    file_path = os.path.normpath(fn)
+    full_path = os.path.join(STATIC_PATH, file_path)
+
+    if not os.path.exists(full_path):
+        abort(404, "'%s' not found!" % fn)
+
+    return static_file(
+        file_path,
+        STATIC_PATH
+    )
 
 
 @get("/")
