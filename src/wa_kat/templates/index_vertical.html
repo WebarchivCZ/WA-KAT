@@ -25,7 +25,11 @@
     <div class="form-group">
       <label for="url" class="control-label col-sm-2">URL</label>
       <div class="col-sm-10">
-        <p class="form-control-static"><a href="http://someurl.net">http://someurl.net</a></p>
+      % if registered:
+        <p class="form-control-static"><a href="{{url}}">{{url}}</a></p>
+      % else:
+        <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." />
+      % end
       </div>
     </div>
 

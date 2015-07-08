@@ -11,6 +11,7 @@ import requests
 from bottle import get
 from bottle import abort
 from bottle import request
+from bottle import template
 from bottle import static_file
 
 from . import settings
@@ -32,13 +33,19 @@ def _read_template():
 
 
 def render_registered(remote_info):
-    template = _read_template()
+    return template(
+        _read_template(),
+        registered=True,
+        url=remote_info["url"]
+    )
 
-    return template
 
-
-def render_unregistered():
-    return "unregistered"
+def render_unregistered(error=None):
+    return template(
+        _read_template(),
+        registered=False,
+        error=error
+    )
 
 
 def get_remote_info(url_id):  # TODO: Add timeout, print error in case of exception
@@ -66,7 +73,7 @@ def static_data(fn):
     full_path = os.path.join(STATIC_PATH, file_path)
 
     if not os.path.exists(full_path):
-        abort(404, "'%s' not found!" % fn)
+        abort(404, "Soubor '%s' neexistuje!" % fn)
 
     return static_file(
         file_path,
@@ -76,14 +83,19 @@ def static_data(fn):
 
 @get("/")
 def render_form_template():
-    url_id = request.query.get("url_id", None)
+    error = ""
+    remote_info = {}
+    registered_user_id = request.query.get("url_id", False)
 
-    registered_user = False
-    if url_id is not None:
-        remote_info = get_remote_info(url_id)
-        registered_user = True
+    # try to read remote info, the the url_id parameter was specified
+    if registered_user_id:
+        try:
+            remote_info = get_remote_info(registered_user_id)
+        except AssertionError:
+            registered_user_id = False
+            error = "Server neposlal očekávaná data."
 
-    if registered_user:
+    if registered_user_id:
         return render_registered(remote_info)
 
-    return render_unregistered()
+    return render_unregistered(error)
