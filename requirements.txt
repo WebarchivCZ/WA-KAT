@@ -1,2 +1,3 @@
 bottle
 requests
+pydhtmlparser>=2.1.3
