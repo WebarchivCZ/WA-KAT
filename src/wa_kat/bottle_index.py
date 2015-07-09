@@ -91,7 +91,7 @@ def render_form_template():
     if registered_user_id:
         try:
             remote_info = get_remote_info(registered_user_id)
-        except AssertionError:
+        except AssertionError:  #: TODO: requests error
             registered_user_id = False
             error = "Server neposlal očekávaná data."
 
