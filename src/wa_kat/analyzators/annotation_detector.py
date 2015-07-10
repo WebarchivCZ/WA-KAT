@@ -21,7 +21,7 @@ def _get_dc_annotations(index_page):
     """
     Return description stored in dublin core ``<meta>`` tags.
     """
-    return parse_meta(index_page, "DC.Description", "DC")
+    return parse_meta(index_page, "dc.description", "DC")
 
 
 def get_annotations(index_page):
