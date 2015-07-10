@@ -11,7 +11,7 @@ from source_string import SourceString
 
 
 # Functions & classes =========================================================
-def _detect_html_titles(web_index):
+def _get_html_titles(web_index):
     """
     Return list of titles parsed from HTML.
     """
@@ -26,14 +26,14 @@ def _detect_html_titles(web_index):
     ]
 
 
-def _detect_html_meta_titles(web_index):
+def _get_html_meta_titles(web_index):
     """
     Return list of titles parsed from ``<meta>`` tags.
     """
     return parse_meta(web_index, "title", "Meta")
 
 
-def _detect_dublin_core_titles(web_index):
+def _get_dublin_core_titles(web_index):
     """
     Return list of titles parsed from dublin core inlined in ``<meta>``
     tags.
@@ -55,9 +55,9 @@ def get_titles(web_index):
     dom = dhtmlparser.parseString(web_index)
 
     titles = [
-        _detect_html_titles(dom),
-        _detect_html_meta_titles(dom),
-        _detect_dublin_core_titles(dom),
+        _get_html_titles(dom),
+        _get_html_meta_titles(dom),
+        _get_dublin_core_titles(dom),
     ]
 
     return sum(titles, [])  # return flatterned list
