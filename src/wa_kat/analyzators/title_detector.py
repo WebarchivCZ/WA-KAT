@@ -6,6 +6,7 @@
 # Imports =====================================================================
 import dhtmlparser
 
+from .shared import parse_meta
 from source_string import SourceString
 
 
@@ -29,18 +30,7 @@ def _detect_html_meta_titles(web_index):
     """
     Return list of titles parsed from ``<meta>`` tags.
     """
-    dom = dhtmlparser.parseString(web_index)
-
-    title_tags = dom.find(
-        "meta",
-        fn=lambda x: x.params.get("name", "").lower() == "title"
-    )
-
-    return [
-        SourceString(tag.params["content"], "Meta")
-        for tag in title_tags
-        if "content" in tag.params
-    ]
+    return parse_meta(web_index, "title", "Meta")
 
 
 def _detect_dublin_core_titles(web_index):
@@ -48,18 +38,7 @@ def _detect_dublin_core_titles(web_index):
     Return list of titles parsed from dublin core inlined in ``<meta>``
     tags.
     """
-    dom = dhtmlparser.parseString(web_index)
-
-    title_tags = dom.find(
-        "meta",
-        fn=lambda x: x.params.get("name", "").lower() == "dc.title"
-    )
-
-    return [
-        SourceString(tag.params["content"], "DC")
-        for tag in title_tags
-        if "content" in tag.params
-    ]
+    return parse_meta(web_index, "dc.title", "DC")
 
 
 def get_titles(web_index):
