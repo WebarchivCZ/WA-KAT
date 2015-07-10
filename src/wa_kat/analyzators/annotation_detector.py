@@ -10,32 +10,32 @@ from .shared import parse_meta
 
 
 # Functions & classes =========================================================
-def _get_html_annotations(web_index):
+def _get_html_annotations(index_page):
     """
     Return descriptions stored in ``<meta>`` tags.
     """
-    return parse_meta(web_index, "description", "Meta")
+    return parse_meta(index_page, "description", "Meta")
 
 
-def _get_dc_annotations(web_index):
+def _get_dc_annotations(index_page):
     """
     Return description stored in dublin core ``<meta>`` tags.
     """
-    return parse_meta(web_index, "DC.Description", "DC")
+    return parse_meta(index_page, "DC.Description", "DC")
 
 
-def get_annotations(web_index):
+def get_annotations(index_page):
     """
     Return list of descriptions parsed from ``<meta>`` tags and dublin core
     inlined in ``<meta>`` tags.
 
     Args:
-        web_index (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wisht to analyze.
 
     Returns:
         list: List of ``SourceString`` objects.
     """
-    dom = dhtmlparser.parseString(web_index)
+    dom = dhtmlparser.parseString(index_page)
 
     descriptions = [
         _get_html_annotations(dom),

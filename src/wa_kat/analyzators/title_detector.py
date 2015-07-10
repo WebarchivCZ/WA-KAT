@@ -11,11 +11,11 @@ from source_string import SourceString
 
 
 # Functions & classes =========================================================
-def _get_html_titles(web_index):
+def _get_html_titles(index_page):
     """
     Return list of titles parsed from HTML.
     """
-    dom = dhtmlparser.parseString(web_index)
+    dom = dhtmlparser.parseString(index_page)
 
     title_tags = dom.find("title")
 
@@ -26,33 +26,33 @@ def _get_html_titles(web_index):
     ]
 
 
-def _get_html_meta_titles(web_index):
+def _get_html_meta_titles(index_page):
     """
     Return list of titles parsed from ``<meta>`` tags.
     """
-    return parse_meta(web_index, "title", "Meta")
+    return parse_meta(index_page, "title", "Meta")
 
 
-def _get_dublin_core_titles(web_index):
+def _get_dublin_core_titles(index_page):
     """
     Return list of titles parsed from dublin core inlined in ``<meta>``
     tags.
     """
-    return parse_meta(web_index, "dc.title", "DC")
+    return parse_meta(index_page, "dc.title", "DC")
 
 
-def get_titles(web_index):
+def get_titles(index_page):
     """
     Return list of titles parsed from HTML, ``<meta>`` tags and dublin core
     inlined in ``<meta>`` tags.
 
     Args:
-        web_index (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wisht to analyze.
 
     Returns:
         list: List of ``SourceString`` objects.
     """
-    dom = dhtmlparser.parseString(web_index)
+    dom = dhtmlparser.parseString(index_page)
 
     titles = [
         _get_html_titles(dom),
