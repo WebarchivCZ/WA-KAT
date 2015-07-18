@@ -4,7 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from wa_kat.analyzators.title_detector import get_titles
+from wa_kat.analyzers.title_detector import get_titles
 
 
 # Variables ===================================================================

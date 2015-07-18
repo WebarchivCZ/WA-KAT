@@ -4,7 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from wa_kat.analyzators.annotation_detector import get_annotations
+from wa_kat.analyzers.annotation_detector import get_annotations
 
 
 # Variables ===================================================================

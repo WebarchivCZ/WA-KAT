@@ -6,7 +6,7 @@
 # Imports =====================================================================
 import pytest
 
-from wa_kat.analyzators.language_detector import get_lang_tags
+from wa_kat.analyzers.language_detector import get_lang_tags
 
 
 # Variables ===================================================================

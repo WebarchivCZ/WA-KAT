@@ -4,7 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from wa_kat.analyzators.source_string import SourceString
+from wa_kat.analyzers.source_string import SourceString
 
 
 # Tests =======================================================================
