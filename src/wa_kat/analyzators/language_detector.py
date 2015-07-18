@@ -48,8 +48,14 @@ def _detect_languages(index_page):
 
     clean_content = dhtmlparser.removeTags(dom)
 
+    lang = None
+    try:
+        lang = langdetect.detect(clean_content)
+    except UnicodeDecodeError:
+        lang = langdetect.detect(clean_content.decode("utf-8"))
+
     return SourceString(
-        langdetect.detect(clean_content),
+        lang,
         source="langdetect"
     )
 
@@ -60,7 +66,7 @@ def get_lang_tags(index_page):
     titles = [
         _get_html_lang_tags(dom),
         _get_dc_lang_tags(dom),
-        _detect_languages(dom),
+        [_detect_languages(dom)],
     ]
 
     return sum(titles, [])  # return flatterned list
