@@ -12,14 +12,14 @@ from .shared import parse_meta
 # Functions & classes =========================================================
 def _get_html_annotations(index_page):
     """
-    Return descriptions stored in ``<meta>`` tags.
+    Return `descriptions` stored in ``<meta>`` tags.
     """
     return parse_meta(index_page, "description", "Meta")
 
 
 def _get_dc_annotations(index_page):
     """
-    Return description stored in dublin core ``<meta>`` tags.
+    Return `description` stored in dublin core ``<meta>`` tags.
     """
     return parse_meta(index_page, "dc.description", "DC")
 
