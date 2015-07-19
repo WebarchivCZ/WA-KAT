@@ -40,7 +40,7 @@ def _get_dc_lang_tags(index_page):
     return parse_meta(index_page, "dc.language", "DC")
 
 
-def _detect_languages(index_page):
+def _detect_language(index_page):
     """
     Detect `languages` using `langdetect` library.
     """
@@ -66,7 +66,7 @@ def get_lang_tags(index_page):
     titles = [
         _get_html_lang_tags(dom),
         _get_dc_lang_tags(dom),
-        [_detect_languages(dom)],
+        [_detect_language(dom)],
     ]
 
-    return sum(titles, [])  # return flatterned list
+    return sum(titles, [])  # return flattened list

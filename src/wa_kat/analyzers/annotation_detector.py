@@ -42,4 +42,4 @@ def get_annotations(index_page):
         _get_dc_annotations(dom),
     ]
 
-    return sum(descriptions, [])  # return flatterned list
+    return sum(descriptions, [])  # return flattened list

@@ -60,4 +60,4 @@ def get_titles(index_page):
         _get_dublin_core_titles(dom),
     ]
 
-    return sum(titles, [])  # return flatterned list
+    return sum(titles, [])  # return flattened list
