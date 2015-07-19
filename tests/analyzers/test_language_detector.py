@@ -4,8 +4,6 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-import pytest
-
 from wa_kat.analyzers.language_detector import get_lang_tags
 
 
