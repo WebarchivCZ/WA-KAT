@@ -51,14 +51,16 @@ def _get_whois_tags(ip_address):
     # parse address tags
     address_list = []
     for net in nets:
-        if "address" not in net:
+        address = net.get("address", None)
+        if not address:
             continue
 
-        address = net["address"]
-
         # filter company name
-        if "description" in net:
+        if "description" in net and net["description"]:
             address = address.replace(net["description"], "").strip()
+
+        if "\n" in address:
+            address = ", ".join(address.splitlines())
 
         address_list.append(address)
 
