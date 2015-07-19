@@ -16,6 +16,18 @@ from source_string import SourceString
 
 # Functions & classes =========================================================
 def _get_ip_address(domain):
+    """
+    Get IP address for given `domain`. Try to do smart parsing.
+
+    Args:
+        domain (str): Domain or URL.
+
+    Returns:
+        str: IP address.
+
+    Raises:
+        ValueError: If can't parse the domain.
+    """
     if "://" not in domain:
         domain = "http://" + domain
 
@@ -35,6 +47,9 @@ def _get_html_geo_place_tags(index_page):
 
 
 def _get_whois_tags(ip_address):
+    """
+    Return list of tags with `address` for given `ip_address`.
+    """
     whois = IPWhois(ip_address).lookup()
     nets = whois.get("nets", None)
 
@@ -70,18 +85,21 @@ def _get_whois_tags(ip_address):
     ]
 
 
-# def _get_geoip_tag(ip_address):
+# def _get_geoip_tag(ip_address):  # TODO: implement geoip
 #     pass
 
 
 def get_place_tags(index_page, domain):
+    """
+    Return list of `place` tags parsed from meta, whois and geioip.
+    """
     ip_address = _get_ip_address(domain)
     dom = dhtmlparser.parseString(index_page)
 
     place_tags = [
         _get_html_geo_place_tags(dom),
         _get_whois_tags(ip_address),
-        # [_get_geo_place_tag(ip_address)],
+        # [_get_geo_place_tag(ip_address)],  # TODO: implement geoip
     ]
 
     return sum(place_tags, [])  # return flattened list
