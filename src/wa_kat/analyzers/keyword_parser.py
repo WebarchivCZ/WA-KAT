@@ -13,7 +13,7 @@ from source_string import SourceString
 # Functions & classes =========================================================
 def _get_html_keywords(index_page):
     """
-    Return list of keywords parsed from HTML ``<meta>`` tags.
+    Return list of `keywords` parsed from HTML ``<meta>`` tags.
     """
     keywords = parse_meta(index_page, "keywords", "HTML")
 
@@ -25,7 +25,7 @@ def _get_html_keywords(index_page):
 
 def _get_dc_keywords(index_page):
     """
-    Return list of keywords parsed from dublin core.
+    Return list of `keywords` parsed from dublin core.
     """
     keywords = parse_meta(index_page, "dc.keywords", "DC")
 
@@ -41,7 +41,7 @@ def _get_dc_keywords(index_page):
 
 def get_keywords(index_page):
     """
-    Parse keywords from HTML ``<meta>``, dublin core and from text.
+    Parse `keywords` from HTML ``<meta>``, dublin core and from text.
     """
     dom = dhtmlparser.parseString(index_page)
 
