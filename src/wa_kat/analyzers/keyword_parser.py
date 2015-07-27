@@ -39,7 +39,7 @@ def _get_dc_keywords(index_page):
 #     pass
 
 
-def get_keywords(index_page):
+def get_keyword_tags(index_page):
     """
     Parse `keywords` from HTML ``<meta>``, dublin core and from text.
     """
