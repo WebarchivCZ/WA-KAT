@@ -15,11 +15,15 @@ def _get_html_keywords(index_page):
     """
     Return list of `keywords` parsed from HTML ``<meta>`` tags.
     """
-    keywords = parse_meta(index_page, "keywords", "HTML")
+    keyword_lists = (
+        keyword_list.split(",")
+        for keyword_list in parse_meta(index_page, "keywords", "HTML")
+    )
 
+    # create SourceStrings from the list of keywords
     return [
-        SourceString(keyword.strip(), "HTML")
-        for keyword in keywords.split(",")
+        SourceString(keyword.strip(), source="HTML")
+        for keyword in sum(keyword_lists, [])  # flattern the list
     ]
 
 
@@ -27,11 +31,14 @@ def _get_dc_keywords(index_page):
     """
     Return list of `keywords` parsed from dublin core.
     """
-    keywords = parse_meta(index_page, "dc.keywords", "DC")
+    keyword_lists = (
+        keyword_list.split()
+        for keyword_list in parse_meta(index_page, "dc.keywords", "DC")
+    )
 
     return [
-        SourceString(keyword, "DC")
-        for keyword in keywords.split()
+        SourceString(keyword, source="DC")
+        for keyword in sum(keyword_lists, [])  # flattern the list
     ]
 
 
