@@ -30,3 +30,9 @@ class SourceString(str):
             return super(SourceString, self).__repr__()
 
         return "%s:%s" % (self.source, self.val)
+
+    def to_dict(self):
+        return {
+            "val": self.val,
+            "source": self.source,
+        }
