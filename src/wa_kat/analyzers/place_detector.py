@@ -89,9 +89,9 @@ def _get_whois_tags(ip_address):
 #     pass
 
 
-def get_place_tags(index_page, domain):
+def get_place_tags(index_page, domain):  #: TODO geoip to docstring
     """
-    Return list of `place` tags parsed from meta, whois and geioip.
+    Return list of `place` tags parsed from `meta` and `whois`.
     """
     ip_address = _get_ip_address(domain)
     dom = dhtmlparser.parseString(index_page)

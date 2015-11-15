@@ -48,7 +48,7 @@ def get_keyword_tags(index_page):
     keywords = [
         _get_html_keywords(dom),
         _get_dc_keywords(dom),
-        # [_extract_keywords_from_text(ip_address)],  # TODO: implement
+        # [_extract_keywords_from_text(index_page)],  # TODO: implement
     ]
 
     return sum(keywords, [])  # return flattened list
