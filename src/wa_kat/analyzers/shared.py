@@ -17,13 +17,13 @@ def parse_meta(content, meta_name, source_descr, content_attr_name="content"):
     """
     dom = dhtmlparser.parseString(content)
 
-    title_tags = dom.find(
+    meta_tags = dom.find(
         "meta",
         fn=lambda x: x.params.get("name", "").lower() == meta_name.lower()
     )
 
     return [
         SourceString(tag.params[content_attr_name], source_descr)
-        for tag in title_tags
+        for tag in meta_tags
         if content_attr_name in tag.params
     ]
