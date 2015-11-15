@@ -24,7 +24,7 @@ def _get_dc_authors(index_page):
     return parse_meta(index_page, "DC.Creator", "DC")
 
 
-def get_author_tags(index_page):
+def get_authors(index_page):
     """
     Parse `authors` from HTML ``<meta>`` and dublin core.
     """
