@@ -41,7 +41,7 @@ def _get_dublin_core_titles(index_page):
     return parse_meta(index_page, "dc.title", "DC")
 
 
-def get_titles(index_page):
+def get_title_tags(index_page):
     """
     Return list of titles parsed from HTML, ``<meta>`` tags and dublin core
     inlined in ``<meta>`` tags.

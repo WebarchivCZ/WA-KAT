@@ -4,7 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from wa_kat.analyzers.annotation_detector import get_annotations
+from wa_kat.analyzers.annotation_detector import get_annotation_tags
 
 
 # Variables ===================================================================
@@ -25,8 +25,8 @@ Somecontent.
 
 
 # Tests =======================================================================
-def test_annotation_detector():
-    descriptions = get_annotations(TEST_TEMPLATE)
+def test_get_annotation_tags():
+    descriptions = get_annotation_tags(TEST_TEMPLATE)
 
     assert descriptions[0] == "Popis stránek."
     assert descriptions[0].source == "Meta"

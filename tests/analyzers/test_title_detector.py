@@ -4,7 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from wa_kat.analyzers.title_detector import get_titles
+from wa_kat.analyzers.title_detector import get_title_tags
 
 
 # Variables ===================================================================
@@ -33,7 +33,7 @@ Somecontent.
 
 # Tests =======================================================================
 def test_get_titles():
-    titles = get_titles(TEST_TEMPLATE)
+    titles = get_title_tags(TEST_TEMPLATE)
 
     assert titles[0] == "HTML title"
     assert titles[0].source == "HTML"
@@ -45,4 +45,3 @@ def test_get_titles():
     assert titles[2].source == "DC"
     assert titles[3] == "Dublin Core titulek"
     assert titles[3].source == "DC"
-
