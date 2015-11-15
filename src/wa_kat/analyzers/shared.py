@@ -19,7 +19,7 @@ def parse_meta(content, meta_name, source_descr, content_attr_name="content"):
 
     title_tags = dom.find(
         "meta",
-        fn=lambda x: x.params.get("name", "").lower() == meta_name
+        fn=lambda x: x.params.get("name", "").lower() == meta_name.lower()
     )
 
     return [
