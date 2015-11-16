@@ -6,6 +6,7 @@
 # Imports =====================================================================
 from os.path import join
 
+from bottle import get
 from bottle import post
 from bottle_rest import form_to_params
 
@@ -21,7 +22,7 @@ def register(url):
     pass
 
 
-@post(join(API_PATH, "result"))
+@get(join(API_PATH, "result"))
 @form_to_params
 def get_result(url):
     pass
