@@ -1,5 +1,8 @@
+paste
 bottle
-requests
-pydhtmlparser>=2.1.3
-langdetect==1.0.5
 ipwhois
+requests
+bottle-rest
+langdetect==1.0.5
+zeo_connector>=0.4.2
+pydhtmlparser>=2.1.5
