@@ -4,6 +4,8 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import time
+
 from zeo_connector import transaction_manager
 from zeo_connector.examples import DatabaseHandler
 
@@ -43,5 +45,13 @@ class RequestDatabase(DatabaseHandler):
 
         return req
 
+    @transaction_manager
     def garbage_collection(self, time_limit=YEAR/2.0):
-        pass
+        expired_ri_keys = (
+            key
+            for key, ri in self.requests.iteritems()
+            if ri.creation_ts + time_limit <= time.time()
+        )
+
+        for key in expired_ri_keys:
+            del self.requests[key]
