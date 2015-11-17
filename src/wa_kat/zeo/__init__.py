@@ -12,7 +12,6 @@ from multiprocessing import Process
 
 import transaction
 from persistent import Persistent
-from persistent.list import PersistentList
 # from BTrees.OOBTree import OOSet  TODO: remove if not used
 
 import requests
@@ -27,7 +26,6 @@ from ..settings import ZEO_CLIENT_PATH
 
 # Variables ===================================================================
 class PropertyInfo(namedtuple("PropertyInfo", ["name",
-                                               "attr_type",
                                                "filler_func",
                                                "filler_params"])):
     """
@@ -39,43 +37,36 @@ def get_req_mapping():
     REQ_MAPPING = [
         PropertyInfo(
             name="title_tags",
-            attr_type=PersistentList,
             filler_func=analyzers.get_title_tags,
             filler_params=lambda self: self.index,
         ),
         PropertyInfo(
             name="place_tags",
-            attr_type=PersistentList,
             filler_func=analyzers.get_place_tags,
             filler_params=lambda self: self.domain,
         ),
         PropertyInfo(
             name="lang_tags",
-            attr_type=PersistentList,
             filler_func=analyzers.get_lang_tags,
             filler_params=lambda self: self.index,
         ),
         PropertyInfo(
             name="keyword_tags",
-            attr_type=PersistentList,
             filler_func=analyzers.get_keyword_tags,
             filler_params=lambda self: self.index,
         ),
         PropertyInfo(
             name="author_tags",
-            attr_type=PersistentList,
             filler_func=analyzers.get_author_tags,
             filler_params=lambda self: self.index,
         ),
         PropertyInfo(
             name="annotation_tags",
-            attr_type=PersistentList,
             filler_func=analyzers.get_annotation_tags,
             filler_params=lambda self: self.index,
         ),
         PropertyInfo(
             name="creation_dates",
-            attr_type=PersistentList,
             filler_func=analyzers.get_creation_date_tags,
             filler_params=lambda self: (self.url, self.domain),
         ),
@@ -101,12 +92,9 @@ class Request(Persistent):
         self.processing_ended_ts = None
 
         self._mapping = get_req_mapping()
-        self._mapping_set = set(self._mapping)
-        self._values_set = set()
-        self._all_set = False
 
         for req in self._mapping.values():
-            setattr(self, req.name, req.attr_type)
+            setattr(self, req.name, None)
 
     def _download(self, url):
         resp = requests.get(url)  # TODO: custom headers
@@ -128,6 +116,8 @@ class Request(Persistent):
                     property_info.name,
                     property_info.filler_func(*params)
                 )
+                req.processing_ended_ts = time.time()
+                req._p_changed = True
 
         self.processing_started_ts = time.time()
 
@@ -137,17 +127,15 @@ class Request(Persistent):
                 args=[self.url, pi, pi.filler_params(self)]
             )
 
-    def __setattr__(self, name, value):
-        """
-        Track whether all values were set or not.
-        """
-        self.__dict__[name] = value
-        self.__dict__["_values_set"].add(name)
+    def is_all_set(self):
+        mapping_set = set(self._mapping.keys())
+        set_properties = set(
+            property_name
+            for property_name in mapping_set
+            if getattr(self, property_name) is not None
+        )
 
-        mapping_set = self._mapping_set
-        if not self._all_set and self._values_set.issuperset(mapping_set):
-            self.__dict__["processing_ended_ts"] = time.time()
-            self.__dict__["_all_set"] = True
+        return set_properties == mapping_set
 
     def to_dict(self):
         pass
