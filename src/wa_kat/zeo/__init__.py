@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import time
 from urlparse import urlparse
 from collections import namedtuple
 from collections import OrderedDict
@@ -93,6 +94,12 @@ class Request(Persistent):
         self.domain = urlparse(url).netloc
         self.index = None
 
+        # time trackers
+        self.creation_ts = time.time()
+        self.downloaded_ts = None
+        self.processing_started_ts = None
+        self.processing_ended_ts = None
+
         self._mapping = get_req_mapping()
 
         for req in self._mapping.values():
@@ -103,8 +110,10 @@ class Request(Persistent):
 
         return resp.text.encode("utf-8")
 
+    @transaction_manager
     def paralel_download(self):
         self.index = self._download(self.url)
+        self.downloaded_ts = time.time()
 
         def worker(url, property_info, params):
             db = RequestDatabase()
@@ -117,8 +126,18 @@ class Request(Persistent):
                     property_info.filler_func(*params)
                 )
 
+        self.processing_started_ts = time.time()
+
         for pi in self._mapping:
-            Process(worker, [self.url, pi, pi.filler_params(self)])
+            Process(
+                target=worker,
+                args=[self.url, pi, pi.filler_params(self)]
+            )
+
+        self.processing_ended_ts = time.time()
+
+    def to_dict(self):
+        pass
 
 
 class RequestDatabase(DatabaseHandler):
