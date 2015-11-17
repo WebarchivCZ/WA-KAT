@@ -35,8 +35,8 @@ class RequestDatabase(DatabaseHandler):
     def get_request(self, url):
         req = self.requests.get(url, None)
 
-        # return already stored requests
-        if url:
+        # return cached requests
+        if req:
             return req
 
         # if not found, create new
