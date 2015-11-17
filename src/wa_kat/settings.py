@@ -32,8 +32,7 @@ import os.path
 
 # Module configuration ========================================================
 #: Path to the directory with zeo.conf and zeo_client.conf.
-ZCONF_PATH = os.path.join(os.path.dirname(__file__), "zconf")
-
+ZEO_CLIENT_PATH = "/etc/wa_kat/zeo_client.conf"
 PROJECT_KEY = "wa_kat"  #: This is used in ZODB. DON'T CHANGE THIS.
 
 WEB_ADDR = "localhost"  #: Address where the webserver should listen.
