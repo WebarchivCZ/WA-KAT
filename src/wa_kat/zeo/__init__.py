@@ -101,6 +101,9 @@ class Request(Persistent):
         self.processing_ended_ts = None
 
         self._mapping = get_req_mapping()
+        self._mapping_set = set(self._mapping)
+        self._values_set = set()
+        self._all_set = False
 
         for req in self._mapping.values():
             setattr(self, req.name, req.attr_type)
@@ -134,7 +137,17 @@ class Request(Persistent):
                 args=[self.url, pi, pi.filler_params(self)]
             )
 
-        self.processing_ended_ts = time.time()
+    def __setattr__(self, name, value):
+        """
+        Track whether all values were set or not.
+        """
+        self.__dict__[name] = value
+        self.__dict__["_values_set"].add(name)
+
+        mapping_set = self._mapping_set
+        if not self._all_set and self._values_set.issuperset(mapping_set):
+            self.__dict__["processing_ended_ts"] = time.time()
+            self.__dict__["_all_set"] = True
 
     def to_dict(self):
         pass
