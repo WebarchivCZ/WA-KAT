@@ -12,3 +12,5 @@
 
 
 # Functions & classes =========================================================
+def get_creation_date_tags(url, domain):
+    return []
