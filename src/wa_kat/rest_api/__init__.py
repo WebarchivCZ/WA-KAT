@@ -10,6 +10,8 @@ from bottle import get
 from bottle import post
 from bottle_rest import form_to_params
 
+from ..zeo import RequestDatabase
+
 
 # Variables ===================================================================
 API_PATH = "api_v1/"
