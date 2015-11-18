@@ -95,7 +95,7 @@ class RequestInfo(Persistent):
         return resp.text.encode("utf-8")
 
     @transaction_manager
-    def paralel_download(self):
+    def paralel_processing(self):
         self.index = self._download(self.url)
         self.downloaded_ts = time.time()
         self.processing_started_ts = time.time()
@@ -108,15 +108,30 @@ class RequestInfo(Persistent):
             )
             p.start()
 
-    def is_all_set(self):
+    def _set_properties(self):
         mapping_set = set(self._mapping.keys())
-        set_properties = set(
+
+        return set(
             property_name
             for property_name in mapping_set
             if getattr(self, property_name) is not None
         )
 
-        return set_properties == mapping_set
+    def progress(self):
+        return len(self._set_properties()), len(self._mapping)
+
+    def is_all_set(self):
+        return self._set_properties() == set(self._mapping.keys())
 
     def to_dict(self):
-        pass
+        return {
+            "all_set": self.is_all_set(),
+            "progress": self.progress(),
+            "values": {
+                property_name: [
+                    tag.to_dict()
+                    for tag in getattr(self, property_name)
+                ]
+                for property_name in self._mapping.keys()
+            }
+        }
