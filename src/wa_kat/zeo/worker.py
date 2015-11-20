@@ -16,13 +16,12 @@ def worker(url, property_info, filler_params):
     db = RequestDatabase()
     req = db.get_request(url)
 
-    with transaction.manager:
-        val = getattr(req, property_info.name)
-
     # this may take some time, hence outside transaction manager
     data = property_info.filler_func(*filler_params)
 
     with transaction.manager:
+        val = getattr(req, property_info.name)
+
         if val is not None:
             val.extend(data)
         else:
