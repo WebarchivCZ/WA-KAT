@@ -60,5 +60,4 @@ def test_RequestInfo_download(ri_obj):
     assert "bystrousak" in ri_obj._download("http://kitakitsune.org")
 
 
-def test_RequestInfo_paralel_download(ri_obj):
-    pass
+
