@@ -13,12 +13,14 @@ from multiprocessing import Process
 import requests
 from persistent import Persistent
 from zeo_connector import transaction_manager
+from backports.functools_lru_cache import lru_cache
 
 from .. import analyzers
 from worker import worker
 
 
 # Functions & classes =========================================================
+@lru_cache()
 def _get_req_mapping():
     REQ_MAPPING = [
         PropertyInfo(
@@ -84,9 +86,7 @@ class RequestInfo(Persistent):
         self.processing_started_ts = None
         self.processing_ended_ts = None
 
-        self._mapping = _get_req_mapping()
-
-        for req in self._mapping.values():
+        for req in _get_req_mapping().values():
             setattr(self, req.name, None)
 
     def _download(self, url):
@@ -101,7 +101,7 @@ class RequestInfo(Persistent):
         self.processing_started_ts = time.time()
 
         # launch all workers as paralel processes
-        for pi in self._mapping.values():
+        for pi in _get_req_mapping().values():
             p = Process(
                 target=worker,
                 args=[self.url, pi, pi.filler_params(self)]
@@ -109,7 +109,7 @@ class RequestInfo(Persistent):
             p.start()
 
     def _set_properties(self):
-        mapping_set = set(self._mapping.keys())
+        mapping_set = set(_get_req_mapping().keys())
 
         return set(
             property_name
@@ -118,10 +118,10 @@ class RequestInfo(Persistent):
         )
 
     def progress(self):
-        return len(self._set_properties()), len(self._mapping)
+        return len(self._set_properties()), len(_get_req_mapping())
 
     def is_all_set(self):
-        return self._set_properties() == set(self._mapping.keys())
+        return self._set_properties() == set(_get_req_mapping().keys())
 
     def to_dict(self):
         return {
@@ -132,6 +132,6 @@ class RequestInfo(Persistent):
                     tag.to_dict()
                     for tag in getattr(self, property_name)
                 ]
-                for property_name in self._mapping.keys()
+                for property_name in _get_req_mapping().keys()
             }
         }
