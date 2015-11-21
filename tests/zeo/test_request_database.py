@@ -43,7 +43,7 @@ def test_request_database(rdb):
     assert rdb.get_request(TEST_URL)
 
 
-def test_worker(request_info, client_conf_path):
+def test_worker(rdb, request_info, client_conf_path):
     assert request_info.title_tags is None
     request_info.index = """<HTML>
 <head>
@@ -60,8 +60,15 @@ def test_worker(request_info, client_conf_path):
         client_conf_path,  # to monkeypatch the path to the zeo client conf
     )
 
-    assert request_info.title_tags
-    assert isinstance(request_info.title_tags, list)
+    # lookup to the request info properties
+    with transaction.manager:
+        assert request_info.title_tags
+        assert isinstance(request_info.title_tags, list)
+
+    # lookup to the database
+    request = rdb.get_request(request_info.url)
+    assert request.title_tags
+    assert isinstance(request.title_tags, list)
 
 
 def test_RequestInfo_paralel_download(request_info):

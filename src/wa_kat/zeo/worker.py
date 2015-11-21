@@ -13,7 +13,7 @@ import transaction
 def worker(url, property_info, filler_params, conf_path=None):
     from .request_database import RequestDatabase
 
-    db = RequestDatabase(conf_path=client_conf_path)
+    db = RequestDatabase(conf_path=conf_path)
     req = db.get_request(url)
 
     # this may take some time, hence outside transaction manager
