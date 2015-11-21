@@ -65,32 +65,32 @@ def _get_req_mapping():
         PropertyInfo(
             name="title_tags",
             filler_func=analyzers.get_title_tags,
-            filler_params=lambda self: self.index,
+            filler_params=lambda self: [self.index],
         ),
         PropertyInfo(
             name="place_tags",
             filler_func=analyzers.get_place_tags,
-            filler_params=lambda self: self.domain,
+            filler_params=lambda self: [self.domain],
         ),
         PropertyInfo(
             name="lang_tags",
             filler_func=analyzers.get_lang_tags,
-            filler_params=lambda self: self.index,
+            filler_params=lambda self: [self.index],
         ),
         PropertyInfo(
             name="keyword_tags",
             filler_func=analyzers.get_keyword_tags,
-            filler_params=lambda self: self.index,
+            filler_params=lambda self: [self.index],
         ),
         PropertyInfo(
             name="author_tags",
             filler_func=analyzers.get_author_tags,
-            filler_params=lambda self: self.index,
+            filler_params=lambda self: [self.index],
         ),
         PropertyInfo(
             name="annotation_tags",
             filler_func=analyzers.get_annotation_tags,
-            filler_params=lambda self: self.index,
+            filler_params=lambda self: [self.index],
         ),
         PropertyInfo(
             name="creation_dates",
