@@ -70,3 +70,25 @@ def test_to_dict(ri_obj):
 
     for key in keys:
         assert key in out_dict["values"]
+
+
+def test_eq():
+    r1 = request_info.RequestInfo(url="http://kitakitsune.org")
+    r2 = request_info.RequestInfo(url="http://kitakitsune.org")
+    r3 = request_info.RequestInfo(url="http://azgabash.org")
+
+    assert r1 == r2
+    assert r2 == r1
+
+    assert r1 != r3
+    assert r3 != r1
+
+    assert r2 != r3
+    assert r3 != r2
+
+
+def test_lt():
+    r1 = request_info.RequestInfo(url="http://kitakitsune.org")
+    r2 = request_info.RequestInfo(url="http://kitakitsune.org")
+
+    assert r1 < r2
