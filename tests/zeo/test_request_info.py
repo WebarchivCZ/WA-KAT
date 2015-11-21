@@ -54,10 +54,19 @@ def test_RequestInfo(ri_obj):
     assert ri_obj.progress()[0] == ri_obj.progress()[1]
 
 
-def test_RequestInfo_download(ri_obj):
+def test_RequestInfo_download(ri_obj):  # TODO: rewrite to use rest
     assert not ri_obj.is_all_set()  # make sure you've got new object
 
     assert "bystrousak" in ri_obj._download("http://kitakitsune.org")
 
 
+def test_to_dict(ri_obj):
+    out_dict = ri_obj.to_dict()
+    keys = request_info._get_req_mapping().keys()
 
+    assert out_dict
+    assert out_dict["all_set"] == False
+    assert out_dict["progress"] == (0, len(keys))
+
+    for key in keys:
+        assert key in out_dict["values"]
