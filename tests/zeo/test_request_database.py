@@ -6,24 +6,38 @@
 # Imports =====================================================================
 import pytest
 
+import transaction
+
+from wa_kat.zeo import RequestDatabase
+
 
 # Variables ===================================================================
-
+TEST_URL = "http://kitakitsune.org"
 
 
 # Fixtures ====================================================================
-# @pytest.fixture
-# def fixture():
-#     pass
+@pytest.fixture
+def rdb(client_conf_path):
+    return RequestDatabase(conf_path=client_conf_path)
 
-# with pytest.raises(Exception):
-#     raise Exception()
+
+@pytest.fixture
+def request_info(rdb):
+    return rdb.get_request(TEST_URL)
 
 
 # Tests =======================================================================
-def test_():
-    pass
+def test_request_database(rdb):
+    assert rdb
+
+    with transaction.manager:
+        assert not rdb.requests
+
+    with pytest.raises(ValueError):
+        rdb.get_request("azgabas")
+
+    assert rdb.get_request(TEST_URL)
 
 
-def test_RequestInfo_paralel_download(ri_obj):
-    pass
+# def test_RequestInfo_paralel_download(request_info):
+#     pass

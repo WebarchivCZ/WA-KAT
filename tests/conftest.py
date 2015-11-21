@@ -13,7 +13,8 @@ import subprocess
 import pytest
 import requests
 
-from zeo_connector_defaults import CLIENT_CONF_PATH
+# from zeo_connector_defaults import CLIENT_CONF_PATH  # TODO: rewrite to tmp_context
+from zeo_connector_defaults import tmp_context_name
 from zeo_connector_defaults import generate_environment
 from zeo_connector_defaults import cleanup_environment
 
@@ -43,50 +44,55 @@ def zeo(request):
     request.addfinalizer(cleanup_environment)
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture()
+def client_conf_path():
+    return tmp_context_name("zeo_client.conf")
+
+
+@pytest.fixture(scope="session", autouse=True)
 def web_port():
     return PORT
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 def web_url():
     return URL
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 def web_api_url():
     return API_URL
 
 
-@pytest.fixture(scope="module", autouse=True)
-def bottle_server(request, zeo):
-    # run the bottle REST server
-    def run_bottle():
-        command_path = os.path.join(
-            os.path.dirname(__file__),
-            "../../bin/edeposit_rest_webserver.py"
-        )
+# @pytest.fixture(scope="session", autouse=True)
+# def bottle_server(request, zeo):
+#     # run the bottle REST server
+#     def run_bottle():
+#         command_path = os.path.join(
+#             os.path.dirname(__file__),
+#             "../../bin/edeposit_rest_webserver.py"
+#         )
 
-        assert os.path.exists(command_path)
+#         assert os.path.exists(command_path)
 
-        global _SERVER_HANDLER
-        _SERVER_HANDLER = subprocess.Popen([
-            command_path,
-            "--zeo-client-conf-file", CLIENT_CONF_PATH,
-            "--port", str(PORT),
-            "--host", "127.0.0.1",
-            "--server", "paste",
-            "--debug",
-            "--quiet",
-        ])
+#         global _SERVER_HANDLER
+#         _SERVER_HANDLER = subprocess.Popen([
+#             command_path,
+#             "--zeo-client-conf-file", CLIENT_CONF_PATH,
+#             "--port", str(PORT),
+#             "--host", "127.0.0.1",
+#             "--server", "paste",
+#             "--debug",
+#             "--quiet",
+#         ])
 
-    serv = threading.Thread(target=run_bottle)
-    serv.setDaemon(True)
-    serv.start()
+#     serv = threading.Thread(target=run_bottle)
+#     serv.setDaemon(True)
+#     serv.start()
 
-    circuit_breaker_http_retry()
+#     circuit_breaker_http_retry()
 
-    def shutdown_server():
-        _SERVER_HANDLER.terminate()
+#     def shutdown_server():
+#         _SERVER_HANDLER.terminate()
 
-    request.addfinalizer(shutdown_server)
+#     request.addfinalizer(shutdown_server)
