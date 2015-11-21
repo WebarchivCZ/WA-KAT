@@ -39,6 +39,9 @@ class RequestDatabase(DatabaseHandler):
         if req:
             return req
 
+        if not (url.startswith("http://") or url.startswith("https://")):
+            raise ValueError("Invalid URL `%s`!" % url)
+
         # if not found, create new
         req = RequestInfo(url=url)
         self.requests[url] = req
