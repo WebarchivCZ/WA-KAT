@@ -9,6 +9,7 @@ from urlparse import urlparse
 from collections import namedtuple
 from collections import OrderedDict
 from multiprocessing import Process
+from functools import total_ordering
 
 import requests
 from persistent import Persistent
@@ -105,6 +106,7 @@ def _get_req_mapping():
     )
 
 
+@total_ordering
 class RequestInfo(Persistent):
     def __init__(self, url):
         self.url = url
@@ -166,3 +168,12 @@ class RequestInfo(Persistent):
                 for property_name in _get_req_mapping().keys()
             }
         }
+
+    def __eq__(self, obj):
+        if not isinstance(obj, RequestInfo):
+            return False
+
+        return self.url == obj.url
+
+    def __lt__(self, obj):
+        return float(self.creation_ts).__lt__(obj.creation_ts)
