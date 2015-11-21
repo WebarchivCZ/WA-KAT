@@ -10,10 +10,10 @@ import transaction
 
 
 # Functions & classes =========================================================
-def worker(url, property_info, filler_params):
+def worker(url, property_info, filler_params, conf_path=None):
     from .request_database import RequestDatabase
 
-    db = RequestDatabase()
+    db = RequestDatabase(conf_path=client_conf_path)
     req = db.get_request(url)
 
     # this may take some time, hence outside transaction manager
