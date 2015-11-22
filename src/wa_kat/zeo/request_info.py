@@ -138,7 +138,7 @@ class RequestInfo(Persistent):
             p = Process(
                 target=worker,
                 kwargs={
-                    "url": self.url,
+                    "url_key": self.url,
                     "property_info": pi,
                     "filler_params": pi.filler_params(self),
                     "conf_path": client_conf,
@@ -188,7 +188,7 @@ class RequestInfo(Persistent):
         native_properties = {
             "url",
             "domain",
-            # "index",
+            # "index",  # this may be big, so don't merge it
             "creation_ts",
             "downloaded_ts",
             "processing_started_ts",

@@ -68,7 +68,7 @@ def test_worker(rdb, request_info, client_conf_path):
 
     property_info = _get_req_mapping()["title_tags"]
     worker(
-        url=request_info.url,
+        url_key=request_info.url,
         property_info=property_info,
         filler_params=property_info.filler_params(request_info),
         conf_path=client_conf_path,  # to monkeypatch the zeo client conf path
