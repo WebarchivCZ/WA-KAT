@@ -16,13 +16,32 @@ from request_info import RequestInfo
 
 
 # Variables ===================================================================
-DAY = 60 * 60 * 24
-YEAR = DAY * 356
+DAY = 60 * 60 * 24  #: Amount of seconds in one day.
+YEAR = DAY * 356  #: Amount of seconds in one year.
 
 
 # Functions & classes =========================================================
 class RequestDatabase(DatabaseHandler):
+    """
+    Small database handler, which lets keeps track of currently running
+    analysis. It also caches the requests, so it doesn't use that much
+    resources.
+
+    Attributes:
+        request_key (str): Key which is used to access the ZODB.
+        requests (OOTreeSet): Tree dictionary-like object under which the
+            values are stored.
+    """
     def __init__(self, conf_path=ZEO_CLIENT_PATH, project_key=PROJECT_KEY):
+        """
+        Constructor.
+
+        Args:
+            conf_path (str): Path to the ZEO client configuration file. Default
+                :attr:`.ZEO_CLIENT_PATH`.
+            project_key (str): Key which is used for whole DB. Default
+                :attr:`.PROJECT_KEY`.
+        """
         super(self.__class__, self).__init__(
             conf_path=conf_path,
             project_key=project_key
@@ -33,6 +52,17 @@ class RequestDatabase(DatabaseHandler):
 
     @transaction_manager
     def get_request(self, url):
+        """
+        For given `url` register new :class:`RequestInfo` object or return
+        cached, if there is such.
+
+        Args:
+            url (str): Key for database under which the :class:`.RequestInfo`
+                is stored.
+
+        Returns:
+            obj: Proper :class:`.RequestInfo` object.
+        """
         req = self.requests.get(url, None)
 
         # return cached requests
@@ -50,6 +80,14 @@ class RequestDatabase(DatabaseHandler):
 
     @transaction_manager
     def garbage_collection(self, time_limit=YEAR/2.0):
+        """
+        Collect and remove all :class:`.RequestInfo` objects older than
+        `time_limit` (in seconds).
+
+        Args:
+            time_limit (float, default YEAR / 2): Collect objects older than
+                this limit.
+        """
         expired_ri_keys = (
             key
             for key, ri in self.requests.iteritems()
