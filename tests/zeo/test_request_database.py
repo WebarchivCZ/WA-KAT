@@ -113,3 +113,14 @@ def test_RequestInfo_paralel_download(request_info, client_conf_path):
         assert set_keys == set(_get_req_mapping().keys())
 
         assert request_info.to_dict()["values"]["place_tags"]
+
+
+def test_garbage_collection(rdb):
+    with transaction.manager:
+        assert rdb.requests
+
+    time.sleep(1)
+    rdb.garbage_collection(1)
+
+    with transaction.manager:
+        assert not rdb.requests
