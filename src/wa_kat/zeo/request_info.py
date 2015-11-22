@@ -106,6 +106,16 @@ def _get_req_mapping():
     )
 
 
+class Progress(namedtuple("Progress", ["done", "base"])):
+    """
+    Progress bar representation.
+
+    Attr:
+        done (int): How much is done.
+        base (int): How much is there.
+    """
+
+
 @total_ordering
 class RequestInfo(Persistent):
     """
@@ -211,9 +221,12 @@ class RequestInfo(Persistent):
         Get progress.
 
         Returns:
-            tuple: (int(done), int(how_many))
+            namedtuple: :class:`Progress`.
         """
-        return len(self._get_all_set_properties()), len(_get_req_mapping())
+        return Progress(
+            done=len(self._get_all_set_properties()),
+            base=len(_get_req_mapping()),
+        )
 
     def is_all_set(self):
         """
