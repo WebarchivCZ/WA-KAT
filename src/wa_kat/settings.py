@@ -34,6 +34,8 @@ import os.path
 #: Path to the directory with zeo.conf and zeo_client.conf.
 ZEO_CLIENT_PATH = "/etc/wa_kat/zeo_client.conf"
 PROJECT_KEY = "wa_kat"  #: This is used in ZODB. DON'T CHANGE THIS.
+ZEO_CACHE_TIME = 60 * 30  #: ZEO cache time - 30 minutes.
+ZEO_MAX_WAIT_TIME = 60 * 5  #: Time after which the processing is restarted. 5m
 
 WEB_ADDR = "localhost"  #: Address where the webserver should listen.
 WEB_PORT = 8080  #: Port for the webserver.
