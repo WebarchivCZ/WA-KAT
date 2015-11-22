@@ -18,6 +18,8 @@ from backports.functools_lru_cache import lru_cache
 
 from .. import analyzers
 from worker import worker
+from ..settings import ZEO_CACHE_TIME
+from ..settings import ZEO_MAX_WAIT_TIME
 
 
 # Functions & classes =========================================================
@@ -236,6 +238,26 @@ class RequestInfo(Persistent):
             bool: True if they are set.
         """
         return self._get_all_set_properties() == set(_get_req_mapping().keys())
+
+    def is_old(self):
+        """
+        Is the object cached for too long, so it should be redownloaded?
+
+        See :attr:`.ZEO_MAX_WAIT_TIME` and :attr:`.ZEO_CACHE_TIME` for details.
+
+        Returns:
+            bool: True if it is.
+        """
+        if not self.processing_started_ts:
+            return True
+
+        # in case that processing started, but didn't ended in
+        # ZEO_MAX_WAIT_TIME
+        expected_end_ts = self.creation_ts + ZEO_MAX_WAIT_TIME
+        if not self.processing_ended_ts and expected_end_ts < time.time():
+            return True
+
+        return self.processing_ended_ts + ZEO_CACHE_TIME < time.time()
 
     @transaction_manager
     def to_dict(self):
