@@ -70,7 +70,7 @@ def _get_req_mapping():
         PropertyInfo(
             name="place_tags",
             filler_func=analyzers.get_place_tags,
-            filler_params=lambda self: [self.domain],
+            filler_params=lambda self: [self.index, self.domain],
         ),
         PropertyInfo(
             name="lang_tags",
@@ -128,7 +128,7 @@ class RequestInfo(Persistent):
         return resp.text.encode("utf-8")
 
     @transaction_manager
-    def paralel_processing(self):
+    def paralel_processing(self, client_conf=None):
         self.index = self._download(self.url)
         self.downloaded_ts = time.time()
         self.processing_started_ts = time.time()
@@ -137,16 +137,20 @@ class RequestInfo(Persistent):
         for pi in _get_req_mapping().values():
             p = Process(
                 target=worker,
-                args=[self.url, pi, pi.filler_params(self)]
+                kwargs={
+                    "url": self.url,
+                    "property_info": pi,
+                    "filler_params": pi.filler_params(self),
+                    "conf_path": client_conf,
+                }
             )
             p.start()
 
+    @transaction_manager
     def _set_properties(self):
-        mapping_set = set(_get_req_mapping().keys())
-
         return set(
             property_name
-            for property_name in mapping_set
+            for property_name in _get_req_mapping().keys()
             if getattr(self, property_name) is not None
         )
 
@@ -156,6 +160,7 @@ class RequestInfo(Persistent):
     def is_all_set(self):
         return self._set_properties() == set(_get_req_mapping().keys())
 
+    @transaction_manager
     def to_dict(self):
         return {
             "all_set": self.is_all_set(),
@@ -177,3 +182,39 @@ class RequestInfo(Persistent):
 
     def __lt__(self, obj):
         return float(self.creation_ts).__lt__(obj.creation_ts)
+
+    def _p_resolveConflict(self, oldState, savedState, newState):
+        # for native properties ..
+        native_properties = {
+            "url",
+            "domain",
+            # "index",
+            "creation_ts",
+            "downloaded_ts",
+            "processing_started_ts",
+            "processing_ended_ts",
+        }
+
+        # .. just pick the biggest of the native properties
+        for np_name in native_properties:
+            oldState[np_name] = max({savedState[np_name], newState[np_name]})
+
+        # for `mapping` properties perform the merge
+        for name in _get_req_mapping().keys():
+            # don't update None states - this is important for .is_all_set()
+            if oldState[name] is None and savedState[name] is None and \
+               newState[name] is None:
+                continue
+
+            # merge
+            pool = set()
+            if oldState[name]:
+                pool.update(oldState[name])
+            if savedState[name]:
+                pool.update(savedState[name])
+            if newState[name]:
+                pool.update(newState[name])
+
+            oldState[name] = sorted(list(pool))
+
+        return oldState
