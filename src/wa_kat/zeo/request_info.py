@@ -147,7 +147,7 @@ class RequestInfo(Persistent):
             p.start()
 
     @transaction_manager
-    def _set_properties(self):
+    def _get_all_set_properties(self):
         return set(
             property_name
             for property_name in _get_req_mapping().keys()
@@ -155,10 +155,10 @@ class RequestInfo(Persistent):
         )
 
     def progress(self):
-        return len(self._set_properties()), len(_get_req_mapping())
+        return len(self._get_all_set_properties()), len(_get_req_mapping())
 
     def is_all_set(self):
-        return self._set_properties() == set(_get_req_mapping().keys())
+        return self._get_all_set_properties() == set(_get_req_mapping().keys())
 
     @transaction_manager
     def to_dict(self):
