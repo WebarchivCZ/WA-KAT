@@ -4,15 +4,16 @@
 """
 Module is containing all necessary global variables for the package.
 
-Module also has the ability to read user-defined data from two paths:
+Module also has the ability to read user-defined data from following paths:
 
+- ``SETTINGS_PATH`` env variable file pointer to .json file.
 - ``$HOME/_SETTINGS_PATH``
 - ``/etc/_SETTINGS_PATH``
 
 See :attr:`_SETTINGS_PATH` for details.
 
 Note:
-    If the first path is found, other is ignored.
+    When the first path is found, others is ignored.
 
 Example of the configuration file (``$HOME/webarchive/wa_kat.json``)::
 
@@ -20,6 +21,10 @@ Example of the configuration file (``$HOME/webarchive/wa_kat.json``)::
         "WEB_ADDR": "somedomain.cz",
         "WEB_PORT": 80
     }
+
+Example of starting the program with env variable::
+
+    export WA_KAT_SETTINGS="/tmp/conf.json"; bin/run_wa_kat_server.py
 
 Attributes
 ----------
@@ -31,7 +36,7 @@ import os.path
 
 
 # Module configuration ========================================================
-#: Path to the directory with zeo.conf and zeo_client.conf.
+#: Path to the file with zeo_client.conf.
 ZEO_CLIENT_PATH = "/etc/wa_kat/zeo_client.conf"
 PROJECT_KEY = "wa_kat"  #: This is used in ZODB. DON'T CHANGE THIS.
 ZEO_CACHE_TIME = 60 * 30  #: ZEO cache time - 30 minutes.
@@ -81,14 +86,34 @@ def _substitute_globals(config_dict):
         :attr:`_ALLOWED` (str, int, ..) or starts with ``_`` are silently
         ignored.
     """
+    if not isinstance(config_dict, dict):
+        raise ValueError("Configuration file must be contained in dictionary!")
+
     constants = _get_all_constants()
-
-    if type(config_dict) != dict:
-        return
-
     for key, val in config_dict.iteritems():
         if key in constants and type(val) in _ALLOWED:
             globals()[key] = val
+
+
+def _assert_constraints():
+    def _format_error(var_name, msg):
+        msg = repr(msg) if msg else "UNSET!"
+        return "You have to set %s (%s) in rest.json config!" % (var_name, msg)
+
+    def _assert_var_is_set(var_name):
+        assert globals()[var_name], _format_error(
+            var_name,
+            globals()[var_name]
+        )
+
+    def _assert_exists_and_perm(var, path, perm):
+        msg = "Can't access the required `%s` " % path
+        msg += "file set in configuration (%s)!" % var
+
+        assert os.path.exists(path) and os.access(path, perm), msg
+
+    _assert_var_is_set("ZEO_CLIENT_PATH")
+    _assert_exists_and_perm("ZEO_CLIENT_PATH", ZEO_CLIENT_PATH, os.R_OK)
 
 
 def _read_from_paths():
@@ -96,21 +121,32 @@ def _read_from_paths():
     Try to read data from configuration paths ($HOME/_SETTINGS_PATH,
     /etc/_SETTINGS_PATH).
     """
-    home = os.environ.get("HOME", "/")
+    home = os.environ.get("HOME", "")
     home_path = os.path.join(home, _SETTINGS_PATH)
     etc_path = os.path.join("/etc", _SETTINGS_PATH)
+    env_path = os.environ.get("SETTINGS_PATH", "")
 
     read_path = None
-    if home and os.path.exists(home_path):
+    if env_path and os.path.exists(env_path):
+        read_path = env_path
+    elif home and os.path.exists(home_path):
         read_path = home_path
     elif os.path.exists(etc_path):
         read_path = etc_path
 
-    if read_path:
-        with open(read_path) as f:
-            _substitute_globals(
-                json.loads(f.read())
-            )
+    if not read_path:
+        return "{}"
+
+    with open(read_path) as f:
+        return f.read()
 
 
-_read_from_paths()
+def _apply_settings():
+    _substitute_globals(
+        json.loads(_read_from_paths())
+    )
+
+    _assert_constraints()
+
+
+_apply_settings()
