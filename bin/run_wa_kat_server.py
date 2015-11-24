@@ -10,21 +10,23 @@ from os.path import dirname
 
 from bottle import run
 
-sys.path.insert(0, join(dirname(__file__), "../src"))
+sys.path.insert(0, join(dirname(__file__), "../src"))  # TODO: relative/abs import
+
+import wa_kat.rest_api
+from wa_kat import bottle_index
 
 from wa_kat import settings
-from wa_kat import bottle_index
 
 
 # Functions & classes =========================================================
 def main():
-    bottle_index
     run(
         server=settings.WEB_SERVER,
         host=settings.WEB_ADDR,
         port=settings.WEB_PORT,
-        debug=True,  #: TODO: don't forget to remove
-        reloader=True  #: TODO: don't forget to remove
+        debug=settings.WEB_DEBUG,
+        reloader=settings.WEB_RELOADER,
+        quiet=settings.WEB_BE_QUIET,
     )
 
 
