@@ -14,7 +14,7 @@ from bottle import request
 from bottle import template
 from bottle import static_file
 
-from . import settings
+import settings
 
 
 # Variables ===================================================================

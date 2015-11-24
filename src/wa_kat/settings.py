@@ -45,7 +45,9 @@ ZEO_MAX_WAIT_TIME = 60 * 5  #: Time after which the processing is restarted. 5m
 WEB_ADDR = "localhost"  #: Address where the webserver should listen.
 WEB_PORT = 8080  #: Port for the webserver.
 WEB_SERVER = 'paste'  #: Use `paste` for threading.
-WEB_DB_TIMEOUT = 30  #: How often should web refresh connection to DB.
+WEB_DEBUG = False  #: Turn on web debug messages?
+WEB_RELOADER = False  #: Turn on reloader for webserver?
+WEB_BE_QUIET = False  #: Be quiet and don't emit debug messages to terminal.
 
 REMOTE_INFO_URL = "http://%s:%d/remote_info_mock" % (WEB_ADDR, WEB_PORT)
 
