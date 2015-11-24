@@ -4,9 +4,11 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import json
 import time
 import random
 import os.path
+import tempfile
 import threading
 import subprocess
 
@@ -37,6 +39,25 @@ def circuit_breaker_http_retry():
     raise IOError("Couldn't connect to thread with HTTP server. Aborting.")
 
 
+def _create_alt_settings():
+    alt_settings = {
+        "ZEO_CLIENT_PATH": client_conf_path(),
+
+        "WEB_ADDR": "127.0.0.1",
+        "WEB_PORT": web_port(),
+        "WEB_SERVER": "paste",
+        "WEB_DEBUG": True,
+        "WEB_RELOADER": True,
+        "WEB_BE_QUIET": True,
+    }
+
+    with tempfile.NamedTemporaryFile(delete=False) as f:
+        f.write(
+            json.dumps(alt_settings)
+        )
+        return f.name
+
+
 # Setup =======================================================================
 @pytest.fixture(scope="session", autouse=True)
 def zeo(request):
@@ -64,35 +85,37 @@ def web_api_url():
     return API_URL
 
 
-# @pytest.fixture(scope="session", autouse=True)
-# def bottle_server(request, zeo):
-#     # run the bottle REST server
-#     def run_bottle():
-#         command_path = os.path.join(
-#             os.path.dirname(__file__),
-#             "../../bin/edeposit_rest_webserver.py"
-#         )
+@pytest.fixture(scope="session", autouse=True)
+def bottle_server(request, zeo):
+    alt_conf_path = _create_alt_settings()
 
-#         assert os.path.exists(command_path)
+    # run the bottle REST server
+    def run_bottle():
+        # prepare path to the command
+        command_path = os.path.join(
+            os.path.dirname(__file__),
+            "../bin/run_wa_kat_server.py"
+        )
+        assert os.path.exists(command_path)
 
-#         global _SERVER_HANDLER
-#         _SERVER_HANDLER = subprocess.Popen([
-#             command_path,
-#             "--zeo-client-conf-file", CLIENT_CONF_PATH,
-#             "--port", str(PORT),
-#             "--host", "127.0.0.1",
-#             "--server", "paste",
-#             "--debug",
-#             "--quiet",
-#         ])
+        # replace settings with mocked file
+        my_env = os.environ.copy()
+        my_env["SETTINGS_PATH"] = alt_conf_path
 
-#     serv = threading.Thread(target=run_bottle)
-#     serv.setDaemon(True)
-#     serv.start()
+        # run the server
+        global _SERVER_HANDLER
+        _SERVER_HANDLER = subprocess.Popen(command_path, env=my_env)
 
-#     circuit_breaker_http_retry()
+    serv = threading.Thread(target=run_bottle)
+    serv.setDaemon(True)
+    serv.start()
 
-#     def shutdown_server():
-#         _SERVER_HANDLER.terminate()
+    # add finalizer which shutdowns the server and remove temporary file
+    def shutdown_server():
+        _SERVER_HANDLER.terminate()
+        os.unlink(alt_conf_path)
 
-#     request.addfinalizer(shutdown_server)
+    request.addfinalizer(shutdown_server)
+
+    # wait until the connection with server is created
+    circuit_breaker_http_retry()
