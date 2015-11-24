@@ -12,7 +12,7 @@ from bottle import run
 
 sys.path.insert(0, join(dirname(__file__), "../src"))  # TODO: relative/abs import
 
-import wa_kat.rest_api
+from wa_kat import rest_api
 from wa_kat import bottle_index
 
 from wa_kat import settings

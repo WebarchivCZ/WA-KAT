@@ -13,7 +13,7 @@ from ..zeo import RequestDatabase
 
 
 # Variables ===================================================================
-API_PATH = "api_v1/"
+API_PATH = "/api_v1/"
 
 
 # Functions & classes =========================================================
