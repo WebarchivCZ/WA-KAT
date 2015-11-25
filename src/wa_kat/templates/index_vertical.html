@@ -23,15 +23,21 @@
   <h1 class="text-center">WA KAT</h1>
 
   <div class="container">
-  <form id="application_form" class="form-horizontal">
+  <form id="application_form" class="form-horizontal" role="form">
+
     <div class="form-group">
       <label for="url" class="control-label col-sm-2">URL</label>
-      <div class="col-sm-10">
-      % if registered:
-        <p class="form-control-static"><a href="{{url}}">{{url}}</a></p>
-      % else:
-        <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." />
-      % end
+      <div class="col-lg-10">
+        <div class="input-group">
+% if registered:
+          <p class="form-control-static"><a href="{{url}}">{{url}}</a></p>
+% else:
+          <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." />
+% end
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default">Spustit</button>
+        </span>
+        </div>
       </div>
     </div>
 
@@ -66,7 +72,7 @@
     <div class="form-group">
       <label for="place" class="control-label col-sm-2">Místo</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="place" placeholder="Místo vzniku" />
+        <input type="text" class="form-control" id="place" placeholder="Místo vzniku." />
       </div>
     </div>
 
