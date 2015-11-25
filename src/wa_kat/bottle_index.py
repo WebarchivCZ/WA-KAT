@@ -67,7 +67,7 @@ def mock_data():
 # TODO: REMOVE
 
 
-@get("/<fn:path>")
+@get("/static/<fn:path>")
 def static_data(fn):
     file_path = os.path.normpath(fn)
     full_path = os.path.join(STATIC_PATH, file_path)
