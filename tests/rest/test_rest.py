@@ -26,7 +26,7 @@ import requests
 def test_rest(web_port):
     url = "http://localhost:%d/api_v1/analyze" % web_port
 
-    resp = requests.post(url, data={"url": "http://kitakitsune.org"})
+    resp = requests.post(url, data={"url": "http://kitakitsune.org/"})
     out = resp.json()
 
     assert out["status"]
