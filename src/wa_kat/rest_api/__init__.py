@@ -7,6 +7,7 @@
 from os.path import join
 
 from bottle import get
+from bottle import post
 from bottle_rest import form_to_params
 
 from ..zeo import RequestDatabase
@@ -17,7 +18,7 @@ API_PATH = "/api_v1/"
 
 
 # Functions & classes =========================================================
-@get(join(API_PATH, "analyze"))
+@post(join(API_PATH, "analyze"))
 @form_to_params
 def get_result(url):
     rd = RequestDatabase()
