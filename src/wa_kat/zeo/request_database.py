@@ -88,11 +88,11 @@ class RequestDatabase(DatabaseHandler):
             time_limit (float, default YEAR / 2): Collect objects older than
                 this limit.
         """
-        expired_ri_keys = (
+        expired_ri_keys = [
             key
             for key, ri in self.requests.iteritems()
             if ri.creation_ts + time_limit <= time.time()
-        )
+        ]
 
         for key in expired_ri_keys:
             del self.requests[key]
