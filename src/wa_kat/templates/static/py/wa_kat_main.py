@@ -15,37 +15,47 @@ from browser import document
 # GUI views ===================================================================
 class UrlBoxError(object):
     def __init__(self):
-        self.hide()
+        self.tag = document["urlbox_error"]
+        self.whole_tag = document["whole_urlbox_error"]
 
     def show(self, msg):
-        document["urlbox_error"].innerHTML = msg
-        document["whole_urlbox_error"].style.display = "block"
+        self.tag.innerHTML = msg
+        self.whole_tag.style.display = "block"
 
     def hide(self):
-        document["whole_urlbox_error"].style.display = "none"
+        self.whole_tag.style.display = "none"
 
 
 class ProgressBar(object):
     def __init__(self):
-        # self.hide()
-        pass
+        self.tag = document["progress_bar"]
+        self.whole_tag = document["whole_progress_bar"]
 
     def _compute_percentage(self, progress_tuple):
         return (100 / progress_tuple[1]) * progress_tuple[0]
 
     def show(self, progress, msg=None):
-        if document["whole_progress_bar"].style.display == "none":
-            document["whole_progress_bar"].style.display = "block"
+        if self.whole_tag.style.display == "none":
+            self.whole_tag.style.display = "block"
 
-        percentage = str(self._compute_percentage(progress))
-        document["progress_bar"].aria_valuemin = percentage
-        document["progress_bar"].style.width = "{}%".format(percentage)
+        percentage = self._compute_percentage(progress)
+
+        # toggle animation
+        if percentage < 100:
+            self.tag.class_name = "progress-bar progress-bar-striped active"
+        else:
+            self.tag.class_name = "progress-bar"
+            msg = "Hotovo"
+
+        # show percentage in progress bar
+        self.tag.aria_valuemin = percentage
+        self.tag.style.width = "{}%".format(percentage)
 
         if msg:
-            document["progress_bar"].innerHTML = msg
+            self.tag.text = msg
 
     def hide(self):
-        document["whole_progressbar"].style.display = "none"
+        self.whole_tag.style.display = "none"
 
 
 # Variables ===================================================================
@@ -109,4 +119,12 @@ def start_analysis(ev):
     make_request(url)
 
 
+def analysis_after_enter_pressed(ev):
+    ev.stopPropagation()
+
+    if ev.keyCode == 13:
+        start_analysis(ev)
+
+
 document["run_button"].bind("click", start_analysis)
+document["url"].bind("keypress", analysis_after_enter_pressed)
