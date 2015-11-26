@@ -7,9 +7,23 @@
 import time
 
 import transaction
+from ZODB.POSException import ConflictError
 
 
 # Functions & classes =========================================================
+def _save_to_database(req, property_name, data):
+    with transaction.manager:
+        val = getattr(req, property_name)
+
+        if val is not None:
+            val.extend(data)
+        else:
+            setattr(req, property_name, data)
+
+        req.processing_ended_ts = time.time()
+        req._p_changed = True
+
+
 def worker(url_key, property_info, filler_params, conf_path=None):
     """
     This function is meant to run as process on the background.
@@ -33,16 +47,14 @@ def worker(url_key, property_info, filler_params, conf_path=None):
     # this may take some time, hence outside transaction manager
     data = property_info.filler_func(*filler_params)
 
-    db = RequestDatabase(conf_path=conf_path)
+    if conf_path:
+        db = RequestDatabase(conf_path=conf_path)
+    else:
+        db = RequestDatabase()
     req = db.get_request(url_key)
 
-    with transaction.manager:
-        val = getattr(req, property_info.name)
-
-        if val is not None:
-            val.extend(data)
-        else:
-            setattr(req, property_info.name, data)
-
-        req.processing_ended_ts = time.time()
-        req._p_changed = True
+    for i in range(5):
+        try:
+            return _save_to_database(req, property_info.name, data)
+        except ConflictError:
+            time.sleep(0.1)

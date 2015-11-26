@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import traceback
 from os.path import join
 
 from bottle import get
@@ -28,12 +29,15 @@ def get_result(url):
         ri = rd.get_request(url)
 
         if ri.is_old():
+            print "Running the analysis"
             ri.paralel_processing()
     except Exception as e:
         return {
             "status": False,
-            "error": e.message
+            "error": e.message + "\n" + traceback.format_exc().strip()
         }
+
+    print ri.to_dict()
 
     return {
         "status": True,
