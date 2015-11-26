@@ -239,6 +239,7 @@ class RequestInfo(Persistent):
         """
         return self._get_all_set_properties() == set(_get_req_mapping().keys())
 
+    @transaction_manager
     def is_old(self):
         """
         Is the object cached for too long, so it should be redownloaded?
@@ -254,7 +255,8 @@ class RequestInfo(Persistent):
         # in case that processing started, but didn't ended in
         # ZEO_MAX_WAIT_TIME
         expected_end_ts = self.creation_ts + ZEO_MAX_WAIT_TIME
-        if not self.processing_ended_ts and expected_end_ts < time.time():
+        not_ended = not (self.processing_ended_ts or self.is_all_set())
+        if not_ended and expected_end_ts < time.time():
             return True
 
         return self.processing_ended_ts + ZEO_CACHE_TIME < time.time()
