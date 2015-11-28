@@ -64,6 +64,25 @@ PROGRESS_BAR = ProgressBar()
 
 
 # Functions & classes =========================================================
+class InputMapper(object):
+    def __init__(self):
+        self._map = {
+            "title_tags": "title",
+            "place_tags": "place",
+            "lang_tags": "lang",
+            "keyword_tags": "keywords",
+            "author_tags": "author",
+            "annotation_tags": "annotation",
+            "creation_dates": "creation_date",
+        }
+
+    def map(self, key, value):
+        pass
+
+
+
+
+
 def fill_inputs(values):
     alert(values)
 
