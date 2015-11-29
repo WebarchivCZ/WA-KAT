@@ -58,12 +58,6 @@ class ProgressBar(object):
         self.whole_tag.style.display = "none"
 
 
-# Variables ===================================================================
-URL_BOX_ERROR = UrlBoxError()
-PROGRESS_BAR = ProgressBar()
-
-
-# Functions & classes =========================================================
 class InputMapper(object):
     def __init__(self):
         self._map = {
@@ -79,14 +73,18 @@ class InputMapper(object):
     def map(self, key, value):
         pass
 
+    def fill_inputs(self, values):
+        for key, value in values.items():
+            self.map(key, value)
 
 
+# Variables ===================================================================
+URL_BOX_ERROR = UrlBoxError()
+PROGRESS_BAR = ProgressBar()
+INPUT_MAPPER = InputMapper()
 
 
-def fill_inputs(values):
-    alert(values)
-
-
+# Functions & classes =========================================================
 def on_complete(req):
     # handle http errors
     if not (req.status == 200 or req.status == 0):
@@ -109,7 +107,7 @@ def on_complete(req):
 
     # finally save the data to inputs
     PROGRESS_BAR.show(resp["body"]["progress"])
-    fill_inputs(resp["body"]["values"])
+    INPUT_MAPPER.fill_inputs(resp["body"]["values"])
 
 
 def make_request(url):
