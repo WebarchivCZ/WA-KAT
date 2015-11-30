@@ -51,6 +51,7 @@ WEB_BE_QUIET = False  #: Be quiet and don't emit debug messages to terminal.
 
 REMOTE_INFO_URL = "http://%s:%d/remote_info_mock" % (WEB_ADDR, WEB_PORT)  # TODO: fix
 CONSPECT_API_URL = "http://%s:%d/conspect_mock" % (WEB_ADDR, WEB_PORT)  # TODO: fix
+CONSPECT_UPDATE_INTERVAL = 10 * 60
 
 
 # User configuration reader (don't edit this) =================================
