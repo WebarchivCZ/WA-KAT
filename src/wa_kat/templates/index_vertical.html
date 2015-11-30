@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/typeaheadjs.css" rel="stylesheet">
+    <link href="/static/css/wa_kat.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -83,11 +84,9 @@
 
     <div class="form-group">
       <label for="author" class="control-label col-sm-2">Autor, Vydavatel</label>
-      <!-- <div class="col-sm-10" id="author">
-        <input class="typeahead" type="text" placeholder="Autor či vydavatel stránek." />
-      </div> -->
       <div id="author_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="author" placeholder="Autor či vydavatel stránek. Klikněte pro výběr.">
+        <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
 
@@ -232,7 +231,7 @@ var substringMatcher = function(strs) {
   };
 };
 
-var states = ['Ala<b>b</b>ama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
   'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
   'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
   'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
@@ -244,13 +243,16 @@ var states = ['Ala<b>b</b>ama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 ];
 
 $('#author_typeahead .typeahead').typeahead({
-    // hint: true,
+    hint: true,
     highlight: true,
     minLength: 0
   }, {
     name: 'states',
     source: substringMatcher(states),
-    limit: 20
+    limit: 20,
+    templates: {
+        suggestion: function(item) { return "<p style='margin: 0px'><b>DC: </b>" + item + "</p>"; },
+    }
 });
 </script>
   </body>
