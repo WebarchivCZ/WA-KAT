@@ -18,23 +18,27 @@ import settings
 
 
 # Variables ===================================================================
-TEMPLATE_PATH = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)),
-    "templates"
-)
-INDEX_PATH = os.path.join(TEMPLATE_PATH, "index_vertical.html")
-STATIC_PATH = os.path.join(TEMPLATE_PATH, "static")
+def _template_path(fn):
+    return os.path.join(
+        os.path.abspath(os.path.dirname(__file__)),
+        "templates",
+        fn,
+    )
+
+
+INDEX_PATH = _template_path("index_vertical.html")
+STATIC_PATH = _template_path("static")
 
 
 # Functions & classes =========================================================
-def _read_template():
+def _read_index_template():
     with open(INDEX_PATH) as f:
         return f.read()
 
 
 def render_registered(remote_info):
     return template(
-        _read_template(),
+        _read_index_template(),
         registered=True,
         url=remote_info["url"]
     )
@@ -42,7 +46,7 @@ def render_registered(remote_info):
 
 def render_unregistered(error=None):
     return template(
-        _read_template(),
+        _read_index_template(),
         registered=False,
         error=error
     )
@@ -64,6 +68,12 @@ def mock_data():
     return {
         "url": "http://seznam.cz",
     }
+
+
+@get("/" + settings.CONSPECT_API_URL.split("/")[-1])
+def mock_conspect_data():
+    with open(_template_path("conspect.json")) as f:
+        return f.read()
 # TODO: REMOVE
 
 
