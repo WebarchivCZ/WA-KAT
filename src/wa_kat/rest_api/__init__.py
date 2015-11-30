@@ -4,18 +4,22 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import json
 import traceback
 from os.path import join
 
 from bottle import get
 from bottle import post
+from bottle import response
 from bottle_rest import form_to_params
 
 from ..zeo import RequestDatabase
+from ..zeo import ConspectDatabase
 
 
 # Variables ===================================================================
 API_PATH = "/api_v1/"
+RESPONSE_TYPE = "application/json; charset=utf-8"
 
 
 # Functions & classes =========================================================
@@ -23,6 +27,7 @@ API_PATH = "/api_v1/"
 @form_to_params
 def get_result(url):
     rd = RequestDatabase()
+    response.content_type = RESPONSE_TYPE
 
     # handle cacheing
     try:
@@ -43,3 +48,11 @@ def get_result(url):
         "status": True,
         "body": ri.to_dict()
     }
+
+
+@get(join(API_PATH, "conspect"))
+def get_conspect():
+    cd = ConspectDatabase()
+    response.content_type = RESPONSE_TYPE
+
+    return json.dumps(cd.data)
