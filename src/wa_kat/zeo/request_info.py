@@ -12,6 +12,7 @@ from multiprocessing import Process
 from functools import total_ordering
 
 import requests
+import transaction
 from persistent import Persistent
 from zeo_connector import transaction_manager
 from backports.functools_lru_cache import lru_cache
@@ -176,7 +177,6 @@ class RequestInfo(Persistent):
 
         return resp.text.encode("utf-8")  # TODO: what about binaries?
 
-    @transaction_manager
     def paralel_processing(self, client_conf=None):
         """
         Lauch paralel processes (see :func:`.worker`) to fill properties with
@@ -186,9 +186,12 @@ class RequestInfo(Persistent):
             client_conf (str, default None): Optional parameter used by tests
                 to redirect the database connections to test's environment.
         """
-        self.index = self._download(self.url)
-        self.downloaded_ts = time.time()
-        self.processing_started_ts = time.time()
+        self._reset_set_properties()
+
+        with transaction.manager:
+            self.index = self._download(self.url)
+            self.downloaded_ts = time.time()
+            self.processing_started_ts = time.time()
 
         # launch all workers as paralel processes
         for pi in _get_req_mapping().values():
@@ -202,6 +205,14 @@ class RequestInfo(Persistent):
                 }
             )
             p.start()
+
+    @transaction_manager
+    def _reset_set_properties(self):
+        """
+        Reset the progress counter back to zero.
+        """
+        for property_name in _get_req_mapping().keys():
+            setattr(self, property_name, None)
 
     @transaction_manager
     def _get_all_set_properties(self):
