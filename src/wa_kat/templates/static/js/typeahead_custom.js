@@ -7,18 +7,20 @@ var tag_passer = function(strs) {
 var make_typeahead_tag = function(tag_id, hints){
   $(tag_id + ' .typeahead').typeahead({
       hint: false,
+      minLength: 0,
       highlight: false,
-      minLength: 0
     }, {
-      source: tag_passer(hints),
       limit: 20,
+      source: tag_passer(hints),
+      display: function (item) { return item.val; },
       templates: {
+          empty: "<p class='tt-footer'>No results found.</p>",
           suggestion: function(item) {
-            return "<p class='tt-item'><b>DC: </b>" + item + "</p>";
+            return "<p class='tt-item'><b>" + item.source + ": </b>" + item.val + "</p>";
           },
           footer: function(query) {
             return "<p class='tt-footer'>Analyzátory nalezené hodnoty.</p>"
-          }
-      }
+          },
+      },
   });
 }
