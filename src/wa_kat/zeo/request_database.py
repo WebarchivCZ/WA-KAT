@@ -6,6 +6,7 @@
 # Imports =====================================================================
 import time
 
+import transaction
 from zeo_connector import transaction_manager
 from zeo_connector.examples import DatabaseHandler
 
@@ -50,7 +51,6 @@ class RequestDatabase(DatabaseHandler):
         self.request_key = "requests"
         self.requests = self._get_key_or_create(self.request_key)
 
-    @transaction_manager
     def get_request(self, url):
         """
         For given `url` register new :class:`RequestInfo` object or return
@@ -63,7 +63,8 @@ class RequestDatabase(DatabaseHandler):
         Returns:
             obj: Proper :class:`.RequestInfo` object.
         """
-        req = self.requests.get(url, None)
+        with transaction.manager:
+            req = self.requests.get(url, None)
 
         # return cached requests
         if req:
@@ -74,7 +75,9 @@ class RequestDatabase(DatabaseHandler):
 
         # if not found, create new
         req = RequestInfo(url=url)
-        self.requests[url] = req
+
+        with transaction.manager:
+            self.requests[url] = req
 
         return req
 

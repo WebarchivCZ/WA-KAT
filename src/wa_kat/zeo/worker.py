@@ -13,12 +13,11 @@ from ZODB.POSException import ConflictError
 # Functions & classes =========================================================
 def _save_to_database(req, property_name, data):
     with transaction.manager:
-        val = getattr(req, property_name)
-
-        if val is not None:
-            val.extend(data)
-        else:
-            setattr(req, property_name, data)
+        # val = getattr(req, property_name)
+        # if val is not None:
+        #     val.extend(data)
+        # else:
+        setattr(req, property_name, data)
 
         req.processing_ended_ts = time.time()
         req._p_changed = True
