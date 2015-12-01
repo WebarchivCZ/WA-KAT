@@ -206,34 +206,8 @@
 <script src="/static/js/jquery.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/typeahead.bundle.js"></script>
+<script src="/static/js/typeahead_custom.js"></script>
 <script type="text/python" src="/static/py/wa_kat_main.py"></script>
 
-<script>
-var tag_passer = function(strs) {
-  return function findMatches(q, cb) {
-    cb(strs);
-  };
-};
-
-var make_typeahead_tag = function(tag_id, hints){
-  $(tag_id + ' .typeahead').typeahead({
-      hint: true,
-      highlight: true,
-      minLength: 0
-    }, {
-      source: tag_passer(hints),
-      limit: 20,
-      templates: {
-          suggestion: function(item) {
-            return "<p style='margin: 0px'><b>DC: </b>" + item + "</p>";
-          },
-          footer: function(query) {
-            return "<b>Analyzátory nalezené hodnoty.'</b>"
-          }
-      }
-  });
-}
-
-</script>
   </body>
 </html>
