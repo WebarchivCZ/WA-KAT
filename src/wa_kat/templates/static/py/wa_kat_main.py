@@ -9,6 +9,7 @@ import time
 
 from browser import ajax
 from browser import alert  # TODO: Remove
+from browser import window
 from browser import document
 
 
@@ -70,10 +71,40 @@ class InputMapper(object):
             "creation_dates": "creation_date",
         }
 
+    def _get_el(self, rest_id):
+        return document[self._map[rest_id]]
+
+    def _set_typeahead(self, key, el, value):
+        parent_id = el.parent.id
+        if "typeahead" not in parent_id.lower():
+            parent_id = el.parent.parent.id
+
+        window.make_typeahead_tag("#" + parent_id, value)
+
+    def _set_input(self, key, el, value):
+        el.value = ", ".join(item.val for item in value)
+
+    def _set_textarea(self, key, el, value):
+        el.text = "\n\n--\n\n".join(item.val for item in value)
+
     def map(self, key, value):
-        pass
+        el = self._get_el(key)
+        tag_name = el.elt.tagName.lower()
+
+        if tag_name == "textarea":  # TODO: handle case when there already is something
+            self._set_textarea(key, el, value)
+        elif tag_name == "input":  # použít tag it
+            if "typeahead" in el.class_name.lower():
+                self._set_typeahead(key, el, value)
+            else:
+                self._set_input(key, el, value)
+        else:
+            alert(
+                "Setter for %s (%s) not implemented!" % (tag_name, el.id)
+            )
 
     def fill_inputs(self, values):
+        alert(values)
         for key, value in values.items():
             self.map(key, value)
 
