@@ -41,3 +41,20 @@ span.twitter-typeahead {
 .tt-suggestion p {
   margin: 0;
 }
+
+.tt-footer {
+  margin: 0;
+  padding: 0;
+  color: gray;
+  padding-left: 0.5em;
+  font-size: small;
+  margin-top: 0.1em;
+}
+
+.tt-item {
+  padding-left: 0.5em;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}

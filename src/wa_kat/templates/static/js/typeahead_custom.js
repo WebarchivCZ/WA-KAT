@@ -6,18 +6,18 @@ var tag_passer = function(strs) {
 
 var make_typeahead_tag = function(tag_id, hints){
   $(tag_id + ' .typeahead').typeahead({
-      hint: true,
-      highlight: true,
+      hint: false,
+      highlight: false,
       minLength: 0
     }, {
       source: tag_passer(hints),
       limit: 20,
       templates: {
           suggestion: function(item) {
-            return "<p style='margin: 0px'><b>DC: </b>" + item + "</p>";
+            return "<p class='tt-item'><b>DC: </b>" + item + "</p>";
           },
           footer: function(query) {
-            return "<b>Analyzátory nalezené hodnoty.'</b>"
+            return "<p class='tt-footer'>Analyzátory nalezené hodnoty.</p>"
           }
       }
   });
