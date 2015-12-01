@@ -26,6 +26,10 @@ class UrlBoxError(object):
     def hide(self):
         self.whole_tag.style.display = "none"
 
+    def reset(self):
+        self.hide()
+        self.tag.innerHTML = ""
+
 
 class ProgressBar(object):
     def __init__(self):
@@ -35,12 +39,6 @@ class ProgressBar(object):
 
     def _compute_percentage(self, progress_tuple):
         return (100 / progress_tuple[1]) * progress_tuple[0]
-
-    def reset(self):
-        self.tag.class_name = "progress-bar progress-bar-striped active"
-        self.tag.aria_valuemin = 0
-        self.tag.style.width = "{}%".format(0)
-        self.tag.text = self.original_message
 
     def show(self, progress, msg=None):
         if self.whole_tag.style.display == "none":
@@ -65,6 +63,13 @@ class ProgressBar(object):
     def hide(self):
         self.whole_tag.style.display = "none"
 
+    def reset(self):
+        self.hide()
+        self.tag.class_name = "progress-bar progress-bar-striped active"
+        self.tag.aria_valuemin = 0
+        self.tag.style.width = "{}%".format(0)
+        self.tag.text = self.original_message
+
 
 class InputMapper(object):
     def __init__(self):
@@ -77,6 +82,7 @@ class InputMapper(object):
             "annotation_tags": "annotation",
             "creation_dates": "creation_date",
         }
+        self.typeahead_set = set()
 
     def _get_el(self, rest_id):
         return document[self._map[rest_id]]
@@ -87,6 +93,7 @@ class InputMapper(object):
             parent_id = el.parent.parent.id
 
         window.make_typeahead_tag("#" + parent_id, value)
+        self.typeahead_set.add(parent_id)
 
     def _set_input(self, key, el, value):
         el.value = ", ".join(item.val for item in value)
@@ -113,6 +120,12 @@ class InputMapper(object):
     def fill_inputs(self, values):
         for key, value in values.items():
             self.map(key, value)
+
+    def reset(self):
+        for el_id in self.typeahead_set:
+            window.destroy_typyahead_tag("#" + el_id)
+
+        self.typeahead_set = set()
 
 
 # Variables ===================================================================
@@ -156,7 +169,12 @@ def make_request(url):
 
 
 def start_analysis(ev):
+    # reset all inputs
     PROGRESS_BAR.reset()
+    INPUT_MAPPER.reset()
+    URL_BOX_ERROR.reset()
+
+    # read the urlbox
     url = document["url"].value.strip()
 
     # make sure, that `url` was filled in
@@ -177,6 +195,7 @@ def start_analysis(ev):
 def analysis_after_enter_pressed(ev):
     ev.stopPropagation()
 
+    # if the key was `enter` ..
     if ev.keyCode == 13:
         start_analysis(ev)
 

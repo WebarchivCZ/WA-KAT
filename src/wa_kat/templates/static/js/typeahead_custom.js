@@ -24,3 +24,7 @@ var make_typeahead_tag = function(tag_id, hints){
       },
   });
 }
+
+var destroy_typyahead_tag = function(tag_id){
+  $(tag_id + ' .typeahead').typeahead("destroy");
+}
