@@ -31,9 +31,16 @@ class ProgressBar(object):
     def __init__(self):
         self.tag = document["progress_bar"]
         self.whole_tag = document["whole_progress_bar"]
+        self.original_message = self.tag.text
 
     def _compute_percentage(self, progress_tuple):
         return (100 / progress_tuple[1]) * progress_tuple[0]
+
+    def reset(self):
+        self.tag.class_name = "progress-bar progress-bar-striped active"
+        self.tag.aria_valuemin = 0
+        self.tag.style.width = "{}%".format(0)
+        self.tag.text = self.original_message
 
     def show(self, progress, msg=None):
         if self.whole_tag.style.display == "none":
@@ -61,7 +68,7 @@ class ProgressBar(object):
 
 class InputMapper(object):
     def __init__(self):
-        self._map = {
+        self._map = {  # TODO: get rid of this
             "title_tags": "title",
             "place_tags": "place",
             "lang_tags": "lang",
@@ -104,7 +111,6 @@ class InputMapper(object):
             )
 
     def fill_inputs(self, values):
-        alert(values)
         for key, value in values.items():
             self.map(key, value)
 
@@ -150,6 +156,7 @@ def make_request(url):
 
 
 def start_analysis(ev):
+    PROGRESS_BAR.reset()
     url = document["url"].value.strip()
 
     # make sure, that `url` was filled in
