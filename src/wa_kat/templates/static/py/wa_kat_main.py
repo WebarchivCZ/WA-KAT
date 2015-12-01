@@ -82,7 +82,7 @@ class InputMapper(object):
             "annotation_tags": "annotation",
             "creation_dates": "creation_date",
         }
-        self.typeahead_set = set()
+        self._set_by_typeahead = set()
 
     def _get_el(self, rest_id):
         return document[self._map[rest_id]]
@@ -93,7 +93,7 @@ class InputMapper(object):
             parent_id = el.parent.parent.id
 
         window.make_typeahead_tag("#" + parent_id, value)
-        self.typeahead_set.add(parent_id)
+        self._set_by_typeahead.add(parent_id)
 
     def _set_input(self, key, el, value):
         el.value = ", ".join(item.val for item in value)
@@ -122,10 +122,10 @@ class InputMapper(object):
             self.map(key, value)
 
     def reset(self):
-        for el_id in self.typeahead_set:
+        for el_id in self._set_by_typeahead:
             window.destroy_typyahead_tag("#" + el_id)
 
-        self.typeahead_set = set()
+        self._set_by_typeahead = set()
 
 
 # Variables ===================================================================
