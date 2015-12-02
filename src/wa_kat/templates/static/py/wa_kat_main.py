@@ -91,18 +91,63 @@ class InputMapper(object):
     def _get_el(self, rest_id):
         return document[self._map[rest_id]]
 
-    def _hide_dropdown_glyph(self, id):
-        pass
+    def _get_dropdown_glyph_el(self, input_id):
+        input_el = document[input_id]
+        parent = input_el.parent
+        grand_parent = parent.parent
+        
+        for el in list(parent.children) + list(grand_parent.children):
+            if el.class_name and "dropdown_hint" in el.class_name.lower():
+                return el
 
-    def _set_typeahead(self, key, el, value):
+        raise ValueError("Dropdown not found!")
+
+    def hide_dropdown_glyph(self, input_id):
+        el = self._get_dropdown_glyph_el(input_id)
+        el.style.display = "none"
+
+        return el
+
+    def show_dropdown_glyph(self, input_id):
+        el = self._get_dropdown_glyph_el(input_id)
+        el.style.display = "block"
+
+        return el
+
+    def set_dropdown_glyph(self, input_id, glyph_name):
+        el = self.show_dropdown_glyph(input_id)
+        filtered_tokens = [
+            token
+            for token in str(el.class_name).split()
+            if "glyphicon" not in token
+        ]
+        tokens = filtered_tokens + ["glyphicon", glyph_name]
+
+        el.class_name = " ".join(tokens)
+
+    def _set_typeahead(self, key, el, value):  # TODO: case when there is exactly one element
         parent_id = el.parent.id
         if "typeahead" not in parent_id.lower():
             parent_id = el.parent.parent.id
 
         if not value:
+            self.set_dropdown_glyph(el.id, "glyphicon glyphicon-alert")
+            return
+
+        if len(value) == 1:
+            source = value[0]["source"].strip()
+            dropdown_el = self.show_dropdown_glyph(el.id)
+            dropdown_content = "<span class='gray_text'>&nbsp;(%s)</span>"
+
+            # save the source to the dropdown menu
+            if source:
+                dropdown_el.html = dropdown_content % source[::-1]
+
+            el.value = value[0]["val"]
             return
 
         window.make_typeahead_tag("#" + parent_id, value)
+        self.set_dropdown_glyph(el.id, "glyphicon-menu-down")
         self._set_by_typeahead.add(parent_id)
 
     def _set_input(self, key, el, value):
@@ -117,7 +162,7 @@ class InputMapper(object):
 
         if tag_name == "textarea":  # TODO: handle case when there already is something
             self._set_textarea(key, el, value)
-        elif tag_name == "input":  # použít tag it
+        elif tag_name == "input":
             if "typeahead" in el.class_name.lower():
                 self._set_typeahead(key, el, value)
             else:

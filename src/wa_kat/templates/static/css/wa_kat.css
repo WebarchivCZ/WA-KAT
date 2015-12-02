@@ -1,4 +1,15 @@
 .dropdown_hint {
+    right: 2em;
+    display: none;
     position: absolute;
-    right: 1em;
+    min-width: 5em;
+    text-align: right;
+    white-space: nowrap;
+
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.gray_text {
+    color: gray;
 }
