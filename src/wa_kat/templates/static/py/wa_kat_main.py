@@ -38,6 +38,10 @@ class ProgressBar(object):
         self.original_message = self.tag.text
 
     def _compute_percentage(self, progress_tuple):
+        # division by zero..
+        if progress_tuple[0] == 0:
+            return 0
+
         return (100 / progress_tuple[1]) * progress_tuple[0]
 
     def show(self, progress, msg=None):
@@ -87,10 +91,16 @@ class InputMapper(object):
     def _get_el(self, rest_id):
         return document[self._map[rest_id]]
 
+    def _hide_dropdown_glyph(self, id):
+        pass
+
     def _set_typeahead(self, key, el, value):
         parent_id = el.parent.id
         if "typeahead" not in parent_id.lower():
             parent_id = el.parent.parent.id
+
+        if not value:
+            return
 
         window.make_typeahead_tag("#" + parent_id, value)
         self._set_by_typeahead.add(parent_id)
@@ -171,6 +181,7 @@ def make_request(url):
 def start_analysis(ev):
     # reset all inputs
     PROGRESS_BAR.reset()
+    PROGRESS_BAR.show([0, 0])
     INPUT_MAPPER.reset()
     URL_BOX_ERROR.reset()
 
