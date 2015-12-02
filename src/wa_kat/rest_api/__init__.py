@@ -8,11 +8,13 @@ import json
 import traceback
 from os.path import join
 
+import requests  # for requests.exceptions.Timeout
 from bottle import get
 from bottle import post
 from bottle import response
 from bottle_rest import form_to_params
 
+from .. import settings
 from ..zeo import RequestDatabase
 from ..zeo import ConspectDatabase
 
@@ -36,10 +38,21 @@ def get_result(url):
         if ri.is_old():
             print "Running the analysis"
             ri.paralel_processing()
+    except (requests.exceptions.Timeout, requests.ConnectionError):
+        error_msg = """
+            Požadovanou stránku {url} nebylo možné stáhnout během {timeout}
+            vteřin. Zkuste URL zadat s `www.`, či zkontrolovat funkčnost
+            stránek."""
+        error_msg = error_msg.format(url=url, timeout=settings.REQUEST_TIMEOUT)
+
+        return {
+            "status": False,
+            "error": error_msg,
+        }
     except Exception as e:
         return {
             "status": False,
-            "error": e.message + "\n" + traceback.format_exc().strip()
+            "error": str(e.message) + "\n" + traceback.format_exc().strip()
         }
 
     print ri.to_dict()
