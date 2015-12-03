@@ -75,6 +75,47 @@ class ProgressBar(object):
         self.tag.text = self.original_message
 
 
+class DropdownHandler(object):
+    @staticmethod
+    def _get_dropdown_glyph_el(input_id):
+        input_el = document[input_id]
+        parent = input_el.parent
+        grand_parent = parent.parent
+
+        for el in list(parent.children) + list(grand_parent.children):
+            if el.class_name and "dropdown_hint" in el.class_name.lower():
+                return el
+
+        raise ValueError("Dropdown not found!")
+
+    @staticmethod
+    def show_dropdown_glyph(input_id):
+        el = DropdownHandler._get_dropdown_glyph_el(input_id)
+        el.style.display = "block"
+
+        return el
+
+    @staticmethod
+    def hide_dropdown_glyph(input_id):
+        el = DropdownHandler._get_dropdown_glyph_el(input_id)
+        el.style.display = "none"
+
+        return el
+
+    @staticmethod
+    def set_dropdown_glyph(input_id, glyph_name):
+        el = DropdownHandler.show_dropdown_glyph(input_id)
+        filtered_tokens = [
+            token
+            for token in str(el.class_name).split()
+            if "glyphicon" not in token
+        ]
+        tokens = filtered_tokens + ["glyphicon", glyph_name]
+
+        el.class_name = " ".join(tokens)
+        return el
+
+
 class InputMapper(object):
     def __init__(self):
         self._map = {  # TODO: get rid of this
@@ -87,56 +128,48 @@ class InputMapper(object):
             "creation_dates": "creation_date",
         }
         self._set_by_typeahead = set()
+        self._dropdown_text = " Klikněte pro výběr."
 
     def _get_el(self, rest_id):
         return document[self._map[rest_id]]
 
-    def _get_dropdown_glyph_el(self, input_id):
-        input_el = document[input_id]
-        parent = input_el.parent
-        grand_parent = parent.parent
-        
-        for el in list(parent.children) + list(grand_parent.children):
-            if el.class_name and "dropdown_hint" in el.class_name.lower():
-                return el
+    def set_placeholder_text(self, input_el, text):
+        input_el.placeholder = text
 
-        raise ValueError("Dropdown not found!")
+    def get_placeholder_text(self, input_el):
+        # if not hasattr(input_el, "placeholder"):
+        #     return ""
 
-    def hide_dropdown_glyph(self, input_id):
-        el = self._get_dropdown_glyph_el(input_id)
-        el.style.display = "none"
+        return input_el.placeholder
 
-        return el
+    def set_placeholder_dropdown(self, input_el):
+        text = self.get_placeholder_text(input_el)
+        self.set_placeholder_text(input_el, text + self._dropdown_text)
 
-    def show_dropdown_glyph(self, input_id):
-        el = self._get_dropdown_glyph_el(input_id)
-        el.style.display = "block"
+    def reset_placeholder_dropdown(self, input_el):
+        text = self.get_placeholder_text(input_el)
+        self.set_placeholder_text(
+            input_el,
+            text.replace(self._dropdown_text, "")
+        )
 
-        return el
+    def _set_typeahead(self, key, el, value):
+        self.reset_placeholder_dropdown(el)
 
-    def set_dropdown_glyph(self, input_id, glyph_name):
-        el = self.show_dropdown_glyph(input_id)
-        filtered_tokens = [
-            token
-            for token in str(el.class_name).split()
-            if "glyphicon" not in token
-        ]
-        tokens = filtered_tokens + ["glyphicon", glyph_name]
-
-        el.class_name = " ".join(tokens)
-
-    def _set_typeahead(self, key, el, value):  # TODO: case when there is exactly one element
-        parent_id = el.parent.id
-        if "typeahead" not in parent_id.lower():
-            parent_id = el.parent.parent.id
-
+        # if there is no elements, show alert icon in glyph
         if not value:
-            self.set_dropdown_glyph(el.id, "glyphicon glyphicon-alert")
+            DropdownHandler.set_dropdown_glyph(el.id, "glyphicon-alert")
             return
 
+        # if there is only one element, don't use typeahead, just put the
+        # information to the input, set different dropdown glyph and put source
+        # to the dropdown
         if len(value) == 1:
             source = value[0]["source"].strip()
-            dropdown_el = self.show_dropdown_glyph(el.id)
+            dropdown_el = DropdownHandler.set_dropdown_glyph(
+                el.id,
+                "glyphicon-eye-open"
+            )
             dropdown_content = "<span class='gray_text'>&nbsp;(%s)</span>"
 
             # save the source to the dropdown menu
@@ -146,15 +179,26 @@ class InputMapper(object):
             el.value = value[0]["val"]
             return
 
+        # get reference to parent element
+        parent_id = el.parent.id
+        if "typeahead" not in parent_id.lower():
+            parent_id = el.parent.parent.id
+
+        # if there are multiple elements, put them to the typeahead and show
+        # dropdown glyph
         window.make_typeahead_tag("#" + parent_id, value)
-        self.set_dropdown_glyph(el.id, "glyphicon-menu-down")
+        DropdownHandler.set_dropdown_glyph(el.id, "glyphicon-menu-down")
+        self.set_placeholder_dropdown(el)
         self._set_by_typeahead.add(parent_id)
 
     def _set_input(self, key, el, value):
         el.value = ", ".join(item.val for item in value)
 
     def _set_textarea(self, key, el, value):
-        el.text = "\n\n--\n\n".join(item.val for item in value)
+        el.text = "\n\n".join(
+            "-- %s --\n%s" % (item["source"], item["val"])
+            for item in value
+        )
 
     def map(self, key, value):
         el = self._get_el(key)
@@ -167,6 +211,8 @@ class InputMapper(object):
                 self._set_typeahead(key, el, value)
             else:
                 self._set_input(key, el, value)
+        elif tag_name == "select":
+            pass  #: TODO: implement selecting of the keywords
         else:
             alert(
                 "Setter for %s (%s) not implemented!" % (tag_name, el.id)
@@ -254,7 +300,6 @@ def analysis_after_enter_pressed(ev):
     # if the key was `enter` ..
     if ev.keyCode == 13:
         start_analysis(ev)
-
 
 document["run_button"].bind("click", start_analysis)
 document["url"].bind("keypress", analysis_after_enter_pressed)
