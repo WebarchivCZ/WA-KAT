@@ -34,7 +34,7 @@
 % if registered:
           <p class="form-control-static"><a href="{{url}}">{{url}}</a></p>
 % else:
-          <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." />
+          <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." value="http://vps4life.kitakitsune.org/example.html"/>
 % end
         <span class="input-group-btn">
           <button type="button" class="btn btn-default" id="run_button">Spustit</button>
@@ -71,7 +71,7 @@
     <div class="form-group">
       <label for="title" class="control-label col-sm-2">Název</label>
       <div id="title_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="title" placeholder="Název katalogizovaných webstránek. Klikněte pro výběr.">
+        <input class="typeahead form-control" type="text" id="title" placeholder="Název katalogizovaných webstránek.">
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -79,7 +79,7 @@
     <div class="form-group">
       <label for="creation_date" class="control-label col-sm-2">Datum vzniku</label>
       <div id="creation_date_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="creation_date" placeholder="Datum vzniku webstránek. Formát DD.MM.YYYY. Klikněte pro výběr.">
+        <input class="typeahead form-control" type="text" id="creation_date" placeholder="Datum vzniku webstránek. Formát DD.MM.YYYY.">
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -87,7 +87,7 @@
     <div class="form-group">
       <label for="author" class="control-label col-sm-2">Autor, Vydavatel</label>
       <div id="author_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="author" placeholder="Autor či vydavatel stránek. Klikněte pro výběr.">
+        <input class="typeahead form-control" type="text" id="author" placeholder="Autor či vydavatel stránek.">
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -95,7 +95,7 @@
     <div class="form-group">
       <label for="place" class="control-label col-sm-2">Místo</label>
       <div id="place_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="place" placeholder="Místo vzniku. Klikněte pro výběr.">
+        <input class="typeahead form-control" type="text" id="place" placeholder="Místo vzniku.">
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -153,7 +153,7 @@
     <div class="form-group">
       <label for="lang" class="control-label col-sm-2">Jazyk</label>
       <div id="lang_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="lang" placeholder="Klikněte pro výběr.">
+        <input class="typeahead form-control" type="text" id="lang" placeholder="Kód jazyka.">
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
