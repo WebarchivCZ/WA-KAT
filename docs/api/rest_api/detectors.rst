@@ -1,5 +1,5 @@
-wa_kat.rest_api.detectors module
-================================
+detectors
+=========
 
 .. automodule:: wa_kat.rest_api.detectors
     :members:

@@ -1,5 +1,5 @@
-wa_kat.analyzers.title_detector module
-======================================
+title_detector
+==============
 
 .. automodule:: wa_kat.analyzers.title_detector
     :members:

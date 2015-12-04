@@ -1,5 +1,5 @@
-wa_kat.settings module
-======================
+settings
+========
 
 .. automodule:: wa_kat.settings
     :members:

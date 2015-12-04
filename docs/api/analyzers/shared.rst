@@ -1,5 +1,5 @@
-wa_kat.analyzers.shared module
-==============================
+shared submodule
+================
 
 .. automodule:: wa_kat.analyzers.shared
     :members:

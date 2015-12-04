@@ -1,5 +1,5 @@
-wa_kat.zeo.conspect_database module
-===================================
+conspect_database
+=================
 
 .. automodule:: wa_kat.zeo.conspect_database
     :members:

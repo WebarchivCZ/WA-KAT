@@ -1,5 +1,5 @@
-wa_kat.zeo.worker module
-========================
+worker
+======
 
 .. automodule:: wa_kat.zeo.worker
     :members:

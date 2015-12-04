@@ -1,5 +1,5 @@
-wa_kat.zeo package
-==================
+zeo subpackage
+==============
 
 .. automodule:: wa_kat.zeo
     :members:
@@ -11,8 +11,11 @@ Submodules
 
 .. toctree::
 
-   wa_kat.zeo.conspect_database
-   wa_kat.zeo.request_database
-   wa_kat.zeo.request_info
-   wa_kat.zeo.worker
+   request_info
+   request_database
+   conspect_database
+
+.. toctree::
+
+   worker
 

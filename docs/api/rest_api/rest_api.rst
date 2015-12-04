@@ -1,9 +1,9 @@
-wa_kat.rest_api package
-=======================
+rest_api subpackage
+===================
 
 .. automodule:: wa_kat.rest_api
     :members:
-    :undoc-members:
+    :undoc-members:.
     :show-inheritance:
 
 Submodules
@@ -11,5 +11,5 @@ Submodules
 
 .. toctree::
 
-   wa_kat.rest_api.detectors
+   detectors
 

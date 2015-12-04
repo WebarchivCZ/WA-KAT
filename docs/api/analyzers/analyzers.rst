@@ -1,5 +1,5 @@
-wa_kat.analyzers package
-========================
+analyzers subpackage
+====================
 
 .. automodule:: wa_kat.analyzers
     :members:
@@ -11,13 +11,19 @@ Submodules
 
 .. toctree::
 
-   wa_kat.analyzers.annotation_detector
-   wa_kat.analyzers.author_detector
-   wa_kat.analyzers.creation_date_detector
-   wa_kat.analyzers.keyword_detector
-   wa_kat.analyzers.language_detector
-   wa_kat.analyzers.place_detector
-   wa_kat.analyzers.shared
-   wa_kat.analyzers.source_string
-   wa_kat.analyzers.title_detector
+   annotation_detector
+   author_detector
+   creation_date_detector
+   keyword_detector
+   language_detector
+   place_detector
+   title_detector
+
+.. toctree::
+
+   shared
+
+.. toctree::
+
+   source_string
 

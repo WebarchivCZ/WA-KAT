@@ -1,5 +1,5 @@
-wa_kat.analyzers.keyword_detector module
-========================================
+keyword_detector
+================
 
 .. automodule:: wa_kat.analyzers.keyword_detector
     :members:

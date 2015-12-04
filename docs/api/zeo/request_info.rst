@@ -1,5 +1,5 @@
-wa_kat.zeo.request_info module
-==============================
+request_info
+============
 
 .. automodule:: wa_kat.zeo.request_info
     :members:

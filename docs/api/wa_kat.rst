@@ -1,5 +1,5 @@
-wa_kat package
-==============
+wa_kat
+======
 
 .. automodule:: wa_kat
     :members:
@@ -12,9 +12,9 @@ Subpackages
 .. toctree::
 
     wa_kat.analyzers
-    wa_kat.exporters
-    wa_kat.rest_api
     wa_kat.zeo
+    wa_kat.rest_api
+    wa_kat.exporters
 
 Submodules
 ----------

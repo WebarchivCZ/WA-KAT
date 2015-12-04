@@ -1,5 +1,5 @@
-wa_kat.analyzers.author_detector module
-=======================================
+author_detector
+===============
 
 .. automodule:: wa_kat.analyzers.author_detector
     :members:

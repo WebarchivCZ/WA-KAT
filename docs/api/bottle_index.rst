@@ -1,5 +1,5 @@
-wa_kat.bottle_index module
-==========================
+bottle_index
+============
 
 .. automodule:: wa_kat.bottle_index
     :members:

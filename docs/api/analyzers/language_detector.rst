@@ -1,5 +1,5 @@
-wa_kat.analyzers.language_detector module
-=========================================
+language_detector
+=================
 
 .. automodule:: wa_kat.analyzers.language_detector
     :members:

@@ -1,5 +1,5 @@
-wa_kat.analyzers.annotation_detector module
-===========================================
+annotation_detector
+===================
 
 .. automodule:: wa_kat.analyzers.annotation_detector
     :members:

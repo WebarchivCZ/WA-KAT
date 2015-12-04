@@ -1,5 +1,5 @@
-wa_kat.exporters package
-========================
+exporters subpackage
+====================
 
 .. automodule:: wa_kat.exporters
     :members:
@@ -11,5 +11,5 @@ Submodules
 
 .. toctree::
 
-   wa_kat.exporters.marc_export
+   marc_export
 

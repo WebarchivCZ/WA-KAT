@@ -1,5 +1,5 @@
-wa_kat.zeo.request_database module
-==================================
+request_database
+================
 
 .. automodule:: wa_kat.zeo.request_database
     :members:

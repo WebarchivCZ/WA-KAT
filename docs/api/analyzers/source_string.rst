@@ -1,5 +1,5 @@
-wa_kat.analyzers.source_string module
-=====================================
+source_string container
+=======================
 
 .. automodule:: wa_kat.analyzers.source_string
     :members:
