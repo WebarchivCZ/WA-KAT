@@ -44,14 +44,20 @@ def worker(url_key, property_info, filler_params, conf_path=None):
     from .request_database import RequestDatabase
 
     # this may take some time, hence outside transaction manager
-    data = property_info.filler_func(*filler_params)
+    try:
+        data = property_info.filler_func(*filler_params)
+    except Exception as e:
+        # TODO: log e
+        data = []
 
+    # get the RequestInfo object from database
     if conf_path:
         db = RequestDatabase(conf_path=conf_path)
     else:
         db = RequestDatabase()
     req = db.get_request(url_key)
 
+    # save `data` into RequestInfo object property
     for i in range(5):
         try:
             return _save_to_database(req, property_info.name, data)
