@@ -8,54 +8,19 @@ import json
 import time
 
 from browser import ajax
-from browser import html
+
 from browser import alert  # TODO: Remove
 from browser import window
 from browser import document
 
 from components import UrlBoxError
 from components import ProgressBar
+from components import ConspectHandler
 from components import DropdownHandler
 from components import PlaceholderHandler
 
 
 # GUI views ===================================================================
-class ConspectHandler(object):
-    conspect = {}
-    conspect_el = document["konspekt"]
-    subconspect_el = document["subkonspekt"]
-    value = None
-
-    @classmethod
-    def _save_value(cls):
-        consp = min(sel.value for sel in cls.conspect_el if sel.selected)
-        sub = min(sel.value for sel in cls.subconspect_el if sel.selected)
-
-        cls.value = cls.conspect[consp][sub]
-        alert(cls.value)
-
-    @classmethod
-    def _set_sub_conspect(cls):
-        selected = min(sel.value for sel in cls.conspect_el if sel.selected)
-
-        cls.subconspect_el.html = ""
-
-        for key in sorted(cls.conspect[selected].keys()):
-            cls.subconspect_el <= html.OPTION(key)
-
-        cls.subconspect_el.bind('change', lambda x: cls._save_value())
-
-    @classmethod
-    def set_conspect(cls, new_conspect):
-        cls.conspect = new_conspect
-
-        cls.conspect_el.html = ""
-        for key in sorted(cls.conspect.keys()):
-            cls.conspect_el <= html.OPTION(key)
-
-        cls.conspect_el.bind('change', lambda x: cls._set_sub_conspect())
-
-
 class InputMapper(object):
     _map = {  # TODO: get rid of this
         "title_tags": "title",
