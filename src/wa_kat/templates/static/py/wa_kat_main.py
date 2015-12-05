@@ -18,22 +18,8 @@ from components import DropdownHandler
 
 
 # GUI views ===================================================================
-class InputMapper(object):
-    _map = {  # TODO: get rid of this
-        "title_tags": "title",
-        "place_tags": "place",
-        "lang_tags": "lang",
-        "keyword_tags": "keywords",
-        "author_tags": "author",
-        "annotation_tags": "annotation",
-        "creation_dates": "creation_date",
-    }
-    _set_by_typeahead = set()
+class PlaceholderHandler(object):
     _dropdown_text = " Klikněte pro výběr."
-
-    @classmethod
-    def _get_el(cls, rest_id):
-        return document[cls._map[rest_id]]
 
     @staticmethod
     def set_placeholder_text(input_el, text):
@@ -59,9 +45,26 @@ class InputMapper(object):
             text=text.replace(cls._dropdown_text, "")
         )
 
+
+class InputMapper(object):
+    _map = {  # TODO: get rid of this
+        "title_tags": "title",
+        "place_tags": "place",
+        "lang_tags": "lang",
+        "keyword_tags": "keywords",
+        "author_tags": "author",
+        "annotation_tags": "annotation",
+        "creation_dates": "creation_date",
+    }
+    _set_by_typeahead = set()
+
+    @classmethod
+    def _get_el(cls, rest_id):
+        return document[cls._map[rest_id]]
+
     @classmethod
     def _set_typeahead(cls, key, el, value):
-        cls.reset_placeholder_dropdown(el)
+        PlaceholderHandler.reset_placeholder_dropdown(el)
 
         # if there is no elements, show alert icon in glyph
         if not value:
@@ -95,7 +98,7 @@ class InputMapper(object):
         # dropdown glyph
         window.make_typeahead_tag("#" + parent_id, value)
         DropdownHandler.set_dropdown_glyph(el.id, "glyphicon-menu-down")
-        cls.set_placeholder_dropdown(el)
+        PlaceholderHandler.set_placeholder_dropdown(el)
         cls._set_by_typeahead.add(parent_id)
 
     @staticmethod
