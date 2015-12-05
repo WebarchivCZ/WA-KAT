@@ -12,115 +12,12 @@ from browser import alert  # TODO: Remove
 from browser import window
 from browser import document
 
+from components import UrlBoxError
+from components import ProgressBar
+from components import DropdownHandler
+
 
 # GUI views ===================================================================
-class UrlBoxError(object):
-    tag = document["urlbox_error"]
-    whole_tag = document["whole_urlbox_error"]
-
-    @classmethod
-    def show(cls, msg):
-        cls.tag.innerHTML = msg
-        cls.whole_tag.style.display = "block"
-
-    @classmethod
-    def hide(cls):
-        cls.whole_tag.style.display = "none"
-
-    @classmethod
-    def reset(cls):
-        cls.hide()
-        cls.tag.innerHTML = ""
-
-
-class ProgressBar(object):
-    tag = document["progress_bar"]
-    whole_tag = document["whole_progress_bar"]
-    original_message = tag.text
-
-    @staticmethod
-    def _compute_percentage(progress_tuple):
-        # division by zero..
-        if progress_tuple[0] == 0:
-            return 0
-
-        return (100 / progress_tuple[1]) * progress_tuple[0]
-
-    @classmethod
-    def show(cls, progress, msg=None):
-        if cls.whole_tag.style.display == "none":
-            cls.whole_tag.style.display = "block"
-
-        percentage = cls._compute_percentage(progress)
-
-        # toggle animation
-        cls.tag.class_name = "progress-bar"
-        if percentage < 100:
-            cls.tag.class_name += " progress-bar-striped active"
-        else:
-            msg = "Hotovo"
-
-        # show percentage in progress bar
-        cls.tag.aria_valuemin = percentage
-        cls.tag.style.width = "{}%".format(percentage)
-
-        if msg:
-            cls.tag.text = msg
-
-    @classmethod
-    def hide(cls):
-        cls.whole_tag.style.display = "none"
-
-    @classmethod
-    def reset(cls):
-        cls.hide()
-        cls.tag.class_name = "progress-bar progress-bar-striped active"
-        cls.tag.aria_valuemin = 0
-        cls.tag.style.width = "{}%".format(0)
-        cls.tag.text = cls.original_message
-
-
-class DropdownHandler(object):
-    @staticmethod
-    def _get_dropdown_glyph_el(input_id):
-        input_el = document[input_id]
-        parent = input_el.parent
-        grand_parent = parent.parent
-
-        for el in list(parent.children) + list(grand_parent.children):
-            if el.class_name and "dropdown_hint" in el.class_name.lower():
-                return el
-
-        raise ValueError("Dropdown not found!")
-
-    @classmethod
-    def show_dropdown_glyph(cls, input_id):
-        el = cls._get_dropdown_glyph_el(input_id)
-        el.style.display = "block"
-
-        return el
-
-    @classmethod
-    def hide_dropdown_glyph(cls, input_id):
-        el = cls._get_dropdown_glyph_el(input_id)
-        el.style.display = "none"
-
-        return el
-
-    @classmethod
-    def set_dropdown_glyph(cls, input_id, glyph_name):
-        el = cls.show_dropdown_glyph(input_id)
-        filtered_tokens = [
-            token
-            for token in str(el.class_name).split()
-            if "glyphicon" not in token
-        ]
-        tokens = filtered_tokens + ["glyphicon", glyph_name]
-
-        el.class_name = " ".join(tokens)
-        return el
-
-
 class InputMapper(object):
     _map = {  # TODO: get rid of this
         "title_tags": "title",
