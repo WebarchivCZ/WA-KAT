@@ -11,7 +11,7 @@ import transaction
 
 from wa_kat.zeo import RequestDatabase
 from wa_kat.zeo.worker import worker
-from wa_kat.zeo.request_info import _get_req_mapping
+from wa_kat.zeo.request_info import worker_mapping
 
 
 # Variables ===================================================================
@@ -66,7 +66,7 @@ def test_worker(rdb, request_info, client_conf_path):
 </HTML>
     """
 
-    property_info = _get_req_mapping()["title_tags"]
+    property_info = worker_mapping()["title_tags"]
     worker(
         url_key=request_info.url,
         property_info=property_info,
@@ -110,7 +110,7 @@ def test_RequestInfo_paralel_download(request_info, client_conf_path):
         assert request_info.progress()[0] == request_info.progress()[1]
 
         set_keys = set(request_info.to_dict()["values"].keys())
-        assert set_keys == set(_get_req_mapping().keys())
+        assert set_keys == set(worker_mapping().keys())
 
         assert request_info.to_dict()["values"]["place_tags"]
 

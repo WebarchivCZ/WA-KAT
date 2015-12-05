@@ -7,7 +7,6 @@
 import time
 from urlparse import urlparse
 from collections import namedtuple
-from collections import OrderedDict
 from multiprocessing import Process
 from functools import total_ordering
 
@@ -15,101 +14,16 @@ import requests
 import transaction
 from persistent import Persistent
 from zeo_connector import transaction_manager
-from backports.functools_lru_cache import lru_cache
 
-from .. import analyzers
-from worker import worker
 from ..settings import ZEO_CACHE_TIME
 from ..settings import REQUEST_TIMEOUT
 from ..settings import ZEO_MAX_WAIT_TIME
+from ..worker_mapping import worker_mapping
+
+from worker import worker
 
 
 # Functions & classes =========================================================
-class PropertyInfo(namedtuple("PropertyInfo", ["name",
-                                               "filler_func",
-                                               "filler_params"])):
-    """
-    This class is used to join one function (:attr:`filler_func`) from
-    :mod:`.analyzers` with its parameters (:attr:`filler_params`) and to say,
-    where it should be stored (:attr:`name`).
-
-    Example::
-
-        PropertyInfo(
-            name="title_tags",
-            filler_func=analyzers.get_title_tags,
-            filler_params=lambda self: self.index,
-        )
-
-    Attributes:
-        name (str): Name of the property, where the data should be stored.
-        filler_func (fn ref): Reference to function, which will be called.
-        filler_params (lambda self:): Lambda function, which returns the
-            parameters for :attr:`filler_func`. Function takes one parameter,
-            which contains the reference to :class:`.PropertyInfo` object in
-            which the result is stored.
-    """
-
-
-@lru_cache()
-def _get_req_mapping():
-    """
-    This function serves as joiner for functions from :mod:`analyzers`, to map
-    them to properties, which will be stored in :class:`.RequestInfo` database
-    object.
-
-    I've decided to do it this way, because it will allow paralel processing
-    of the properties/functions and also all configuration is at one place,
-    instead of multiple places in object properties / methods and so on.
-
-    Returns:
-        OrderedDict: with :class:`.PropertyInfo` objects.
-    """
-    REQ_MAPPING = [
-        PropertyInfo(
-            name="title_tags",
-            filler_func=analyzers.get_title_tags,
-            filler_params=lambda self: [self.index],
-        ),
-        PropertyInfo(
-            name="place_tags",
-            filler_func=analyzers.get_place_tags,
-            filler_params=lambda self: [self.index, self.domain],
-        ),
-        PropertyInfo(
-            name="lang_tags",
-            filler_func=analyzers.get_lang_tags,
-            filler_params=lambda self: [self.index],
-        ),
-        PropertyInfo(
-            name="keyword_tags",
-            filler_func=analyzers.get_keyword_tags,
-            filler_params=lambda self: [self.index],
-        ),
-        PropertyInfo(
-            name="author_tags",
-            filler_func=analyzers.get_author_tags,
-            filler_params=lambda self: [self.index],
-        ),
-        PropertyInfo(
-            name="annotation_tags",
-            filler_func=analyzers.get_annotation_tags,
-            filler_params=lambda self: [self.index],
-        ),
-        PropertyInfo(
-            name="creation_dates",
-            filler_func=analyzers.get_creation_date_tags,
-            filler_params=lambda self: (self.url, self.domain),
-        ),
-    ]
-
-    # construct the OrderedDict - I want the order preserved
-    return OrderedDict(
-        (req.name, req)
-        for req in REQ_MAPPING
-    )
-
-
 class Progress(namedtuple("Progress", ["done", "base"])):
     """
     Progress bar representation.
@@ -161,7 +75,7 @@ class RequestInfo(Persistent):
         self.processing_started_ts = None
         self.processing_ended_ts = None
 
-        for req in _get_req_mapping().values():
+        for req in worker_mapping().values():
             setattr(self, req.name, None)
 
     def _download(self, url):
@@ -195,7 +109,7 @@ class RequestInfo(Persistent):
             self.processing_started_ts = time.time()
 
         # launch all workers as paralel processes
-        for pi in _get_req_mapping().values():
+        for pi in worker_mapping().values():
             p = Process(
                 target=worker,
                 kwargs={
@@ -212,7 +126,7 @@ class RequestInfo(Persistent):
         """
         Reset the progress counter back to zero.
         """
-        for property_name in _get_req_mapping().keys():
+        for property_name in worker_mapping().keys():
             setattr(self, property_name, None)
 
     @transaction_manager
@@ -226,7 +140,7 @@ class RequestInfo(Persistent):
         """
         return set(
             property_name
-            for property_name in _get_req_mapping().keys()
+            for property_name in worker_mapping().keys()
             if getattr(self, property_name) is not None
         )
 
@@ -239,7 +153,7 @@ class RequestInfo(Persistent):
         """
         return Progress(
             done=len(self._get_all_set_properties()),
-            base=len(_get_req_mapping()),
+            base=len(worker_mapping()),
         )
 
     def is_all_set(self):
@@ -249,7 +163,7 @@ class RequestInfo(Persistent):
         Returns:
             bool: True if they are set.
         """
-        return self._get_all_set_properties() == set(_get_req_mapping().keys())
+        return self._get_all_set_properties() == set(worker_mapping().keys())
 
     @transaction_manager
     def is_old(self):
@@ -292,7 +206,7 @@ class RequestInfo(Persistent):
                     tag.to_dict()
                     for tag in getattr(self, property_name) or []
                 ]
-                for property_name in _get_req_mapping().keys()
+                for property_name in worker_mapping().keys()
             }
         }
 
@@ -329,7 +243,7 @@ class RequestInfo(Persistent):
             oldState[np_name] = max({savedState[np_name], newState[np_name]})
 
         # for `mapping` properties perform the merge
-        for name in _get_req_mapping().keys():
+        for name in worker_mapping().keys():
             # don't update None states - this is important for .is_all_set()
             if oldState[name] is None and savedState[name] is None and \
                newState[name] is None:
