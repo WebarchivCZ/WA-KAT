@@ -21,6 +21,19 @@ from ..settings import CONSPECT_UPDATE_INTERVAL
 
 # Variables ===================================================================
 # Functions & classes =========================================================
+def conspect_to_dict(original):
+    def _process_subcategories(sub_category):
+        return {
+            cat["name"]: cat["subcategory_id"]
+            for cat in sub_category
+        }
+
+    return {
+        el["name"]: _process_subcategories(el["sub_categories"])
+        for el in original
+    }
+
+
 class ConspectInfo(Persistent):
     def __init__(self):
         self.data = {}
@@ -102,7 +115,9 @@ class ConspectDatabase(DatabaseHandler):
         self.conspect.timed_update()
 
         with transaction.manager:
-            return self.conspect.data
+            data = self.conspect.data
+
+        return conspect_to_dict(data)
 
     @data.setter
     def data(self, val):
