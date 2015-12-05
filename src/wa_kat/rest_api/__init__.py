@@ -55,8 +55,6 @@ def get_result(url):
             "error": str(e.message) + "\n" + traceback.format_exc().strip()
         }
 
-    print ri.to_dict()
-
     return {
         "status": True,
         "body": ri.to_dict()
