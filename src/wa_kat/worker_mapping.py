@@ -53,6 +53,8 @@ def worker_mapping():
     Returns:
         OrderedDict: with :class:`.PropertyInfo` objects.
     """
+    from zeo import ConspectDatabase
+
     REQ_MAPPING = [
         PropertyInfo(
             name="title_tags",
@@ -88,6 +90,11 @@ def worker_mapping():
             name="creation_dates",
             filler_func=analyzers.get_creation_date_tags,
             filler_params=lambda self: (self.url, self.domain),
+        ),
+        PropertyInfo(
+            name="conspect",
+            filler_func=lambda: ConspectDatabase().data,
+            filler_params=lambda self: [],
         ),
     ]
 

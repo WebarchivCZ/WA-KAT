@@ -203,7 +203,7 @@ class RequestInfo(Persistent):
             "progress": self.progress(),
             "values": {
                 property_name: [
-                    tag.to_dict()
+                    tag.to_dict() if not isinstance(tag, dict) else tag
                     for tag in getattr(self, property_name) or []
                 ]
                 for property_name in worker_mapping().keys()
