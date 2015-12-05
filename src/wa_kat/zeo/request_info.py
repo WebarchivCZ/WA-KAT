@@ -198,14 +198,25 @@ class RequestInfo(Persistent):
             dict: ``{"all_set": bool, "progress": [int(done), int(how_many)], \
                   "values": {"property": [values], ..}}``
         """
+        def to_dict_list(seq):
+            return [
+                tag.to_dict()
+                for tag in seq
+            ]
+
+        def process_property(val):
+            if isinstance(val, dict):
+                return val
+
+            return to_dict_list(val)
+
         return {
             "all_set": self.is_all_set(),
             "progress": self.progress(),
             "values": {
-                property_name: [
-                    tag.to_dict() if not isinstance(tag, dict) else tag
-                    for tag in getattr(self, property_name) or []
-                ]
+                property_name: process_property(
+                    getattr(self, property_name) or []
+                )
                 for property_name in worker_mapping().keys()
             }
         }

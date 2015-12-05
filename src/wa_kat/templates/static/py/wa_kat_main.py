@@ -8,6 +8,7 @@ import json
 import time
 
 from browser import ajax
+from browser import html
 from browser import alert  # TODO: Remove
 from browser import window
 from browser import document
@@ -19,6 +20,19 @@ from components import PlaceholderHandler
 
 
 # GUI views ===================================================================
+class ConspectHandler(object):
+    conspect = {}
+    conspect_el = document["konspekt"]
+    subconspect_el = document["subkonspekt"]
+
+    @classmethod
+    def set_conspect(cls, new_conspect):
+        cls.conspect = new_conspect
+
+        for key in sorted(cls.conspect.keys()):
+            cls.conspect_el <= html.OPTION(key)
+
+
 class InputMapper(object):
     _map = {  # TODO: get rid of this
         "title_tags": "title",
@@ -87,6 +101,9 @@ class InputMapper(object):
 
     @classmethod
     def map(cls, key, value):
+        if key == "conspect":
+            return ConspectHandler.set_conspect(value)
+
         el = cls._get_el(key)
         tag_name = el.elt.tagName.lower()
 
