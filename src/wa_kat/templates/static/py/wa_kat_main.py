@@ -18,19 +18,19 @@ class UrlBoxError(object):
     tag = document["urlbox_error"]
     whole_tag = document["whole_urlbox_error"]
 
-    @staticmethod
-    def show(msg):
-        UrlBoxError.tag.innerHTML = msg
-        UrlBoxError.whole_tag.style.display = "block"
+    @classmethod
+    def show(cls, msg):
+        cls.tag.innerHTML = msg
+        cls.whole_tag.style.display = "block"
 
-    @staticmethod
-    def hide():
-        UrlBoxError.whole_tag.style.display = "none"
+    @classmethod
+    def hide(cls):
+        cls.whole_tag.style.display = "none"
 
-    @staticmethod
-    def reset():
-        UrlBoxError.hide()
-        UrlBoxError.tag.innerHTML = ""
+    @classmethod
+    def reset(cls):
+        cls.hide()
+        cls.tag.innerHTML = ""
 
 
 class ProgressBar(object):
@@ -46,38 +46,38 @@ class ProgressBar(object):
 
         return (100 / progress_tuple[1]) * progress_tuple[0]
 
-    @staticmethod
-    def show(progress, msg=None):
-        if ProgressBar.whole_tag.style.display == "none":
-            ProgressBar.whole_tag.style.display = "block"
+    @classmethod
+    def show(cls, progress, msg=None):
+        if cls.whole_tag.style.display == "none":
+            cls.whole_tag.style.display = "block"
 
-        percentage = ProgressBar._compute_percentage(progress)
+        percentage = cls._compute_percentage(progress)
 
         # toggle animation
-        ProgressBar.tag.class_name = "progress-bar"
+        cls.tag.class_name = "progress-bar"
         if percentage < 100:
-            ProgressBar.tag.class_name += " progress-bar-striped active"
+            cls.tag.class_name += " progress-bar-striped active"
         else:
             msg = "Hotovo"
 
         # show percentage in progress bar
-        ProgressBar.tag.aria_valuemin = percentage
-        ProgressBar.tag.style.width = "{}%".format(percentage)
+        cls.tag.aria_valuemin = percentage
+        cls.tag.style.width = "{}%".format(percentage)
 
         if msg:
-            ProgressBar.tag.text = msg
+            cls.tag.text = msg
 
-    @staticmethod
-    def hide():
-        ProgressBar.whole_tag.style.display = "none"
+    @classmethod
+    def hide(cls):
+        cls.whole_tag.style.display = "none"
 
-    @staticmethod
-    def reset():
-        ProgressBar.hide()
-        ProgressBar.tag.class_name = "progress-bar progress-bar-striped active"
-        ProgressBar.tag.aria_valuemin = 0
-        ProgressBar.tag.style.width = "{}%".format(0)
-        ProgressBar.tag.text = ProgressBar.original_message
+    @classmethod
+    def reset(cls):
+        cls.hide()
+        cls.tag.class_name = "progress-bar progress-bar-striped active"
+        cls.tag.aria_valuemin = 0
+        cls.tag.style.width = "{}%".format(0)
+        cls.tag.text = cls.original_message
 
 
 class DropdownHandler(object):
@@ -93,23 +93,23 @@ class DropdownHandler(object):
 
         raise ValueError("Dropdown not found!")
 
-    @staticmethod
-    def show_dropdown_glyph(input_id):
-        el = DropdownHandler._get_dropdown_glyph_el(input_id)
+    @classmethod
+    def show_dropdown_glyph(cls, input_id):
+        el = cls._get_dropdown_glyph_el(input_id)
         el.style.display = "block"
 
         return el
 
-    @staticmethod
-    def hide_dropdown_glyph(input_id):
-        el = DropdownHandler._get_dropdown_glyph_el(input_id)
+    @classmethod
+    def hide_dropdown_glyph(cls, input_id):
+        el = cls._get_dropdown_glyph_el(input_id)
         el.style.display = "none"
 
         return el
 
-    @staticmethod
-    def set_dropdown_glyph(input_id, glyph_name):
-        el = DropdownHandler.show_dropdown_glyph(input_id)
+    @classmethod
+    def set_dropdown_glyph(cls, input_id, glyph_name):
+        el = cls.show_dropdown_glyph(input_id)
         filtered_tokens = [
             token
             for token in str(el.class_name).split()
@@ -134,9 +134,9 @@ class InputMapper(object):
     _set_by_typeahead = set()
     _dropdown_text = " Klikněte pro výběr."
 
-    @staticmethod
-    def _get_el(rest_id):
-        return document[InputMapper._map[rest_id]]
+    @classmethod
+    def _get_el(cls, rest_id):
+        return document[cls._map[rest_id]]
 
     @staticmethod
     def set_placeholder_text(input_el, text):
@@ -146,25 +146,25 @@ class InputMapper(object):
     def get_placeholder_text(input_el):
         return input_el.placeholder
 
-    @staticmethod
-    def set_placeholder_dropdown(input_el):
-        text = InputMapper.get_placeholder_text(input_el)
-        InputMapper.set_placeholder_text(
+    @classmethod
+    def set_placeholder_dropdown(cls, input_el):
+        text = cls.get_placeholder_text(input_el)
+        cls.set_placeholder_text(
             input_el=input_el,
-            text=text + InputMapper._dropdown_text
+            text=text + cls._dropdown_text
         )
 
-    @staticmethod
-    def reset_placeholder_dropdown(input_el):
-        text = InputMapper.get_placeholder_text(input_el)
-        InputMapper.set_placeholder_text(
+    @classmethod
+    def reset_placeholder_dropdown(cls, input_el):
+        text = cls.get_placeholder_text(input_el)
+        cls.set_placeholder_text(
             input_el=input_el,
-            text=text.replace(InputMapper._dropdown_text, "")
+            text=text.replace(cls._dropdown_text, "")
         )
 
-    @staticmethod
-    def _set_typeahead(key, el, value):
-        InputMapper.reset_placeholder_dropdown(el)
+    @classmethod
+    def _set_typeahead(cls, key, el, value):
+        cls.reset_placeholder_dropdown(el)
 
         # if there is no elements, show alert icon in glyph
         if not value:
@@ -198,8 +198,8 @@ class InputMapper(object):
         # dropdown glyph
         window.make_typeahead_tag("#" + parent_id, value)
         DropdownHandler.set_dropdown_glyph(el.id, "glyphicon-menu-down")
-        InputMapper.set_placeholder_dropdown(el)
-        InputMapper._set_by_typeahead.add(parent_id)
+        cls.set_placeholder_dropdown(el)
+        cls._set_by_typeahead.add(parent_id)
 
     @staticmethod
     def _set_input(key, el, value):
@@ -212,18 +212,18 @@ class InputMapper(object):
             for item in value
         )
 
-    @staticmethod
-    def map(key, value):
-        el = InputMapper._get_el(key)
+    @classmethod
+    def map(cls, key, value):
+        el = cls._get_el(key)
         tag_name = el.elt.tagName.lower()
 
         if tag_name == "textarea":
-            InputMapper._set_textarea(key, el, value)
+            cls._set_textarea(key, el, value)
         elif tag_name == "input":
             if "typeahead" in el.class_name.lower():
-                InputMapper._set_typeahead(key, el, value)
+                cls._set_typeahead(key, el, value)
             else:
-                InputMapper._set_input(key, el, value)
+                cls._set_input(key, el, value)
         elif tag_name == "select":
             pass  # TODO: implement selecting of the keywords
         else:
@@ -231,17 +231,17 @@ class InputMapper(object):
                 "Setter for %s (%s) not implemented!" % (tag_name, el.id)
             )
 
-    @staticmethod
-    def fill_inputs(values):
+    @classmethod
+    def fill_inputs(cls, values):
         for key, value in values.items():
-            InputMapper.map(key, value)
+            cls.map(key, value)
 
-    @staticmethod
-    def reset():
-        for el_id in InputMapper._set_by_typeahead:
+    @classmethod
+    def reset(cls):
+        for el_id in cls._set_by_typeahead:
             window.destroy_typyahead_tag("#" + el_id)
 
-        InputMapper._set_by_typeahead = set()
+        cls._set_by_typeahead = set()
 
 
 # Functions ===================================================================
