@@ -25,6 +25,28 @@ var make_typeahead_tag = function(tag_id, hints){
   });
 }
 
+var make_multi_searchable_typeahead_tag  = function(){
+  all_tags = [{
+    hint: true,
+    minLength: 0,
+    highlight: true,
+  }];
+
+  tag_id = arguments[0];
+  for (var i = 1; i < arguments.length; i++) {
+    dataset = {
+      source: arguments[i].data,
+      templates: {
+        header: '<h3 class="conspect_name">' arguments[i].name + '</h3>'
+      }
+    };
+
+    all_tags.push(dataset);
+  }
+
+  $(tag_id + ' .typeahead').typeahead.apply(all_tags);
+}
+
 var destroy_typyahead_tag = function(tag_id){
   $(tag_id + ' .typeahead').typeahead("destroy");
 }
