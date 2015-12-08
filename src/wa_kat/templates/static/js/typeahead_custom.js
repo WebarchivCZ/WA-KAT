@@ -29,6 +29,7 @@ var make_multi_searchable_typeahead_tag  = function(){
   // start with basic typeahead settings
   all_tags = new Array({
     hint: true,
+    limit: 20,
     minLength: 0,
     highlight: true,
   });
@@ -39,10 +40,13 @@ var make_multi_searchable_typeahead_tag  = function(){
   // map arguments to `all_tags` array
   for (var i = 1; i < arguments.length; i++) {
     dataset = {
-      limit: 20,
-      source: tag_passer(arguments[i].data),
+      source: new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace,
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          local: arguments[i].data
+      }),
       templates: {
-        header: '<h3 class="conspect_name">' + arguments[i].name + '</h3>',
+        header: '<h4 class="conspect_name">' + arguments[i].name + '</h4>',
       }
     }
 

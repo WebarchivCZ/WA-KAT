@@ -10,10 +10,19 @@
     unicode-bidi: bidi-override;
 }
 
+.conspect_name {
+    padding-left: 1em;
+}
+
 .gray_text {
     color: gray;
 }
 
 .progress-bar {
     color: black;
+}
+
+#conspect_subconspect_typeahead .tt-menu {
+    max-height: 20em;
+    overflow-y: auto;
 }
