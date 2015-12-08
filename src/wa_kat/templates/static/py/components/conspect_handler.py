@@ -5,6 +5,7 @@
 #
 # Imports =====================================================================
 from browser import html
+from browser import window
 from browser import document
 
 
@@ -34,6 +35,20 @@ class ConspectHandler(object):
         cls.subconspect_el.bind('change', lambda x: cls._save_value())
 
     @classmethod
+    def _create_searchable_typeahead(cls):
+        args = [
+            {
+                "name": key,
+                "data": sorted(cls.conspect[key].keys()),
+            }
+            for key in sorted(cls.conspect.keys())
+        ]
+        window.make_multi_searchable_typeahead_tag(
+            "#conspect_subconspect_typeahead",
+            *args
+        )
+
+    @classmethod
     def set_conspect(cls, new_conspect):
         cls.conspect = new_conspect
 
@@ -42,3 +57,5 @@ class ConspectHandler(object):
             cls.conspect_el <= html.OPTION(key)
 
         cls.conspect_el.bind('change', lambda x: cls._set_sub_conspect())
+
+        cls._create_searchable_typeahead()
