@@ -190,5 +190,6 @@ def analysis_after_enter_pressed(ev):
 
 document["run_button"].bind("click", start_analysis)
 document["url"].bind("keypress", analysis_after_enter_pressed)
+ConspectHandler.bind_switcher()
 
 start_analysis(1)

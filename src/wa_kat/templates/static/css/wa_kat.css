@@ -26,3 +26,12 @@
     max-height: 20em;
     overflow-y: auto;
 }
+
+.conspect_switcher {
+    width: 112%;
+    position: absolute;
+}
+
+.searchable_conspect {
+    display: none;
+}

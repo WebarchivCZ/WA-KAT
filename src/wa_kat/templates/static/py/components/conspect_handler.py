@@ -59,3 +59,31 @@ class ConspectHandler(object):
         cls.conspect_el.bind('change', lambda x: cls._set_sub_conspect())
 
         cls._create_searchable_typeahead()
+
+    @staticmethod
+    def bind_switcher():
+        def show_two_conspect():
+            for el in document.get(selector=".two_conspect"):
+                el.style.display = "block"
+
+            for el in document.get(selector=".searchable_conspect"):
+                el.style.display = "none"
+
+        def hide_two_conspect():
+            for el in document.get(selector=".two_conspect"):
+                el.style.display = "none"
+
+            for el in document.get(selector=".searchable_conspect"):
+                el.style.display = "block"
+
+        def show_or_hide_two_conspect(ev):
+            for el in document.get(selector=".conspect_switcher"):
+                el.checked = ev.target.checked
+
+            if document.get(selector=".conspect_switcher")[0].checked:
+                return hide_two_conspect()
+
+            return show_two_conspect()
+
+        for el in document.get(selector=".conspect_switcher"):
+            el.bind("change", show_or_hide_two_conspect)
