@@ -148,11 +148,15 @@ def _read_from_paths():
 
 
 def _apply_settings():
+    """
+    Read variables from the possible paths. Assert that constraints are set.
+    """
     _substitute_globals(
         json.loads(_read_from_paths())
     )
 
-    _assert_constraints()
+    if not os.environ.get('READTHEDOCS'):
+        _assert_constraints()
 
 
 _apply_settings()
