@@ -7,3 +7,4 @@ langdetect==1.0.5
 zeo_connector>=0.4.2
 pydhtmlparser>=2.1.5
 backports.functools_lru_cache
+edeposit.amqp.aleph
