@@ -4,6 +4,7 @@ ipwhois
 requests
 kwargs_obj
 bottle-rest
+remove_hairs
 langdetect==1.0.5
 zeo_connector>=0.4.2
 pydhtmlparser>=2.1.5
