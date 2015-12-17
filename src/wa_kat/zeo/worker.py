@@ -23,7 +23,8 @@ def _save_to_database(req, property_name, data):
         req._p_changed = True
 
 
-def worker(url_key, property_info, filler_params, conf_path=None):
+def worker(url_key, property_name, property_function, request_info,
+           conf_path=None):
     """
     This function is meant to run as process on the background.
 
@@ -41,25 +42,23 @@ def worker(url_key, property_info, filler_params, conf_path=None):
         conf_path (str, default None): Optional parameter used by tests to
             redirect the database connections to test's environment.
     """
-    from .request_database import RequestDatabase
-
     # this may take some time, hence outside transaction manager
     try:
-        data = property_info.filler_func(*filler_params)
+        data = property_function(request_info)
     except Exception as e:
         # TODO: log e
         data = []
 
     # get the RequestInfo object from database
+    from .request_database import RequestDatabase
     if conf_path:
         db = RequestDatabase(conf_path=conf_path)
     else:
         db = RequestDatabase()
-    req = db.get_request(url_key)
 
     # save `data` into RequestInfo object property
-    for i in range(5):
+    for i in xrange(5):
         try:
-            return _save_to_database(req, property_info.name, data)
+            return _save_to_database(db.get_request(url_key), property_name, data)
         except ConflictError:
             time.sleep(0.1)

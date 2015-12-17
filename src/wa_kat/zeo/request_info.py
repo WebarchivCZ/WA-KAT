@@ -14,16 +14,22 @@ import requests
 import transaction
 from persistent import Persistent
 from zeo_connector import transaction_manager
+from backports.functools_lru_cache import lru_cache
 
 from ..settings import ZEO_CACHE_TIME
 from ..settings import REQUEST_TIMEOUT
 from ..settings import ZEO_MAX_WAIT_TIME
-from ..worker_mapping import worker_mapping
+from ..data_model import Model
 
 from worker import worker
 
 
 # Functions & classes =========================================================
+@lru_cache()
+def worker_mapping():
+    return Model().analyzers_mapping().get_mapping()
+
+
 class Progress(namedtuple("Progress", ["done", "base"])):
     """
     Progress bar representation.
@@ -75,8 +81,8 @@ class RequestInfo(Persistent):
         self.processing_started_ts = None
         self.processing_ended_ts = None
 
-        for req in worker_mapping().values():
-            setattr(self, req.name, None)
+        for key in worker_mapping().keys():
+            setattr(self, key, None)
 
     def _download(self, url):
         """
@@ -109,13 +115,14 @@ class RequestInfo(Persistent):
             self.processing_started_ts = time.time()
 
         # launch all workers as paralel processes
-        for pi in worker_mapping().values():
+        for name, function in worker_mapping().iteritems():
             p = Process(
                 target=worker,
                 kwargs={
                     "url_key": self.url,
-                    "property_info": pi,
-                    "filler_params": pi.filler_params(self),
+                    "property_name": name,
+                    "property_function": function,
+                    "request_info": self,
                     "conf_path": client_conf,
                 }
             )
@@ -181,8 +188,8 @@ class RequestInfo(Persistent):
         # in case that processing started, but didn't ended in
         # ZEO_MAX_WAIT_TIME
         expected_end_ts = self.creation_ts + ZEO_MAX_WAIT_TIME
-        not_ended = not (self.processing_ended_ts or self.is_all_set())
-        if not_ended and expected_end_ts < time.time():
+        ended = (self.processing_ended_ts or self.is_all_set())
+        if ended and expected_end_ts < time.time():
             return True
 
         return self.processing_ended_ts + ZEO_CACHE_TIME < time.time()
