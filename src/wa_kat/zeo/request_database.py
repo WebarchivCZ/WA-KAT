@@ -51,7 +51,7 @@ class RequestDatabase(DatabaseHandler):
         self.request_key = "requests"
         self.requests = self._get_key_or_create(self.request_key)
 
-    def get_request(self, url):
+    def get_request(self, url, new=False):
         """
         For given `url` register new :class:`RequestInfo` object or return
         cached, if there is such.
@@ -64,11 +64,11 @@ class RequestDatabase(DatabaseHandler):
             obj: Proper :class:`.RequestInfo` object.
         """
         with transaction.manager:
-            req = self.requests.get(url, None)
+            old_req = self.requests.get(url, None)
 
         # return cached requests
-        if req:
-            return req
+        if old_req and not new:
+            return old_req
 
         if not (url.startswith("http://") or url.startswith("https://")):
             raise ValueError("Invalid URL `%s`!" % url)
@@ -77,6 +77,10 @@ class RequestDatabase(DatabaseHandler):
         req = RequestInfo(url=url)
 
         with transaction.manager:
+            if old_req:
+                del self.requests[url]
+                self.zeo.pack()
+
             self.requests[url] = req
 
         return req
@@ -99,3 +103,5 @@ class RequestDatabase(DatabaseHandler):
 
         for key in expired_ri_keys:
             del self.requests[key]
+
+        self.zeo.pack()

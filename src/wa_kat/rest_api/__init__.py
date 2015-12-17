@@ -36,8 +36,15 @@ def get_result(url):
         ri = rd.get_request(url)
 
         if ri.is_old():
-            print "Running the analysis"
+            print "Running the analysis"  #: TODO: to log
+
+            # forget the old one and create new request info - this prevents
+            # conflict errors
+            ri = rd.get_request(url, new=True)
+
+            # run the processing
             ri.paralel_processing()
+
     except (requests.exceptions.Timeout, requests.ConnectionError):
         error_msg = """
             Požadovanou stránku {url} nebylo možné stáhnout během {timeout}

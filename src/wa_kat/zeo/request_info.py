@@ -188,8 +188,8 @@ class RequestInfo(Persistent):
         # in case that processing started, but didn't ended in
         # ZEO_MAX_WAIT_TIME
         expected_end_ts = self.creation_ts + ZEO_MAX_WAIT_TIME
-        ended = (self.processing_ended_ts or self.is_all_set())
-        if ended and expected_end_ts < time.time():
+        ended = (self.processing_ended_ts and self.is_all_set())
+        if not ended and expected_end_ts < time.time():
             return True
 
         return self.processing_ended_ts + ZEO_CACHE_TIME < time.time()
