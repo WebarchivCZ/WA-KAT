@@ -115,14 +115,14 @@ class RequestInfo(Persistent):
             self.processing_started_ts = time.time()
 
         # launch all workers as paralel processes
-        for name, function in worker_mapping().iteritems():
+        for name, function_info in worker_mapping().iteritems():
             p = Process(
                 target=worker,
                 kwargs={
                     "url_key": self.url,
                     "property_name": name,
-                    "property_function": function,
-                    "request_info": self,
+                    "function": function_info.func,
+                    "function_arguments": function_info.args_func(self),
                     "conf_path": client_conf,
                 }
             )

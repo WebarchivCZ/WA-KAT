@@ -23,7 +23,7 @@ def _save_to_database(req, property_name, data):
         req._p_changed = True
 
 
-def worker(url_key, property_name, property_function, request_info,
+def worker(url_key, property_name, function, function_arguments,
            conf_path=None):
     """
     This function is meant to run as process on the background.
@@ -36,15 +36,15 @@ def worker(url_key, property_name, property_function, request_info,
 
     Args:
         url_key (str): Key which will be used for database lookup.
-        property_info (obj): :class:`.PropertyInfo` instance.
-        filler_params (list): List of parameters for function which will be
-            called to retreive data.
+        function (obj): Function used to load the data.
+        function_arguments (list): List of parameters for function which will
+            be called to retreive data.
         conf_path (str, default None): Optional parameter used by tests to
             redirect the database connections to test's environment.
     """
     # this may take some time, hence outside transaction manager
     try:
-        data = property_function(request_info)
+        data = function(*function_arguments)
     except Exception as e:
         # TODO: log e
         data = []
@@ -59,6 +59,10 @@ def worker(url_key, property_name, property_function, request_info,
     # save `data` into RequestInfo object property
     for i in xrange(5):
         try:
-            return _save_to_database(db.get_request(url_key), property_name, data)
+            return _save_to_database(
+                req=db.get_request(url_key),
+                property_name=property_name,
+                data=data
+            )
         except ConflictError:
             time.sleep(0.1)

@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+from collections import namedtuple
 from collections import OrderedDict
 
 from kwargs_obj import KwargsObj
@@ -12,6 +13,14 @@ import analyzers
 
 
 # Functions & classes =========================================================
+class FuncInfo(namedtuple("FuncInfo", ["func", "args_func"])):
+    pass
+
+
+def _compose_func(func, args_func=lambda self: [self.index]):
+    return FuncInfo(func=func, args_func=args_func)
+
+
 class Model(KwargsObj):
     def __init__(self, **kwargs):
         self.url = None
@@ -32,22 +41,23 @@ class Model(KwargsObj):
         from zeo import ConspectDatabase
 
         return cls(
-            title_tags=lambda self: analyzers.get_title_tags(self.index),
-            place_tags=lambda self: analyzers.get_place_tags(
-                self.index,
-                self.domain
+            title_tags=_compose_func(analyzers.get_title_tags),
+            place_tags=_compose_func(
+                analyzers.get_place_tags,
+                lambda x: (x.index, x.domain)
             ),
-            lang_tags=lambda self: analyzers.get_lang_tags(self.index),
-            keyword_tags=lambda self: analyzers.get_keyword_tags(self.index),
-            author_tags=lambda self: analyzers.get_author_tags(self.index),
-            annotation_tags=lambda self: analyzers.get_annotation_tags(
-                self.index
+            lang_tags=_compose_func(analyzers.get_lang_tags),
+            keyword_tags=_compose_func(analyzers.get_keyword_tags),
+            author_tags=_compose_func(analyzers.get_author_tags),
+            annotation_tags=_compose_func(analyzers.get_annotation_tags),
+            creation_dates=_compose_func(
+                analyzers.get_creation_date_tags,
+                lambda x: (x.url, x.domain)
             ),
-            creation_dates=lambda self: analyzers.get_creation_date_tags(
-                self.url,
-                self.domain
-            ),
-            conspect=lambda self: ConspectDatabase().data,
+            conspect=_compose_func(
+                lambda: ConspectDatabase().data,
+                lambda x: []
+            )
         )
 
     def get_mapping(self):
