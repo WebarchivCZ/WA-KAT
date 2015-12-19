@@ -17,6 +17,7 @@ from bottle_rest import form_to_params
 from .. import settings
 from ..zeo import RequestDatabase
 from ..zeo import ConspectDatabase
+from ..connectors import aleph
 
 
 # Variables ===================================================================
@@ -74,3 +75,14 @@ def get_conspect():
     response.content_type = RESPONSE_TYPE
 
     return json.dumps(cd.data)
+
+
+@post(join(API_PATH, "aleph"))
+@form_to_params
+def get_aleph_info(issn):
+    results = list(aleph.by_issn(issn))
+
+    return [
+        result.get_mapping()
+        for result in results
+    ]
