@@ -5,7 +5,6 @@
 #
 # Imports =====================================================================
 from collections import namedtuple
-from collections import OrderedDict
 
 from kwargs_obj import KwargsObj
 
@@ -62,11 +61,11 @@ class Model(KwargsObj):
         )
 
     def get_mapping(self):
-        return OrderedDict(
-            (key, val)
+        return {
+            key: val
             for key, val in self.__dict__.iteritems()
             if val
-        )
+        }
 
     def __repr__(self):
         params = ", ".join(
