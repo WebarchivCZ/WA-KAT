@@ -33,6 +33,7 @@ class Model(KwargsObj):
         self.lang_tags = None
         self.annotation_tags = None
         self.periodicity = None
+        self.source_info = None
 
         self._kwargs_to_attributes(kwargs)
 
@@ -66,3 +67,11 @@ class Model(KwargsObj):
             for key, val in self.__dict__.iteritems()
             if val
         )
+
+    def __repr__(self):
+        params = ", ".join(
+            "%s=%s" % (key, repr(val))
+            for key, val in self.__dict__.iteritems()
+        )
+
+        return "%s(%s)" % (self.__class__.__name__, params)
