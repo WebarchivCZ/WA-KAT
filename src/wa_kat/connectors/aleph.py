@@ -24,27 +24,38 @@ def by_issn(issn):
     for record in aleph.getISSNsXML(issn):
         marc = MARCXMLRecord(record)
 
-        # Model()
-        # TODO: přepsat na .get(), tohle bude vyhazovat výjimky
-        conspect = _first_or_none(marc["072a"])
-        url = _first_or_none(marc["856u"])
-        anotace = _first_or_none(marc["520a"])
-        nazev = _first_or_none(marc["222a"])
-        misto = remove_hairs(_first_or_none(marc["260a"]))
-        vydavatel = remove_hairs(_first_or_none(marc["260b"]), ", ")
-        datum = _first_or_none(marc["260c"])
-        periodicita = _first_or_none(marc["310a"])
-        jazyk = _first_or_none(marc["040b"])
-        tagy = marc["650a07"]
+        model = Model(
+            url=_first_or_none(
+                marc.get("856u")
+            ),
+            conspect=_first_or_none(
+                marc.get("072a")
+            ),
+            annotation_tags=_first_or_none(
+                marc.get("520a")
+            ),
+            periodicity=_first_or_none(
+                marc.get("310a")
+            ),
+            title_tags=_first_or_none(
+                marc.get("222a")
+            ),
+            place_tags=remove_hairs(_first_or_none(
+                marc.get("260a")
+            )),
+            author_tags=remove_hairs(_first_or_none(
+                marc.get("260b")
+            ), ", "),
+            creation_dates=_first_or_none(
+                marc.get("260c")
+            ),
+            lang_tags=_first_or_none(
+                marc.get("040b")
+            ),
+            keyword_tags=marc.get("650a07"),
+            source_info=_first_or_none(
+                marc.get("500a")
+            ),
+        )
 
-        print "---"
-        print "conspect:", conspect
-        print "url:", url
-        print "anotace:", anotace
-        print "nazev:", nazev
-        print "misto:", misto
-        print "vydavatel:", vydavatel
-        print "datum:", datum
-        print "periodicita:", periodicita
-        print "jazyk:", jazyk
-        print "tagy:", tagy
+        yield model
