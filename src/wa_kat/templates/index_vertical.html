@@ -37,9 +37,9 @@
 % else:
           <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." value="http://vps4life.kitakitsune.org/example.html"/>
 % end
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-default" id="run_button">Spustit</button>
-        </span>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" id="run_button">Spustit</button>
+          </span>
         </div>
       </div>
     </div>
@@ -65,7 +65,12 @@
     <div class="form-group">
       <label for="issn" class="control-label col-sm-2">ISSN</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="issn" placeholder="ISSN. Bude použito pro získání dalších katalogizačních informací." />
+        <div class="input-group">
+          <input type="text" class="form-control" id="issn" placeholder="ISSN. Bude použito pro získání dalších katalogizačních informací." />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" id="issn_run_button">Načíst</button>
+          </span>
+        </div>
       </div>
     </div>
 

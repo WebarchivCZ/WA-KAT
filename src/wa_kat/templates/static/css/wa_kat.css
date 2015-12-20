@@ -35,3 +35,7 @@ body {
 .searchable_conspect {
     display: none;
 }
+
+.btn-default {
+    width: 5em;
+}
