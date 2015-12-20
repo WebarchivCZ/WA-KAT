@@ -13,8 +13,9 @@ from browser import alert  # TODO: Remove
 from browser import window
 from browser import document
 
-from components import UrlBoxError
 from components import ProgressBar
+from components import UrlBoxError
+from components import ISSNBoxError
 from components import ConspectHandler
 from components import DropdownHandler
 from components import PlaceholderHandler
@@ -122,7 +123,7 @@ class InputMapper(object):
         cls._set_by_typeahead = set()
 
 
-# Functions ===================================================================
+# Background processes ========================================================
 class AnalysisRunner(object):
     @classmethod
     def on_complete(cls, req):
@@ -165,7 +166,7 @@ class AnalysisRunner(object):
         url = document["url"].value.strip()
 
         # make sure, that `url` was filled in
-        if not url.strip():
+        if not url:
             UrlBoxError.show("URL musí být vyplněna.")
             return
 
@@ -183,6 +184,46 @@ class AnalysisRunner(object):
         )
 
 
+class AlephReader(object):
+    @classmethod
+    def on_complete(cls, req):
+        # handle http errors
+        if not (req.status == 200 or req.status == 0):
+            UrlBoxError.show(req.text)
+            return
+
+        resp = json.loads(req.text)
+
+        if not resp:
+            ISSNBoxError.show("Pro zadané ISSN nebyly nalezeny žádná data.")
+            return
+
+        alert(resp)
+
+    @classmethod
+    def start(cls, ev):
+        # reset all inputs
+        # InputMapper.reset()  # TODO: 
+        ISSNBoxError.reset()
+
+        # read the urlbox
+        issn = document["issn"].value.strip()
+
+        # make sure, that `url` was filled in
+        if not issn:
+            ISSNBoxError.show("ISSN nebylo vyplněno!")
+            return
+
+        ISSNBoxError.hide()
+
+        make_request(
+            url="/api_v1/aleph",
+            data={'issn': issn},
+            on_complete=cls.on_complete
+        )
+
+
+# Functions ===================================================================
 def make_request(url, data, on_complete):
     req = ajax.ajax()
     req.bind('complete', on_complete)
@@ -204,6 +245,8 @@ def function_on_enter(func):
 
 document["run_button"].bind("click", AnalysisRunner.start)
 document["url"].bind("keypress", function_on_enter(AnalysisRunner.start))
+document["issn_run_button"].bind("click", AlephReader.start)
+document["issn"].bind("keypress", function_on_enter(AlephReader.start))
 ConspectHandler.bind_switcher()
 
-AnalysisRunner.start(1)
+# AnalysisRunner.start(1)
