@@ -8,20 +8,22 @@ from browser import document
 
 
 # Functions & classes =========================================================
-class UrlBoxError(object):
-    tag = document["urlbox_error"]
-    whole_tag = document["whole_urlbox_error"]
+class ErrorBox(object):
+    def __init__(self, tag_id, whole_tag_id):
+        self.tag = document[tag_id]
+        self.whole_tag = document[whole_tag_id]
 
-    @classmethod
-    def show(cls, msg):
-        cls.tag.innerHTML = msg
-        cls.whole_tag.style.display = "block"
+    def show(self, msg):
+        self.tag.innerHTML = msg
+        self.whole_tag.style.display = "block"
 
-    @classmethod
-    def hide(cls):
-        cls.whole_tag.style.display = "none"
+    def hide(self):
+        self.whole_tag.style.display = "none"
 
-    @classmethod
-    def reset(cls):
-        cls.hide()
-        cls.tag.innerHTML = ""
+    def reset(self):
+        self.hide()
+        self.tag.innerHTML = ""
+
+
+UrlBoxError = ErrorBox("urlbox_error", "whole_urlbox_error")
+ISSNBoxError = ErrorBox("issnbox_error", "whole_issnbox_error")

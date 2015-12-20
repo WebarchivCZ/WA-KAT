@@ -4,7 +4,8 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from .urlbox import UrlBoxError
+from .errorbox import UrlBoxError
+from .errorbox import ISSNBoxError
 from .progressbar import ProgressBar
 from .conspect_handler import ConspectHandler
 from .dropdown_handler import DropdownHandler
