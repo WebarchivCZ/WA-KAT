@@ -123,73 +123,87 @@ class InputMapper(object):
 
 
 # Functions ===================================================================
-def on_complete(req):
-    # handle http errors
-    if not (req.status == 200 or req.status == 0):
-        UrlBoxError.show(req.text)
-        return
+class AnalysisRunner(object):
+    @classmethod
+    def on_complete(cls, req):
+        # handle http errors
+        if not (req.status == 200 or req.status == 0):
+            UrlBoxError.show(req.text)
+            return
 
-    resp = json.loads(req.text)
+        resp = json.loads(req.text)
 
-    # handle structured errors
-    if not resp["status"]:
-        UrlBoxError.show(resp["error"])
-        return
+        # handle structured errors
+        if not resp["status"]:
+            UrlBoxError.show(resp["error"])
+            return
 
-    # keep tracking of the progress
-    if not resp["body"]["all_set"]:
+        # keep tracking of the progress
+        if not resp["body"]["all_set"]:
+            ProgressBar.show(resp["body"]["progress"])
+            time.sleep(0.5)
+            make_request(
+                url="/api_v1/analyze",
+                data={'url': document["url"].value},
+                on_complete=cls.on_complete,
+            )
+            return
+
+        # finally save the data to inputs
         ProgressBar.show(resp["body"]["progress"])
-        time.sleep(0.5)
-        make_request(document["url"].value)
-        return
+        InputMapper.fill_inputs(resp["body"]["values"])
 
-    # finally save the data to inputs
-    ProgressBar.show(resp["body"]["progress"])
-    InputMapper.fill_inputs(resp["body"]["values"])
+    @classmethod
+    def start(cls, ev):
+        # reset all inputs
+        ProgressBar.reset()
+        ProgressBar.show([0, 0])
+        InputMapper.reset()
+        UrlBoxError.reset()
+
+        # read the urlbox
+        url = document["url"].value.strip()
+
+        # make sure, that `url` was filled in
+        if not url.strip():
+            UrlBoxError.show("URL musí být vyplněna.")
+            return
+
+        UrlBoxError.hide()
+
+        # normalize the `url`
+        if not (url.startswith("http://") or url.startswith("http://")):
+            url = "http://" + url
+            document["url"].value = url  # store normalized url back to input
+
+        make_request(
+            url="/api_v1/analyze",
+            data={'url': url},
+            on_complete=cls.on_complete
+        )
 
 
-def make_request(url):
+def make_request(url, data, on_complete):
     req = ajax.ajax()
     req.bind('complete', on_complete)
-    req.open('POST', "/api_v1/analyze", True)
+    req.open('POST', url, True)
     req.set_header('content-type', 'application/x-www-form-urlencoded')
-    req.send({'url': url})
+    req.send(data)
 
 
-def start_analysis(ev):
-    # reset all inputs
-    ProgressBar.reset()
-    ProgressBar.show([0, 0])
-    InputMapper.reset()
-    UrlBoxError.reset()
+def function_on_enter(func):
+    def function_after_enter_pressed(ev):
+        ev.stopPropagation()
 
-    # read the urlbox
-    url = document["url"].value.strip()
+        # if the key was `enter` ..
+        if ev.keyCode == 13:
+            func(ev)
 
-    # make sure, that `url` was filled in
-    if not url.strip():
-        UrlBoxError.show("URL musí být vyplněna.")
-        return
-
-    UrlBoxError.hide()
-
-    # normalize the `url`
-    if not (url.startswith("http://") or url.startswith("http://")):
-        url = "http://" + url
-        document["url"].value = url  # store normalized url back to input
-
-    make_request(url)
+    return function_after_enter_pressed
 
 
-def analysis_after_enter_pressed(ev):
-    ev.stopPropagation()
-
-    # if the key was `enter` ..
-    if ev.keyCode == 13:
-        start_analysis(ev)
-
-document["run_button"].bind("click", start_analysis)
-document["url"].bind("keypress", analysis_after_enter_pressed)
+document["run_button"].bind("click", AnalysisRunner.start)
+document["url"].bind("keypress", function_on_enter(AnalysisRunner.start))
 ConspectHandler.bind_switcher()
 
-start_analysis(1)
+AnalysisRunner.start(1)
