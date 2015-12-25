@@ -36,7 +36,10 @@ class InputMapper(object):
 
     @classmethod
     def _get_el(cls, rest_id):
-        return document[cls._map[rest_id]]
+        tag_id = cls._map.get(rest_id, rest_id)
+
+        if tag_id in document:
+            return document[tag_id]
 
     @classmethod
     def _set_typeahead(cls, key, el, value):
@@ -90,12 +93,19 @@ class InputMapper(object):
 
     @classmethod
     def map(cls, key, value):
+        alert(key)
+
         if key == "conspect":
             return ConspectHandler.set_conspect(value)
 
         el = cls._get_el(key)
-        tag_name = el.elt.tagName.lower()
 
+        if not el:  # TODO: save
+            return
+
+        alert(key + str(el))
+
+        tag_name = el.elt.tagName.lower()
         if tag_name == "textarea":
             cls._set_textarea(key, el, value)
         elif tag_name == "input":
@@ -189,7 +199,7 @@ class AlephReader(object):
     def on_complete(cls, req):
         # handle http errors
         if not (req.status == 200 or req.status == 0):
-            UrlBoxError.show(req.text)
+            ISSNBoxError.show(req.text)
             return
 
         resp = json.loads(req.text)
@@ -199,6 +209,9 @@ class AlephReader(object):
             return
 
         alert(resp)
+
+        if resp:
+            InputMapper.fill_inputs(resp[0])
 
     @classmethod
     def start(cls, ev):
