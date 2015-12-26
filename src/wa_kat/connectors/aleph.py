@@ -81,7 +81,8 @@ def by_issn(issn):
 
 
 def resolve_keyword(keyword):
-    aleph.searchInAleph("aut10", keyword, True, "sh")
+    print aleph.searchInAleph("aut", keyword, True, "wrd")
+    # print aleph.searchInAleph("aut10", keyword, True, "sh")
     # keywords = aleph.downloadRecords(
     #     aleph.searchInAleph("aut", "software", True, "kw")
     # )
