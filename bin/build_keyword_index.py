@@ -13,6 +13,7 @@ from sqlitedict import SqliteDict
 from marcxml_parser import MARCXMLRecord
 from edeposit.amqp.aleph import aleph
 from edeposit.amqp.aleph.aleph import DocumentNotFoundException
+from edeposit.amqp.aleph.aleph import InvalidAlephBaseException
 
 
 # Variables ===================================================================
@@ -38,7 +39,7 @@ def _download_items(db, last_id):
 
         try:
             record = _download(doc_id)
-        except DocumentNotFoundException:
+        except (DocumentNotFoundException, InvalidAlephBaseException):
             print "\tnot found, skipping"
             not_found_cnt += 1
             continue
@@ -51,9 +52,9 @@ def _download_items(db, last_id):
             db.commit()
 
 
-def build_index(output_fn):
+def build_index(output_fn, start=None):
     with SqliteDict(output_fn) as db:
-        last_id = db.get("last_id", 0)
+        last_id = db.get("last_id", 0) if not start else start
         _download_items(db, last_id)
         db.commit()
 
@@ -78,7 +79,15 @@ if __name__ == '__main__':
         default="./aleph_kw_index.sqlite",
         help="Name of the index file."
     )
+    parser.add_argument(
+        "-s",
+        "--start-at",
+        metavar="N",
+        dest="start_at",
+        type=int,
+        help="Start from N instead of last used value."
+    )
 
     args = parser.parse_args()
 
-    build_index(args.output)
+    build_index(args.output, start=args.start_at)
