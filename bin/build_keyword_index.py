@@ -4,8 +4,9 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import sys
+import os.path
 import argparse
-from contextlib import contextmanager
 
 import retrying
 import timeout_wrapper
@@ -17,10 +18,45 @@ from edeposit.amqp.aleph.aleph import InvalidAlephBaseException
 
 
 # Variables ===================================================================
-MAX_DOC_ID = 1000000
+MAX_RETRY = 20  # how many times to try until the script say that this is end
+MAX_DOC_ID = 10000000
 
 
 # Functions & classes =========================================================
+class KeywordInfo(object):
+    def __init__(self, uid, sysno, zahlavi, odkazovana_forma, angl_ekvivalent,
+                 poznamka):
+        self.uid = uid
+        self.sysno = sysno
+        self.zahlavi = zahlavi
+        self.odkazovana_forma = odkazovana_forma
+        self.angl_ekvivalent = angl_ekvivalent
+        self.poznamka = poznamka
+
+    @classmethod
+    def from_marc(cls, sysno, marc):
+        def first_or_none(item):
+            if not item:
+                return None
+
+            if type(item) in [tuple, list]:
+                return item[0]
+
+            return item
+
+        return cls(
+            uid=first_or_none(marc["001"]),
+            sysno=sysno,
+            zahlavi=first_or_none(marc["150a"]),
+            odkazovana_forma=marc.get("450a", []),
+            angl_ekvivalent=first_or_none(marc["750a07"]),
+            poznamka=first_or_none(marc["680i"]),
+        )
+
+    def to_dict(self):
+        return self.__dict__.copy()
+
+
 @retrying.retry(stop_max_attempt_number=3)
 @timeout_wrapper.timeout(5)
 def _download(doc_id):
@@ -33,7 +69,7 @@ def _download_items(db, last_id):
         doc_id += 1
         print "Downloading %d.." % (doc_id)
 
-        if not_found_cnt >= 20:
+        if not_found_cnt >= MAX_RETRY:
             print "It looks like this is an end:", doc_id
             break
 
@@ -46,25 +82,42 @@ def _download_items(db, last_id):
 
         not_found_cnt = 0
         db["item_%d" % doc_id] = record
-        db["last_id"] = doc_id - 1
+        db["last_id"] = doc_id - MAX_RETRY if doc_id > MAX_RETRY else 1
 
         if doc_id % 100 == 0:
             db.commit()
 
 
-def build_index(output_fn, start=None):
+def download_items(output_fn, start=None):
     with SqliteDict(output_fn) as db:
         last_id = db.get("last_id", 0) if not start else start
         _download_items(db, last_id)
         db.commit()
 
-        # parsed = MARCXMLRecord(record)
 
-        # if not parsed["001"]:
-            # continue
+def generate(output_fn):
+    if not os.path.exists(output_fn):
+        print >> sys.stderr, "Can't access `%s`!" % output_fn
+        sys.exit(1)
 
-        # if parsed["001"].lower().startswith("ph"):
-            # print "\tsaved"
+    with SqliteDict(output_fn) as db:
+        key_n = db["last_id"]
+
+        for cnt, (key, val) in enumerate(db.iteritems()):
+            print "%d / ~%d (%s)" % (cnt, key_n, key)
+
+            parsed = MARCXMLRecord(val)
+
+            if not parsed["001"]:
+                continue
+
+            if parsed["001"].lower().startswith("ph"):
+                keyword = KeywordInfo.from_marc(
+                    sysno=int(key.split("_")[-1]),  # item_xxx -> int(xxx)
+                    marc=parsed,
+                )
+                print "\t", repr(keyword.to_dict())
+                print "\tsaved"
 
 
 # Main program ================================================================
@@ -87,7 +140,16 @@ if __name__ == '__main__':
         type=int,
         help="Start from N instead of last used value."
     )
+    parser.add_argument(
+        "-g",
+        "--generate",
+        action="store_true",
+        help="Don't download, only generate data from dataset."
+    )
 
     args = parser.parse_args()
 
-    build_index(args.output, start=args.start_at)
+    if not args.generate:
+        download_items(args.output, start=args.start_at)
+
+    generate(args.output)
