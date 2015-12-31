@@ -5,6 +5,7 @@
 #
 # Imports =====================================================================
 import sys
+import json
 import os.path
 import argparse
 
@@ -95,35 +96,44 @@ def download_items(output_fn, start=None):
         db.commit()
 
 
+def _generate(db):
+    key_n = db["last_id"]
+
+    for cnt, (key, val) in enumerate(db.iteritems()):
+        print "%d / ~%d (%s)" % (cnt, key_n, key)
+
+        parsed = MARCXMLRecord(val)
+
+        if not parsed["001"]:
+            continue
+
+        if parsed["001"].lower().startswith("ph"):
+            yield KeywordInfo.from_marc(
+                sysno=int(key.split("_")[-1]),  # item_xxx -> int(xxx)
+                marc=parsed,
+            )
+            print "\tsaved"
+
+
 def generate(output_fn):
     if not os.path.exists(output_fn):
         print >> sys.stderr, "Can't access `%s`!" % output_fn
         sys.exit(1)
 
     with SqliteDict(output_fn) as db:
-        key_n = db["last_id"]
+        items = [
+            item.to_dict()
+            for item in _generate(db)
+        ]
 
-        for cnt, (key, val) in enumerate(db.iteritems()):
-            print "%d / ~%d (%s)" % (cnt, key_n, key)
-
-            parsed = MARCXMLRecord(val)
-
-            if not parsed["001"]:
-                continue
-
-            if parsed["001"].lower().startswith("ph"):
-                keyword = KeywordInfo.from_marc(
-                    sysno=int(key.split("_")[-1]),  # item_xxx -> int(xxx)
-                    marc=parsed,
-                )
-                print "\t", repr(keyword.to_dict())
-                print "\tsaved"
+        with open("index.json") as f:
+            f.write(json.dumps(items))
 
 
 # Main program ================================================================
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description="""Aleph keyword index builder. This program may be used to \
+        description="""Aleph keyword index builder. This program may be used to
     build fast index for the keywords from AUT base."""
     )
     parser.add_argument(
