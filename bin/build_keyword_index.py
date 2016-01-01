@@ -11,6 +11,7 @@ import argparse
 
 import retrying
 import timeout_wrapper
+from tqdm import tqdm
 from sqlitedict import SqliteDict
 from marcxml_parser import MARCXMLRecord
 from edeposit.amqp.aleph import aleph
@@ -97,10 +98,14 @@ def download_items(output_fn, start=None):
 
 
 def _generate(db):
-    key_n = db["last_id"]
+    for key, val in tqdm(db.iteritems(), total=len(db)):
+        # skip counter of the last downloaded document
+        if key == "last_id":
+            continue
 
-    for cnt, (key, val) in enumerate(db.iteritems()):
-        print "%d / ~%d (%s)" % (cnt, key_n, key)
+        piece = val[:1000] if len(val) > 1000 else val
+        if '<fixfield id="001">ph' not in piece:
+            continue
 
         parsed = MARCXMLRecord(val)
 
@@ -112,7 +117,6 @@ def _generate(db):
                 sysno=int(key.split("_")[-1]),  # item_xxx -> int(xxx)
                 marc=parsed,
             )
-            print "\tsaved"
 
 
 def generate(output_fn):
@@ -126,7 +130,7 @@ def generate(output_fn):
             for item in _generate(db)
         ]
 
-        with open("index.json") as f:
+        with open("index.json", "wt") as f:
             f.write(json.dumps(items))
 
 

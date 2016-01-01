@@ -1,8 +1,10 @@
+tqdm
 paste
 bottle
 ipwhois
 requests
 kwargs_obj
+sqlitedict
 bottle-rest
 remove_hairs
 langdetect==1.0.5
