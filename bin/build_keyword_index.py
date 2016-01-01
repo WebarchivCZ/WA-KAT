@@ -19,11 +19,6 @@ from edeposit.amqp.aleph.aleph import DocumentNotFoundException
 from edeposit.amqp.aleph.aleph import InvalidAlephBaseException
 
 
-# Variables ===================================================================
-MAX_RETRY = 20  # how many times to try until the script say that this is end
-MAX_DOC_ID = 10000000
-
-
 # Functions & classes =========================================================
 class KeywordInfo(object):
     def __init__(self, uid, sysno, zahlavi, odkazovana_forma, angl_ekvivalent,
@@ -62,11 +57,36 @@ class KeywordInfo(object):
 @retrying.retry(stop_max_attempt_number=3)
 @timeout_wrapper.timeout(5)
 def _download(doc_id):
+    """
+    Function used to download data authority data from aleph. Function retries
+    failed attempts to download data and also has timeout.
+
+    Args:
+        doc_id (int): Sysno of the document you wish to receive.
+
+    Returns:
+        str: MARC for given record.
+
+    Raises:
+        DocumentNotFoundException: In case that document was not found.
+        InvalidAlephBaseException: In case that document was not found.
+    """
     return aleph.downloadMARCOAI(str(doc_id), "aut10")
 
 
 def _download_items(db, last_id):
-    not_found_cnt = 0
+    """
+    Download items from the aleph and store them in `db`. Start from `last_id`
+    if specified.
+
+    Args:
+        db (obj): Dictionary-like object used as DB.
+        last_id (int): Start from this id.
+    """
+    MAX_RETRY = 20  # how many times to try till decision that this is an end
+    MAX_DOC_ID = 10000000  # this is used for download iterator
+
+    not_found_cnt = 0  # circuit breaker
     for doc_id in xrange(last_id, MAX_DOC_ID):
         doc_id += 1
         print "Downloading %d.." % (doc_id)
@@ -90,21 +110,43 @@ def _download_items(db, last_id):
             db.commit()
 
 
-def download_items(output_fn, start=None):
-    with SqliteDict(output_fn) as db:
+def download_items(cache_fn, start=None):
+    """
+    Open the `cache_fn` as database and download all not-yet downloaded items.
+
+    Args:
+        cache_fn (str): Path to the sqlite database. If not exists, it will be
+            created.
+        start (int, default None): If set, start from this sysno.
+    """
+    with SqliteDict(cache_fn) as db:
         last_id = db.get("last_id", 0) if not start else start
         _download_items(db, last_id)
         db.commit()
 
 
-def _generate(db):
+def _pick_keywords(db):
+    """
+    Go thru downloaded data stored in `db` and filter keywords, which are
+    parsed and then yielded.
+
+    Shows nice progress bar.
+
+    Args:
+        db (obj): Opened database connection.
+
+    Yields:
+        obj: :class:`KeywordInfo` instances for yeach keyword.
+    """
     for key, val in tqdm(db.iteritems(), total=len(db)):
         # skip counter of the last downloaded document
         if key == "last_id":
             continue
 
-        piece = val[:1000] if len(val) > 1000 else val
-        if '<fixfield id="001">ph' not in piece:
+        # this is optimization to speed up skipping of the unwanted elements
+        # by the factor of ~20
+        piece = val[:500] if len(val) > 500 else val
+        if '<fixfield id="001">ph' not in piece.lower():
             continue
 
         parsed = MARCXMLRecord(val)
@@ -119,32 +161,47 @@ def _generate(db):
             )
 
 
-def generate(output_fn):
-    if not os.path.exists(output_fn):
-        print >> sys.stderr, "Can't access `%s`!" % output_fn
+def generate(cache_fn):
+    """
+    Go thru `cache_fn` and filter keywords. Store them in `keyword_list.json`.
+
+    Args:
+        cache_fn (str): Path to the file with cache.
+
+    Returns:
+        list: List of :class:`KeywordInfo` objects.
+    """
+    if not os.path.exists(cache_fn):
+        print >> sys.stderr, "Can't access `%s`!" % cache_fn
         sys.exit(1)
 
-    with SqliteDict(output_fn) as db:
-        items = [
-            item.to_dict()
-            for item in _generate(db)
+    with SqliteDict(cache_fn) as db:
+        return [
+            item
+            for item in _pick_keywords(db)
         ]
-
-        with open("index.json", "wt") as f:
-            f.write(json.dumps(items))
 
 
 # Main program ================================================================
 if __name__ == '__main__':
+    default_cache_fn = "./aleph_kw_index.sqlite"
+    default_output_fn = "./keyword_list.json"
+
     parser = argparse.ArgumentParser(
         description="""Aleph keyword index builder. This program may be used to
     build fast index for the keywords from AUT base."""
     )
     parser.add_argument(
+        "-c",
+        "--cache",
+        default=default_cache_fn,
+        help="Name of the cache file. Default `%s`." % default_cache_fn
+    )
+    parser.add_argument(
         "-o",
         "--output",
-        default="./aleph_kw_index.sqlite",
-        help="Name of the index file."
+        default=default_output_fn,
+        help="Name of the output file. Default `%s`." % default_output_fn
     )
     parser.add_argument(
         "-s",
@@ -164,6 +221,12 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if not args.generate:
-        download_items(args.output, start=args.start_at)
+        download_items(args.cache, start=args.start_at)
 
-    generate(args.output)
+    with open(args.output, "wt") as f:
+        f.write(
+            json.dumps([
+                keyword.to_dict()
+                for keyword in generate(args.cache)
+            ])
+        )
