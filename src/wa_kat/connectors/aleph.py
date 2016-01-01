@@ -6,8 +6,7 @@
 # Imports =====================================================================
 from remove_hairs import remove_hairs
 from marcxml_parser import MARCXMLRecord
-# from edeposit.amqp.aleph import aleph
-import local_aleph as aleph
+from edeposit.amqp.aleph import aleph
 
 from ..data_model import Model
 from ..analyzers.source_string import SourceString
@@ -78,17 +77,3 @@ def by_issn(issn):
         )
 
         yield _add_source(model)
-
-
-def resolve_keyword(keyword):
-    print aleph.searchInAleph("aut", keyword, True, "wrd")
-    # print aleph.searchInAleph("aut10", keyword, True, "sh")
-    # keywords = aleph.downloadRecords(
-    #     aleph.searchInAleph("aut", "software", True, "kw")
-    # )
-
-    # for cnt, keyword in enumerate(keywords):
-    #     with open("/tmp/aleph/%d.xml" % cnt, "w") as f:
-    #         f.write(keyword)
-
-resolve_keyword("software")
