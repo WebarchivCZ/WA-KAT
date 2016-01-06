@@ -1,0 +1,43 @@
+<record>
+<metadata>
+<oai_marc>
+<fixfield id="FMT">SE</fixfield>
+<fixfield id="LDR">-----nas-a22------a-4500</fixfield>
+<fixfield id="001">web20132499695</fixfield>
+<fixfield id="003">CZ-PrNK</fixfield>
+<fixfield id="005">20130918135412.0</fixfield>
+<fixfield id="006">m--------d--------</fixfield>
+<fixfield id="007">cr-cn-</fixfield>
+<fixfield id="008">130918c20139999xr-fu-p-s-----0---b0cze--</fixfield>
+<varfield id="022" i1=" " i2=" ">
+<subfield label="a">1805-8787</subfield>
+</varfield>
+<varfield id="040" i1=" " i2=" ">
+<subfield label="a">ABA001</subfield>
+<subfield label="b">cze</subfield>
+</varfield>
+<varfield id="041" i1="0" i2=" ">
+<subfield label="a">cze</subfield>
+<subfield label="a">eng</subfield>
+</varfield>
+<varfield id="310" i1=" " i2=" ">
+<subfield label="a">2x ročně</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="7">
+<subfield label="a">wellness</subfield>
+<subfield label="2">czenas</subfield>
+<subfield label="7">ph214631</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="7">
+<subfield label="a">zdravý životní styl</subfield>
+<subfield label="2">czenas</subfield>
+<subfield label="7">ph127592</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="9">
+<subfield label="a">wellness</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="9">
+<subfield label="a">healthy lifestyle</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>

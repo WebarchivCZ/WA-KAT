@@ -1,0 +1,158 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<present>
+<record>
+<record_header>
+<set_entry>000000001</set_entry>
+</record_header>
+<doc_number>002499695</doc_number>
+<metadata>
+<oai_marc>
+<fixfield id="LDR">-----nas-a22------a-4500</fixfield>
+<fixfield id="FMT">SE</fixfield>
+<fixfield id="001">web20132499695</fixfield>
+<fixfield id="003">CZ-PrNK</fixfield>
+<fixfield id="005">20130918135412.0</fixfield>
+<fixfield id="006">m--------d--------</fixfield>
+<fixfield id="007">cr-cn-</fixfield>
+<fixfield id="008">130918c20139999xr-fu-p-s-----0---b0cze--</fixfield>
+<varfield id="015" i1=" " i2=" ">
+<subfield label="a">cnb002499695</subfield>
+</varfield>
+<varfield id="022" i1=" " i2=" ">
+<subfield label="a">1805-8787</subfield>
+</varfield>
+<varfield id="040" i1=" " i2=" ">
+<subfield label="a">ABA001</subfield>
+<subfield label="b">cze</subfield>
+</varfield>
+<varfield id="041" i1="0" i2=" ">
+<subfield label="a">cze</subfield>
+<subfield label="a">eng</subfield>
+</varfield>
+<varfield id="072" i1=" " i2="7">
+<subfield label="a">613.7</subfield>
+<subfield label="x">Zdraví a hygiena volného času, rekreace a spánku</subfield>
+<subfield label="2">Konspekt</subfield>
+<subfield label="9">20</subfield>
+</varfield>
+<varfield id="072" i1=" " i2="9">
+<subfield label="a">613.7</subfield>
+<subfield label="x">Physical fitness</subfield>
+<subfield label="2">Conspectus</subfield>
+<subfield label="9">20</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">613.7</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">613</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">(0.034.2)004.738.12</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">(0.034.2:051)</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">(051)-027.561</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="222" i1=" " i2="0">
+<subfield label="a">Acta Salus Vitae</subfield>
+</varfield>
+<varfield id="245" i1="0" i2="0">
+<subfield label="a">Acta Salus Vitae</subfield>
+<subfield label="h">[elektronický zdroj]</subfield>
+</varfield>
+<varfield id="260" i1=" " i2=" ">
+<subfield label="a">Praha :</subfield>
+<subfield label="b">Vysoká škola tělesné výchovy a sportu Palestra,</subfield>
+<subfield label="c">2013-</subfield>
+</varfield>
+<varfield id="310" i1=" " i2=" ">
+<subfield label="a">2x ročně</subfield>
+</varfield>
+<varfield id="362" i1="0" i2=" ">
+<subfield label="a">Vol. 1, no. 1 (2013)-</subfield>
+</varfield>
+<varfield id="500" i1=" " i2=" ">
+<subfield label="a">Název z titulní obrazovky (verze z 18.9.2013)</subfield>
+</varfield>
+<varfield id="520" i1=" " i2=" ">
+<subfield label="a">Recenzovaný vědecký časopis zaměřený především na wellness. Časopis obsahuje studie, stati a výzkumná sdělení.</subfield>
+</varfield>
+<varfield id="538" i1=" " i2=" ">
+<subfield label="a">Způsob přístupu: World Wide Web</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="7">
+<subfield label="a">wellness</subfield>
+<subfield label="7">ph214631</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="7">
+<subfield label="a">zdravý životní styl</subfield>
+<subfield label="7">ph127592</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="9">
+<subfield label="a">wellness</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="9">
+<subfield label="a">healthy lifestyle</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="7">
+<subfield label="a">www dokumenty</subfield>
+<subfield label="7">fd186892</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="7">
+<subfield label="a">elektronické časopisy</subfield>
+<subfield label="7">fd186906</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="7">
+<subfield label="a">odborné časopisy</subfield>
+<subfield label="7">fd132951</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="9">
+<subfield label="a">www documents</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="9">
+<subfield label="a">electronic journals</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="9">
+<subfield label="a">professional journals</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="856" i1="4" i2="0">
+<subfield label="u">http://vstvs.palestra.cz/node/121</subfield>
+<subfield label="q">text/html</subfield>
+<subfield label="4">N</subfield>
+</varfield>
+<varfield id="910" i1=" " i2=" ">
+<subfield label="a">ABA001</subfield>
+</varfield>
+<varfield id="929" i1=" " i2=" ">
+<subfield label="a">Text</subfield>
+</varfield>
+<varfield id="930" i1=" " i2=" ">
+<subfield label="a">cop. 2010 COPYRIGHT PALESTRA</subfield>
+</varfield>
+<varfield id="998" i1=" " i2=" ">
+<subfield label="a">http://aleph.nkp.cz/F/?func=direct&amp;doc_number=002499695&amp;local_base=NKC</subfield>
+</varfield>
+</oai_marc>
+</metadata>
+</record>
+<session-id>PLX4Q374EPLBL8LDQDIM7M671NRBJCJ88NJSNEBAY5AV2NVTSG</session-id>
+</present>
+ 
