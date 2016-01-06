@@ -6,7 +6,6 @@
 # Imports =====================================================================
 import json
 import time
-import base64
 
 from browser import ajax
 from browser import alert  # TODO: Remove
@@ -90,7 +89,7 @@ class AnalysisRunnerAdapter(object):
         name_map = {  # TODO: get rid of this crap
             "title_tags": "title",
             "place_tags": "place",
-            "lang_tags": "lang",
+            "lang_tags": "language",
             "keyword_tags": "keywords",
             "author_tags": "author",
             "annotation_tags": "annotation",

@@ -12,7 +12,6 @@ from ..data_model import Model
 from ..analyzers.source_string import SourceString
 
 
-# Variables ===================================================================
 # Functions & classes =========================================================
 def _first_or_none(array):
     if not array:
@@ -46,9 +45,9 @@ def by_issn(issn):
             # url=_first_or_none(
             #     marc.get("856u")
             # ),
-            # conspect=_first_or_none(
-            #     marc.get("072a")
-            # ),
+            conspect=_first_or_none(
+                marc.get("072a")
+            ),
             annotation_tags=_first_or_none(
                 marc.get("520a")
             ),
