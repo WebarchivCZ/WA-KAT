@@ -65,7 +65,8 @@ def get_result(url):
 
     return {
         "status": True,
-        "body": ri.to_dict()
+        "body": ri.to_dict(),
+        "conspect_dict": ConspectDatabase().data,
     }
 
 

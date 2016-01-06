@@ -170,6 +170,10 @@ class View(object):
         if "typeahead" not in parent_id.lower():
             parent_id = el.parent.parent.id
 
+        # TODO: preserve old values
+        # if parent_id in self._set_by_typeahead:
+            # window.destroy_typyahead_tag("#" + parent_id)
+
         # if there are multiple elements, put them to the typeahead and show
         # dropdown glyph
         window.make_typeahead_tag("#" + parent_id, value)
@@ -200,10 +204,6 @@ class View(object):
         """
         if not el:
             return
-
-        # TODO: this is wrong (definition of vals instead of val)
-        if el.id == "conspect":
-            return self.conspect_handler.set_new_conspect_dict(value)
 
         tag_name = el.elt.tagName.lower()
         if tag_name == "textarea":
@@ -376,6 +376,9 @@ class AnalysisRunnerAdapter(object):
 
         # finally save the data to inputs
         ViewController.progress_bar.show(resp["body"]["progress"])
+        ViewController.conspect_handler.set_new_conspect_dict(
+            resp["conspect_dict"]
+        )
         cls.fill_inputs(resp["body"]["values"])
 
     @staticmethod

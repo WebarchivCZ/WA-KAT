@@ -54,10 +54,10 @@ class Model(KwargsObj):
                 analyzers.get_creation_date_tags,
                 lambda x: (x.url, x.domain)
             ),
-            conspect=_compose_func(
-                lambda: ConspectDatabase().data,
-                lambda x: []
-            )
+            # conspect=_compose_func(
+            #     lambda: ConspectDatabase().data,
+            #     lambda x: []
+            # )
         )
 
     def get_mapping(self):
