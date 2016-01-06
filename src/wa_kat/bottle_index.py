@@ -5,6 +5,7 @@
 #
 # Imports =====================================================================
 import os
+import json
 import os.path
 
 import requests
@@ -15,6 +16,7 @@ from bottle import template
 from bottle import static_file
 
 import settings
+from zeo import ConspectDatabase
 
 
 # Variables ===================================================================
@@ -40,7 +42,8 @@ def render_registered(remote_info):
     return template(
         _read_index_template(),
         registered=True,
-        url=remote_info["url"]
+        url=remote_info["url"],
+        conspect=json.dumps(ConspectDatabase().data),
     )
 
 
@@ -48,7 +51,8 @@ def render_unregistered(error=None):
     return template(
         _read_index_template(),
         registered=False,
-        error=error
+        error=error,
+        conspect=json.dumps(ConspectDatabase().data),
     )
 
 
