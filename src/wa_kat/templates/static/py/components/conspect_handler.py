@@ -5,6 +5,7 @@
 #
 # Imports =====================================================================
 from browser import html
+from browser import alert
 from browser import window
 from browser import document
 
@@ -12,9 +13,11 @@ from browser import document
 # Functions & classes =========================================================
 class ConspectHandler(object):
     conspect = {}
+
+    input_el = document["conspect_subconspect"]
     conspect_el = document["konspekt"]
     subconspect_el = document["subkonspekt"]
-    input_el = document["conspect_subconspect"]
+
     value = None
     is_twoconspect = True
 
@@ -95,7 +98,16 @@ class ConspectHandler(object):
 
     @classmethod
     def get(cls):
-        raise NotImplementedError("Not implemented yet!")  # TODO: implement
+        if cls.is_twoconspect:
+            return cls.value
+
+        sub = cls.input_el.value
+        sub_to_code_dict = cls._get_sub_to_code_mapping()
+
+        if sub not in sub_to_code_dict:
+            alert("Invalid sub-conspect `%s`!" % sub)
+
+        return sub_to_code_dict[sub]
 
     @classmethod
     def set(cls, code):
@@ -107,8 +119,12 @@ class ConspectHandler(object):
 
         sub_val = cls._find_sub_by_code(code)
         if cls.is_twoconspect:
-            konsp_val = cls._get_sub_to_consp_mapping()[sub_val]
+            sub_to_consp_dict = cls._get_sub_to_consp_mapping()
 
+            if sub_val not in sub_to_consp_dict:
+                return
+
+            konsp_val = sub_to_consp_dict[sub_val]
             cls.conspect_el.value = konsp_val
             cls._set_sub_conspect()
             cls.subconspect_el.value = sub_val
