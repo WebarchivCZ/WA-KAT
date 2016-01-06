@@ -30,8 +30,6 @@ class View(object):
         self.issnbox_error = ISSNBoxError
         self.conspect_handler = ConspectHandler
 
-        self.conspect_handler.bind_switcher()
-
     @property
     def _url_el(self):
         return document["url"]

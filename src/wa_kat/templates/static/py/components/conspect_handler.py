@@ -12,6 +12,12 @@ from browser import document
 
 # Functions & classes =========================================================
 class ConspectHandler(object):
+    """
+    This class represents input mapper for the Conspect and Subconspect values.
+
+    Class handles both Select elements in HTML and typeahead input and defines
+    high-level access to them.
+    """
     conspect = {}
 
     input_el = document["conspect_subconspect"]
@@ -23,6 +29,10 @@ class ConspectHandler(object):
 
     @classmethod
     def _save_value(cls):
+        """
+        Callback used to automatically store value in :attr:`value` property
+        each time the user selects value.
+        """
         consp = min(sel.value for sel in cls.conspect_el if sel.selected)
         sub = min(sel.value for sel in cls.subconspect_el if sel.selected)
 
@@ -30,6 +40,12 @@ class ConspectHandler(object):
 
     @classmethod
     def _set_sub_conspect(cls):
+        """
+        Look at the :attr:`conspect_el` and put proper subconspect values into
+        subconspect's  <select> element.
+
+        Also bind the :meth:`_save_value` for user changes.
+        """
         selected = min(sel.value for sel in cls.conspect_el if sel.selected)
 
         cls.subconspect_el.html = ""
@@ -41,6 +57,9 @@ class ConspectHandler(object):
 
     @classmethod
     def _create_searchable_typeahead(cls):
+        """
+        Create typeahead <input> element and fill it with data.
+        """
         args = [
             {
                 "name": key,
@@ -55,6 +74,16 @@ class ConspectHandler(object):
 
     @classmethod
     def set_new_conspect_dict(cls, new_conspect):
+        """
+        In case that new conspect dict was retreived (by analysis for example),
+        update it's values.
+
+        This method also initializes the HTML elements (both <select> and
+        typeahead, so it may be good thing to call it somewhere in constructor.
+
+        Args:
+            new_conspect (dict): New conspect: subconspect: code mapping.
+        """
         cls.conspect = new_conspect
 
         cls.conspect_el.html = ""
@@ -67,6 +96,12 @@ class ConspectHandler(object):
 
     @classmethod
     def _get_sub_to_code_mapping(cls):
+        """
+        Create and return subconspect: code dictionary.
+
+        Returns:
+            dict: ``{subconspect: code}``
+        """
         subconspects_list = [
             list(subconspect_dict.items())
             for subconspect_dict in cls.conspect.values()
@@ -76,6 +111,12 @@ class ConspectHandler(object):
 
     @classmethod
     def _get_sub_to_consp_mapping(cls):
+        """
+        Create and return subconspect: conspect dictionary.
+
+        Returns:
+            dict: ``{subconspect: conspect}``
+        """
         sub_to_consp = [
             [(subconsp_name, consp) for subconsp_name in subconsp.keys()]
             for consp, subconsp in cls.conspect.items()
@@ -85,10 +126,24 @@ class ConspectHandler(object):
 
     @classmethod
     def _find_code_by_sub(cls, subconspect):
+        """
+        Look into :meth:`_get_sub_to_code_mapping` dict and find code for given
+        `subconspect`.
+
+        Returns:
+            str: Conspect/subconspect code.
+        """
         return cls._get_sub_to_code_mapping()[subconspect]
 
     @classmethod
     def _find_sub_by_code(cls, code):
+        """
+        Look into :meth:`_get_sub_to_code_mapping` dict and find subconspect
+        for given `code`.
+
+        Returns:
+            str: Subconspect value for given code.
+        """
         reversed_sub = {
             val: key
             for key, val in cls._get_sub_to_code_mapping().items()
@@ -98,10 +153,21 @@ class ConspectHandler(object):
 
     @classmethod
     def get(cls):
+        """
+        Get code selected by user.
+
+        Returns:
+            str: Code or None in case that user didn't selected anything yet.
+        """
         if cls.is_twoconspect:
             return cls.value
 
         sub = cls.input_el.value
+
+        # blank user input -> no value was yet set
+        if not sub.strip():
+            return None
+
         sub_to_code_dict = cls._get_sub_to_code_mapping()
 
         if sub not in sub_to_code_dict:
@@ -111,6 +177,12 @@ class ConspectHandler(object):
 
     @classmethod
     def set(cls, code):
+        """
+        Set value for <input> / <select> tags based on code.
+
+        Args:
+            code (str): Code of the conspect / subconspect.
+        """
         if type(code) in [list, tuple]:
             code = code[0]
 
@@ -133,6 +205,10 @@ class ConspectHandler(object):
 
     @classmethod
     def bind_switcher(cls):
+        """
+        Bind the switch checkbox to functions for switching between types of
+        inputs.
+        """
         def show_two_conspect():
             cls.is_twoconspect = True
 
@@ -162,3 +238,6 @@ class ConspectHandler(object):
 
         for el in document.get(selector=".conspect_switcher"):
             el.bind("change", show_or_hide_two_conspect)
+
+
+ConspectHandler.bind_switcher()
