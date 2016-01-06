@@ -21,28 +21,125 @@ from components import DropdownHandler
 from components import PlaceholderHandler
 
 
-# GUI views ===================================================================
-class InputMapper(object):
-    _map = {  # TODO: get rid of this
-        "title_tags": "title",
-        "place_tags": "place",
-        "lang_tags": "lang",
-        "keyword_tags": "keywords",
-        "author_tags": "author",
-        "annotation_tags": "annotation",
-        "creation_dates": "creation_date",
-    }
-    _set_by_typeahead = set()
+# Model =======================================================================
+class Model(object):
+    def __init__(self):
+        self.url = None
+        self.issn = None
+        self.title = None
+        self.creation_date = None
+        self.author = None
+        self.place = None
+        self.keywords = None
+        self.conspect = None
+        self.language = None
+        self.annotation = None
+        self.periodicity = None
+        self.frequency = None
+        self.rules = None
 
-    @classmethod
-    def _get_el(cls, rest_id):
-        tag_id = cls._map.get(rest_id, rest_id)
 
-        if tag_id in document:
-            return document[tag_id]
+class View(object):
+    def __init__(self):
+        # this is used to track what kind of elements were added by typeahead
+        self._set_by_typeahead = set()
 
-    @classmethod
-    def _set_typeahead(cls, key, el, value):
+        # all kind of progress bars and error boxes
+        self.progress_bar = ProgressBar
+        self.urlbox_error = UrlBoxError
+        self.issnbox_error = ISSNBoxError
+        self.conspect_handler = ConspectHandler
+
+        self.conspect_handler.bind_switcher()
+
+    @property
+    def _url_el(self):
+        return document["url"]
+
+    @property
+    def _issn_el(self):
+        return document["issn"]
+
+    @property
+    def _title_el(self):
+        return document["title"]
+
+    @property
+    def _creation_date_el(self):
+        return document["creation_date"]
+
+    @property
+    def _author_el(self):
+        return document["author"]
+
+    @property
+    def _place_el(self):
+        return document["place"]
+
+    @property
+    def _keywords_el(self):
+        return document["keywords"]
+
+    @property
+    def _language_el(self):
+        return document["lang"]
+
+    @property
+    def _annotation_el(self):
+        return document["annotation"]
+
+    @property
+    def _periodicity_el(self):
+        return document["periode"]
+
+    @property
+    def _frequency_el(self):
+        return document["freq"]
+
+    def _set_input(self, el, value):
+        """
+        Set content of given `el` to `value`.
+
+        Args:
+            el (obj): El reference to input you wish to set.
+            value (obj/list): Value to which the `el` will be set.
+        """
+        if isinstance(value, dict):
+            el.value = value["val"]
+        elif type(value) in [list, tuple]:
+            el.value = ", ".join(item["val"] for item in value)
+        else:
+            el.value = value
+
+    def _set_textarea(self, el, value):
+        """
+        Set content of given textarea element `el` to `value`.
+
+        Args:
+            el (obj): Reference to textarea element you wish to set.
+            value (obj/list): Value to which the `el` will be set.
+        """
+        if isinstance(value, dict):
+            el.text = value["val"]
+        elif type(value) in [list, tuple]:
+            el.text = "\n\n".join(
+                "-- %s --\n%s" % (item["source"], item["val"])
+                for item in value
+            )
+        else:
+            el.text = value
+
+    def _set_typeahead(self, el, value):
+        """
+        Convert given `el` to typeahead input and set it to `value`.
+
+        This method also sets the dropdown icons and descriptors.
+
+        Args:
+            el (obj): Element reference to the input you want to convert to
+                typeahead.
+            value (list): List of dicts with two keys: ``source`` and ``val``.
+        """
         PlaceholderHandler.reset_placeholder_dropdown(el)
 
         # if there is no elements, show alert icon in glyph
@@ -78,75 +175,192 @@ class InputMapper(object):
         window.make_typeahead_tag("#" + parent_id, value)
         DropdownHandler.set_dropdown_glyph(el.id, "glyphicon-menu-down")
         PlaceholderHandler.set_placeholder_dropdown(el)
-        cls._set_by_typeahead.add(parent_id)
+        self._set_by_typeahead.add(parent_id)
 
-    @staticmethod
-    def _set_input(key, el, value):
-        el.value = ", ".join(item.val for item in value)
+    def _reset_typeaheads(self):
+        """
+        Reset all values set by typeahead back to default.
+        """
+        for el_id in self._set_by_typeahead:
+            window.destroy_typyahead_tag("#" + el_id)
 
-    @staticmethod
-    def _set_textarea(key, el, value):
-        el.text = "\n\n".join(
-            "-- %s --\n%s" % (item["source"], item["val"])
-            for item in value
-        )
+        self._set_by_typeahead = set()
 
-    @classmethod
-    def map(cls, key, value):
-        alert(key)
+    def _set_el(self, el, value):
+        """
+        Set given `el` tag element to `value`.
 
-        if key == "conspect":
-            return ConspectHandler.set_conspect(value)
+        Automatically choose proper method to set the `value` based on the type
+        of the `el`.
 
-        el = cls._get_el(key)
-
-        if not el:  # TODO: save
+        Args:
+            el (obj): Element reference to the input you want to convert to
+                typeahead.
+            value (list): List of dicts with two keys: ``source`` and ``val``.
+        """
+        if not el:
             return
 
-        alert(key + str(el))
+        # TODO: this is wrong (definition of vals instead of val)
+        if el.id == "conspect":
+            return self.conspect_handler.set_new_conspect_dict(value)
 
         tag_name = el.elt.tagName.lower()
         if tag_name == "textarea":
-            cls._set_textarea(key, el, value)
+            self._set_textarea(el, value)
         elif tag_name == "input":
             if "typeahead" in el.class_name.lower():
-                cls._set_typeahead(key, el, value)
+                self._set_typeahead(el, value)
             else:
-                cls._set_input(key, el, value)
+                self._set_input(el, value)
         elif tag_name == "select":
             pass  # TODO: implement selecting of the keywords
-        else:
+        else:  # TODO: Replace with exception
             alert(
                 "Setter for %s (%s) not implemented!" % (tag_name, el.id)
             )
 
-    @classmethod
-    def fill_inputs(cls, values):
-        for key, value in values.items():
-            cls.map(key, value)
+    def _get_el(self, el):
+        tag_name = el.elt.tagName.lower()
+        if tag_name == "textarea":
+            return el.text
+        elif tag_name == "input":
+            return el.value
+        elif tag_name == "select":
+            pass  # TODO: implement selecting of the keywords
+        else:  # TODO: Replace with exception
+            alert(
+                "Setter for %s (%s) not implemented!" % (tag_name, el.id)
+            )
 
-    @classmethod
-    def reset(cls):
-        for el_id in cls._set_by_typeahead:
-            window.destroy_typyahead_tag("#" + el_id)
+    def reset(self):
+        self.progress_bar.reset()
+        self.progress_bar.show([0, 0])
+        self.urlbox_error.reset()
+        self.issnbox_error.reset()
 
-        cls._set_by_typeahead = set()
+        self._reset_typeaheads()
+
+    @property
+    def url(self):
+        return self._get_el(self._url_el)
+
+    @url.setter
+    def url(self, val):
+        self._set_el(self._url_el, val)
+
+    @property
+    def issn(self):
+        return self._get_el(self._issn_el)
+
+    @issn.setter
+    def issn(self, val):
+        self._set_el(self._issn_el, val)
+
+    @property
+    def title(self):
+        return self._get_el(self._title_el)
+
+    @title.setter
+    def title(self, val):
+        self._set_el(self._title_el, val)
+
+    @property
+    def creation_date(self):
+        return self._get_el(self._creation_date_el)
+
+    @creation_date.setter
+    def creation_date(self, val):
+        self._set_el(self._creation_date_el, val)
+
+    @property
+    def author(self):
+        return self._get_el(self._author_el)
+
+    @author.setter
+    def author(self, val):
+        self._set_el(self._author_el, val)
+
+    @property
+    def place(self):
+        return self._get_el(self._place_el)
+
+    @place.setter
+    def place(self, val):
+        self._set_el(self._place_el, val)
+
+    @property
+    def keywords(self):
+        return self._get_el(self._keywords_el)
+
+    @keywords.setter
+    def keywords(self, val):
+        self._set_el(self._keywords_el, val)
+
+    @property
+    def language(self):
+        return self._get_el(self._language_el)
+
+    @language.setter
+    def language(self, val):
+        self._set_el(self._language_el, val)
+
+    @property
+    def annotation(self):
+        return self._get_el(self._annotation_el)
+
+    @annotation.setter
+    def annotation(self, val):
+        self._set_el(self._annotation_el, val)
+
+    @property
+    def periodicity(self):
+        return self._get_el(self._periodicity_el)
+
+    @periodicity.setter
+    def periodicity(self, val):
+        self._set_el(self._periodicity_el, val)
+
+    @property
+    def frequency(self):
+        return self._get_el(self._periodicity_el)
+
+    @periodicity.setter
+    def periodicity(self, val):
+        self._set_el(self._periodicity_el, val)
+
+    @property
+    def conspect(self):
+        return self.conspect_handler.get()
+
+    @conspect.setter
+    def conspect(self, val):
+        self.conspect_handler.set(val)
+
+ViewController = View()
 
 
-# Background processes ========================================================
-class AnalysisRunner(object):
+def make_request(url, data, on_complete):
+    req = ajax.ajax()
+    req.bind('complete', on_complete)
+    req.open('POST', url, True)
+    req.set_header('content-type', 'application/x-www-form-urlencoded')
+    req.send(data)
+
+
+class AnalysisRunnerAdapter(object):
     @classmethod
     def on_complete(cls, req):
         # handle http errors
         if not (req.status == 200 or req.status == 0):
-            UrlBoxError.show(req.text)
+            ViewController.urlbox_error.show(req.text)
             return
 
         resp = json.loads(req.text)
 
         # handle structured errors
         if not resp["status"]:
-            UrlBoxError.show(resp["error"])
+            ViewController.urlbox_error.show(resp["error"])
             return
 
         # keep tracking of the progress
@@ -155,37 +369,49 @@ class AnalysisRunner(object):
             time.sleep(0.5)
             make_request(
                 url="/api_v1/analyze",
-                data={'url': document["url"].value},
+                data={'url': ViewController.url},
                 on_complete=cls.on_complete,
             )
             return
 
         # finally save the data to inputs
-        ProgressBar.show(resp["body"]["progress"])
-        InputMapper.fill_inputs(resp["body"]["values"])
+        ViewController.progress_bar.show(resp["body"]["progress"])
+        cls.fill_inputs(resp["body"]["values"])
+
+    @staticmethod
+    def fill_inputs(values):
+        _map = {  # TODO: get rid of this crap
+            "title_tags": "title",
+            "place_tags": "place",
+            "lang_tags": "lang",
+            "keyword_tags": "keywords",
+            "author_tags": "author",
+            "annotation_tags": "annotation",
+            "creation_dates": "creation_date",
+        }
+
+        for local_name, view_name in _map.iteritems():
+            setattr(ViewController, view_name, values[local_name])
 
     @classmethod
     def start(cls, ev):
         # reset all inputs
-        ProgressBar.reset()
-        ProgressBar.show([0, 0])
-        InputMapper.reset()
-        UrlBoxError.reset()
+        ViewController.reset()
 
         # read the urlbox
-        url = document["url"].value.strip()
+        url = ViewController.url.strip()
 
         # make sure, that `url` was filled in
         if not url:
-            UrlBoxError.show("URL musí být vyplněna.")
+            ViewController.urlbox_error.show("URL musí být vyplněna.")
             return
 
-        UrlBoxError.hide()
+        ViewController.urlbox_error.hide()
 
         # normalize the `url`
         if not (url.startswith("http://") or url.startswith("http://")):
             url = "http://" + url
-            document["url"].value = url  # store normalized url back to input
+            ViewController.url = url  # store normalized url back to input
 
         make_request(
             url="/api_v1/analyze",
@@ -194,55 +420,48 @@ class AnalysisRunner(object):
         )
 
 
-class AlephReader(object):
+class AlephReaderAdapter(object):
     @classmethod
     def on_complete(cls, req):
         # handle http errors
         if not (req.status == 200 or req.status == 0):
-            ISSNBoxError.show(req.text)
+            ViewController.issnbox_error.show(req.text)
             return
 
         resp = json.loads(req.text)
 
         if not resp:
-            ISSNBoxError.show("Pro zadané ISSN nebyly nalezeny žádná data.")
+            ViewController.issnbox_error.show(
+                "Pro zadané ISSN nebyly nalezeny žádná data."
+            )
             return
 
         alert(resp)
 
         if resp:
-            InputMapper.fill_inputs(resp[0])
+            AnalysisRunnerAdapter.fill_inputs(resp[0])
 
     @classmethod
     def start(cls, ev):
         # reset all inputs
-        # InputMapper.reset()  # TODO: 
-        ISSNBoxError.reset()
+        # InputMapper.reset()  # TODO: implement
+        ViewController.issnbox_error.reset()
 
         # read the urlbox
-        issn = document["issn"].value.strip()
+        issn = ViewController.issn.strip()
 
         # make sure, that `url` was filled in
         if not issn:
-            ISSNBoxError.show("ISSN nebylo vyplněno!")
+            ViewController.issnbox_error.show("ISSN nebylo vyplněno!")
             return
 
-        ISSNBoxError.hide()
+        ViewController.issnbox_error.hide()
 
         make_request(
             url="/api_v1/aleph",
             data={'issn': issn},
             on_complete=cls.on_complete
         )
-
-
-# Functions ===================================================================
-def make_request(url, data, on_complete):
-    req = ajax.ajax()
-    req.bind('complete', on_complete)
-    req.open('POST', url, True)
-    req.set_header('content-type', 'application/x-www-form-urlencoded')
-    req.send(data)
 
 
 def function_on_enter(func):
@@ -256,10 +475,22 @@ def function_on_enter(func):
     return function_after_enter_pressed
 
 
-document["run_button"].bind("click", AnalysisRunner.start)
-document["url"].bind("keypress", function_on_enter(AnalysisRunner.start))
-document["issn_run_button"].bind("click", AlephReader.start)
-document["issn"].bind("keypress", function_on_enter(AlephReader.start))
-ConspectHandler.bind_switcher()
+# bind buttons to actions
+document["run_button"].bind(
+    "click",
+    AnalysisRunnerAdapter.start
+)
+document["url"].bind(
+    "keypress",
+    function_on_enter(AnalysisRunnerAdapter.start)
+)
+document["issn_run_button"].bind(
+    "click",
+    AlephReaderAdapter.start
+)
+document["issn"].bind(
+    "keypress",
+    function_on_enter(AlephReaderAdapter.start)
+)
 
-# AnalysisRunner.start(1)
+AnalysisRunnerAdapter.start(1)

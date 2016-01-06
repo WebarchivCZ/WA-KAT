@@ -4,12 +4,18 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+from collections import namedtuple
+
 from browser import html
 from browser import window
 from browser import document
 
 
 # Functions & classes =========================================================
+class ConspectVal(namedtuple("ConspectVal", ["conspect", "subconspect"])):
+    pass
+
+
 class ConspectHandler(object):
     conspect = {}
     conspect_el = document["konspekt"]
@@ -49,7 +55,7 @@ class ConspectHandler(object):
         )
 
     @classmethod
-    def set_conspect(cls, new_conspect):
+    def set_new_conspect_dict(cls, new_conspect):
         cls.conspect = new_conspect
 
         cls.conspect_el.html = ""
@@ -59,6 +65,14 @@ class ConspectHandler(object):
         cls.conspect_el.bind('change', lambda x: cls._set_sub_conspect())
 
         cls._create_searchable_typeahead()
+
+    @classmethod
+    def get(cls):
+        raise NotImplementedError("Not implemented yet!")  # TODO: implement
+
+    @classmethod
+    def set(cls, val):
+        raise NotImplementedError("Not implemented yet!")  # TODO: implement
 
     @staticmethod
     def bind_switcher():
