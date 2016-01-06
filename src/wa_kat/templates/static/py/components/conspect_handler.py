@@ -4,23 +4,19 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from collections import namedtuple
-
 from browser import html
 from browser import window
 from browser import document
 
 
 # Functions & classes =========================================================
-class ConspectVal(namedtuple("ConspectVal", ["conspect", "subconspect"])):
-    pass
-
-
 class ConspectHandler(object):
     conspect = {}
     conspect_el = document["konspekt"]
     subconspect_el = document["subkonspekt"]
+    input_el = document["conspect_subconspect"]
     value = None
+    is_twoconspect = True
 
     @classmethod
     def _save_value(cls):
@@ -36,7 +32,7 @@ class ConspectHandler(object):
         cls.subconspect_el.html = ""
 
         for key in sorted(cls.conspect[selected].keys()):
-            cls.subconspect_el <= html.OPTION(key)
+            cls.subconspect_el <= html.OPTION(key, value=key)
 
         cls.subconspect_el.bind('change', lambda x: cls._save_value())
 
@@ -60,23 +56,70 @@ class ConspectHandler(object):
 
         cls.conspect_el.html = ""
         for key in sorted(cls.conspect.keys()):
-            cls.conspect_el <= html.OPTION(key)
+            cls.conspect_el <= html.OPTION(key, value=key)
 
         cls.conspect_el.bind('change', lambda x: cls._set_sub_conspect())
 
         cls._create_searchable_typeahead()
 
     @classmethod
+    def _get_sub_to_code_mapping(cls):
+        subconspects_list = [
+            list(subconspect_dict.items())
+            for subconspect_dict in cls.conspect.values()
+        ]
+        subconspects_list = sum(subconspects_list, [])  # flattern
+        return dict(subconspects_list)
+
+    @classmethod
+    def _get_sub_to_consp_mapping(cls):
+        sub_to_consp = [
+            [(subconsp_name, consp) for subconsp_name in subconsp.keys()]
+            for consp, subconsp in cls.conspect.items()
+        ]
+        sub_to_consp = sum(sub_to_consp, [])  # flattern
+        return dict(sub_to_consp)
+
+    @classmethod
+    def _find_code_by_sub(cls, subconspect):
+        return cls._get_sub_to_code_mapping()[subconspect]
+
+    @classmethod
+    def _find_sub_by_code(cls, code):
+        reversed_sub = {
+            val: key
+            for key, val in cls._get_sub_to_code_mapping().items()
+        }
+
+        return reversed_sub[code]
+
+    @classmethod
     def get(cls):
         raise NotImplementedError("Not implemented yet!")  # TODO: implement
 
     @classmethod
-    def set(cls, val):
-        raise NotImplementedError("Not implemented yet!")  # TODO: implement
+    def set(cls, code):
+        if type(code) in [list, tuple]:
+            code = code[0]
 
-    @staticmethod
-    def bind_switcher():
+        if isinstance(code, dict):
+            code = code["val"]
+
+        sub_val = cls._find_sub_by_code(code)
+        if cls.is_twoconspect:
+            konsp_val = cls._get_sub_to_consp_mapping()[sub_val]
+
+            cls.conspect_el.value = konsp_val
+            cls._set_sub_conspect()
+            cls.subconspect_el.value = sub_val
+        else:
+            cls.input_el.value = sub_val
+
+    @classmethod
+    def bind_switcher(cls):
         def show_two_conspect():
+            cls.is_twoconspect = True
+
             for el in document.get(selector=".two_conspect"):
                 el.style.display = "block"
 
@@ -84,6 +127,8 @@ class ConspectHandler(object):
                 el.style.display = "none"
 
         def hide_two_conspect():
+            cls.is_twoconspect = False
+
             for el in document.get(selector=".two_conspect"):
                 el.style.display = "none"
 
