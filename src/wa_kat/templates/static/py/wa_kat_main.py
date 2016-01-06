@@ -390,7 +390,7 @@ class AnalysisRunnerAdapter(object):
             "creation_dates": "creation_date",
         }
 
-        for local_name, view_name in _map.iteritems():
+        for local_name, view_name in _map.items():
             setattr(ViewController, view_name, values[local_name])
 
     @classmethod
