@@ -19,10 +19,10 @@ from ..zeo import RequestDatabase
 from ..zeo import ConspectDatabase
 from ..connectors import aleph
 
+from shared import API_PATH
+from shared import RESPONSE_TYPE
 
-# Variables ===================================================================
-API_PATH = "/api_v1/"
-RESPONSE_TYPE = "application/json; charset=utf-8"
+from keywords import get_kw_list
 
 
 # Functions & classes =========================================================
