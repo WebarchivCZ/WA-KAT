@@ -39,3 +39,11 @@ body {
 .btn-default {
     width: 5em;
 }
+
+.kw_remover {
+    color: red;
+}
+
+.kw_enum {
+    list-style-type: none;
+}
