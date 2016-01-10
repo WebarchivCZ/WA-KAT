@@ -10,3 +10,4 @@ from .progressbar import ProgressBar
 from .conspect_handler import ConspectHandler
 from .dropdown_handler import DropdownHandler
 from .placeholder_handler import PlaceholderHandler
+from .keyword_list_handler import KeywordListHandler

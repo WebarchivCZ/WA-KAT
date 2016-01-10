@@ -119,15 +119,14 @@
     </div>
 
     <div class="form-group">
-      <label for="keywords" class="control-label col-sm-2">Přidat předmětové heslo</label>
+      <label for="keywords" class="control-label col-sm-2">Přidat heslo</label>
       <div class="col-sm-10">
-        <select multiple class="form-control" id="keywords">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+        <div id="keywords_typeahead" class="input-group">
+          <input type="text" class="typeahead form-control" id="keywords" placeholder="Přidat nové předmětové heslo." />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" id="keyword_add_button">Přidat</button>
+          </span>
+        </div>
       </div>
     </div>
 
