@@ -4,6 +4,7 @@ var tag_passer = function(strs) {
   };
 };
 
+
 var make_typeahead_tag = function(tag_id, hints){
   $(tag_id + ' .typeahead').typeahead({
       hint: false,
@@ -14,7 +15,7 @@ var make_typeahead_tag = function(tag_id, hints){
       source: tag_passer(hints),
       display: function (item) { return item.val; },
       templates: {
-          empty: "<p class='tt-footer'>No results found.</p>",
+          empty: "<p class='tt-footer'>Nic nenalezeno.</p>",
           suggestion: function(item) {
             return "<p class='tt-item'><b>" + item.source + ": </b>" + item.val + "</p>";
           },
@@ -25,7 +26,8 @@ var make_typeahead_tag = function(tag_id, hints){
   });
 }
 
-var make_multi_searchable_typeahead_tag  = function(){
+
+var make_multi_searchable_typeahead_tag = function(){
   // start with basic typeahead settings
   all_tags = new Array({
     hint: true,
@@ -57,6 +59,59 @@ var make_multi_searchable_typeahead_tag  = function(){
   typeahead_tag = $(tag_id + ' .typeahead');
   typeahead_tag.typeahead.apply(typeahead_tag, all_tags);
 }
+
+
+var make_keyword_typeahead_tag = function(tag_id, source, callback) {
+  /*
+    This functions converts the <div><input> pair identified by `tag_id`
+    to typehead dropdown searchable input using `source` as source for the
+    searchable elements.
+
+    Everytime the element is selected from the typeahead suggestions,
+    `callback` is called.
+
+    `callback` is expected to be function, which takes one argument (selected
+    element as string) and return string, on which the typehead input will
+    be set.
+
+    `source` is expected to be JSON array of unicode strings.
+   */
+
+  // initialize search engine
+  var keywords = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    prefetch: source
+  });
+
+  // register the typeahead
+  $(tag_id + ' .typeahead').typeahead({
+      hint: false,
+      minLength: 0,
+      highlight: false,
+    }, {
+      limit: 20,
+      source: keywords,
+      templates: {
+          empty: "<p class='tt-footer'>Psaním vyberete.</p>",
+          suggestion: function(item) {
+            return "<p class='tt-item'>" + item + "</p>";
+          },
+          footer: function(query) {
+            return "<p class='tt-footer'>Možná klíčová slova.</p>"
+          },
+      },
+  });
+
+  // register the callback, which is called every time the item is selected
+  $(tag_id + ' .typeahead').on(
+    'typeahead:selected',
+    function(ev, obj, dataset) {
+      $(tag_id + ' .typeahead').typeahead('val', callback(obj));
+    }
+  );
+}
+
 
 var destroy_typyahead_tag = function(tag_id){
   $(tag_id + ' .typeahead').typeahead("destroy");

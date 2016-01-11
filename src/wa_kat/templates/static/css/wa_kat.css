@@ -42,6 +42,7 @@ body {
 
 .kw_remover {
     color: red;
+    cursor: pointer;
 }
 
 .kw_enum {

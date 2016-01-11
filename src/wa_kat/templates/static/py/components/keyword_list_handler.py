@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+from browser import window
 from browser import document
 
 
@@ -38,10 +39,16 @@ class KeywordListHandler(object):
 
         cls.div_el.innerHTML = "<ol>\n%s\n</ol>\n" % "\n".join(html_lines)
 
+        def bind_keyword(keyword):
+            def remover(ev):
+                cls.remove_keyword(keyword)
+
+            return remover
+
         for cnt, keyword in enumerate(cls.keywords):
             uid = "kw_remover_id_%d" % cnt
             el = document[uid]
-            el.bind("click", lambda x: cls.remove_keyword(keyword))
+            el.bind("click", bind_keyword(keyword))
 
     @classmethod
     def add_keyword(cls, keyword):
@@ -52,3 +59,28 @@ class KeywordListHandler(object):
     def remove_keyword(cls, keyword):
         cls.keywords.remove(keyword)
         cls._render()
+
+
+class KeywordAdder(object):
+    intput_el = document["keyword_adder"]
+
+    @classmethod
+    def update_callback(cls, selected_item):
+        KeywordListHandler.add_keyword(selected_item)
+
+        return ""
+
+    @classmethod
+    def set_kw_typeahead_input(cls):
+        # get reference to parent element
+        parent_id = cls.intput_el.parent.id
+        if "typeahead" not in parent_id.lower():
+            parent_id = cls.intput_el.parent.parent.id
+
+        window.make_keyword_typeahead_tag(
+            "#" + parent_id,
+            "/api_v1/kw_list.json",
+            cls.update_callback,
+        )
+
+KeywordAdder.set_kw_typeahead_input()
