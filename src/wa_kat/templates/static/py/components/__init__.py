@@ -6,8 +6,14 @@
 # Imports =====================================================================
 from .errorbox import UrlBoxError
 from .errorbox import ISSNBoxError
+
 from .progressbar import ProgressBar
+
+from .keyword_handler import KeywordAdder
+from .keyword_handler import KeywordListHandler
+
 from .conspect_handler import ConspectHandler
+
 from .dropdown_handler import DropdownHandler
+
 from .placeholder_handler import PlaceholderHandler
-from .keyword_list_handler import KeywordListHandler
