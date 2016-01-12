@@ -1,133 +1,54 @@
-1-2x měsíčně
-1-2x ročně
-1-2x týdně
-1-3x ročně
-1-4x ročně
-10x měsíčně
-10x ročně
-11x ročně
-12x ročně
-13x ročně
-14x ročně
-15x ročně
-16x ročně
-17x ročně
-18x ročně
+Aktualizováno průběžně
+Časté aktualizace
+Aktualizováno nepravidelně
+Neurčitelná periodicita
+
 1x denně
-1x měsíčně
-1x ročně
-1x týdně
-1x týdně až 2x měsíčně
-1x týdně v sezóně, jinak čtrnáctideník
-1x za 14 dní
-1x za 2 až 3 roky
-1x za 2 měsíce
-1x za 2 roky
-1x za 2 týdny
-1x za 2-3 roky
-1x za 3 roky
-1x za 3 týdny
-1x za 3-4 roky
-1x za 4 roky
-1x za 5 let
-1x za 5 týdnů
-1x za dva měsíce
-1x za dva měsíce, průběžně aktualizováno
-1x za dva roky
-1x za dva týdny
-1x za tři roky
-2-3x měsíčně
-2-3x ročně
-2-4x ročně
-2-5x ročně
-2-6x ročně
-20x ročně
-21x ročně
-22x ročně
-23x ročně
-24x ročně
-25x ročně
-26x ročně
-27x ročně
-28x ročně
 2x denně
-2x měsíčně
-2x měsíčně mimo prázdnin
-2x měsíčně v sezóně
-2x ročně
+
+1x týdně
 2x týdně
-3-4x ročně
-3-4x týdně
-3-5x ročně
-30x ročně
-32x ročně
-33x ročně
-34x ročně
-35x ročně
-3x měsíčně
-3x ročně
-3x týdně
-4-12x ročně
-4-5x ročně
-4-6x ročně
-40x ročně
-41x ročně
-42x ročně
-45x ročně
-48x ročně
-4x měsíčně
-4x ročně
-4x týdně
-5-12x ročně
-50x ročně
-53x ročně
-54x ročně
-55x ročně
-5x ročně
 5x týdně
-6-10x ročně
-6-12x ročně
-60x ročně
-6x až 8x ročně
+1x za dva týdny
+
+1x měsíčně
+2x měsíčně
+4x měsíčně
+1-2x měsíčně
+
+1x ročně
+2x ročně
 6x ročně
-7-9x ročně
-72x ročně
-7x ročně
-8x ročně
-9x ročně
+1-2x ročně
+1-4x ročně
+10x ročně
+12x ročně
+
+1x za dva roky
+
+Denně
+Obdeník
+Týdenník
+Měsíčník
+Ročenka
+
 Aktualizace 1x měsíčně
 Aktualizace není známa
 Aktualizace několikrát denně
 Aktualiziváno nepravidelně
-Aktualizováno 1x měsíčně
-Aktualizováno 1x ročně
-Aktualizováno 2-3x ročně
-Aktualizováno 2x ročně
-Aktualizováno 3x ročně
-Aktualizováno 4x ročně
 Aktualizováno každoročně po dobu přípravy a konání konference
-Aktualizováno nepravidelně
 Aktualizováno pololetně
 Aktualizováno pravidelně
 Aktualizováno průběžně
 Aktualizováno ročně
 Aktualizováno čtvrtletně
 Aktulizováno nepravidelně
-Denně
 Denně kromě neděle
 Denně kromě pondělí
 Denně mimo pondělí
 Denně po dobu konání sjezdu
-Měsíčník
-Nepravidelně, vyšla 3 čísla
-Nepravidelně, vyšlo 7 čísel
-Nepravidlně
-Neurčitelná periodicita
-Neznámo
 Neznámá periodocita
-Obdeník
 Občasná aktualizace
-Od r. 2004 neaktualizováno
 Periodicita není známa
 Periodicita není známa, v průběhu vydávání se mění
 Periodicita neuvedena
@@ -136,18 +57,11 @@ Periodocota není známa
 Perodicita není známa
 Pertiodicita není známa
 Pololetně
-Poslední aktualizace z r. 2004
 Pravidelná aktualizace
 Priodicita není známa
 Průběžná aktualizace
 Průběžně aktualizováno
 Převážně 1x ročně
-Ročenka
-Týdenník
-Vych. 2x za měs.
-Vych. 2x za měsíc
-Vych. 6-krát ročně
 Vychází 1x za 2 roky
 Vychází nepravidelně
 Vydávání ukončeno, odkaz na webarchiv
-Časté aktualizace
