@@ -271,11 +271,22 @@ class View(object):
 
     @property
     def keywords(self):
-        return self._get_el(self._keywords_el)
+        return self.kw_list_handler.keywords
 
     @keywords.setter
     def keywords(self, val):
-        self._set_el(self._keywords_el, val)
+        self.kw_list_handler.keywords = []
+
+        if type(val) in [list, tuple]:
+            for keyword in val:
+                if isinstance(keyword, dict):
+                    keyword = keyword["val"]
+
+                self.kw_list_handler.add_keyword(keyword)
+        elif isinstance(val, dict):
+            self.kw_list_handler.add_keyword(val["val"])
+        else:
+            self.kw_list_handler.add_keyword(val)
 
     @property
     def language(self):
