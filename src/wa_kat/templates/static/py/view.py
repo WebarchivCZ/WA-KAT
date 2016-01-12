@@ -16,6 +16,7 @@ from components import ISSNBoxError
 from components import ConspectHandler
 from components import DropdownHandler
 from components import PlaceholderHandler
+from components import KeywordListHandler
 
 
 # Functions & classes =========================================================
@@ -29,6 +30,7 @@ class View(object):
         self.urlbox_error = UrlBoxError
         self.issnbox_error = ISSNBoxError
         self.conspect_handler = ConspectHandler
+        self.kw_list_handler = KeywordListHandler
 
     @property
     def _url_el(self):

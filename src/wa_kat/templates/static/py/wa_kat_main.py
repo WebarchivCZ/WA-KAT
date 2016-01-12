@@ -150,11 +150,8 @@ class AlephReaderAdapter(object):
 
     @classmethod
     def start(cls, ev):
-        # reset all inputs
         # InputMapper.reset()  # TODO: implement
         ViewController.issnbox_error.reset()
-
-        # read the urlbox
         issn = ViewController.issn.strip()
 
         # make sure, that `url` was filled in
