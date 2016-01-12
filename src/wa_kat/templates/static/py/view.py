@@ -298,7 +298,15 @@ class View(object):
 
     @property
     def annotation(self):
-        return self._get_el(self._annotation_el)
+        value = self._get_el(self._annotation_el)
+
+        active_lines = [
+            line.strip()
+            for line in value.splitlines()
+            if not line.strip().startswith("--")
+        ]
+
+        return "\n".join(active_lines)
 
     @annotation.setter
     def annotation(self, val):
