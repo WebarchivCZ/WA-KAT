@@ -51,9 +51,9 @@ def by_issn(issn):
             annotation_tags=_first_or_none(
                 marc.get("520a")
             ),
-            # periodicity=_first_or_none(
-            #     marc.get("310a")
-            # ),
+            periodicity=_first_or_none(
+                marc.get("310a")
+            ),
             title_tags=_first_or_none(
                 marc.get("222a")
             ),
