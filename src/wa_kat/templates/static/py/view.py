@@ -318,15 +318,28 @@ class View(object):
 
     @periodicity.setter
     def periodicity(self, val):
+        parent_id = self._periodicity_el.parent.id
+        if "typeahead" not in parent_id.lower():
+            parent_id = self._periodicity_el.parent.parent.id
+
+        if type(val) in [list, tuple] and len(val) > 1:
+            window.make_periode_typeahead_tag("#" + parent_id, val)
+            DropdownHandler.set_dropdown_glyph(
+                self._periodicity_el.id,
+                "glyphicon-menu-down"
+            )
+            return
+
+        window.destroy_typyahead_tag("#" + parent_id)
         self._set_el(self._periodicity_el, val)
 
     @property
     def frequency(self):
-        return self._get_el(self._periodicity_el)
+        return self._get_el(self._frequency_el)
 
-    @periodicity.setter
-    def periodicity(self, val):
-        self._set_el(self._periodicity_el, val)
+    @frequency.setter
+    def frequency(self, val):
+        self._set_el(self._frequency_el, val)
 
     @property
     def conspect(self):
