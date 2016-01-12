@@ -1,11 +1,19 @@
-var tag_passer = function(strs) {
-  return function findMatches(q, cb) {
-    cb(strs);
-  };
-};
-
-
 var make_typeahead_tag = function(tag_id, hints){
+  /*
+    Create typeahead, where user can choose value from `hints` or ignore it
+    and type its own.
+
+    Arguments:
+      - tag_id (str): ID of the tag.
+      - hints (list): List of dicts which will be used for hints. Format is
+                      {"source": "source of the hint", "val": value}
+  */
+  tag_passer = function(strs) {
+    return function findMatches(q, cb) {
+      cb(strs);
+    }
+  }
+
   $(tag_id + ' .typeahead').typeahead({
       hint: false,
       minLength: 0,
@@ -28,6 +36,17 @@ var make_typeahead_tag = function(tag_id, hints){
 
 
 var make_multi_searchable_typeahead_tag = function(){
+  /*
+    Create typeahead for conspect.
+
+    Function expects following arguments:
+      
+      - tag_id (str): ID of the tag.
+      - dataset1 (dict): {"name": "Name of dataset 1", "data": [..]}
+      - datasetN (dict): {"name": "Name of dataset N", "data": [..]}
+      - ...
+  */
+
   // start with basic typeahead settings
   all_tags = new Array({
     hint: true,
@@ -75,7 +94,7 @@ var make_keyword_typeahead_tag = function(tag_id, source, callback) {
     be set.
 
     `source` is expected to be JSON array of unicode strings.
-   */
+  */
 
   // initialize search engine
   var keywords = new Bloodhound({
@@ -114,5 +133,8 @@ var make_keyword_typeahead_tag = function(tag_id, source, callback) {
 
 
 var destroy_typyahead_tag = function(tag_id){
+  /*
+    Remove typeahead from the tag identified by `tag_id`.
+  */
   $(tag_id + ' .typeahead').typeahead("destroy");
 }
