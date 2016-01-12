@@ -179,6 +179,12 @@ def function_on_enter(func):
     return function_after_enter_pressed
 
 
+def set_periodicity():
+    periodes = document["default_periode"].innerHTML
+
+    ViewController.periodicity = periodes.splitlines()
+
+
 # bind buttons to actions
 document["run_button"].bind(
     "click",
@@ -199,4 +205,5 @@ document["issn"].bind(
 ConspectHandler.set_new_conspect_dict(
     json.loads(document["default_konspekt"].innerHTML)
 )
+set_periodicity()
 # AnalysisRunnerAdapter.start(1)

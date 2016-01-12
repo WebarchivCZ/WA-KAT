@@ -25,12 +25,68 @@ var make_typeahead_tag = function(tag_id, hints){
       templates: {
           empty: "<p class='tt-footer'>Nic nenalezeno.</p>",
           suggestion: function(item) {
+            if (item.source.length == 0)
+              return "<p class='tt-item'>" + item.val + "</p>"; 
+
             return "<p class='tt-item'><b>" + item.source + ": </b>" + item.val + "</p>";
           },
           footer: function(query) {
             return "<p class='tt-footer'>Analyzátory nalezené hodnoty.</p>"
           },
       },
+  });
+}
+
+
+var make_periode_typeahead_tag = function(tag_id, hints){
+  /*
+    Create typeahead for periodicity. User can choose value from `hints` or
+    ignore it and type its own.
+
+    Values are fuzzy matched using bloodhound.
+
+    When there is no value, after focus first 20 is shown.
+
+    Arguments:
+      - tag_id (str): ID of the tag.
+      - hints (list): List of dicts which will be used for hints. Format is
+                      {"source": "source of the hint", "val": value}
+  */
+  // see http://bit.ly/1Q2pyb4 for details
+  function search_with_defaults(q, sync) {
+    searchEngine = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: hints
+    });
+    if (q === '') {
+      sync(searchEngine.index.all());
+    } else {
+      searchEngine.search(q, sync);
+    }
+  }
+
+  $(tag_id + ' .typeahead').typeahead({
+      hint: true,
+      minLength: 0,
+      highlight: true,
+    }, {
+      limit: 20,
+      source: search_with_defaults,
+      templates: {
+          // empty: "<p class='tt-foote;r'>Nic nenalezeno.</p>",
+          suggestion: function(item) {
+            return "<p class='tt-item'>" + item + "</p>"; 
+          },
+          footer: function(query) {
+            return "<p class='tt-footer'>Často používané hodnoty periodicity.</p>"
+          },
+      },
+  });
+
+  $(tag_id + ' .typeahead').on( 'focus', function() {
+    if($(this).val() === '') // you can also check for minLength
+        $(this).data().ttTypeahead.input.trigger('queryChanged', '');
   });
 }
 
