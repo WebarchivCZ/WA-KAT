@@ -33,26 +33,32 @@ STATIC_PATH = _template_path("static")
 
 
 # Functions & classes =========================================================
-def _read_index_template():
-    with open(INDEX_PATH) as f:
+def _read_template(fn):
+    with open(_template_path(fn)) as f:
         return f.read()
+
+
+def _index_template():
+    return _read_template(INDEX_PATH)
 
 
 def render_registered(remote_info):
     return template(
-        _read_index_template(),
+        _index_template(),
         registered=True,
         url=remote_info["url"],
         conspect=json.dumps(ConspectDatabase().data),
+        periode=_read_template("periode.txt"),
     )
 
 
 def render_unregistered(error=None):
     return template(
-        _read_index_template(),
+        _index_template(),
         registered=False,
         error=error,
         conspect=json.dumps(ConspectDatabase().data),
+        periode=_read_template("periode.txt"),
     )
 
 
