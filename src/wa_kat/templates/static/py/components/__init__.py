@@ -10,7 +10,8 @@ from .errorbox import ISSNBoxError
 from .progressbar import ProgressBar
 
 from .keyword_handler import KeywordAdder
-from .keyword_handler import KeywordListHandler
+from .keyword_handler import UserKeywordHandler
+from .keyword_handler import AlephKeywordHandler
 
 from .conspect_handler import ConspectHandler
 

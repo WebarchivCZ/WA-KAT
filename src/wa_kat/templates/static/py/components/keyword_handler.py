@@ -16,78 +16,84 @@ class KeywordListHandler(object):
     It allows user to add new keyword, remove present keyword and get a list
     of defined keywords.
     """
-    div_el = document["keyword_list"]
-    whole_el = document["whole_keyword_list"]
+    def __init__(self, el_id, whole_id=None):
+        if whole_id is None:
+            whole_id = "whole_" + el_id
 
-    keywords = []
-    _remover = """
-        <span class='kw_remover'
-              title='Odstranit klíčové slovo.'
-              id='kw_remover_id_%d'>
-            ✖
-        </span>
-    """
+        self.el = document[el_id]
+        self.whole_el = document[whole_id]
 
-    @classmethod
-    def _render(cls):
+        self.keywords = []
+
+        self._remover = """
+            <span class='kw_remover'
+                  title='Odstranit klíčové slovo.'
+                  id='kw_remover_id_%d'>
+                ✖
+            </span>
+        """
+
+    def _render(self):
         """
         Render the HTML code for all the :attr:`keywords` stored in this class.
 
         This method is called after each change in :attr:`keywords`.
         """
         # hide the list in case that there is no `keyword` to be displayed
-        if cls.keywords:
-            cls.whole_el.style.display = "block"
+        if self.keywords:
+            self.whole_el.style.display = "block"
         else:
-            cls.whole_el.style.display = "none"
+            self.whole_el.style.display = "none"
 
         # construct the HTML code for each keyword
         html_lines = (
             "<li class='kw_enum'>{0} {1}</li>\n".format(
                 keyword,
-                (cls._remover % cnt)
+                (self._remover % cnt)
             )
-            for cnt, keyword in enumerate(cls.keywords)
+            for cnt, keyword in enumerate(self.keywords)
         )
 
         # put the keywords into the HTML code of the page
-        cls.div_el.innerHTML = "<ol>\n%s\n</ol>\n" % "\n".join(html_lines)
+        self.el.innerHTML = "<ol>\n%s\n</ol>\n" % "\n".join(html_lines)
 
         # this function is used to bind the ✖ to function for removing the
         # keyword
         def keyword_remover(keyword):
             def remover(ev):
-                cls.remove_keyword(keyword)
+                self.remove_keyword(keyword)
 
             return remover
 
         # go thru all the keywords and bind them to keyword_remover()
-        for cnt, keyword in enumerate(cls.keywords):
+        for cnt, keyword in enumerate(self.keywords):
             uid = "kw_remover_id_%d" % cnt
             el = document[uid]
             el.bind("click", keyword_remover(keyword))
 
-    @classmethod
-    def add_keyword(cls, keyword):
+    def add_keyword(self, keyword):
         """
         Add `keyword` to :attr:`keywords`.
 
         Args:
             keyword (str): New keyword.
         """
-        cls.keywords.append(keyword)
-        cls._render()
+        self.keywords.append(keyword)
+        self._render()
 
-    @classmethod
-    def remove_keyword(cls, keyword):
+    def remove_keyword(self, keyword):
         """
         Remove `keyword` from :attr:`keywords`.
 
         Args:
             keyword (str): Keyword which should be removed.
         """
-        cls.keywords.remove(keyword)
-        cls._render()
+        self.keywords.remove(keyword)
+        self._render()
+
+
+UserKeywordHandler = KeywordListHandler("user_keyword_list")
+AlephKeywordHandler = KeywordListHandler("aleph_keyword_list")
 
 
 class KeywordAdder(object):
@@ -111,7 +117,7 @@ class KeywordAdder(object):
         Returns:
             str: Value on which the <input> element will be set.
         """
-        KeywordListHandler.add_keyword(selected_item)
+        UserKeywordHandler.add_keyword(selected_item)
 
         return ""
 

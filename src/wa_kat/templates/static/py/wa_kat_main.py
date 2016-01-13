@@ -97,6 +97,13 @@ class AnalysisRunnerAdapter(object):
         }
 
         for remote_name in values.keys():
+            # special adapter for aleph keyword view
+            if remote_name == "keyword_tags":
+                adder = ViewController.aleph_kw_handler.add_keyword
+                for keyword in values[remote_name]:
+                    adder(keyword["val"])
+                continue
+
             local_name = name_map.get(remote_name, remote_name)
             setattr(ViewController, local_name, values[remote_name])
 

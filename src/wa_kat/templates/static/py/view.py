@@ -16,7 +16,8 @@ from components import ISSNBoxError
 from components import ConspectHandler
 from components import DropdownHandler
 from components import PlaceholderHandler
-from components import KeywordListHandler
+from components import UserKeywordHandler
+from components import AlephKeywordHandler
 
 
 # Functions & classes =========================================================
@@ -30,7 +31,8 @@ class View(object):
         self.urlbox_error = UrlBoxError
         self.issnbox_error = ISSNBoxError
         self.conspect_handler = ConspectHandler
-        self.kw_list_handler = KeywordListHandler
+        self.user_kw_handler = UserKeywordHandler
+        self.aleph_kw_handler = AlephKeywordHandler
 
     @property
     def _url_el(self):
@@ -271,22 +273,7 @@ class View(object):
 
     @property
     def keywords(self):
-        return self.kw_list_handler.keywords
-
-    @keywords.setter
-    def keywords(self, val):
-        self.kw_list_handler.keywords = []
-
-        if type(val) in [list, tuple]:
-            for keyword in val:
-                if isinstance(keyword, dict):
-                    keyword = keyword["val"]
-
-                self.kw_list_handler.add_keyword(keyword)
-        elif isinstance(val, dict):
-            self.kw_list_handler.add_keyword(val["val"])
-        else:
-            self.kw_list_handler.add_keyword(val)
+        return self.aleph_kw_handler.keywords + self.user_kw_handler.keywords
 
     @property
     def language(self):
