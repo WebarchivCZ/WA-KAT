@@ -3,6 +3,7 @@ paste
 bottle
 ipwhois
 requests
+fuzzywuzzy==0.8.0
 kwargs_obj
 sqlitedict
 bottle-rest

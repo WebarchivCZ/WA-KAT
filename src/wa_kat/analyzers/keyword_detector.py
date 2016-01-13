@@ -6,8 +6,12 @@
 # Imports =====================================================================
 import dhtmlparser
 
+from fuzzywuzzy import process
+
 from shared import parse_meta
 from source_string import SourceString
+
+from ..rest_api.keywords import KEYWORDS
 
 
 # Functions & classes =========================================================
@@ -55,7 +59,13 @@ def get_keyword_tags(index_page):
     keywords = [
         _get_html_keywords(dom),
         _get_dc_keywords(dom),
-        # [_extract_keywords_from_text(index_page)],  # TODO: implement
+        # _extract_keywords_from_text(index_page),  # TODO: implement
     ]
 
-    return sum(keywords, [])  # return flattened list
+    return [
+        SourceString(
+            process.extractOne(str(keyword), KEYWORDS)[0].encode("utf-8"),
+            source=keyword.source,
+        )
+        for keyword in sum(keywords, [])  # flattern
+    ]

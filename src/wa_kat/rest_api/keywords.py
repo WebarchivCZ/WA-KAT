@@ -6,8 +6,6 @@
 # Imports =====================================================================
 import bz2
 import json
-
-
 import os.path
 from os.path import join
 
@@ -19,7 +17,7 @@ from shared import API_PATH
 from shared import RESPONSE_TYPE
 
 
-# Functions & classes =========================================================
+# Loaders =====================================================================
 def read_kw_file():
     kw_list_path = join(
         os.path.dirname(__file__),
@@ -40,6 +38,7 @@ KEYWORDS = [
 ]
 
 
+# Functions ===================================================================
 # API =========================================================================
 @get(join(API_PATH, "kw_list.json"))
 @gzipped
