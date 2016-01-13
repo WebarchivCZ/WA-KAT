@@ -74,6 +74,7 @@ class RequestInfo(Persistent):
         self.url = url
         self.domain = urlparse(url).netloc
         self.index = None
+        self._log = {}
 
         # time trackers
         self.creation_ts = time.time()
@@ -97,6 +98,17 @@ class RequestInfo(Persistent):
         resp = requests.get(url, timeout=REQUEST_TIMEOUT)  # TODO: custom headers
 
         return resp.text.encode("utf-8")  # TODO: what about binaries?
+
+    @transaction_manager
+    def log(self, msg):
+        self._log[time.time()] = msg
+
+    @transaction_manager
+    def get_log(self):
+        return "\n".join(
+            "%s: %s" % (str(timestamp), self._log[timestamp])
+            for timestamp in sorted(self._log.keys())
+        )
 
     def paralel_processing(self, client_conf=None):
         """
@@ -185,14 +197,16 @@ class RequestInfo(Persistent):
         if not self.processing_started_ts:
             return True
 
+        if self.processing_ended_ts:
+            return self.processing_ended_ts + ZEO_CACHE_TIME < time.time()
+
         # in case that processing started, but didn't ended in
         # ZEO_MAX_WAIT_TIME
         expected_end_ts = self.creation_ts + ZEO_MAX_WAIT_TIME
-        ended = (self.processing_ended_ts and self.is_all_set())
-        if not ended and expected_end_ts < time.time():
-            return True
+        if expected_end_ts < time.time():
+            self.log("Prosessing timeouted and properites were not set!")
 
-        return self.processing_ended_ts + ZEO_CACHE_TIME < time.time()
+        return expected_end_ts < time.time()
 
     @transaction_manager
     def to_dict(self):

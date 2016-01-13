@@ -72,6 +72,7 @@ def get_remote_info(url_id):  # TODO: Add timeout, print error in case of except
     return data
 
 
+# API =========================================================================
 # TODO: REMOVE
 @get("/" + settings.REMOTE_INFO_URL.split("/")[-1])
 def mock_data():

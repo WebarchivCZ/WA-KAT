@@ -50,22 +50,26 @@ def get_result(url):
         error_msg = """
             Požadovanou stránku {url} nebylo možné stáhnout během {timeout}
             vteřin. Zkuste URL zadat s `www.`, či zkontrolovat funkčnost
-            stránek."""
+            stránek.
+        """
         error_msg = error_msg.format(url=url, timeout=settings.REQUEST_TIMEOUT)
 
         return {
             "status": False,
+            "log": ri.get_log(),
             "error": error_msg,
         }
     except Exception as e:
         return {
             "status": False,
+            "log": ri.get_log(),
             "error": str(e.message) + "\n" + traceback.format_exc().strip()
         }
 
     return {
         "status": True,
         "body": ri.to_dict(),
+        "log": ri.get_log(),
         "conspect_dict": ConspectDatabase().data,
     }
 
