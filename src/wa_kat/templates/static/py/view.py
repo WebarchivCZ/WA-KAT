@@ -127,7 +127,7 @@ class View(object):
         PlaceholderHandler.reset_placeholder_dropdown(el)
 
         # if there is no elements, show alert icon in glyph
-        if not value:
+        if not value and not el.value:
             DropdownHandler.set_dropdown_glyph(el.id, "glyphicon-alert")
             return
 
