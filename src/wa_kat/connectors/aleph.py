@@ -42,9 +42,9 @@ def by_issn(issn):
         marc = MARCXMLRecord(record)
 
         model = Model(
-            # url=_first_or_none(
-            #     marc.get("856u")
-            # ),
+            url=_first_or_none(
+                marc.get("856u")
+            ),
             conspect=_first_or_none(
                 marc.get("072a")
             ),
