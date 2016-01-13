@@ -22,6 +22,7 @@ class KeywordListHandler(object):
 
         self.el = document[el_id]
         self.whole_el = document[whole_id]
+        self.all_lists_el = document["whole_keyword_list"]
 
         self.keywords = []
 
@@ -33,6 +34,8 @@ class KeywordListHandler(object):
             </span>
         """
 
+        self._render()
+
     def _render(self):
         """
         Render the HTML code for all the :attr:`keywords` stored in this class.
@@ -42,8 +45,11 @@ class KeywordListHandler(object):
         # hide the list in case that there is no `keyword` to be displayed
         if self.keywords:
             self.whole_el.style.display = "block"
+            self.all_lists_el.style.display = "block"
         else:
             self.whole_el.style.display = "none"
+            if "<li>" not in self.all_lists_el.html:
+                self.all_lists_el.style.display = "none"
 
         # construct the HTML code for each keyword
         html_lines = (
@@ -94,6 +100,7 @@ class KeywordListHandler(object):
 
 UserKeywordHandler = KeywordListHandler("user_keyword_list")
 AlephKeywordHandler = KeywordListHandler("aleph_keyword_list")
+AanalysisKeywordHandler = KeywordListHandler("analysis_keyword_list")
 
 
 class KeywordAdder(object):

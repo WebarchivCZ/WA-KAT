@@ -12,6 +12,7 @@ from .progressbar import ProgressBar
 from .keyword_handler import KeywordAdder
 from .keyword_handler import UserKeywordHandler
 from .keyword_handler import AlephKeywordHandler
+from .keyword_handler import AanalysisKeywordHandler
 
 from .conspect_handler import ConspectHandler
 

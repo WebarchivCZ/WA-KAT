@@ -46,6 +46,15 @@ body {
     cursor: pointer;
 }
 
-.kw_enum {
+/*.kw_enum {
     list-style-type: none;
+}*/
+
+.whole_keyword_list {
+    margin-bottom: 1em;
+}
+
+.kw_list ol {
+    padding-left: 0;
+    list-style: none;
 }

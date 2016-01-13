@@ -99,7 +99,7 @@ class AnalysisRunnerAdapter(object):
         for remote_name in values.keys():
             # special adapter for aleph keyword view
             if remote_name == "keyword_tags":
-                adder = ViewController.aleph_kw_handler.add_keyword
+                adder = ViewController.analysis_kw_handler.add_keyword
                 for keyword in values[remote_name]:
                     adder(keyword["val"])
                 continue
@@ -153,7 +153,19 @@ class AlephReaderAdapter(object):
         alert(resp)
 
         if resp:
-            AnalysisRunnerAdapter.fill_inputs(resp[0])
+            dataset = resp[0]
+            cls._handle_aleph_keyword_view(dataset)
+            AnalysisRunnerAdapter.fill_inputs(dataset)
+
+    @staticmethod
+    def _handle_aleph_keyword_view(dataset):
+        # redirect the keywords to Aleph view
+        adder = ViewController.aleph_kw_handler.add_keyword
+        for keyword in dataset.get("keyword_tags", []):
+            adder(keyword["val"])
+
+        if "keyword_tags" in dataset:
+            del dataset["keyword_tags"]
 
     @classmethod
     def start(cls, ev):

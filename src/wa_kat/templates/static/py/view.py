@@ -18,6 +18,7 @@ from components import DropdownHandler
 from components import PlaceholderHandler
 from components import UserKeywordHandler
 from components import AlephKeywordHandler
+from components import AanalysisKeywordHandler
 
 
 # Functions & classes =========================================================
@@ -33,6 +34,7 @@ class View(object):
         self.conspect_handler = ConspectHandler
         self.user_kw_handler = UserKeywordHandler
         self.aleph_kw_handler = AlephKeywordHandler
+        self.analysis_kw_handler = AanalysisKeywordHandler
 
     @property
     def _url_el(self):
@@ -273,7 +275,13 @@ class View(object):
 
     @property
     def keywords(self):
-        return self.aleph_kw_handler.keywords + self.user_kw_handler.keywords
+        dataset = [
+            self.aleph_kw_handler.keywords,
+            self.user_kw_handler.keywords,
+            self.analysis_kw_handler.keywords,
+        ]
+
+        return sum(dataset, [])  # flattened dataset
 
     @property
     def language(self):
