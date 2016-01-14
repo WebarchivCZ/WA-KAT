@@ -16,23 +16,6 @@ from components import ConspectHandler
 
 
 # Model =======================================================================
-class Model(object):
-    def __init__(self):
-        self.url = None
-        self.issn = None
-        self.title = None
-        self.creation_date = None
-        self.author = None
-        self.place = None
-        self.keywords = None
-        self.conspect = None
-        self.language = None
-        self.annotation = None
-        self.periodicity = None
-        self.frequency = None
-        self.rules = None
-
-
 def make_request(url, data, on_complete):
     """
     Make AJAX request to `url` with given POST `data`. Call `on_complete`
@@ -82,6 +65,7 @@ class AnalysisRunnerAdapter(object):
         ViewController.conspect_handler.set_new_conspect_dict(
             resp["conspect_dict"]
         )
+        ViewController.log = resp["log"] + "\n\n" + str(resp["body"]["values"])
         cls.fill_inputs(resp["body"]["values"])
 
     @staticmethod
@@ -115,7 +99,7 @@ class AnalysisRunnerAdapter(object):
         # read the urlbox
         url = ViewController.url.strip()
 
-        # make sure, that `url` was filled in
+        # make sure, that `url` was filled
         if not url:
             ViewController.urlbox_error.show("URL musí být vyplněna.")
             return
@@ -150,8 +134,6 @@ class AlephReaderAdapter(object):
             )
             return
 
-        alert(resp)
-
         if resp:
             dataset = resp[0]
             cls._handle_aleph_keyword_view(dataset)
@@ -173,7 +155,7 @@ class AlephReaderAdapter(object):
         ViewController.issnbox_error.reset()
         issn = ViewController.issn.strip()
 
-        # make sure, that `url` was filled in
+        # make sure, that `issn` was filled
         if not issn:
             ViewController.issnbox_error.show("ISSN nebylo vyplněno!")
             return
@@ -187,7 +169,41 @@ class AlephReaderAdapter(object):
         )
 
 
-def function_on_enter(func):
+class MARCGeneratorAdapter(object):
+    @classmethod
+    def on_complete(cls, req):
+        # handle http errors
+        if not (req.status == 200 or req.status == 0):
+            alert(req.text)  # better handling
+            return
+
+        resp = json.loads(req.text)
+
+        if not resp:
+            alert("Chyba při konverzi!")  # TODO: better
+            return
+
+        if resp:
+            pass  # TODO: do something
+            alert(resp)
+
+    @staticmethod
+    def _read_dataset():
+        return {
+            "hello": "world"
+        }
+
+    @classmethod
+    def start(cls, ev):
+        ev.stopPropagation()
+        make_request(
+            url="/api_v1/to_marc",
+            data=cls._read_dataset(),
+            on_complete=cls.on_complete
+        )
+
+
+def func_on_enter(func):
     def function_after_enter_pressed(ev):
         ev.stopPropagation()
 
@@ -205,22 +221,11 @@ def set_periodicity():
 
 
 # bind buttons to actions
-document["run_button"].bind(
-    "click",
-    AnalysisRunnerAdapter.start
-)
-document["url"].bind(
-    "keypress",
-    function_on_enter(AnalysisRunnerAdapter.start)
-)
-document["issn_run_button"].bind(
-    "click",
-    AlephReaderAdapter.start
-)
-document["issn"].bind(
-    "keypress",
-    function_on_enter(AlephReaderAdapter.start)
-)
+document["run_button"].bind("click", AnalysisRunnerAdapter.start)
+document["url"].bind("keypress", func_on_enter(AnalysisRunnerAdapter.start))
+document["issn_run_button"].bind("click", AlephReaderAdapter.start)
+document["issn"].bind("keypress", func_on_enter(AlephReaderAdapter.start))
+document["marc_button"].bind("click", MARCGeneratorAdapter.start)
 ConspectHandler.set_new_conspect_dict(
     json.loads(document["default_konspekt"].innerHTML)
 )
