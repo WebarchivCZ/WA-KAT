@@ -105,7 +105,25 @@ class RequestInfo(Persistent):
 
     @transaction_manager
     def get_log(self):
-        return "\n".join(
+        # create banlist
+        banlist = set(worker_mapping().keys())
+        banlist.add("index")
+
+        # log the state of properties in RequestInfo, except thos in banlist
+        property_status = [
+            "   %s=%s," % (key, repr(val))
+            for key, val in self.__dict__.items()
+            if not key.startswith("_") and key not in banlist
+        ]
+
+        # construct the namedtuple-like view on data
+        status = "%s(\n%s\n)\n---\n" % (
+            self.__class__.__name__,
+            "\n".join(property_status),
+        )
+
+        # add logged messages
+        return status + "\n".join(
             "%s: %s" % (str(timestamp), self._log[timestamp])
             for timestamp in sorted(self._log.keys())
         )
