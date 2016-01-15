@@ -63,10 +63,6 @@ class View(object):
         return document["place"]
 
     @property
-    def _keywords_el(self):
-        return document["keywords"]
-
-    @property
     def _language_el(self):
         return document["lang"]
 
@@ -345,5 +341,21 @@ class View(object):
     @conspect.setter
     def conspect(self, val):
         self.conspect_handler.set(val)
+
+    def get_all_properties(self):
+        def get_property_list(cls):
+            return [
+                prop_name
+                for prop_name in dir(cls)
+                if (isinstance(getattr(cls, prop_name), property) and
+                    not prop_name.startswith("_"))
+            ]
+
+        properties = {
+            prop_name: getattr(self, prop_name)
+            for prop_name in get_property_list(self.__class__)
+        }
+
+        return properties
 
 ViewController = View()

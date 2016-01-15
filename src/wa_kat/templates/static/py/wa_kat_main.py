@@ -193,16 +193,14 @@ class MARCGeneratorAdapter(object):
 
     @staticmethod
     def _read_dataset():
-        return {
-            "hello": "world"
-        }
+        return ViewController.get_all_properties()
 
     @classmethod
     def start(cls, ev):
         ev.stopPropagation()
         make_request(
             url="/api_v1/to_marc",
-            data=cls._read_dataset(),
+            data={"data": json.dumps(cls._read_dataset())},
             on_complete=cls.on_complete
         )
 
@@ -234,4 +232,4 @@ ConspectHandler.set_new_conspect_dict(
     json.loads(document["default_konspekt"].innerHTML)
 )
 set_periodicity()
-# AnalysisRunnerAdapter.start(1)
+AnalysisRunnerAdapter.start(1)

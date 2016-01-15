@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import json
 import os.path
 from os.path import join
 
@@ -19,7 +20,7 @@ from shared import API_PATH
 # Functions & classes =========================================================
 @post(join(API_PATH, "to_marc"))
 @form_to_params
-def to_marc(**data):
-    print data
+def to_marc(data):
+    data = json.loads(data)
 
     return "ok"
