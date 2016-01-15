@@ -65,7 +65,11 @@ class AnalysisRunnerAdapter(object):
         ViewController.conspect_handler.set_new_conspect_dict(
             resp["conspect_dict"]
         )
-        ViewController.log = resp["log"] + "\n\n" + str(resp["body"]["values"])
+        ViewController.log_view.add(resp["log"])
+
+        obtained_data = json.dumps(resp["body"]["values"])
+        ViewController.log_view.add("Obtained data: " + str(obtained_data))
+
         cls.fill_inputs(resp["body"]["values"])
 
     @staticmethod

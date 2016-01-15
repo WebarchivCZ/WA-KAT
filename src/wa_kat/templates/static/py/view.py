@@ -10,6 +10,7 @@ from browser import alert  # TODO: Remove
 from browser import window
 from browser import document
 
+from components import LogView
 from components import ProgressBar
 from components import UrlBoxError
 from components import ISSNBoxError
@@ -28,6 +29,7 @@ class View(object):
         self._set_by_typeahead = set()
 
         # all kind of progress bars and error boxes
+        self.log_view = LogView
         self.progress_bar = ProgressBar
         self.urlbox_error = UrlBoxError
         self.issnbox_error = ISSNBoxError
