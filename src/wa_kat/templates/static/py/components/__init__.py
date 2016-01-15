@@ -4,6 +4,8 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+from .log_view2 import LogView
+
 from .errorbox import UrlBoxError
 from .errorbox import ISSNBoxError
 
