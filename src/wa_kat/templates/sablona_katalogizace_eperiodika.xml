@@ -4,7 +4,7 @@
 <fixfield id="DB">LOCAL</fixfield>
 <fixfield id="FMT">SE</fixfield>
 <fixfield id="LDR">-----nai-a22------i-4500</fixfield>
-<fixfield id="SYSID">0</fixfield>
+<fixfield id="SYS">0</fixfield>
 <fixfield id="001">web***********</fixfield>
 <fixfield id="003">CZ-PrNK</fixfield>
 <fixfield id="006">m-----o--d--------</fixfield>

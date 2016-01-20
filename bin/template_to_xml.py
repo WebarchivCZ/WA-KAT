@@ -27,24 +27,19 @@ def convert_template(data):
 
             yield line, first_part, second_part.lstrip()
 
-    # get list of control and data lines
-    control_lines = [
-        line
-        for line, first_part, second_part in split_to_parts(lines)
-        if not second_part.startswith("$")
-    ]
-
-    data_lines = [
-        line
-        for line, first_part, second_part in split_to_parts(lines)
-        if second_part.startswith("$")
-    ]
+    control_lines = []
+    data_lines = []
+    for line, first_part, second_part in split_to_parts(lines):
+        if second_part.startswith("$"):
+            data_lines.append(line)
+        else:
+            control_lines.append(line)
 
     # convert control lines
     record = MARCXMLRecord()
     record.oai_marc = True
     for line, descr, content in split_to_parts(control_lines):
-        record.controlfields[descr.strip()] = content
+        record.controlfields[descr.strip()[:3]] = content
 
     def get_subfield_dict(line):
         fields = (
