@@ -55,6 +55,8 @@ CONSPECT_UPDATE_INTERVAL = 60 * 60 * 24  #: One day.
 REQUEST_TIMEOUT = 5
 TIMEOUT_MESSAGE = "Požadovanou stránku nebylo možné stáhnout. Zkuste url s www."
 
+GUI_TO_REST_PERIODE = 2  #: How often check the REST API.
+
 
 # User configuration reader (don't edit this) =================================
 _ALLOWED = [str, unicode, int, float, long, bool]  #: Allowed types.
