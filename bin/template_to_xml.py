@@ -59,7 +59,6 @@ def convert_template(data):
         return fields_dict
 
     # convert data lines
-    record.valid_i_chars.append("*")
     for line, descr, content_line in split_to_parts(data_lines):
         name = descr[:3]
         i1 = descr[3]
