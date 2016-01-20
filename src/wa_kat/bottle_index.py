@@ -49,6 +49,7 @@ def render_registered(remote_info):
         url=remote_info["url"],
         conspect=json.dumps(ConspectDatabase().data),
         periode=_read_template("periode.txt"),
+        GUI_TO_REST_PERIODE=settings.GUI_TO_REST_PERIODE,
     )
 
 
@@ -59,6 +60,7 @@ def render_unregistered(error=None):
         error=error,
         conspect=json.dumps(ConspectDatabase().data),
         periode=_read_template("periode.txt"),
+        GUI_TO_REST_PERIODE=settings.GUI_TO_REST_PERIODE,
     )
 
 

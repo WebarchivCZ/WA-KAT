@@ -15,6 +15,10 @@ from view import ViewController
 from components import ConspectHandler
 
 
+# Varables ====================================================================
+GUI_TO_REST_PERIODE = int(document["GUI_TO_REST_PERIODE"].html)
+
+
 # Model =======================================================================
 def make_request(url, data, on_complete):
     """
@@ -52,7 +56,7 @@ class AnalysisRunnerAdapter(object):
         # keep tracking of the progress
         if not resp["body"]["all_set"]:
             ViewController.progress_bar.show(resp["body"]["progress"])
-            time.sleep(0.5)
+            time.sleep(GUI_TO_REST_PERIODE)
             make_request(
                 url="/api_v1/analyze",
                 data={'url': ViewController.url},
