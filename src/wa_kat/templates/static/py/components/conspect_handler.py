@@ -60,6 +60,7 @@ class ConspectHandler(object):
         """
         Create typeahead <input> element and fill it with data.
         """
+        window.destroy_typyahead_tag("#conspect_subconspect_typeahead")
         args = [
             {
                 "name": key,
