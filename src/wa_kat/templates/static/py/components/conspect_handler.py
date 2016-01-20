@@ -229,13 +229,18 @@ class ConspectHandler(object):
                 el.style.display = "block"
 
         def show_or_hide_two_conspect(ev):
+            val = cls.get()
+
             for el in document.get(selector=".conspect_switcher"):
                 el.checked = ev.target.checked
 
             if document.get(selector=".conspect_switcher")[0].checked:
-                return hide_two_conspect()
+                hide_two_conspect()
+                cls.set(val)
+                return
 
-            return show_two_conspect()
+            show_two_conspect()
+            cls.set(val)
 
         for el in document.get(selector=".conspect_switcher"):
             el.bind("change", show_or_hide_two_conspect)
