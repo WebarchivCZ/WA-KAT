@@ -10,9 +10,9 @@ BAS   L $$aSML
 006   L m-----o--d--------
 007   L cr-cn-
 008   L ******c****9999xr--x-w-o----*0---b2cze--
-022   L $$a 
+022   L $$a{{!issn}}
 040   L $$aABA001$$bcze$$erda
-0410  L $$a 
+0410  L $$a{{!language}}
 043   L $$a $$b $$2 
 045   L $$a 
 072 7 L $$a $$x $$2 $$9 
@@ -24,17 +24,17 @@ BAS   L $$aSML
 1001  L $$a $$d $$4 
 1102  L $$a $$b 
 1112  L $$a $$d $$c 
-222 0 L $$a $$b 
-245*0 L $$a $$b 
+222 0 L $$a{{title}}$$b 
+245*0 L $$a{{title}}$$b 
 246** L $$a 
-264 1 L $$a $$b $$c 
+264 1 L $$a{{place}}$$b{{author}}$$c{{creation_date}}
 300   L $$a1 online zdroj
-310   L $$a 
+310   L $$a{{periodicity}}
 336   L $$atext$$btxt$$2rdacontent
 337   L $$apočítač$$bc$$2rdamedia
 338   L $$aonline zdroj$$bcr$$2rdacarrier
 5880  L $$aPopsáno podle: ***; název z titulní obrazovky (verze z **.**.2015)
-520   L $$a 
+520   L $$a{{annotation}}
 60017 L $$a 
 61027 L $$a 
 61127 L $$a 
@@ -52,7 +52,7 @@ BAS   L $$aSML
 7001  L $$a $$4 
 7102  L $$a 
 7112  L $$a 
-85640 L $$uhttp://$$qtext/html$$4N
+85640 L $$u{{url}}$$qtext/html$$4N
 929   L $$aText
 930   L $$acop.
 NKC   L $$aČNB-w
