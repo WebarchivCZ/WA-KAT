@@ -17,6 +17,7 @@ from bottle import static_file
 
 import settings
 from zeo import ConspectDatabase
+from rest_api.shared import gzip_cache
 
 
 # Variables ===================================================================
@@ -88,6 +89,15 @@ def mock_conspect_data():
     with open(_template_path("conspect.json")) as f:
         return f.read()
 # TODO: REMOVE
+
+
+@get("/static/js/brython_dist.js")
+def gzipped_brython():
+    """
+    Static cache to speed-up loading of `big` files.
+    """
+    path = os.path.join(STATIC_PATH, "js/brython_dist.js")
+    return gzip_cache(path)
 
 
 @get("/static/<fn:path>")
