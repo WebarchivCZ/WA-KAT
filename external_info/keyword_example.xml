@@ -1,43 +1,77 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<find-doc>
 <record>
 <metadata>
 <oai_marc>
-<fixfield id="FMT">SE</fixfield>
-<fixfield id="LDR">-----nas-a22------a-4500</fixfield>
-<fixfield id="001">web20132499695</fixfield>
+<fixfield id="LDR">-----cz--a22-----n--4500</fixfield>
+<fixfield id="FMT">VA</fixfield>
+<fixfield id="001">ph214631</fixfield>
 <fixfield id="003">CZ-PrNK</fixfield>
-<fixfield id="005">20130918135412.0</fixfield>
-<fixfield id="006">m--------d--------</fixfield>
-<fixfield id="007">cr-cn-</fixfield>
-<fixfield id="008">130918c20139999xr-fu-p-s-----0---b0cze--</fixfield>
-<varfield id="022" i1=" " i2=" ">
-<subfield label="a">1805-8787</subfield>
-</varfield>
+<fixfield id="005">20051212151144.0</fixfield>
+<fixfield id="008">040123|n|anznnbabn-----------n-a|a------</fixfield>
 <varfield id="040" i1=" " i2=" ">
 <subfield label="a">ABA001</subfield>
 <subfield label="b">cze</subfield>
+<subfield label="d">ABA001</subfield>
 </varfield>
-<varfield id="041" i1="0" i2=" ">
-<subfield label="a">cze</subfield>
-<subfield label="a">eng</subfield>
+<varfield id="072" i1=" " i2="7">
+<subfield label="a">613.7</subfield>
+<subfield label="x">Zdraví a hygiena volného času, rekreace a spánku</subfield>
+<subfield label="2">Konspekt</subfield>
+<subfield label="9">20</subfield>
 </varfield>
-<varfield id="310" i1=" " i2=" ">
-<subfield label="a">2x ročně</subfield>
+<varfield id="072" i1=" " i2="7">
+<subfield label="a">796</subfield>
+<subfield label="x">Sport. Hry. Tělesná cvičení</subfield>
+<subfield label="2">Konspekt</subfield>
+<subfield label="9">20</subfield>
 </varfield>
-<varfield id="650" i1="0" i2="7">
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">613.7</subfield>
+<subfield label="c">zdraví</subfield>
+<subfield label="d">health</subfield>
+<subfield label="2">MRF_2003</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">796.035</subfield>
+<subfield label="c">cvičení</subfield>
+<subfield label="d">exercise</subfield>
+<subfield label="2">MRF_2003</subfield>
+</varfield>
+<varfield id="150" i1=" " i2=" ">
 <subfield label="a">wellness</subfield>
-<subfield label="2">czenas</subfield>
 <subfield label="7">ph214631</subfield>
 </varfield>
-<varfield id="650" i1="0" i2="7">
-<subfield label="a">zdravý životní styl</subfield>
-<subfield label="2">czenas</subfield>
-<subfield label="7">ph127592</subfield>
+<varfield id="550" i1=" " i2=" ">
+<subfield label="a">životní styl</subfield>
+<subfield label="7">ph136586</subfield>
 </varfield>
-<varfield id="650" i1="0" i2="9">
+<varfield id="750" i1="0" i2="7">
 <subfield label="a">wellness</subfield>
 <subfield label="2">eczenas</subfield>
 </varfield>
-<varfield id="650" i1="0" i2="9">
-<subfield label="a">healthy lifestyle</subfield>
-<subfield label="2">eczenas</subfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wu20040123</subfield>
+<subfield label="b">mapl</subfield>
 </varfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wk20041206</subfield>
+<subfield label="b">mapl</subfield>
+</varfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wu20050211</subfield>
+<subfield label="b">mapl</subfield>
+</varfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wu20051212</subfield>
+<subfield label="b">jave</subfield>
+</varfield>
+<varfield id="998" i1=" " i2=" ">
+<subfield label="a">http://aleph.nkp.cz/F/?func=direct&amp;doc_number=000214631&amp;local_base=AUT</subfield>
+</varfield>
+</oai_marc>
+</metadata>
+</record>
+<session-id>EUM8B2DUBTGL5FIX6IVXII7HB9NQFVQ6JGPSYM5CLB9R4QYP4P</session-id>
+</find-doc>
+ 
