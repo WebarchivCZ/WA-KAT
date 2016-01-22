@@ -22,8 +22,10 @@ RESPONSE_TYPE = "application/json; charset=utf-8"
 
 
 # Functions ===================================================================
-def to_gzipped_stringio(data):
-    out = StringIO.StringIO()
+def to_gzipped_file(data, out=None):
+    if not out:
+        out = StringIO.StringIO()
+
     with gzip.GzipFile(fileobj=out, mode="w") as f:
         f.write(data)
 
@@ -40,7 +42,7 @@ def gzipped(fn):
 
         response.set_header("Content-Encoding", "gzip")
 
-        return to_gzipped_stringio(fn(*args, **kwargs))
+        return to_gzipped_file(fn(*args, **kwargs))
 
     return gzipped_wrapper
 

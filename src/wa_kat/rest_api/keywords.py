@@ -10,11 +10,10 @@ import os.path
 from os.path import join
 
 from bottle import get
-from bottle import response
 
-from shared import gzipped
 from shared import API_PATH
-from shared import RESPONSE_TYPE
+from shared import gzip_cache
+from shared import to_gzipped_file
 
 
 # Loaders =====================================================================
@@ -27,22 +26,26 @@ def read_kw_file():
     with bz2.BZ2File(kw_list_path) as f:
         kw_list = f.read()
 
-    return json.loads(kw_list)
+    return kw_list
 
 
 # Variables ===================================================================
 KW_DICT = read_kw_file()
 KEYWORDS = [
     keyword_dict["zahlavi"]
-    for keyword_dict in KW_DICT
+    for keyword_dict in json.loads(KW_DICT)
 ]
+KW_CACHE_PATH = "/tmp/wa_kat_cache_keywords.json"
+
+# create cached files
+with open(KW_CACHE_PATH, "w") as f:
+    f.write(KW_DICT)
+with open(KW_CACHE_PATH + ".gz", "w") as f:
+    to_gzipped_file(KW_DICT, out=f)
 
 
 # Functions ===================================================================
 # API =========================================================================
 @get(join(API_PATH, "kw_list.json"))
-@gzipped
 def get_kw_list():
-    response.content_type = RESPONSE_TYPE
-
-    return json.dumps(KEYWORDS)
+    return gzip_cache(KW_CACHE_PATH)
