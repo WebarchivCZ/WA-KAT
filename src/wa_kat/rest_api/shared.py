@@ -22,6 +22,15 @@ RESPONSE_TYPE = "application/json; charset=utf-8"
 
 
 # Functions ===================================================================
+def to_gzipped_stringio(data):
+    out = StringIO.StringIO()
+    with gzip.GzipFile(fileobj=out, mode="w") as f:
+        f.write(data)
+
+    out.seek(0)
+    return out
+
+
 def gzipped(fn):
     def gzipped_wrapper(*args, **kwargs):
         accepted_encoding = request.get_header("Accept-Encoding")
@@ -31,14 +40,7 @@ def gzipped(fn):
 
         response.set_header("Content-Encoding", "gzip")
 
-        out = StringIO.StringIO()
-        with gzip.GzipFile(fileobj=out, mode="w") as f:
-            f.write(
-                fn(*args, **kwargs)
-            )
-
-        out.seek(0)
-        return out
+        return to_gzipped_stringio(fn(*args, **kwargs))
 
     return gzipped_wrapper
 
@@ -50,13 +52,19 @@ def gzip_cache(path):
         path = path + ".gz"
         response.set_header("Content-Encoding", "gzip")
 
-    headers = dict()
     stats = os.stat(path)
+
+    headers = dict()
     headers['Content-Length'] = stats.st_size
     headers['Last-Modified'] = time.strftime(
         "%a, %d %b %Y %H:%M:%S GMT",
         time.gmtime(stats.st_mtime)
     )
+
+    # I need to set `headers` dict for optional  HTTPResponse use, but also
+    # set hedears using `response.set_header()` for normal use
+    for key, val in headers.iteritems():
+        response.set_header(key, val)
 
     modified_since = request.environ.get('HTTP_IF_MODIFIED_SINCE')
     if modified_since:
