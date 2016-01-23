@@ -1,0 +1,83 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<find-doc>
+<record>
+<metadata>
+<oai_marc>
+<fixfield id="LDR">-----cz--a22-----n--4500</fixfield>
+<fixfield id="FMT">VA</fixfield>
+<fixfield id="001">ph230301</fixfield>
+<fixfield id="003">CZ-PrNK</fixfield>
+<fixfield id="005">20141021172109.0</fixfield>
+<fixfield id="008">040409|n|anznnbabn-----------n-a|a------</fixfield>
+<varfield id="040" i1=" " i2=" ">
+<subfield label="a">ABA001</subfield>
+<subfield label="b">cze</subfield>
+<subfield label="d">ABA001</subfield>
+</varfield>
+<varfield id="072" i1=" " i2="7">
+<subfield label="a">821.111-3</subfield>
+<subfield label="x">Anglická próza, anglicky psaná</subfield>
+<subfield label="2">Konspekt</subfield>
+<subfield label="9">25</subfield>
+</varfield>
+<varfield id="072" i1=" " i2="7">
+<subfield label="a">821.111.09</subfield>
+<subfield label="x">Anglická literatura, anglicky psaná (o ní)</subfield>
+<subfield label="2">Konspekt</subfield>
+<subfield label="9">11</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">821.111(410.3)-31</subfield>
+<subfield label="2">MRF_2003</subfield>
+</varfield>
+<varfield id="150" i1=" " i2=" ">
+<subfield label="a">velšský román (anglicky)</subfield>
+<subfield label="7">ph230301</subfield>
+</varfield>
+<varfield id="450" i1=" " i2=" ">
+<subfield label="a">román velšský (anglicky)</subfield>
+<subfield label="0">o</subfield>
+</varfield>
+<varfield id="550" i1=" " i2=" ">
+<subfield label="a">anglicky psaný román</subfield>
+<subfield label="7">ph118439</subfield>
+</varfield>
+<varfield id="550" i1=" " i2=" ">
+<subfield label="w">g</subfield>
+<subfield label="a">velšská próza (anglicky)</subfield>
+<subfield label="7">ph225468</subfield>
+</varfield>
+<varfield id="550" i1=" " i2=" ">
+<subfield label="w">g</subfield>
+<subfield label="a">velšský román</subfield>
+<subfield label="7">ph297083</subfield>
+</varfield>
+<varfield id="750" i1="0" i2="7">
+<subfield label="a">Welsh fiction (English)</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wu20040409</subfield>
+<subfield label="b">jave</subfield>
+</varfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wk20041222</subfield>
+<subfield label="b">veka</subfield>
+</varfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wu20051129</subfield>
+<subfield label="b">jave</subfield>
+</varfield>
+<varfield id="906" i1=" " i2=" ">
+<subfield label="a">wu20141021</subfield>
+<subfield label="b">krst</subfield>
+</varfield>
+<varfield id="998" i1=" " i2=" ">
+<subfield label="a">http://aleph.nkp.cz/F/?func=direct&amp;doc_number=000230301&amp;local_base=AUT</subfield>
+</varfield>
+</oai_marc>
+</metadata>
+</record>
+<session-id>P6KSRKPYDUCQ6AGPLRGHG8RX9K34NDHRP5SRCQ34VGTKN53JEL</session-id>
+</find-doc>
+ 
