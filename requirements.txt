@@ -9,6 +9,7 @@ kwargs-obj==1.0.0
 sqlitedict==1.4.0
 bottle-rest==0.4.1
 remove_hairs==1.0.1
+retrying==1.3.3
 langdetect==1.0.5
 zeo_connector>=0.4.2
 pydhtmlparser>=2.1.5

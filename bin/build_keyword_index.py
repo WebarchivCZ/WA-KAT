@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import bz2
 import sys
 import json
 import os.path
@@ -22,12 +23,13 @@ from edeposit.amqp.aleph.aleph import InvalidAlephBaseException
 # Functions & classes =========================================================
 class KeywordInfo(object):
     def __init__(self, uid, sysno, zahlavi, odkazovana_forma, angl_ekvivalent,
-                 poznamka):
+                 zdroj_angl_ekvivalentu, poznamka):
         self.uid = uid
         self.sysno = sysno
         self.zahlavi = zahlavi
         self.odkazovana_forma = odkazovana_forma
         self.angl_ekvivalent = angl_ekvivalent
+        self.zdroj_angl_ekvivalentu = zdroj_angl_ekvivalentu
         self.poznamka = poznamka
 
     @classmethod
@@ -47,6 +49,7 @@ class KeywordInfo(object):
             zahlavi=first_or_none(marc["150a"]),
             odkazovana_forma=marc.get("450a", []),
             angl_ekvivalent=first_or_none(marc["750a07"]),
+            zdroj_angl_ekvivalentu=first_or_none(marc["750a02"]),
             poznamka=first_or_none(marc["680i"]),
         )
 
@@ -223,7 +226,7 @@ if __name__ == '__main__':
     if not args.generate:
         download_items(args.cache, start=args.start_at)
 
-    with open(args.output, "wt") as f:
+    with bz2.BZ2File(args.output + ".bz2", "w") as f:
         f.write(
             json.dumps([
                 keyword.to_dict()
