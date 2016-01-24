@@ -15,10 +15,10 @@ BAS   L $$aSML
 0410  L $$a{{!language}}
 043   L $$a $$b $$2 
 045   L $$a 
-072 7 L $$a $$x $$2 $$9 
+072 7 L $$a{{conspect["code"]}}$$x{{conspect["sub_name"]}}$$2Konspekt$$9{{conspect["consp_code"]}}
 072 9 L $$a $$x $$2 $$9 
-080   L $$a 
-080   L $$a 
+080   L $$a{{conspect["code"]}}
+080   L $$a{{conspect["code"].split(".")[0]}}
 080   L $$a 
 080   L $$uwww dokumenty$$a(0.034.2)004.738.12$$2MRF
 1001  L $$a $$d $$4 

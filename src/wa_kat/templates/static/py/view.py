@@ -336,7 +336,7 @@ class View(object):
 
     @property
     def conspect(self):
-        return self.conspect_handler.get()
+        return self.conspect_handler.get_dict()
 
     @conspect.setter
     def conspect(self, val):
