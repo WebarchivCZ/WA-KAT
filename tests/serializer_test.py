@@ -29,7 +29,7 @@ data = {
     'title': 'nějaký titulek',
     'url': 'http://vps4life.kitakitsune.org/example.html',
     'issn': '1805-8787',
-    'place': 'nějaké  místo'
+    'place': 'nějaké místo'
 }
 
 
