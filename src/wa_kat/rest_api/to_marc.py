@@ -17,6 +17,8 @@ from bottle_rest import form_to_params
 from shared import API_PATH
 from keywords import keyword_to_info
 
+from ..convertors import mrc_to_marc
+
 
 # Variables ===================================================================
 # Functions & classes =========================================================
@@ -69,6 +71,7 @@ def render_mrc(data):
 def to_marc(data):
     data = json.loads(data)
 
+    # postprocessing
     if "keywords" in data:
         cz_keywords, en_keywords = compile_keywords(data["keywords"])
         del data["keywords"]
@@ -78,10 +81,13 @@ def to_marc(data):
 
     data["annotation"] = data["annotation"].replace("\n", " ")
 
+    # convert to MRC format
+    mrc = render_mrc(data).encode("utf-8")
+
+    # create all output formats
     out = {
-        "mrc": render_mrc(data),
+        "mrc": mrc,
+        "oai": mrc_to_marc(mrc),
     }
 
-    # with open("name")
-
-    return "ok"
+    return out
