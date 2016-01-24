@@ -19,6 +19,7 @@ class ConspectHandler(object):
     high-level access to them.
     """
     conspect = {}
+    conspect_to_id = {}
 
     input_el = document["conspect_subconspect"]
     conspect_el = document["konspekt"]
@@ -74,7 +75,7 @@ class ConspectHandler(object):
         )
 
     @classmethod
-    def set_new_conspect_dict(cls, new_conspect):
+    def set_new_conspect_dict(cls, conspect, conspect_to_id):
         """
         In case that new conspect dict was retreived (by analysis for example),
         update it's values.
@@ -83,9 +84,11 @@ class ConspectHandler(object):
         typeahead, so it may be good thing to call it somewhere in constructor.
 
         Args:
-            new_conspect (dict): New conspect: subconspect: code mapping.
+            conspect (dict): New ``{conspect: {subconspect: code}`` mapping.
+            conspect_to_id (dict): Reverse ``{conspect: ID}`` code mapping.
         """
-        cls.conspect = new_conspect
+        cls.conspect = conspect
+        cls.conspect_to_id = conspect_to_id
 
         cls.conspect_el.html = ""
         for key in sorted(cls.conspect.keys()):
@@ -177,6 +180,19 @@ class ConspectHandler(object):
         return sub_to_code_dict[sub]
 
     @classmethod
+    def get_dict(cls):
+        code = cls.get()
+
+        sub = cls._find_sub_by_code(code)
+        conspect = cls._get_sub_to_consp_mapping()[sub]
+
+        return {
+            "code": code,
+            "sub_name": cls._find_sub_by_code(code),
+            "consp_code": cls.conspect_to_id[conspect],
+        }
+
+    @classmethod
     def set(cls, code):
         """
         Set value for <input> / <select> tags based on code.
@@ -201,6 +217,7 @@ class ConspectHandler(object):
             cls.conspect_el.value = konsp_val
             cls._set_sub_conspect()
             cls.subconspect_el.value = sub_val
+            cls.value = code
         else:
             cls.input_el.value = sub_val
 

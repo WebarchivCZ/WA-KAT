@@ -28,9 +28,19 @@ def conspect_to_dict(original):
             for cat in sub_category
         }
 
-    return {
+    conspect = {
         el["name"]: _process_subcategories(el["sub_categories"])
         for el in original
+    }
+
+    reverse = {
+        el["name"]: el["id"]
+        for el in original
+    }
+
+    return {
+        "conspect": conspect,
+        "conspect_to_id": reverse,
     }
 
 
