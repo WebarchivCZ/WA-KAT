@@ -39,12 +39,12 @@ BAS   L $$aSML
 61027 L $$a 
 61127 L $$a 
 648 7 L $$a 
-65007 L $$a 
-65007 L $$a 
-65007 L $$a 
-65009 L $$a 
-65009 L $$a 
-65009 L $$a 
+% for keyword in cz_keywords:
+65007 L $$a{{keyword["zahlavi"]}}$$7{{keyword["uid"]}}$$2{{keyword["zdroj"]}}
+% end 
+% for keyword in en_keywords:
+65009 L $$a{{keyword["zahlavi"]}}$$2{{keyword["zdroj"]}}
+% end
 651 7 L $$a 
 651 9 L $$a 
 655 7 L $$awww dokumenty$$7fd186892
