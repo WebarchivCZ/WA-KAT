@@ -32,22 +32,49 @@ def read_kw_file():
 
 
 # Variables ===================================================================
-KW_DICT = read_kw_file()
-KEYWORDS = [
-    keyword_dict["zahlavi"].encode("utf-8")
-    for keyword_dict in KW_DICT
-]
-KEYWORDS_JSON = json.dumps(KEYWORDS)
-KW_CACHE_PATH = "/tmp/wa_kat_cache_keywords.json"
+_INITIALIZED = False
+KW_DICT = None
+KEYWORDS = None
+KW_CACHE_PATH = None
 
-# create cached files
-with open(KW_CACHE_PATH, "w") as f:
-    f.write(KEYWORDS_JSON)
-with open(KW_CACHE_PATH + ".gz", "w") as f:
-    to_gzipped_file(KEYWORDS_JSON, out=f)
+
+def init():
+    global _INITIALIZED
+
+    if _INITIALIZED:
+        return
+
+    global KW_DICT
+    global KEYWORDS
+    global KW_CACHE_PATH
+
+    KW_LIST = read_kw_file()
+    KW_DICT = {
+        keyword_dict["zahlavi"].encode("utf-8"): keyword_dict
+        for keyword_dict in KW_LIST
+        if "zahlavi" in keyword_dict
+    }
+    KEYWORDS = sorted(KW_DICT.keys())
+    KEYWORDS_JSON = json.dumps(KEYWORDS)
+    KW_CACHE_PATH = "/tmp/wa_kat_cache_keywords.json"
+
+    # create cached files
+    with open(KW_CACHE_PATH, "w") as f:
+        f.write(KEYWORDS_JSON)
+    with open(KW_CACHE_PATH + ".gz", "w") as f:
+        to_gzipped_file(KEYWORDS_JSON, out=f)
+
+    _INITIALIZED = True
+
+
+init()
 
 
 # Functions ===================================================================
+def keyword_to_info(keyword):
+    return KW_DICT.get(keyword)
+
+
 # API =========================================================================
 @get(join(API_PATH, "kw_list.json"))
 def get_kw_list():
