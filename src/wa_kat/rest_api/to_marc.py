@@ -88,6 +88,7 @@ def to_marc(data):
     out = {
         "mrc": mrc,
         "oai": mrc_to_marc(mrc),
+        # "dc": mrc_to_marc(mrc),
     }
 
     return out

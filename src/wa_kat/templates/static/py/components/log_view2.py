@@ -34,11 +34,13 @@ class LogView(object):
 
         cls.el.style.display = "block"
         cls.black_overlay.style.display = "block"
+        cls.bind()
 
     @classmethod
     def hide(cls):
         cls.el.style.display = "none"
         cls.black_overlay.style.display = "none"
+        cls.bind()
 
     @classmethod
     def bind(cls):

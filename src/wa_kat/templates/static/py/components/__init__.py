@@ -11,6 +11,8 @@ from .errorbox import ISSNBoxError
 
 from .progressbar import ProgressBar
 
+from .output_picker import OutputPicker
+
 from .keyword_handler import KeywordAdder
 from .keyword_handler import UserKeywordHandler
 from .keyword_handler import AlephKeywordHandler

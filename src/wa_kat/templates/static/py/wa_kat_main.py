@@ -12,6 +12,7 @@ from browser import alert  # TODO: Remove
 from browser import document
 
 from view import ViewController
+from components import OutputPicker
 from components import ConspectHandler
 
 
@@ -192,8 +193,7 @@ class MARCGeneratorAdapter(object):
             return
 
         if resp:
-            pass  # TODO: do something
-            alert(resp)
+            OutputPicker.show(resp)
 
     @staticmethod
     def _read_dataset():
@@ -233,7 +233,7 @@ document["issn_run_button"].bind("click", AlephReaderAdapter.start)
 document["issn"].bind("keypress", func_on_enter(AlephReaderAdapter.start))
 document["marc_button"].bind("click", MARCGeneratorAdapter.start)
 ConspectHandler.set_new_conspect_dict(
-    json.loads(document["default_konspekt"].innerHTML)
+    **json.loads(document["default_konspekt"].innerHTML)
 )
 set_periodicity()
-AnalysisRunnerAdapter.start(1)
+# AnalysisRunnerAdapter.start(1)
