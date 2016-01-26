@@ -12,7 +12,7 @@ remove_hairs==1.0.1
 retrying==1.3.3
 langdetect==1.0.5
 zeo_connector>=0.4.2
-pydhtmlparser>=2.1.5
+pydhtmlparser>=2.1.6
 marcxml-parser==1.2.2
 backports.functools-lru-cache==1.2.1
 edeposit.amqp.aleph>=1.9.5
