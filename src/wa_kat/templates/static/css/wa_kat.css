@@ -89,3 +89,12 @@ body {
     overflow: auto;
     background-color: white;
 }
+
+/*#output_picker {
+    display: block;
+}*/
+
+.output_group {
+    width: 90%;
+    margin: 0;
+}
