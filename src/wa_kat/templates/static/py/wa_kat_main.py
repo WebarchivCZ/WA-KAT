@@ -201,7 +201,10 @@ class MARCGeneratorAdapter(object):
 
     @classmethod
     def start(cls, ev):
+        # somehow the first call doesn't stop the propagation
         ev.stopPropagation()
+        ev.stopPropagation()
+
         make_request(
             url="/api_v1/to_marc",
             data={"data": json.dumps(cls._read_dataset())},
