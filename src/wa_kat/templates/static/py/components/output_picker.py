@@ -52,8 +52,8 @@ class OutputPicker(object):
     @classmethod
     def bind_download_buttons(cls):
         def on_click(ev):
-            el = ev.target
-            container = el.parent.parent.parent
+            button_el = ev.target
+            container = button_el.parent.parent.parent
 
             content = container.get(selector="textarea")[0].text
 
