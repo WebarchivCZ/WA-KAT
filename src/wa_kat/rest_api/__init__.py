@@ -5,8 +5,8 @@
 #
 # Imports =====================================================================
 import json
-import base64
 import traceback
+from StringIO import StringIO
 from os.path import join
 
 import requests  # for requests.exceptions.Timeout
@@ -24,6 +24,8 @@ from ..connectors import aleph
 from shared import API_PATH
 from shared import RESPONSE_TYPE
 
+
+# Other API modules
 from to_marc import to_marc
 from keywords import get_kw_list
 
@@ -97,7 +99,7 @@ def get_aleph_info(issn):
 
 
 @post(join(API_PATH, "as_file/<fn:path>"))
-@form_to_params
+@form_to_params(return_json=False)
 def download_as_file(fn, data=None):
     if data is None:
         raise HTTPError(
@@ -105,12 +107,10 @@ def download_as_file(fn, data=None):
             "This service require base64 encoded POST `data` parameter."
         )
 
-    dec_data = base64.b64decode(data)
-
     response.set_header("Content-Type", "application/octet-stream")
     response.set_header(
         "Content-Disposition",
         'attachment; filename="%s"' % fn
     )
 
-    return dec_data
+    return StringIO(data)
