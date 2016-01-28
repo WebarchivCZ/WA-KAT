@@ -53,11 +53,12 @@ class OutputPicker(object):
     def bind_download_buttons(cls):
         def on_click(ev):
             button_el = ev.target
-            container = button_el.parent.parent.parent
+            form_el = button_el.parent.parent.parent
 
-            content = container.get(selector="textarea")[0].text
+            # this allows to use disabled <textearea>
+            content = form_el.get(selector="textarea")[0].text
 
-            input_el = container.get(selector="input")[0]
+            input_el = form_el.get(selector="input")[0]
             input_el.value = content
 
         for el in document.get(selector="button.output_download_button"):

@@ -102,10 +102,7 @@ def get_aleph_info(issn):
 @form_to_params(return_json=False)
 def download_as_file(fn, data=None):
     if data is None:
-        raise HTTPError(
-            500,
-            "This service require base64 encoded POST `data` parameter."
-        )
+        raise HTTPError(500, "This service require POST `data` parameter.")
 
     response.set_header("Content-Type", "application/octet-stream")
     response.set_header(
