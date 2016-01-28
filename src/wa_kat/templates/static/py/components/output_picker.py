@@ -4,6 +4,8 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import base64
+
 from browser import document
 
 from .log_view2 import LogView
@@ -46,3 +48,20 @@ class OutputPicker(object):
     @classmethod
     def bind(cls):
         cls.black_overlay.bind("click", lambda ev: cls.hide())
+
+    @classmethod
+    def bind_download_buttons(cls):
+        def on_click(ev):
+            el = ev.target
+            container = el.parent.parent.parent
+
+            content = container.get(selector="textarea")[0].text
+
+            input_el = container.get(selector="input")[0]
+            input_el.value = content
+
+        for el in document.get(selector="button.output_download_button"):
+            el.bind("click", on_click)
+
+
+OutputPicker.bind_download_buttons()

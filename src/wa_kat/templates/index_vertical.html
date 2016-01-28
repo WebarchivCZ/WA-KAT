@@ -334,6 +334,9 @@
       <span class="col-sm-2"></span>
       <div class="col-sm-10"><hr /></div>
     </div>
+  </form>
+
+  <form class="form-horizontal form-group" role="form" action="#">
 
     <div class="form-group">
       <label class="control-label col-sm-2"></label>
@@ -362,7 +365,7 @@
 <div id="black_overlay"></div>
 <pre id="log_placeholder"></pre>
 <div id="output_picker">
-  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="#" style="padding-top: 2em;">
+  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="/api_v1/as_file/fn.xml" method="POST" style="padding-top: 2em;">
     <div class="form-group">
       <label for="mrc_output" class="control-label col-sm-2">MRC šablona</label>
       <div class="col-sm-10">
@@ -370,6 +373,8 @@
       </div>
     </div>
 
+    <input type="hidden" name="data" />
+
     <div class="form-group">
       <span class="col-sm-11"></span>
       <span class="col-sm-1">
@@ -378,7 +383,7 @@
     </div>
   </form>
 
-  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="#">
+  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="/api_v1/as_file/fn.xml" method="POST">
     <div class="form-group">
       <label for="marc_oai_output" class="control-label col-sm-2">MARC OAI</label>
       <div class="col-sm-10">
@@ -386,6 +391,8 @@
       </div>
     </div>
 
+    <input type="hidden" name="data" />
+
     <div class="form-group">
       <span class="col-sm-11"></span>
       <span class="col-sm-1">
@@ -394,13 +401,15 @@
     </div>
   </form>
 
-  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="#">
+  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="/api_v1/as_file/fn.xml" method="POST">
     <div class="form-group">
       <label for="dublin_core_output" class="control-label col-sm-2">Dublin Core</label>
       <div class="col-sm-10">
         <textarea class="form-control" disabled=1 rows="10" id="dublin_core_output" placeholder="Výstup z konverze do Dublin Core."></textarea>
       </div>
     </div>
+
+    <input type="hidden" name="data" />
 
     <div class="form-group">
       <span class="col-sm-11"></span>
