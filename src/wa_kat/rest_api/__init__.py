@@ -5,6 +5,7 @@
 #
 # Imports =====================================================================
 import json
+import base64
 import traceback
 from os.path import join
 
@@ -12,6 +13,7 @@ import requests  # for requests.exceptions.Timeout
 from bottle import get
 from bottle import post
 from bottle import response
+from bottle import HTTPError
 from bottle_rest import form_to_params
 
 from .. import settings
@@ -92,3 +94,23 @@ def get_aleph_info(issn):
         result.get_mapping()
         for result in results
     ]
+
+
+@post(join(API_PATH, "as_file/<fn:path>"))
+@form_to_params
+def download_as_file(fn, data=None):
+    if data is None:
+        raise HTTPError(
+            500,
+            "This service require base64 encoded POST `data` parameter."
+        )
+
+    dec_data = base64.b64decode(data)
+
+    response.set_header("Content-Type", "application/octet-stream")
+    response.set_header(
+        "Content-Disposition",
+        'attachment; filename="%s"' % fn
+    )
+
+    return dec_data
