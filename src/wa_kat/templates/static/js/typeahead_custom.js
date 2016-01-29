@@ -188,7 +188,7 @@ var make_keyword_typeahead_tag = function(tag_id, source, callback) {
 }
 
 
-var destroy_typyahead_tag = function(tag_id){
+var destroy_typeahead_tag = function(tag_id){
   /*
     Remove typeahead from the tag identified by `tag_id`.
   */
