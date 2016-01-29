@@ -4,9 +4,9 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-from browser import ajax
-
 from browser import alert  # TODO: Remove
+
+from browser import ajax
 from browser import window
 from browser import document
 
@@ -38,45 +38,16 @@ class View(object):
         self.aleph_kw_handler = AlephKeywordHandler
         self.analysis_kw_handler = AanalysisKeywordHandler
 
-    @property
-    def _url_el(self):
-        return document["url"]
-
-    @property
-    def _issn_el(self):
-        return document["issn"]
-
-    @property
-    def _title_el(self):
-        return document["title"]
-
-    @property
-    def _creation_date_el(self):
-        return document["creation_date"]
-
-    @property
-    def _author_el(self):
-        return document["author"]
-
-    @property
-    def _place_el(self):
-        return document["place"]
-
-    @property
-    def _language_el(self):
-        return document["lang"]
-
-    @property
-    def _annotation_el(self):
-        return document["annotation"]
-
-    @property
-    def _periodicity_el(self):
-        return document["periode"]
-
-    @property
-    def _frequency_el(self):
-        return document["freq"]
+        self._url_el = document["url"]
+        self._issn_el = document["issn"]
+        self._title_el = document["title"]
+        self._creation_date_el = document["creation_date"]
+        self._author_el = document["author"]
+        self._place_el = document["place"]
+        self._language_el = document["lang"]
+        self._annotation_el = document["annotation"]
+        self._periodicity_el = document["periode"]
+        self._frequency_el = document["freq"]
 
     def _set_input(self, el, value):
         """
@@ -154,7 +125,7 @@ class View(object):
 
         # TODO: preserve old values
         if parent_id in self._set_by_typeahead:
-            window.destroy_typyahead_tag("#" + parent_id)
+            window.destroy_typeahead_tag("#" + parent_id)
 
         # if there are multiple elements, put them to the typeahead and show
         # dropdown glyph
@@ -168,7 +139,7 @@ class View(object):
         Reset all values set by typeahead back to default.
         """
         for el_id in self._set_by_typeahead:
-            window.destroy_typyahead_tag("#" + el_id)
+            window.destroy_typeahead_tag("#" + el_id)
 
         self._set_by_typeahead = set()
 
@@ -311,6 +282,7 @@ class View(object):
 
     @periodicity.setter
     def periodicity(self, val):
+        # custom handlers because of custom make_periode_typeahead_tag func
         parent_id = self._periodicity_el.parent.id
         if "typeahead" not in parent_id.lower():
             parent_id = self._periodicity_el.parent.parent.id
@@ -323,7 +295,7 @@ class View(object):
             )
             return
 
-        window.destroy_typyahead_tag("#" + parent_id)
+        window.destroy_typeahead_tag("#" + parent_id)
         self._set_el(self._periodicity_el, val)
 
     @property
