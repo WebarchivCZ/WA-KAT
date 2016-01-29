@@ -1,4 +1,4 @@
-DB    L LOCAL
+DB    L NKC01
 SYSID L 0
 FMT   L SE
 LDR   L -----nai-a22------i-4500
