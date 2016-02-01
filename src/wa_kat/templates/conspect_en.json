@@ -1,0 +1,2568 @@
+[
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "304",
+                "id": 1548,
+                "name": "Culture and institutions (Cultural policy)"
+            },
+            {
+                "subcategory_id": "316.7",
+                "id": 1549,
+                "name": "Culture and institutions"
+            },
+            {
+                "subcategory_id": "39",
+                "id": 1550,
+                "name": "Customs, etiquette, folklore"
+            },
+            {
+                "subcategory_id": "391",
+                "id": 1551,
+                "name": "General customs"
+            },
+            {
+                "subcategory_id": "392",
+                "id": 1552,
+                "name": "Customs and personal appearance"
+            },
+            {
+                "subcategory_id": "393",
+                "id": 1553,
+                "name": "Death customs"
+            },
+            {
+                "subcategory_id": "394",
+                "id": 1554,
+                "name": "Customs of life cycle and domestic life"
+            },
+            {
+                "subcategory_id": "395",
+                "id": 1555,
+                "name": "Etiquette (manners)"
+            },
+            {
+                "subcategory_id": "398",
+                "id": 1556,
+                "name": "Folklore"
+            },
+            {
+                "subcategory_id": "572",
+                "id": 1557,
+                "name": "Sociology and anthropology"
+            },
+            {
+                "subcategory_id": "599.89",
+                "id": 1558,
+                "name": "Hominidae Homo sapiens"
+            }
+        ],
+        "id": 1,
+        "name": "Anthropology"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "502",
+                "id": 1559,
+                "name": "Environmental protection"
+            },
+            {
+                "subcategory_id": "504",
+                "id": 1560,
+                "name": "Environmental pollution"
+            },
+            {
+                "subcategory_id": "57/59",
+                "id": 1561,
+                "name": "Life sciences"
+            },
+            {
+                "subcategory_id": "57",
+                "id": 1562,
+                "name": "Biology"
+            },
+            {
+                "subcategory_id": "574",
+                "id": 1563,
+                "name": "Ecology (in general)"
+            },
+            {
+                "subcategory_id": "575",
+                "id": 1564,
+                "name": "Genetics and evolution"
+            },
+            {
+                "subcategory_id": "576",
+                "id": 1565,
+                "name": "Cell biology"
+            },
+            {
+                "subcategory_id": "577",
+                "id": 1566,
+                "name": "Biochemistry"
+            },
+            {
+                "subcategory_id": "578",
+                "id": 1567,
+                "name": "Virology"
+            },
+            {
+                "subcategory_id": "579",
+                "id": 1568,
+                "name": "Microorganisms, fungi, algae"
+            },
+            {
+                "subcategory_id": "58",
+                "id": 1569,
+                "name": "Specific physiological systems in plants"
+            },
+            {
+                "subcategory_id": "581",
+                "id": 1570,
+                "name": "Plants"
+            },
+            {
+                "subcategory_id": "59",
+                "id": 1571,
+                "name": "Specific physiological systems in animals"
+            },
+            {
+                "subcategory_id": "591",
+                "id": 1572,
+                "name": "Animals"
+            },
+            {
+                "subcategory_id": "60",
+                "id": 1573,
+                "name": "Biotechnology"
+            }
+        ],
+        "id": 2,
+        "name": "Biological sciences"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "791/793",
+                "id": 1574,
+                "name": "The Performing Arts in general"
+            },
+            {
+                "subcategory_id": "791",
+                "id": 1575,
+                "name": "Public Performances"
+            },
+            {
+                "subcategory_id": "792",
+                "id": 1576,
+                "name": "Stage presentations"
+            },
+            {
+                "subcategory_id": "793.3",
+                "id": 1577,
+                "name": "Social, folk, national dancing"
+            },
+            {
+                "subcategory_id": "793.8",
+                "id": 1578,
+                "name": "Magic and related activities"
+            }
+        ],
+        "id": 3,
+        "name": "Performing arts"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "3.05",
+                "id": 1579,
+                "name": "Processes of written communication"
+            },
+            {
+                "subcategory_id": "5",
+                "id": 1580,
+                "name": "Management and auxiliary services"
+            },
+            {
+                "subcategory_id": "005.91/.92",
+                "id": 1581,
+                "name": "Office services"
+            },
+            {
+                "subcategory_id": "005.91:82-6",
+                "id": 1582,
+                "name": "Shorthand"
+            },
+            {
+                "subcategory_id": "311",
+                "id": 1583,
+                "name": "General statistics"
+            },
+            {
+                "subcategory_id": "33",
+                "id": 1584,
+                "name": "Economics"
+            },
+            {
+                "subcategory_id": "330.5+338",
+                "id": 1585,
+                "name": "International economics"
+            },
+            {
+                "subcategory_id": "330.8",
+                "id": 1586,
+                "name": "Economic systems, schools, theories"
+            },
+            {
+                "subcategory_id": "331",
+                "id": 1587,
+                "name": "Production"
+            },
+            {
+                "subcategory_id": "332",
+                "id": 1588,
+                "name": "Macroeconomics and related topics"
+            },
+            {
+                "subcategory_id": "334",
+                "id": 1589,
+                "name": "Cooperatives"
+            },
+            {
+                "subcategory_id": "336.1/.5",
+                "id": 1590,
+                "name": "Public finance"
+            },
+            {
+                "subcategory_id": "336.7",
+                "id": 1591,
+                "name": "Commerce, communication, transportation"
+            },
+            {
+                "subcategory_id": "338.3/.4",
+                "id": 1592,
+                "name": "Economics of land and energy"
+            },
+            {
+                "subcategory_id": "339",
+                "id": 1593,
+                "name": "International commerce (foreign trade)"
+            },
+            {
+                "subcategory_id": "339.3",
+                "id": 1594,
+                "name": "Internal commerce (domestic trade)"
+            },
+            {
+                "subcategory_id": "339.5",
+                "id": 1595,
+                "name": "Financial economics"
+            },
+            {
+                "subcategory_id": "339.7/.9",
+                "id": 1596,
+                "name": "Labour economics"
+            },
+            {
+                "subcategory_id": "368",
+                "id": 1597,
+                "name": "Insurance"
+            },
+            {
+                "subcategory_id": "654",
+                "id": 1598,
+                "name": "Communications, telecommunication"
+            },
+            {
+                "subcategory_id": "656",
+                "id": 1599,
+                "name": "Transportation"
+            },
+            {
+                "subcategory_id": "656.1/.5",
+                "id": 1600,
+                "name": "Ground transportation"
+            },
+            {
+                "subcategory_id": "656.2",
+                "id": 1601,
+                "name": "Railroad transportation"
+            },
+            {
+                "subcategory_id": "656.6/.7",
+                "id": 1602,
+                "name": "Water, air, space transportation"
+            },
+            {
+                "subcategory_id": "656.62",
+                "id": 1603,
+                "name": "Inland waterway and ferry transportation"
+            },
+            {
+                "subcategory_id": "656.8",
+                "id": 1604,
+                "name": "Postal communication"
+            },
+            {
+                "subcategory_id": "657",
+                "id": 1605,
+                "name": "Accounting"
+            },
+            {
+                "subcategory_id": "658",
+                "id": 1606,
+                "name": "General management"
+            },
+            {
+                "subcategory_id": "659",
+                "id": 1607,
+                "name": "Advertising and public relations"
+            }
+        ],
+        "id": 4,
+        "name": "Business and economics"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "101",
+                "id": 1608,
+                "name": "Philosophy"
+            },
+            {
+                "subcategory_id": "11",
+                "id": 1609,
+                "name": "Metaphysics"
+            },
+            {
+                "subcategory_id": "122/129",
+                "id": 1610,
+                "name": "Special metaphysics"
+            },
+            {
+                "subcategory_id": "13",
+                "id": 1611,
+                "name": "Mind and spirit"
+            },
+            {
+                "subcategory_id": "14",
+                "id": 1612,
+                "name": "Specific philosophical schools and viewpoints"
+            },
+            {
+                "subcategory_id": "14(100)",
+                "id": 1613,
+                "name": "Medieval philosophy"
+            },
+            {
+                "subcategory_id": "14(100-11)",
+                "id": 1614,
+                "name": "Oriental philosophy"
+            },
+            {
+                "subcategory_id": "14(100-15)",
+                "id": 1615,
+                "name": "Modern western philosophy"
+            },
+            {
+                "subcategory_id": "14(3)",
+                "id": 1616,
+                "name": "Classical (Greek and Roman), Germanic religion"
+            },
+            {
+                "subcategory_id": "16",
+                "id": 1617,
+                "name": "Logic"
+            },
+            {
+                "subcategory_id": "165",
+                "id": 1618,
+                "name": "Epistemology, causation, humankind"
+            },
+            {
+                "subcategory_id": "17",
+                "id": 1619,
+                "name": "Ethics (moral philosophy)"
+            },
+            {
+                "subcategory_id": "2",
+                "id": 1620,
+                "name": "Religion"
+            },
+            {
+                "subcategory_id": "2-1",
+                "id": 1621,
+                "name": "Philosophy and theory of religion"
+            },
+            {
+                "subcategory_id": "2-23/-27",
+                "id": 1622,
+                "name": "Bible"
+            },
+            {
+                "subcategory_id": "2-74",
+                "id": 1623,
+                "name": "Religious law"
+            },
+            {
+                "subcategory_id": "21",
+                "id": 1624,
+                "name": "Prehistoric religions and religions of nonliterate peoples"
+            },
+            {
+                "subcategory_id": "22/24",
+                "id": 1625,
+                "name": "Religions of Indic origin"
+            },
+            {
+                "subcategory_id": "25",
+                "id": 1626,
+                "name": "Ancient philosophy"
+            },
+            {
+                "subcategory_id": "26",
+                "id": 1627,
+                "name": "Judaism"
+            },
+            {
+                "subcategory_id": "27",
+                "id": 1628,
+                "name": "Christian social and ecclesiastical theology"
+            },
+            {
+                "subcategory_id": "27-1/-2",
+                "id": 1629,
+                "name": "Christian theology, Christian doctrinal theology"
+            },
+            {
+                "subcategory_id": "27-4",
+                "id": 1630,
+                "name": "Christian moral and devotional theology"
+            },
+            {
+                "subcategory_id": "27-46/-48",
+                "id": 1631,
+                "name": "Church history"
+            },
+            {
+                "subcategory_id": "27-5",
+                "id": 1632,
+                "name": "Art in Christianity. Church furnishing. Christian experience, practice, life"
+            },
+            {
+                "subcategory_id": "27-78",
+                "id": 1633,
+                "name": "Religious congregations and orders"
+            },
+            {
+                "subcategory_id": "27-9",
+                "id": 1634,
+                "name": "Local Christian church and Christian religious orders"
+            },
+            {
+                "subcategory_id": "271/279",
+                "id": 1635,
+                "name": "Denominations and sects of Christian church"
+            },
+            {
+                "subcategory_id": "28",
+                "id": 1636,
+                "name": "Islam"
+            },
+            {
+                "subcategory_id": "29",
+                "id": 1637,
+                "name": "Religions of other origin"
+            }
+        ],
+        "id": 5,
+        "name": "Philosophy and religion"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "6",
+                "id": 1638,
+                "name": "Metrology and standardization"
+            },
+            {
+                "subcategory_id": "6.95",
+                "id": 1639,
+                "name": "Chronology"
+            },
+            {
+                "subcategory_id": "5",
+                "id": 1640,
+                "name": "Natural sciences and mathematics"
+            },
+            {
+                "subcategory_id": "52",
+                "id": 1641,
+                "name": "Astronomy and allied sciences"
+            },
+            {
+                "subcategory_id": "521",
+                "id": 1642,
+                "name": "Modern physics"
+            },
+            {
+                "subcategory_id": "520",
+                "id": 1643,
+                "name": "Techniques, procedures, apparatus, equipment, material (Astronomy)"
+            },
+            {
+                "subcategory_id": "523/524",
+                "id": 1644,
+                "name": "Specific celestial bodies and phenomena"
+            },
+            {
+                "subcategory_id": "523.3",
+                "id": 1645,
+                "name": "Earth (astronomical geography)"
+            },
+            {
+                "subcategory_id": "53",
+                "id": 1646,
+                "name": "Physics"
+            },
+            {
+                "subcategory_id": "531",
+                "id": 1647,
+                "name": "Classical mechanics, solid mechanics"
+            },
+            {
+                "subcategory_id": "532",
+                "id": 1648,
+                "name": "Fluid mechanics, liquid mechanics"
+            },
+            {
+                "subcategory_id": "533",
+                "id": 1649,
+                "name": "Pneumatics (gas mechanics)"
+            },
+            {
+                "subcategory_id": "534",
+                "id": 1650,
+                "name": "Sound and related vibrations"
+            },
+            {
+                "subcategory_id": "535",
+                "id": 1651,
+                "name": "Light and paraphotic phenomena"
+            },
+            {
+                "subcategory_id": "536",
+                "id": 1652,
+                "name": "Heat"
+            },
+            {
+                "subcategory_id": "537",
+                "id": 1653,
+                "name": "Electricity and electronics"
+            },
+            {
+                "subcategory_id": "537.6/.8",
+                "id": 1654,
+                "name": "Magnetism"
+            },
+            {
+                "subcategory_id": "539",
+                "id": 1655,
+                "name": "Celestial mechanics"
+            }
+        ],
+        "id": 6,
+        "name": "Physical sciences"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "528",
+                "id": 1656,
+                "name": "Geodesy"
+            },
+            {
+                "subcategory_id": "549",
+                "id": 1657,
+                "name": "Mineralogy"
+            },
+            {
+                "subcategory_id": "55",
+                "id": 1658,
+                "name": "Earth sciences"
+            },
+            {
+                "subcategory_id": "550",
+                "id": 1659,
+                "name": "Economic geology"
+            },
+            {
+                "subcategory_id": "551",
+                "id": 1660,
+                "name": "Geology, meteorology"
+            },
+            {
+                "subcategory_id": "552",
+                "id": 1661,
+                "name": "Petrology"
+            },
+            {
+                "subcategory_id": "553",
+                "id": 1662,
+                "name": "Geophysics"
+            },
+            {
+                "subcategory_id": "556",
+                "id": 1663,
+                "name": "Hydrology"
+            },
+            {
+                "subcategory_id": "56",
+                "id": 1664,
+                "name": "Paleontology, paleozoology"
+            },
+            {
+                "subcategory_id": "91",
+                "id": 1665,
+                "name": "Geography and travel"
+            },
+            {
+                "subcategory_id": "911",
+                "id": 1666,
+                "name": "Physical geography, philosophy and theory of geography and travel"
+            },
+            {
+                "subcategory_id": "912",
+                "id": 1667,
+                "name": "Maps"
+            },
+            {
+                "subcategory_id": "54771",
+                "id": 1668,
+                "name": "Mathematical geography"
+            },
+            {
+                "subcategory_id": "913",
+                "id": 1669,
+                "name": "Geography of and travel in specific continents, countries, localities"
+            },
+            {
+                "subcategory_id": "913(3)",
+                "id": 1670,
+                "name": "Geography of and travel in ancient world"
+            },
+            {
+                "subcategory_id": "913(4)",
+                "id": 1671,
+                "name": "Geography of and travel in Europe"
+            },
+            {
+                "subcategory_id": "913(437)",
+                "id": 1672,
+                "name": "Geography of and travel in Czech and Slovak country"
+            },
+            {
+                "subcategory_id": "913(5)",
+                "id": 1673,
+                "name": "Geography of and Travel in Asia"
+            },
+            {
+                "subcategory_id": "913(6)",
+                "id": 1674,
+                "name": "Geography of and travel in Africa"
+            },
+            {
+                "subcategory_id": "913(7)",
+                "id": 1675,
+                "name": "Geography of and travel in North America"
+            },
+            {
+                "subcategory_id": "913(8)",
+                "id": 1676,
+                "name": "Geography of and travel in South America"
+            },
+            {
+                "subcategory_id": "913(9)",
+                "id": 1677,
+                "name": "Geography of and travel in other parts of world"
+            },
+            {
+                "subcategory_id": "913:94",
+                "id": 1678,
+                "name": "Historical geography"
+            }
+        ],
+        "id": 7,
+        "name": "Geography and earth sciences"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "9",
+                "id": 1679,
+                "name": "Biography, genealogy, insignia"
+            },
+            {
+                "subcategory_id": "902",
+                "id": 1680,
+                "name": "Archeology"
+            },
+            {
+                "subcategory_id": "903",
+                "id": 1681,
+                "name": "Specific prehistoric ages"
+            },
+            {
+                "subcategory_id": "904",
+                "id": 1682,
+                "name": "Archaeology (historical periods, material remains)"
+            },
+            {
+                "subcategory_id": "908",
+                "id": 1683,
+                "name": "Areas, regions, places in general"
+            },
+            {
+                "subcategory_id": "929",
+                "id": 1684,
+                "name": "Biography, genealogy, insignia"
+            },
+            {
+                "subcategory_id": "929.5/.9",
+                "id": 1685,
+                "name": "Genealogy, names, insignia"
+            },
+            {
+                "subcategory_id": "93/94",
+                "id": 1686,
+                "name": "History (in general)"
+            },
+            {
+                "subcategory_id": "930",
+                "id": 1687,
+                "name": "Philosophy and theory of history"
+            },
+            {
+                "subcategory_id": "930.85",
+                "id": 1688,
+                "name": "Civilization"
+            },
+            {
+                "subcategory_id": "94(100)",
+                "id": 1689,
+                "name": "World history"
+            },
+            {
+                "subcategory_id": "94(100)",
+                "id": 1690,
+                "name": "World history (Specific historical periods)"
+            },
+            {
+                "subcategory_id": "94(3)",
+                "id": 1691,
+                "name": "History of Ancient World to ca. 499"
+            },
+            {
+                "subcategory_id": "94(4)",
+                "id": 1692,
+                "name": "General history of Europe, Western Europe"
+            },
+            {
+                "subcategory_id": "94(41)",
+                "id": 1693,
+                "name": "British Isles"
+            },
+            {
+                "subcategory_id": "94(420/429)",
+                "id": 1694,
+                "name": "England and Wales"
+            },
+            {
+                "subcategory_id": "94(430/439)",
+                "id": 1695,
+                "name": "Central Europe, Germany"
+            },
+            {
+                "subcategory_id": "94(437)",
+                "id": 1696,
+                "name": "Czechia and Slovakia"
+            },
+            {
+                "subcategory_id": "94(44/449.49)",
+                "id": 1697,
+                "name": "France and Monaco"
+            },
+            {
+                "subcategory_id": "94(450/458.2)",
+                "id": 1698,
+                "name": "Italian peninsula and adjacent islands, Italy"
+            },
+            {
+                "subcategory_id": "94(46)",
+                "id": 1699,
+                "name": "Iberian peninsula and adjacent islands, Spain"
+            },
+            {
+                "subcategory_id": "94(47)",
+                "id": 1700,
+                "name": "Eastern Europe, Russia"
+            },
+            {
+                "subcategory_id": "94(48)",
+                "id": 1701,
+                "name": "Northern Europe, Scandinavia"
+            },
+            {
+                "subcategory_id": "94(491.1/494.9)",
+                "id": 1702,
+                "name": "Other Parts of Europe"
+            },
+            {
+                "subcategory_id": "94(495/498)",
+                "id": 1703,
+                "name": "Other parts of Europe, Balkan Peninsula"
+            },
+            {
+                "subcategory_id": "94(5)",
+                "id": 1704,
+                "name": "General history of Asia, Orient, Far East"
+            },
+            {
+                "subcategory_id": "94(6)",
+                "id": 1705,
+                "name": "General History of Africa"
+            },
+            {
+                "subcategory_id": "94(7)",
+                "id": 1706,
+                "name": "General History of North America"
+            },
+            {
+                "subcategory_id": "94(8)",
+                "id": 1707,
+                "name": "General History of South America"
+            },
+            {
+                "subcategory_id": "94(9)",
+                "id": 1708,
+                "name": "Rest of World, Extrater. Worlds, Pac. Islands"
+            },
+            {
+                "subcategory_id": "908(437)",
+                "id": 1709,
+                "name": "Czech and Slovak local history"
+            }
+        ],
+        "id": 8,
+        "name": "History and auxiliary sciences"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "78",
+                "id": 1710,
+                "name": "Music"
+            },
+            {
+                "subcategory_id": "78.01",
+                "id": 1711,
+                "name": "Musicology"
+            },
+            {
+                "subcategory_id": "78.03",
+                "id": 1712,
+                "name": "Periods of stylistic development of music"
+            },
+            {
+                "subcategory_id": "78.07",
+                "id": 1713,
+                "name": "Persons associated with music"
+            },
+            {
+                "subcategory_id": "781",
+                "id": 1714,
+                "name": "General principles and musical forms"
+            },
+            {
+                "subcategory_id": "782",
+                "id": 1715,
+                "name": "Dramatic vocal forms. Operas"
+            },
+            {
+                "subcategory_id": "783",
+                "id": 1716,
+                "name": "Sacred music"
+            },
+            {
+                "subcategory_id": "784",
+                "id": 1717,
+                "name": "Vocal music"
+            },
+            {
+                "subcategory_id": "785",
+                "id": 1718,
+                "name": "Instruments and instrumental ensembles and their music"
+            },
+            {
+                "subcategory_id": "786/789",
+                "id": 1719,
+                "name": "Music for individual instruments"
+            },
+            {
+                "subcategory_id": "786",
+                "id": 1720,
+                "name": "Keyboard, mechanical, electrophonic, percussion instruments"
+            },
+            {
+                "subcategory_id": "787",
+                "id": 1721,
+                "name": "Stringed instruments (chordophones). Bowed instruments"
+            },
+            {
+                "subcategory_id": "788",
+                "id": 1722,
+                "name": "Wind instruments (aerophones)"
+            },
+            {
+                "subcategory_id": "789",
+                "id": 1723,
+                "name": "Percussion instruments"
+            }
+        ],
+        "id": 9,
+        "name": "Music"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "54",
+                "id": 1724,
+                "name": "Chemistry and allied sciences"
+            },
+            {
+                "subcategory_id": "542",
+                "id": 1725,
+                "name": "Techniques, procedures, apparatus, equipment, materials (Chemistry)"
+            },
+            {
+                "subcategory_id": "543",
+                "id": 1726,
+                "name": "Analytical chemistry"
+            },
+            {
+                "subcategory_id": "544",
+                "id": 1727,
+                "name": "Physical and theoretical chemistry"
+            },
+            {
+                "subcategory_id": "546",
+                "id": 1728,
+                "name": "Organic chemistry"
+            },
+            {
+                "subcategory_id": "547",
+                "id": 1729,
+                "name": "Crystallography"
+            },
+            {
+                "subcategory_id": "548",
+                "id": 1730,
+                "name": "Inorganic chemistry"
+            }
+        ],
+        "id": 10,
+        "name": "Chemistry"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "3",
+                "id": 1731,
+                "name": "Writing systems"
+            },
+            {
+                "subcategory_id": "80",
+                "id": 1732,
+                "name": "Language"
+            },
+            {
+                "subcategory_id": "808",
+                "id": 1733,
+                "name": "General topics in rhetoric"
+            },
+            {
+                "subcategory_id": "81",
+                "id": 1734,
+                "name": "Linguistics"
+            },
+            {
+                "subcategory_id": "811.1/.8",
+                "id": 1735,
+                "name": "Specific languages"
+            },
+            {
+                "subcategory_id": "811.11",
+                "id": 1736,
+                "name": "Germanic languages"
+            },
+            {
+                "subcategory_id": "811.124",
+                "id": 1737,
+                "name": "Italic languages - Latin"
+            },
+            {
+                "subcategory_id": "811.13",
+                "id": 1738,
+                "name": "Romance languages"
+            },
+            {
+                "subcategory_id": "811.14",
+                "id": 1739,
+                "name": "Hellenic languages - classical Greek"
+            },
+            {
+                "subcategory_id": "811.16",
+                "id": 1740,
+                "name": "Slavic (Slavonic) languages"
+            },
+            {
+                "subcategory_id": "811. 162.3",
+                "id": 1741,
+                "name": "Czech language"
+            },
+            {
+                "subcategory_id": "811.17",
+                "id": 1742,
+                "name": "Baltic languages"
+            },
+            {
+                "subcategory_id": "811.18",
+                "id": 1743,
+                "name": "Albanian language"
+            },
+            {
+                "subcategory_id": "811.21/.22",
+                "id": 1744,
+                "name": "Indo-Iranian languages"
+            },
+            {
+                "subcategory_id": "811.34",
+                "id": 1745,
+                "name": "Dead languages of unknown affiliation"
+            },
+            {
+                "subcategory_id": "811.35",
+                "id": 1746,
+                "name": "Caucasian languages"
+            },
+            {
+                "subcategory_id": "811.41",
+                "id": 1747,
+                "name": "Afro-Asiatic languages"
+            },
+            {
+                "subcategory_id": "811.51",
+                "id": 1748,
+                "name": "Altaic, Uralic languages"
+            },
+            {
+                "subcategory_id": "811.58",
+                "id": 1749,
+                "name": "Chinese language"
+            },
+            {
+                "subcategory_id": "811.9",
+                "id": 1750,
+                "name": "Artificial languages"
+            },
+            {
+                "subcategory_id": "82",
+                "id": 1751,
+                "name": "Literature"
+            },
+            {
+                "subcategory_id": "82",
+                "id": 1752,
+                "name": "Literature (Philosophy and theory)"
+            },
+            {
+                "subcategory_id": "4923",
+                "id": 1753,
+                "name": "Dictionaries, encyclopaedias, concordances"
+            },
+            {
+                "subcategory_id": "4925",
+                "id": 1754,
+                "name": "Serial publications"
+            },
+            {
+                "subcategory_id": "4926",
+                "id": 1755,
+                "name": "Organizations"
+            },
+            {
+                "subcategory_id": "4957",
+                "id": 1756,
+                "name": "Education, research, related topics"
+            },
+            {
+                "subcategory_id": "82-1/-8",
+                "id": 1757,
+                "name": "Rhetoric in specific literary forms"
+            },
+            {
+                "subcategory_id": "82-31/-34",
+                "id": 1758,
+                "name": "Literature for and by other specific kinds of persons"
+            },
+            {
+                "subcategory_id": "82-9",
+                "id": 1759,
+                "name": "Literature for and by other specific kinds of persons"
+            },
+            {
+                "subcategory_id": "82-93",
+                "id": 1760,
+                "name": "Literature for and by other specific kinds of persons (on)"
+            },
+            {
+                "subcategory_id": "82-97",
+                "id": 1761,
+                "name": "Literature for and by other specific kinds of persons"
+            },
+            {
+                "subcategory_id": "821.09",
+                "id": 1762,
+                "name": "Literature of miscellaneous languages (on)"
+            },
+            {
+                "subcategory_id": "821.11.09",
+                "id": 1763,
+                "name": "Other Germanic literatures (on)"
+            },
+            {
+                "subcategory_id": "821.13.09",
+                "id": 1764,
+                "name": "Romanian and Rhaeto-Romanic literatures(on)"
+            },
+            {
+                "subcategory_id": "821.124.09",
+                "id": 1765,
+                "name": "Latin literature (on)"
+            },
+            {
+                "subcategory_id": "821.14'02.09",
+                "id": 1766,
+                "name": "Greek (Hellenic) literature (on)"
+            },
+            {
+                "subcategory_id": "821.14.09",
+                "id": 1767,
+                "name": "Modern Greek literature (on)"
+            },
+            {
+                "subcategory_id": "821.162.3.09",
+                "id": 1768,
+                "name": "Czech literature (on)"
+            },
+            {
+                "subcategory_id": "821.16.09",
+                "id": 1769,
+                "name": "Slovak literature (on)"
+            },
+            {
+                "subcategory_id": "821.17.09",
+                "id": 1770,
+                "name": "Baltic literatures (on)"
+            },
+            {
+                "subcategory_id": "821.41.09",
+                "id": 1771,
+                "name": "Afro-Asiatic (Hamito-Semitic) literatures (on)"
+            },
+            {
+                "subcategory_id": "821.51.09",
+                "id": 1772,
+                "name": "Altaic, Uralic, Hyperborean, Dravidian literatures (on)"
+            },
+            {
+                "subcategory_id": "821.521.09",
+                "id": 1773,
+                "name": "Japanese literature (on)"
+            },
+            {
+                "subcategory_id": "821.531.09",
+                "id": 1774,
+                "name": "Korean literature (on)"
+            },
+            {
+                "subcategory_id": "821.58.09",
+                "id": 1775,
+                "name": "Literatures of East and SE Asia, Sino-Tibetian literatures"
+            },
+            {
+                "subcategory_id": "821.432.09",
+                "id": 1776,
+                "name": "African literatures (on)"
+            },
+            {
+                "subcategory_id": "821.81/.82.09",
+                "id": 1777,
+                "name": "Literatures of North American native languages"
+            },
+            {
+                "subcategory_id": "821.873.09",
+                "id": 1778,
+                "name": "Literature of South American native languages (on)"
+            },
+            {
+                "subcategory_id": "821.62.09",
+                "id": 1779,
+                "name": "Austronesian literatures (on)"
+            }
+        ],
+        "id": 11,
+        "name": "Language, linguistics and literature"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "0",
+                "id": 1780,
+                "name": "Generalities"
+            },
+            {
+                "subcategory_id": "1",
+                "id": 1781,
+                "name": "Bibliography"
+            },
+            {
+                "subcategory_id": "2",
+                "id": 1782,
+                "name": "Library and information sciences"
+            },
+            {
+                "subcategory_id": "21",
+                "id": 1783,
+                "name": "Relationship of libraries, archives, information centers"
+            },
+            {
+                "subcategory_id": "22",
+                "id": 1784,
+                "name": "Administration of the physical plant"
+            },
+            {
+                "subcategory_id": "23",
+                "id": 1785,
+                "name": "Personnel administration"
+            },
+            {
+                "subcategory_id": "24",
+                "id": 1786,
+                "name": "Library services"
+            },
+            {
+                "subcategory_id": "25",
+                "id": 1787,
+                "name": "Operations of libraries, archives, information centers"
+            },
+            {
+                "subcategory_id": "025.3/.4",
+                "id": 1788,
+                "name": "Bibliographic and subject analysis and control"
+            },
+            {
+                "subcategory_id": "026/027",
+                "id": 1789,
+                "name": "Specific kinds of institutions (libraries)"
+            },
+            {
+                "subcategory_id": "26",
+                "id": 1790,
+                "name": "Libraries, archives, information centres of special disciplines and subjects"
+            },
+            {
+                "subcategory_id": "27",
+                "id": 1791,
+                "name": "General libraries, archives, information centres"
+            },
+            {
+                "subcategory_id": "28",
+                "id": 1792,
+                "name": "Reading and use of other information media"
+            },
+            {
+                "subcategory_id": "30",
+                "id": 1793,
+                "name": "General encyclopaedic works"
+            },
+            {
+                "subcategory_id": "50",
+                "id": 1794,
+                "name": "General serial publications and their indexes"
+            },
+            {
+                "subcategory_id": "6",
+                "id": 1795,
+                "name": "General organizations"
+            },
+            {
+                "subcategory_id": "69",
+                "id": 1796,
+                "name": "Museology (museum science) in general"
+            },
+            {
+                "subcategory_id": "70",
+                "id": 1797,
+                "name": "Documentary, educational, news media, journalism"
+            },
+            {
+                "subcategory_id": "8",
+                "id": 1798,
+                "name": "General collections"
+            },
+            {
+                "subcategory_id": "9",
+                "id": 1799,
+                "name": "Manuscripts, rare books, other rare printed materials"
+            },
+            {
+                "subcategory_id": "93",
+                "id": 1800,
+                "name": "Incunabula"
+            },
+            {
+                "subcategory_id": "94",
+                "id": 1801,
+                "name": "Old prints"
+            },
+            {
+                "subcategory_id": "94.5",
+                "id": 1802,
+                "name": "Prints (19th century)"
+            },
+            {
+                "subcategory_id": "095/096",
+                "id": 1803,
+                "name": "Rare prints"
+            },
+            {
+                "subcategory_id": "316.77",
+                "id": 1804,
+                "name": "Information science"
+            },
+            {
+                "subcategory_id": "655",
+                "id": 1805,
+                "name": "Publishing"
+            }
+        ],
+        "id": 12,
+        "name": "Library science, generalities and references"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "51",
+                "id": 1806,
+                "name": "Mathematics"
+            },
+            {
+                "subcategory_id": "510",
+                "id": 1807,
+                "name": "General principles (Mathematics)"
+            },
+            {
+                "subcategory_id": "511",
+                "id": 1808,
+                "name": "Number theory"
+            },
+            {
+                "subcategory_id": "511.1",
+                "id": 1809,
+                "name": "Arithmetic"
+            },
+            {
+                "subcategory_id": "512",
+                "id": 1810,
+                "name": "Algebra"
+            },
+            {
+                "subcategory_id": "514",
+                "id": 1811,
+                "name": "Geometry"
+            },
+            {
+                "subcategory_id": "515.1",
+                "id": 1812,
+                "name": "Topology"
+            },
+            {
+                "subcategory_id": "517",
+                "id": 1813,
+                "name": "Analysis"
+            },
+            {
+                "subcategory_id": "519",
+                "id": 1814,
+                "name": "Probabilities and applied mathematics"
+            }
+        ],
+        "id": 13,
+        "name": "Mathematics"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "61",
+                "id": 1815,
+                "name": "Medical sciences, medicine"
+            },
+            {
+                "subcategory_id": "611",
+                "id": 1816,
+                "name": "Human anatomy, cytology (cell), histology (tissues)"
+            },
+            {
+                "subcategory_id": "612",
+                "id": 1817,
+                "name": "Human physiology"
+            },
+            {
+                "subcategory_id": "613",
+                "id": 1818,
+                "name": "Promotion of health"
+            },
+            {
+                "subcategory_id": "614",
+                "id": 1819,
+                "name": "Forensic medicine, incidence of disease, public preventive medicine"
+            },
+            {
+                "subcategory_id": "614.8",
+                "id": 1820,
+                "name": "Public safety programs"
+            },
+            {
+                "subcategory_id": "614.84",
+                "id": 1821,
+                "name": "Fire hazards"
+            },
+            {
+                "subcategory_id": "615",
+                "id": 1822,
+                "name": "Pharmacology"
+            },
+            {
+                "subcategory_id": "615.8",
+                "id": 1823,
+                "name": "Specific therapies and alternative therapies"
+            },
+            {
+                "subcategory_id": "616",
+                "id": 1824,
+                "name": "Diseases. Clinical medicine"
+            },
+            {
+                "subcategory_id": "616-053.2",
+                "id": 1825,
+                "name": "Pediatrics"
+            },
+            {
+                "subcategory_id": "616-053.9",
+                "id": 1826,
+                "name": "Geriatrics"
+            },
+            {
+                "subcategory_id": "616-092",
+                "id": 1827,
+                "name": "Experimental medicine"
+            },
+            {
+                "subcategory_id": "616.31",
+                "id": 1828,
+                "name": "Diseases of mouth and throat"
+            },
+            {
+                "subcategory_id": "616.89",
+                "id": 1829,
+                "name": "Mental disorders. Psychiatry"
+            },
+            {
+                "subcategory_id": "617",
+                "id": 1830,
+                "name": "Surgery and related topics"
+            },
+            {
+                "subcategory_id": "618",
+                "id": 1831,
+                "name": "Gynecology and obstetrics (other branches of medicine)"
+            }
+        ],
+        "id": 14,
+        "name": "Medicine"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "32",
+                "id": 1832,
+                "name": "Political science (politics and government)"
+            },
+            {
+                "subcategory_id": "321",
+                "id": 1833,
+                "name": "Systems of governments and states"
+            },
+            {
+                "subcategory_id": "322",
+                "id": 1834,
+                "name": "Relation of state to organized groups and their members"
+            },
+            {
+                "subcategory_id": "323",
+                "id": 1835,
+                "name": "Civil and political rights"
+            },
+            {
+                "subcategory_id": "324",
+                "id": 1836,
+                "name": "Political process"
+            },
+            {
+                "subcategory_id": "325",
+                "id": 1837,
+                "name": "International migration and colonization"
+            },
+            {
+                "subcategory_id": "327",
+                "id": 1838,
+                "name": "International relations"
+            },
+            {
+                "subcategory_id": "328",
+                "id": 1839,
+                "name": "Legislative process"
+            },
+            {
+                "subcategory_id": "329",
+                "id": 1840,
+                "name": "Political parties"
+            },
+            {
+                "subcategory_id": "35",
+                "id": 1841,
+                "name": "Public administration and military science"
+            },
+            {
+                "subcategory_id": "35.07",
+                "id": 1842,
+                "name": "General considerations of public administration"
+            },
+            {
+                "subcategory_id": "351",
+                "id": 1843,
+                "name": "Specific fields of public administration"
+            },
+            {
+                "subcategory_id": "352/354",
+                "id": 1844,
+                "name": "Administration of central governments"
+            },
+            {
+                "subcategory_id": "355/359",
+                "id": 1845,
+                "name": "Military science"
+            },
+            {
+                "subcategory_id": "356",
+                "id": 1846,
+                "name": "Foot forces and warfare"
+            },
+            {
+                "subcategory_id": "357",
+                "id": 1847,
+                "name": "Mounted forces and warfare"
+            },
+            {
+                "subcategory_id": "358",
+                "id": 1848,
+                "name": "Air and other specialized forces and warfare; Engineering and related services"
+            },
+            {
+                "subcategory_id": "359",
+                "id": 1849,
+                "name": "Sea (naval) forces and warfare"
+            }
+        ],
+        "id": 15,
+        "name": "Political science"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "34",
+                "id": 1850,
+                "name": "Law"
+            },
+            {
+                "subcategory_id": "341",
+                "id": 1851,
+                "name": "International law"
+            },
+            {
+                "subcategory_id": "342",
+                "id": 1852,
+                "name": "Constitutional law and administrative law"
+            },
+            {
+                "subcategory_id": "342.53",
+                "id": 1853,
+                "name": "Laws (statutes), regulations, cases"
+            },
+            {
+                "subcategory_id": "343",
+                "id": 1854,
+                "name": "Criminal law"
+            },
+            {
+                "subcategory_id": "343.9",
+                "id": 1855,
+                "name": "Criminal procedure"
+            },
+            {
+                "subcategory_id": "344",
+                "id": 1856,
+                "name": "Military, defence, veteran's law"
+            },
+            {
+                "subcategory_id": "346",
+                "id": 1857,
+                "name": "Regulation of economic activity"
+            },
+            {
+                "subcategory_id": "347",
+                "id": 1858,
+                "name": "Private law"
+            },
+            {
+                "subcategory_id": "347.7",
+                "id": 1859,
+                "name": "Commercial law"
+            },
+            {
+                "subcategory_id": "347.9",
+                "id": 1860,
+                "name": "Civil procedure and Courts"
+            },
+            {
+                "subcategory_id": "349",
+                "id": 1861,
+                "name": "Labour, social service law"
+            }
+        ],
+        "id": 16,
+        "name": "Law"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "133",
+                "id": 1862,
+                "name": "Paranormal phenomena"
+            },
+            {
+                "subcategory_id": "159.9",
+                "id": 1863,
+                "name": "Psychology"
+            },
+            {
+                "subcategory_id": "159.92",
+                "id": 1864,
+                "name": "Differential and developmental psychology"
+            },
+            {
+                "subcategory_id": "159.929",
+                "id": 1865,
+                "name": "Comparative psychology"
+            },
+            {
+                "subcategory_id": "159.93/.94",
+                "id": 1866,
+                "name": "Sensory perception, movement, emotions, physiological drives"
+            },
+            {
+                "subcategory_id": "159.95",
+                "id": 1867,
+                "name": "Conscious mental processes and intelligence"
+            },
+            {
+                "subcategory_id": "159.96",
+                "id": 1868,
+                "name": "Subconscious and altered states and processes"
+            },
+            {
+                "subcategory_id": "159.97",
+                "id": 1869,
+                "name": "Psychology (psychoanalytic systems)"
+            },
+            {
+                "subcategory_id": "159.98",
+                "id": 1870,
+                "name": "Applied psychology"
+            }
+        ],
+        "id": 17,
+        "name": "Psychology"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "61.2",
+                "id": 1871,
+                "name": "Associations"
+            },
+            {
+                "subcategory_id": "3",
+                "id": 1872,
+                "name": "Social sciences"
+            },
+            {
+                "subcategory_id": "308",
+                "id": 1873,
+                "name": "Sociology (philosophy and theory)"
+            },
+            {
+                "subcategory_id": "314",
+                "id": 1874,
+                "name": "Factors affecting social behaviour"
+            },
+            {
+                "subcategory_id": "316",
+                "id": 1875,
+                "name": "Sociology"
+            },
+            {
+                "subcategory_id": "316.3",
+                "id": 1876,
+                "name": "Social groups"
+            },
+            {
+                "subcategory_id": "316.33",
+                "id": 1877,
+                "name": "Communities"
+            },
+            {
+                "subcategory_id": "316.4",
+                "id": 1878,
+                "name": "Social processes"
+            },
+            {
+                "subcategory_id": "316.4/.7",
+                "id": 1879,
+                "name": "Social interaction"
+            },
+            {
+                "subcategory_id": "316.8",
+                "id": 1880,
+                "name": "Marriage and family"
+            },
+            {
+                "subcategory_id": "326",
+                "id": 1881,
+                "name": "Slavery and emancipation"
+            },
+            {
+                "subcategory_id": "343.8",
+                "id": 1882,
+                "name": "Penal and related institutions"
+            },
+            {
+                "subcategory_id": "343.97",
+                "id": 1883,
+                "name": "Criminology"
+            },
+            {
+                "subcategory_id": "36",
+                "id": 1884,
+                "name": "Social problems and services"
+            },
+            {
+                "subcategory_id": "364",
+                "id": 1885,
+                "name": "Social problems and social welfare in general"
+            },
+            {
+                "subcategory_id": "364-1/-7",
+                "id": 1886,
+                "name": "Social welfare problems and services"
+            },
+            {
+                "subcategory_id": "364.3",
+                "id": 1887,
+                "name": "Social insurance"
+            },
+            {
+                "subcategory_id": "365",
+                "id": 1888,
+                "name": "Other social problems and services"
+            },
+            {
+                "subcategory_id": "366",
+                "id": 1889,
+                "name": "Consumer problems and protection"
+            },
+            {
+                "subcategory_id": "649",
+                "id": 1890,
+                "name": "Child rearing and home care of sick and infirm"
+            }
+        ],
+        "id": 18,
+        "name": "Sociology"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "62",
+                "id": 1891,
+                "name": "Technology (applied sciences)"
+            },
+            {
+                "subcategory_id": "620.1/.2",
+                "id": 1892,
+                "name": "Engineering materials"
+            },
+            {
+                "subcategory_id": "620.9",
+                "id": 1893,
+                "name": "Energy engineering"
+            },
+            {
+                "subcategory_id": "621",
+                "id": 1894,
+                "name": "Engineering and allied operations"
+            },
+            {
+                "subcategory_id": "621.039",
+                "id": 1895,
+                "name": "Nuclear engineering"
+            },
+            {
+                "subcategory_id": "621.3",
+                "id": 1896,
+                "name": "Applied physics"
+            },
+            {
+                "subcategory_id": "621.38",
+                "id": 1897,
+                "name": "Electronics"
+            },
+            {
+                "subcategory_id": "621.39",
+                "id": 1898,
+                "name": "Communication engineering"
+            },
+            {
+                "subcategory_id": "622",
+                "id": 1899,
+                "name": "Mining and related operations"
+            },
+            {
+                "subcategory_id": "623",
+                "id": 1900,
+                "name": "Military and nautical engineering"
+            },
+            {
+                "subcategory_id": "624",
+                "id": 1901,
+                "name": "Building Engineering"
+            },
+            {
+                "subcategory_id": "625",
+                "id": 1902,
+                "name": "Engineering of railroads and roads"
+            },
+            {
+                "subcategory_id": "626/627",
+                "id": 1903,
+                "name": "Hydraulic engineering"
+            },
+            {
+                "subcategory_id": "628",
+                "id": 1904,
+                "name": "Sanitary, municipal engineering; environmental protection engineering"
+            },
+            {
+                "subcategory_id": "629",
+                "id": 1905,
+                "name": "Means of transportation"
+            },
+            {
+                "subcategory_id": "629.056.2",
+                "id": 1906,
+                "name": "Celestial navigation"
+            },
+            {
+                "subcategory_id": "64",
+                "id": 1907,
+                "name": "Home economics and family living"
+            },
+            {
+                "subcategory_id": "640.4",
+                "id": 1908,
+                "name": "Specific kinds of public households and institutions"
+            },
+            {
+                "subcategory_id": "641",
+                "id": 1909,
+                "name": "Food and drink"
+            },
+            {
+                "subcategory_id": "642",
+                "id": 1910,
+                "name": "Meals and table service"
+            },
+            {
+                "subcategory_id": "643",
+                "id": 1911,
+                "name": "Housing and household equipment"
+            },
+            {
+                "subcategory_id": "644",
+                "id": 1912,
+                "name": "Household utilities"
+            },
+            {
+                "subcategory_id": "645",
+                "id": 1913,
+                "name": "Household furnishings"
+            },
+            {
+                "subcategory_id": "646",
+                "id": 1914,
+                "name": "Sewing, clothing"
+            },
+            {
+                "subcategory_id": "647",
+                "id": 1915,
+                "name": "Management of public households (institutional housekeeping)"
+            },
+            {
+                "subcategory_id": "648",
+                "id": 1916,
+                "name": "Housekeeping"
+            },
+            {
+                "subcategory_id": "66",
+                "id": 1917,
+                "name": "Chemical engineering and related technologies"
+            },
+            {
+                "subcategory_id": "661",
+                "id": 1918,
+                "name": "Technology of industrial chemicals"
+            },
+            {
+                "subcategory_id": "662",
+                "id": 1919,
+                "name": "Technology of explosives, fuels, related products"
+            },
+            {
+                "subcategory_id": "663",
+                "id": 1920,
+                "name": "Beverage technology"
+            },
+            {
+                "subcategory_id": "664",
+                "id": 1921,
+                "name": "Food technology"
+            },
+            {
+                "subcategory_id": "665",
+                "id": 1922,
+                "name": "Technology of industrial oils, fats, waxes, gases"
+            },
+            {
+                "subcategory_id": "666",
+                "id": 1923,
+                "name": "Ceramic and allied technologies"
+            },
+            {
+                "subcategory_id": "667",
+                "id": 1924,
+                "name": "Cleaning, colour coating and related technologies"
+            },
+            {
+                "subcategory_id": "669",
+                "id": 1925,
+                "name": "Metallurgy"
+            },
+            {
+                "subcategory_id": "67/68",
+                "id": 1926,
+                "name": "Manufacturing"
+            },
+            {
+                "subcategory_id": "671",
+                "id": 1927,
+                "name": "Metalworking processes and primary metal products"
+            },
+            {
+                "subcategory_id": "672",
+                "id": 1928,
+                "name": "Iron, steel, other iron alloys"
+            },
+            {
+                "subcategory_id": "673",
+                "id": 1929,
+                "name": "Nonferrous metals"
+            },
+            {
+                "subcategory_id": "674",
+                "id": 1930,
+                "name": "Lumber processing, wood products, cork"
+            },
+            {
+                "subcategory_id": "675",
+                "id": 1931,
+                "name": "Leather and fur processing"
+            },
+            {
+                "subcategory_id": "676",
+                "id": 1932,
+                "name": "Pulp and paper technology"
+            },
+            {
+                "subcategory_id": "677",
+                "id": 1933,
+                "name": "Textiles"
+            },
+            {
+                "subcategory_id": "678",
+                "id": 1934,
+                "name": "Elastomers and elastomer products"
+            },
+            {
+                "subcategory_id": "679",
+                "id": 1935,
+                "name": "Other products of specific kinds of materials"
+            },
+            {
+                "subcategory_id": "681",
+                "id": 1936,
+                "name": "Precision instruments and other devices"
+            },
+            {
+                "subcategory_id": "681.5",
+                "id": 1937,
+                "name": "Automatic control engineering"
+            },
+            {
+                "subcategory_id": "682",
+                "id": 1938,
+                "name": "Small force work (blacksmithing)"
+            },
+            {
+                "subcategory_id": "683",
+                "id": 1939,
+                "name": "Hardware and household appliances"
+            },
+            {
+                "subcategory_id": "684",
+                "id": 1940,
+                "name": "Furnishing and home workshops"
+            },
+            {
+                "subcategory_id": "685",
+                "id": 1941,
+                "name": "Leather and fur goods and related products"
+            },
+            {
+                "subcategory_id": "686",
+                "id": 1942,
+                "name": "Printing and related activities"
+            },
+            {
+                "subcategory_id": "687",
+                "id": 1943,
+                "name": "Clothing and accessories"
+            },
+            {
+                "subcategory_id": "688",
+                "id": 1944,
+                "name": "Other final products and packaging technology"
+            },
+            {
+                "subcategory_id": "69",
+                "id": 1945,
+                "name": "Buildings"
+            },
+            {
+                "subcategory_id": "691",
+                "id": 1946,
+                "name": "Building materials"
+            },
+            {
+                "subcategory_id": "692",
+                "id": 1947,
+                "name": "Auxiliary construction practices"
+            },
+            {
+                "subcategory_id": "693",
+                "id": 1948,
+                "name": "Construction in specific types of materials and for specific purposes"
+            },
+            {
+                "subcategory_id": "694",
+                "id": 1949,
+                "name": "Wood construction, carpentry"
+            },
+            {
+                "subcategory_id": "696",
+                "id": 1950,
+                "name": "Utilities"
+            },
+            {
+                "subcategory_id": "697",
+                "id": 1951,
+                "name": "Heating, ventilating, air-conditioning"
+            },
+            {
+                "subcategory_id": "698",
+                "id": 1952,
+                "name": "Detail finishing"
+            },
+            {
+                "subcategory_id": "699.8",
+                "id": 1953,
+                "name": "Construction for specific purposes (protection of buildings)"
+            }
+        ],
+        "id": 19,
+        "name": "Engineering and technology"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "613.7",
+                "id": 1954,
+                "name": "Physical fitness"
+            },
+            {
+                "subcategory_id": "79",
+                "id": 1955,
+                "name": "Recreational arts"
+            },
+            {
+                "subcategory_id": "793",
+                "id": 1956,
+                "name": "Indoor games and amusements"
+            },
+            {
+                "subcategory_id": "794",
+                "id": 1957,
+                "name": "Indoor games of skill"
+            },
+            {
+                "subcategory_id": "794.9",
+                "id": 1958,
+                "name": "Games of chance"
+            },
+            {
+                "subcategory_id": "796",
+                "id": 1959,
+                "name": "Athletic and outdoor sports and games"
+            },
+            {
+                "subcategory_id": "797",
+                "id": 1960,
+                "name": "Aquatic and air sports"
+            },
+            {
+                "subcategory_id": "798",
+                "id": 1961,
+                "name": "Equestrian sports and animal racing"
+            },
+            {
+                "subcategory_id": "799",
+                "id": 1962,
+                "name": "Fishing, hunting, shooting"
+            }
+        ],
+        "id": 20,
+        "name": "Physical education and recreation"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "7.01/.09",
+                "id": 1963,
+                "name": "Arts"
+            },
+            {
+                "subcategory_id": "71",
+                "id": 1964,
+                "name": "Civic and landscape art"
+            },
+            {
+                "subcategory_id": "72/76",
+                "id": 1965,
+                "name": "Fine and decorative arts"
+            },
+            {
+                "subcategory_id": "72",
+                "id": 1966,
+                "name": "Architecture"
+            },
+            {
+                "subcategory_id": "73",
+                "id": 1967,
+                "name": "Plastic art - sculpture"
+            },
+            {
+                "subcategory_id": "74",
+                "id": 1968,
+                "name": "Drawing and decorative arts"
+            },
+            {
+                "subcategory_id": "75",
+                "id": 1969,
+                "name": "Painting and paintings"
+            },
+            {
+                "subcategory_id": "76",
+                "id": 1970,
+                "name": "Graphic arts, printmaking and prints"
+            },
+            {
+                "subcategory_id": "77",
+                "id": 1971,
+                "name": "Photography and photographs"
+            }
+        ],
+        "id": 21,
+        "name": "Art and architecture"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "37",
+                "id": 1972,
+                "name": "Education"
+            },
+            {
+                "subcategory_id": "37.014",
+                "id": 1973,
+                "name": "Public policy issues in education"
+            },
+            {
+                "subcategory_id": "37.016",
+                "id": 1974,
+                "name": "Curricula"
+            },
+            {
+                "subcategory_id": "371",
+                "id": 1975,
+                "name": "Schools and their activities"
+            },
+            {
+                "subcategory_id": "373.2/.3",
+                "id": 1976,
+                "name": "Elementary education"
+            },
+            {
+                "subcategory_id": "373.5/.6",
+                "id": 1977,
+                "name": "Secondary education"
+            },
+            {
+                "subcategory_id": "374",
+                "id": 1978,
+                "name": "Adult education"
+            },
+            {
+                "subcategory_id": "376",
+                "id": 1979,
+                "name": "Special education"
+            },
+            {
+                "subcategory_id": "377",
+                "id": 1980,
+                "name": "Professional education"
+            },
+            {
+                "subcategory_id": "378",
+                "id": 1981,
+                "name": "Higher education"
+            }
+        ],
+        "id": 22,
+        "name": "Education"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "4",
+                "id": 1982,
+                "name": "Data processing, computer science"
+            },
+            {
+                "subcategory_id": "4.2",
+                "id": 1983,
+                "name": "Computer architecture"
+            },
+            {
+                "subcategory_id": "4.3",
+                "id": 1984,
+                "name": "Computer engineering"
+            },
+            {
+                "subcategory_id": "004.4/.6",
+                "id": 1985,
+                "name": "Computer programming, programs, data"
+            },
+            {
+                "subcategory_id": "4.7",
+                "id": 1986,
+                "name": "Interfacing and communications"
+            },
+            {
+                "subcategory_id": "4.8",
+                "id": 1987,
+                "name": "Artificial intelligence"
+            },
+            {
+                "subcategory_id": "4.9",
+                "id": 1988,
+                "name": "Special computer methods"
+            },
+            {
+                "subcategory_id": "7",
+                "id": 1989,
+                "name": "Systems"
+            }
+        ],
+        "id": 23,
+        "name": "Computer sciences"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "63",
+                "id": 1990,
+                "name": "Fishing"
+            },
+            {
+                "subcategory_id": "630",
+                "id": 1991,
+                "name": "Agriculture and related technologies"
+            },
+            {
+                "subcategory_id": "631",
+                "id": 1992,
+                "name": "Specific techniques, apparatus, equipment, materials (Agriculture)"
+            },
+            {
+                "subcategory_id": "632",
+                "id": 1993,
+                "name": "Plant injuries, diseases, pests"
+            },
+            {
+                "subcategory_id": "633",
+                "id": 1994,
+                "name": "Field and plantation crops"
+            },
+            {
+                "subcategory_id": "634",
+                "id": 1995,
+                "name": "Orchards, fruits"
+            },
+            {
+                "subcategory_id": "635",
+                "id": 1996,
+                "name": "Forestry"
+            },
+            {
+                "subcategory_id": "636",
+                "id": 1997,
+                "name": "Garden crops (horticulture), vegetables"
+            },
+            {
+                "subcategory_id": "636.09",
+                "id": 1998,
+                "name": "Animal husbandry"
+            },
+            {
+                "subcategory_id": "637",
+                "id": 1999,
+                "name": "Veterinary medicine"
+            },
+            {
+                "subcategory_id": "638",
+                "id": 2000,
+                "name": "Processing dairy and related products"
+            },
+            {
+                "subcategory_id": "639.1",
+                "id": 2001,
+                "name": "Insect culture"
+            },
+            {
+                "subcategory_id": "639.2/.6",
+                "id": 2002,
+                "name": "Hunting"
+            },
+            {
+                "subcategory_id": "712",
+                "id": 2003,
+                "name": "Landscape architecture (landscape design)"
+            }
+        ],
+        "id": 24,
+        "name": "Agriculture"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "821-1/-8",
+                "id": 2004,
+                "name": "Literature in specific forms"
+            },
+            {
+                "subcategory_id": "821-31/-34",
+                "id": 2005,
+                "name": "Literature for and by other specific kinds of persons"
+            },
+            {
+                "subcategory_id": "821",
+                "id": 2006,
+                "name": "Literature of miscellaneous languages"
+            },
+            {
+                "subcategory_id": "821.11",
+                "id": 2007,
+                "name": "Other Germanic literatures"
+            },
+            {
+                "subcategory_id": "821.124",
+                "id": 2008,
+                "name": "Latin literature"
+            },
+            {
+                "subcategory_id": "821.13",
+                "id": 2009,
+                "name": "Romanian and Rhaeto-Romanic literatures"
+            },
+            {
+                "subcategory_id": "821.14'02",
+                "id": 2010,
+                "name": "Greek (Hellenic) literature"
+            },
+            {
+                "subcategory_id": "821.14",
+                "id": 2011,
+                "name": "Greek modern literature"
+            },
+            {
+                "subcategory_id": "821.16",
+                "id": 2012,
+                "name": "Slavic (Slavonic) literatures"
+            },
+            {
+                "subcategory_id": "821.162.3",
+                "id": 2013,
+                "name": "Czech literature"
+            },
+            {
+                "subcategory_id": "821.162.3-1",
+                "id": 2014,
+                "name": "Czech poetry"
+            },
+            {
+                "subcategory_id": "821. 62.3-2",
+                "id": 2015,
+                "name": "Czech drama"
+            },
+            {
+                "subcategory_id": "821.162.3-3",
+                "id": 2016,
+                "name": "Czech fiction"
+            },
+            {
+                "subcategory_id": "821.17",
+                "id": 2017,
+                "name": "Baltic literatures"
+            },
+            {
+                "subcategory_id": "821.41",
+                "id": 2018,
+                "name": "Afro-Asiatic (Hamito-Semitic) literatures"
+            },
+            {
+                "subcategory_id": "821.432",
+                "id": 2019,
+                "name": "African literatures"
+            },
+            {
+                "subcategory_id": "821.51",
+                "id": 2020,
+                "name": "Altaic, Uralic, Hyperborean, Dravidian literatures"
+            },
+            {
+                "subcategory_id": "821.521",
+                "id": 2021,
+                "name": "Japanese literature"
+            },
+            {
+                "subcategory_id": "821.531",
+                "id": 2022,
+                "name": "Korean literature"
+            },
+            {
+                "subcategory_id": "821.58",
+                "id": 2023,
+                "name": "Literatures of East and SE Asia, Sino-Tibetian Literatures"
+            },
+            {
+                "subcategory_id": "821.62",
+                "id": 2024,
+                "name": "Austronesian literatures"
+            },
+            {
+                "subcategory_id": "821.81/.82",
+                "id": 2025,
+                "name": "Literatures of North American native languages"
+            },
+            {
+                "subcategory_id": "821.873",
+                "id": 2026,
+                "name": "Literature of South American native languages"
+            },
+            {
+                "subcategory_id": "821-97",
+                "id": 2027,
+                "name": "Literature for and by other specific kinds of persons"
+            }
+        ],
+        "id": 25,
+        "name": "Beletry"
+    },
+    {
+        "sub_categories": [
+            {
+                "subcategory_id": "0/9-053.2",
+                "id": 2028,
+                "name": "Literature for and by other specific kinds of persons"
+            },
+            {
+                "subcategory_id": "821-93",
+                "id": 2029,
+                "name": "Literature for and by other specific kinds of persons"
+            }
+        ],
+        "id": 26,
+        "name": "Children's literature"
+    }
+]
