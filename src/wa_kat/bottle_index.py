@@ -5,7 +5,6 @@
 #
 # Imports =====================================================================
 import os
-import json
 import os.path
 
 import requests
