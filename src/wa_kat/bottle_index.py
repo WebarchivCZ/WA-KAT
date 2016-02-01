@@ -16,10 +16,12 @@ from bottle import template
 from bottle import static_file
 
 import settings
-from zeo import ConspectDatabase
+
 from rest_api.shared import gzip_cache
 from rest_api.shared import read_template
 from rest_api.shared import in_template_path
+
+from rest_api.conspectus import CONSPECT_JSON
 
 
 # Variables ===================================================================
@@ -37,7 +39,7 @@ def render_registered(remote_info):
         _index_template(),
         registered=True,
         url=remote_info["url"],
-        conspect=json.dumps(ConspectDatabase().data),
+        conspect=CONSPECT_JSON,
         periode=read_template("periode.txt"),
         GUI_TO_REST_PERIODE=settings.GUI_TO_REST_PERIODE,
     )
@@ -48,7 +50,7 @@ def render_unregistered(error=None):
         _index_template(),
         registered=False,
         error=error,
-        conspect=json.dumps(ConspectDatabase().data),
+        conspect=CONSPECT_JSON,
         periode=read_template("periode.txt"),
         GUI_TO_REST_PERIODE=settings.GUI_TO_REST_PERIODE,
     )
