@@ -49,8 +49,8 @@ def to_json(data):
 
 # Variables ===================================================================
 CONSPECTUS = json.loads(read_template("conspect.json"))
-CONSPECT_DICT = conspect_to_dict(CONSPECTUS)
-CONSPECT_JSON = to_json(CONSPECT_DICT)
+CONSPECTUS_DICT = conspect_to_dict(CONSPECTUS)
+CONSPECTUS_JSON = to_json(CONSPECTUS_DICT)
 
 
 # API =========================================================================
@@ -58,4 +58,4 @@ CONSPECT_JSON = to_json(CONSPECT_DICT)
 def get_conspectus():
     response.content_type = RESPONSE_TYPE
 
-    return CONSPECT_JSON
+    return CONSPECTUS_JSON
