@@ -67,9 +67,6 @@ class AnalysisRunnerAdapter(object):
 
         # finally save the data to inputs
         ViewController.progress_bar.show(resp["body"]["progress"])
-        ViewController.conspect_handler.set_new_conspect_dict(
-            resp["conspect_dict"]
-        )
         ViewController.log_view.add(resp["log"])
 
         obtained_data = json.dumps(resp["body"]["values"])

@@ -82,12 +82,6 @@ def mock_data():
     return {
         "url": "http://seznam.cz",
     }
-
-
-@get("/" + settings.CONSPECT_API_URL.split("/")[-1])
-def mock_conspect_data():
-    with open(_template_path("conspect.json")) as f:
-        return f.read()
 # TODO: REMOVE
 
 

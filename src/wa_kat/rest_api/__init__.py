@@ -4,13 +4,12 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-import json
 import traceback
 from StringIO import StringIO
 from os.path import join
 
 import requests  # for requests.exceptions.Timeout
-from bottle import get
+
 from bottle import post
 from bottle import response
 from bottle import HTTPError
@@ -18,7 +17,6 @@ from bottle_rest import form_to_params
 
 from .. import settings
 from ..zeo import RequestDatabase
-from ..zeo import ConspectDatabase
 from ..connectors import aleph
 
 from shared import API_PATH
@@ -28,6 +26,7 @@ from shared import RESPONSE_TYPE
 # Other API modules
 from to_marc import to_marc
 from keywords import get_kw_list
+from conspectus import get_conspectus
 
 
 # Functions & classes =========================================================
@@ -75,16 +74,7 @@ def get_result(url):
         "status": True,
         "body": ri.to_dict(),
         "log": ri.get_log(),
-        "conspect_dict": ConspectDatabase().data,
     }
-
-
-@get(join(API_PATH, "conspect"))
-def get_conspect():
-    cd = ConspectDatabase()
-    response.content_type = RESPONSE_TYPE
-
-    return json.dumps(cd.data)
 
 
 @post(join(API_PATH, "aleph"))
