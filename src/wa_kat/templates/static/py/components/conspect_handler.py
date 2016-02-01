@@ -187,9 +187,9 @@ class ConspectHandler(object):
         conspect = cls._get_sub_to_consp_mapping()[sub]
 
         return {
-            "code": code,
+            "sub_code": code,
             "sub_name": cls._find_sub_by_code(code),
-            "consp_code": cls.conspect_to_id[conspect],
+            "consp_id": cls.conspect_to_id[conspect],
         }
 
     @classmethod
