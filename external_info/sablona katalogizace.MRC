@@ -33,7 +33,7 @@ BAS   L $$aSML
 336   L $$atext$$btxt$$2rdacontent
 337   L $$apočítač$$bc$$2rdamedia
 338   L $$aonline zdroj$$bcr$$2rdacarrier
-5880  L $$aPopsáno podle: ***; název z titulní obrazovky (verze z **.**.2015)
+588   L $$aPopsáno podle celého zdroje; název z titulní obrazovky (verze z **.**.2016)
 520   L $$a 
 60017 L $$a 
 61027 L $$a 
@@ -53,6 +53,7 @@ BAS   L $$aSML
 7102  L $$a 
 7112  L $$a 
 85640 L $$uhttp://$$qtext/html$$4N
+85640 L $$uhttp://wayback.webarchiv.cz/wayback/ $$qtext/html$$zarchivní verze stránek$$4N
 929   L $$aText
 930   L $$acop.
 NKC   L $$aČNB-w
