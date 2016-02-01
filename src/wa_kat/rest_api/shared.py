@@ -80,3 +80,16 @@ def gzip_cache(path):
         return HTTPResponse(status=304, **headers)
 
     return open(path)
+
+
+def in_template_path(fn):
+    return os.path.join(
+        os.path.abspath(os.path.dirname(__file__)),
+        "../templates",
+        fn,
+    )
+
+
+def read_template(fn):
+    with open(in_template_path(fn)) as f:
+        return f.read()

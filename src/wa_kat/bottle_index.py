@@ -18,29 +18,18 @@ from bottle import static_file
 import settings
 from zeo import ConspectDatabase
 from rest_api.shared import gzip_cache
+from rest_api.shared import read_template
+from rest_api.shared import in_template_path
 
 
 # Variables ===================================================================
-def _template_path(fn):
-    return os.path.join(
-        os.path.abspath(os.path.dirname(__file__)),
-        "templates",
-        fn,
-    )
-
-
-INDEX_PATH = _template_path("index_vertical.html")
-STATIC_PATH = _template_path("static")
+INDEX_PATH = in_template_path("index_vertical.html")
+STATIC_PATH = in_template_path("static")
 
 
 # Functions & classes =========================================================
-def _read_template(fn):
-    with open(_template_path(fn)) as f:
-        return f.read()
-
-
 def _index_template():
-    return _read_template(INDEX_PATH)
+    return read_template(INDEX_PATH)
 
 
 def render_registered(remote_info):
@@ -49,7 +38,7 @@ def render_registered(remote_info):
         registered=True,
         url=remote_info["url"],
         conspect=json.dumps(ConspectDatabase().data),
-        periode=_read_template("periode.txt"),
+        periode=read_template("periode.txt"),
         GUI_TO_REST_PERIODE=settings.GUI_TO_REST_PERIODE,
     )
 
@@ -60,7 +49,7 @@ def render_unregistered(error=None):
         registered=False,
         error=error,
         conspect=json.dumps(ConspectDatabase().data),
-        periode=_read_template("periode.txt"),
+        periode=read_template("periode.txt"),
         GUI_TO_REST_PERIODE=settings.GUI_TO_REST_PERIODE,
     )
 
