@@ -19,6 +19,8 @@ from keywords import keyword_to_info
 
 from ..convertors import mrc_to_marc
 
+from conspectus import find_en_conspectus
+
 
 # Variables ===================================================================
 # Functions & classes =========================================================
@@ -80,6 +82,7 @@ def to_output(data):
         data["en_keywords"] = en_keywords
 
     data["annotation"] = data["annotation"].replace("\n", " ")
+    data["en_conspect"] = find_en_conspectus(data["conspect"]["sub_code"])
 
     # convert to MRC format
     mrc = render_mrc(data).encode("utf-8")

@@ -16,7 +16,7 @@ BAS   L $$aSML
 043   L $$a $$b $$2 
 045   L $$a 
 072 7 L $$a{{conspect["sub_code"]}}$$x{{conspect["sub_name"]}}$$2Konspekt$$9{{conspect["consp_id"]}}
-072 9 L $$a $$x $$2 $$9 
+072 9 L $$a{{en_conspect["sub_code"]}}$$x{{en_conspect["sub_name"]}}$$2Conspectus$$9{{en_conspect["consp_id"]}}
 080   L $$a{{conspect["sub_code"]}}
 080   L $$a{{conspect["sub_code"].split(".")[0]}}
 080   L $$a 
