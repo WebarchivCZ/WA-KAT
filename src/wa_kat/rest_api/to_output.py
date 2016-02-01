@@ -5,6 +5,7 @@
 #
 # Imports =====================================================================
 import json
+import time
 import os.path
 from os.path import join
 
@@ -15,6 +16,8 @@ from bottle import SimpleTemplate
 from bottle_rest import form_to_params
 
 from shared import API_PATH
+from shared import read_template
+
 from keywords import keyword_to_info
 
 from ..convertors import mrc_to_marc
@@ -24,19 +27,6 @@ from conspectus import find_en_conspectus
 
 # Variables ===================================================================
 # Functions & classes =========================================================
-def template_context(fn):
-    return os.path.join(
-        os.path.dirname(__file__),
-        "../templates/",
-        fn
-    )
-
-
-def template(fn):
-    with open(template_context(fn)) as f:
-        return f.read()
-
-
 def compile_keywords(keywords):
     cz_keywords = []
     en_keywords = []
@@ -46,13 +36,12 @@ def compile_keywords(keywords):
         if not keyword:
             continue
 
-        cz_keywords.append(
-            {
+        cz_keywords.append({
                 "uid": keyword["uid"],
                 "zahlavi": keyword["zahlavi"],
                 "zdroj": "czenas",
-            }
-        )
+        })
+
         if "angl_ekvivalent" in keyword:
             en_keywords.append({
                 "zahlavi": keyword["angl_ekvivalent"],
@@ -63,7 +52,7 @@ def compile_keywords(keywords):
 
 
 def render_mrc(data):
-    template_body = template("sablona_katalogizace_eperiodika.mrc")
+    template_body = read_template("sablona_katalogizace_eperiodika.mrc")
 
     return SimpleTemplate(template_body).render(**data)
 
@@ -83,6 +72,7 @@ def to_output(data):
 
     data["annotation"] = data["annotation"].replace("\n", " ")
     data["en_conspect"] = find_en_conspectus(data["conspect"]["sub_code"])
+    data["time"] = time  # for date generation
 
     # convert to MRC format
     mrc = render_mrc(data).encode("utf-8")
