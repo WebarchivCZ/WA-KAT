@@ -48,9 +48,13 @@ def to_json(data):
 
 
 # Variables ===================================================================
-CONSPECTUS = json.loads(read_template("conspect.json"))
+CONSPECTUS = json.loads(read_template("conspectus.json"))
 CONSPECTUS_DICT = conspect_to_dict(CONSPECTUS)
 CONSPECTUS_JSON = to_json(CONSPECTUS_DICT)
+
+EN_CONSPECTUS = json.loads(read_template("en_conspectus.json"))
+EN_CONSPECTUS_DICT = conspect_to_dict(EN_CONSPECTUS)
+EN_CONSPECTUS_JSON = to_json(EN_CONSPECTUS_DICT)
 
 
 # API =========================================================================
