@@ -37,8 +37,9 @@ def get_result(url):
     response.content_type = RESPONSE_TYPE
 
     # handle cacheing
+    ri = rd.get_request(url)
+
     try:
-        ri = rd.get_request(url)
 
         if ri.is_old():
             print "Running the analysis"  #: TODO: to log

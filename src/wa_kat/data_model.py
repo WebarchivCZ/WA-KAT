@@ -38,8 +38,6 @@ class Model(KwargsObj):
 
     @classmethod
     def analyzers_mapping(cls):
-        from zeo import ConspectDatabase
-
         return cls(
             title_tags=_compose_func(analyzers.get_title_tags),
             place_tags=_compose_func(
@@ -54,10 +52,6 @@ class Model(KwargsObj):
                 analyzers.get_creation_date_tags,
                 lambda x: (x.url, x.domain)
             ),
-            # conspect=_compose_func(
-            #     lambda: ConspectDatabase().data,
-            #     lambda x: []
-            # )
         )
 
     def get_mapping(self):
