@@ -24,7 +24,7 @@ from shared import RESPONSE_TYPE
 
 
 # Other API modules
-from to_marc import to_marc
+from to_output import to_output
 from keywords import get_kw_list
 from conspectus import get_conspectus
 

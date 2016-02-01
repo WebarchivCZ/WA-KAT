@@ -203,7 +203,7 @@ class MARCGeneratorAdapter(object):
         ev.stopPropagation()
 
         make_request(
-            url="/api_v1/to_marc",
+            url="/api_v1/to_output",
             data={"data": json.dumps(cls._read_dataset())},
             on_complete=cls.on_complete
         )

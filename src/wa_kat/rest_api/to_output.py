@@ -66,9 +66,9 @@ def render_mrc(data):
     return SimpleTemplate(template_body).render(**data)
 
 
-@post(join(API_PATH, "to_marc"))
+@post(join(API_PATH, "to_output"))
 @form_to_params
-def to_marc(data):
+def to_output(data):
     data = json.loads(data)
 
     # postprocessing
