@@ -1,0 +1,3001 @@
+%YAML 1.1
+---
+# wadmin.conspectus_en
+-
+  id: 1
+  category: Anthropology
+  url: anthropology
+-
+  id: 2
+  category: Biological sciences
+  url: biological-sciences
+-
+  id: 3
+  category: Performing arts
+  url: performing-arts
+-
+  id: 4
+  category: Business and economics
+  url: business-and-economics
+-
+  id: 5
+  category: Philosophy and religion
+  url: philosophy-and-religion
+-
+  id: 6
+  category: Physical sciences
+  url: physical-sciences
+-
+  id: 7
+  category: Geography and earth sciences
+  url: geography-and-earth-sciences
+-
+  id: 8
+  category: History and auxiliary sciences
+  url: history-and-auxiliary-sciences
+-
+  id: 9
+  category: Music
+  url: music
+-
+  id: 10
+  category: Chemistry
+  url: chemistry
+-
+  id: 11
+  category: Language, linguistics and literature
+  url: language-linguistics-and-literature
+-
+  id: 12
+  category: Library science, generalities and references
+  url: library-science-generalities-and-references
+-
+  id: 13
+  category: Mathematics
+  url: mathematics
+-
+  id: 14
+  category: Medicine
+  url: medicine
+-
+  id: 15
+  category: Political science
+  url: political-science
+-
+  id: 16
+  category: Law
+  url: law
+-
+  id: 17
+  category: Psychology
+  url: psychology
+-
+  id: 18
+  category: Sociology
+  url: sociology
+-
+  id: 19
+  category: Engineering and technology
+  url: engineering-and-technology
+-
+  id: 20
+  category: Physical education and recreation
+  url: physical-education-and-recreation
+-
+  id: 21
+  category: Art and architecture
+  url: art-and-architecture
+-
+  id: 22
+  category: Education
+  url: education
+-
+  id: 23
+  category: Computer sciences
+  url: computer-sciences
+-
+  id: 24
+  category: Agriculture
+  url: agriculture
+-
+  id: 25
+  category: Beletry
+  url: beletry
+-
+  id: 26
+  category: Children's literature
+  url: children-s-literature
+# wadmin.conspectus_subcategories_en
+-
+  id: 1548
+  conspectus_id: 1
+  subcategory_id: 304
+  subcategory: Culture and institutions (Cultural policy)
+  url: culture-and-institutions-cultural-policy
+-
+  id: 1549
+  conspectus_id: 1
+  subcategory_id: 316,7
+  subcategory: Culture and institutions
+  url: culture-and-institutions
+-
+  id: 1550
+  conspectus_id: 1
+  subcategory_id: 39
+  subcategory: Customs, etiquette, folklore
+  url: customs-etiquette-folklore
+-
+  id: 1551
+  conspectus_id: 1
+  subcategory_id: 391
+  subcategory: General customs
+  url: general-customs
+-
+  id: 1552
+  conspectus_id: 1
+  subcategory_id: 392
+  subcategory: Customs and personal appearance
+  url: customs-and-personal-appearance
+-
+  id: 1553
+  conspectus_id: 1
+  subcategory_id: 393
+  subcategory: Death customs
+  url: death-customs
+-
+  id: 1554
+  conspectus_id: 1
+  subcategory_id: 394
+  subcategory: Customs of life cycle and domestic life
+  url: customs-of-life-cycle-and-domestic-life
+-
+  id: 1555
+  conspectus_id: 1
+  subcategory_id: 395
+  subcategory: Etiquette (manners)
+  url: etiquette-manners
+-
+  id: 1556
+  conspectus_id: 1
+  subcategory_id: 398
+  subcategory: Folklore
+  url: folklore
+-
+  id: 1557
+  conspectus_id: 1
+  subcategory_id: 572
+  subcategory: Sociology and anthropology
+  url: sociology-and-anthropology
+-
+  id: 1558
+  conspectus_id: 1
+  subcategory_id: 599,89
+  subcategory: Hominidae Homo sapiens
+  url: hominidae-homo-sapiens
+-
+  id: 1559
+  conspectus_id: 2
+  subcategory_id: 502
+  subcategory: Environmental protection
+  url: environmental-protection
+-
+  id: 1560
+  conspectus_id: 2
+  subcategory_id: 504
+  subcategory: Environmental pollution
+  url: environmental-pollution
+-
+  id: 1561
+  conspectus_id: 2
+  subcategory_id: 57/59
+  subcategory: Life sciences
+  url: life-sciences
+-
+  id: 1562
+  conspectus_id: 2
+  subcategory_id: 57
+  subcategory: Biology
+  url: biology
+-
+  id: 1563
+  conspectus_id: 2
+  subcategory_id: 574
+  subcategory: Ecology (in general)
+  url: ecology-in-general
+-
+  id: 1564
+  conspectus_id: 2
+  subcategory_id: 575
+  subcategory: Genetics and evolution
+  url: genetics-and-evolution
+-
+  id: 1565
+  conspectus_id: 2
+  subcategory_id: 576
+  subcategory: Cell biology
+  url: cell-biology
+-
+  id: 1566
+  conspectus_id: 2
+  subcategory_id: 577
+  subcategory: Biochemistry
+  url: biochemistry
+-
+  id: 1567
+  conspectus_id: 2
+  subcategory_id: 578
+  subcategory: Virology
+  url: virology
+-
+  id: 1568
+  conspectus_id: 2
+  subcategory_id: 579
+  subcategory: Microorganisms, fungi, algae
+  url: microorganisms-fungi-algae
+-
+  id: 1569
+  conspectus_id: 2
+  subcategory_id: 58
+  subcategory: Specific physiological systems in plants
+  url: specific-physiological-systems-in-plants
+-
+  id: 1570
+  conspectus_id: 2
+  subcategory_id: 581
+  subcategory: Plants
+  url: plants
+-
+  id: 1571
+  conspectus_id: 2
+  subcategory_id: 59
+  subcategory: Specific physiological systems in animals
+  url: specific-physiological-systems-in-animals
+-
+  id: 1572
+  conspectus_id: 2
+  subcategory_id: 591
+  subcategory: Animals
+  url: animals
+-
+  id: 1573
+  conspectus_id: 2
+  subcategory_id: 60
+  subcategory: Biotechnology
+  url: biotechnology
+-
+  id: 1574
+  conspectus_id: 3
+  subcategory_id: 791/793
+  subcategory: The Performing Arts in general
+  url: the-performing-arts-in-general
+-
+  id: 1575
+  conspectus_id: 3
+  subcategory_id: 791
+  subcategory: Public Performances
+  url: public-performances
+-
+  id: 1576
+  conspectus_id: 3
+  subcategory_id: 792
+  subcategory: Stage presentations
+  url: stage-presentations
+-
+  id: 1577
+  conspectus_id: 3
+  subcategory_id: 793,3
+  subcategory: Social, folk, national dancing
+  url: social-folk-national-dancing
+-
+  id: 1578
+  conspectus_id: 3
+  subcategory_id: 793,8
+  subcategory: Magic and related activities
+  url: magic-and-related-activities
+-
+  id: 1579
+  conspectus_id: 4
+  subcategory_id: 3,05
+  subcategory: Processes of written communication
+  url: processes-of-written-communication
+-
+  id: 1580
+  conspectus_id: 4
+  subcategory_id: 5
+  subcategory: Management and auxiliary services
+  url: management-and-auxiliary-services
+-
+  id: 1581
+  conspectus_id: 4
+  subcategory_id: 005.91/.92
+  subcategory: Office services
+  url: office-services
+-
+  id: 1582
+  conspectus_id: 4
+  subcategory_id: 005.91:82-6
+  subcategory: Shorthand
+  url: shorthand
+-
+  id: 1583
+  conspectus_id: 4
+  subcategory_id: 311
+  subcategory: General statistics
+  url: general-statistics
+-
+  id: 1584
+  conspectus_id: 4
+  subcategory_id: 33
+  subcategory: Economics
+  url: economics
+-
+  id: 1585
+  conspectus_id: 4
+  subcategory_id: 330.5+338
+  subcategory: International economics
+  url: international-economics
+-
+  id: 1586
+  conspectus_id: 4
+  subcategory_id: 330,8
+  subcategory: Economic systems, schools, theories
+  url: economic-systems-schools-theories
+-
+  id: 1587
+  conspectus_id: 4
+  subcategory_id: 331
+  subcategory: Production
+  url: production
+-
+  id: 1588
+  conspectus_id: 4
+  subcategory_id: 332
+  subcategory: Macroeconomics and related topics
+  url: macroeconomics-and-related-topics
+-
+  id: 1589
+  conspectus_id: 4
+  subcategory_id: 334
+  subcategory: Cooperatives
+  url: cooperatives
+-
+  id: 1590
+  conspectus_id: 4
+  subcategory_id: 336.1/.5
+  subcategory: Public finance
+  url: public-finance
+-
+  id: 1591
+  conspectus_id: 4
+  subcategory_id: 336,7
+  subcategory: Commerce, communication, transportation
+  url: commerce-communication-transportation
+-
+  id: 1592
+  conspectus_id: 4
+  subcategory_id: 338.3/.4
+  subcategory: Economics of land and energy
+  url: economics-of-land-and-energy
+-
+  id: 1593
+  conspectus_id: 4
+  subcategory_id: 339
+  subcategory: International commerce (foreign trade)
+  url: international-commerce-foreign-trade
+-
+  id: 1594
+  conspectus_id: 4
+  subcategory_id: 339,3
+  subcategory: Internal commerce (domestic trade)
+  url: internal-commerce-domestic-trade
+-
+  id: 1595
+  conspectus_id: 4
+  subcategory_id: 339,5
+  subcategory: Financial economics
+  url: financial-economics
+-
+  id: 1596
+  conspectus_id: 4
+  subcategory_id: 339.7/.9
+  subcategory: Labour economics
+  url: labour-economics
+-
+  id: 1597
+  conspectus_id: 4
+  subcategory_id: 368
+  subcategory: Insurance
+  url: insurance
+-
+  id: 1598
+  conspectus_id: 4
+  subcategory_id: 654
+  subcategory: Communications, telecommunication
+  url: communications-telecommunication
+-
+  id: 1599
+  conspectus_id: 4
+  subcategory_id: 656
+  subcategory: Transportation
+  url: transportation
+-
+  id: 1600
+  conspectus_id: 4
+  subcategory_id: 656.1/.5
+  subcategory: Ground transportation
+  url: ground-transportation
+-
+  id: 1601
+  conspectus_id: 4
+  subcategory_id: 656,2
+  subcategory: Railroad transportation
+  url: railroad-transportation
+-
+  id: 1602
+  conspectus_id: 4
+  subcategory_id: 656.6/.7
+  subcategory: Water, air, space transportation
+  url: water-air-space-transportation
+-
+  id: 1603
+  conspectus_id: 4
+  subcategory_id: 656,62
+  subcategory: Inland waterway and ferry transportation
+  url: inland-waterway-and-ferry-transportation
+-
+  id: 1604
+  conspectus_id: 4
+  subcategory_id: 656,8
+  subcategory: Postal communication
+  url: postal-communication
+-
+  id: 1605
+  conspectus_id: 4
+  subcategory_id: 657
+  subcategory: Accounting
+  url: accounting
+-
+  id: 1606
+  conspectus_id: 4
+  subcategory_id: 658
+  subcategory: General management
+  url: general-management
+-
+  id: 1607
+  conspectus_id: 4
+  subcategory_id: 659
+  subcategory: Advertising and public relations
+  url: advertising-and-public-relations
+-
+  id: 1608
+  conspectus_id: 5
+  subcategory_id: 101
+  subcategory: Philosophy
+  url: philosophy
+-
+  id: 1609
+  conspectus_id: 5
+  subcategory_id: 11
+  subcategory: Metaphysics
+  url: metaphysics
+-
+  id: 1610
+  conspectus_id: 5
+  subcategory_id: 122/129
+  subcategory: Special metaphysics
+  url: special-metaphysics
+-
+  id: 1611
+  conspectus_id: 5
+  subcategory_id: 13
+  subcategory: Mind and spirit
+  url: mind-and-spirit
+-
+  id: 1612
+  conspectus_id: 5
+  subcategory_id: 14
+  subcategory: Specific philosophical schools and viewpoints
+  url: specific-philosophical-schools-and-viewpoints
+-
+  id: 1613
+  conspectus_id: 5
+  subcategory_id: 14(100)
+  subcategory: Medieval philosophy
+  url: medieval-philosophy
+-
+  id: 1614
+  conspectus_id: 5
+  subcategory_id: 14(100-11)
+  subcategory: Oriental philosophy
+  url: oriental-philosophy
+-
+  id: 1615
+  conspectus_id: 5
+  subcategory_id: 14(100-15)
+  subcategory: Modern western philosophy
+  url: modern-western-philosophy
+-
+  id: 1616
+  conspectus_id: 5
+  subcategory_id: 14(3)
+  subcategory: Classical (Greek and Roman), Germanic religion
+  url: classical-greek-and-roman-germanic-religion
+-
+  id: 1617
+  conspectus_id: 5
+  subcategory_id: 16
+  subcategory: Logic
+  url: logic
+-
+  id: 1618
+  conspectus_id: 5
+  subcategory_id: 165
+  subcategory: Epistemology, causation, humankind
+  url: epistemology-causation-humankind
+-
+  id: 1619
+  conspectus_id: 5
+  subcategory_id: 17
+  subcategory: Ethics (moral philosophy)
+  url: ethics-moral-philosophy
+-
+  id: 1620
+  conspectus_id: 5
+  subcategory_id: 2
+  subcategory: Religion
+  url: religion
+-
+  id: 1621
+  conspectus_id: 5
+  subcategory_id: 2-1
+  subcategory: Philosophy and theory of religion
+  url: philosophy-and-theory-of-religion
+-
+  id: 1622
+  conspectus_id: 5
+  subcategory_id: 2-23/-27
+  subcategory: Bible
+  url: bible
+-
+  id: 1623
+  conspectus_id: 5
+  subcategory_id: 2-74
+  subcategory: Religious law
+  url: religious-law
+-
+  id: 1624
+  conspectus_id: 5
+  subcategory_id: 21
+  subcategory: Prehistoric religions and religions of nonliterate peoples
+  url: prehistoric-religions-and-religions-of-nonliterate-peoples
+-
+  id: 1625
+  conspectus_id: 5
+  subcategory_id: 22/24
+  subcategory: Religions of Indic origin
+  url: religions-of-indic-origin
+-
+  id: 1626
+  conspectus_id: 5
+  subcategory_id: 25
+  subcategory: Ancient philosophy
+  url: ancient-philosophy
+-
+  id: 1627
+  conspectus_id: 5
+  subcategory_id: 26
+  subcategory: Judaism
+  url: judaism
+-
+  id: 1628
+  conspectus_id: 5
+  subcategory_id: 27
+  subcategory: Christian social and ecclesiastical theology
+  url: christian-social-and-ecclesiastical-theology
+-
+  id: 1629
+  conspectus_id: 5
+  subcategory_id: 27-1/-2
+  subcategory: Christian theology, Christian doctrinal theology
+  url: christian-theology-christian-doctrinal-theology
+-
+  id: 1630
+  conspectus_id: 5
+  subcategory_id: 27-4
+  subcategory: Christian moral and devotional theology
+  url: christian-moral-and-devotional-theology
+-
+  id: 1631
+  conspectus_id: 5
+  subcategory_id: 27-46/-48
+  subcategory: Church history
+  url: church-history
+-
+  id: 1632
+  conspectus_id: 5
+  subcategory_id: 27-5
+  subcategory: Art in Christianity. Church furnishing. Christian experience, practice, life
+  url: art-in-christianity-church-furnishing-christian-experience-practice-life
+-
+  id: 1633
+  conspectus_id: 5
+  subcategory_id: 27-78
+  subcategory: Religious congregations and orders
+  url: religious-congregations-and-orders
+-
+  id: 1634
+  conspectus_id: 5
+  subcategory_id: 27-9
+  subcategory: Local Christian church and Christian religious orders
+  url: local-christian-church-and-christian-religious-orders
+-
+  id: 1635
+  conspectus_id: 5
+  subcategory_id: 271/279
+  subcategory: Denominations and sects of Christian church
+  url: denominations-and-sects-of-christian-church
+-
+  id: 1636
+  conspectus_id: 5
+  subcategory_id: 28
+  subcategory: Islam
+  url: islam
+-
+  id: 1637
+  conspectus_id: 5
+  subcategory_id: 29
+  subcategory: Religions of other origin
+  url: religions-of-other-origin
+-
+  id: 1638
+  conspectus_id: 6
+  subcategory_id: 6
+  subcategory: Metrology and standardization
+  url: metrology-and-standardization
+-
+  id: 1639
+  conspectus_id: 6
+  subcategory_id: 6,95
+  subcategory: Chronology
+  url: chronology
+-
+  id: 1640
+  conspectus_id: 6
+  subcategory_id: 5
+  subcategory: Natural sciences and mathematics
+  url: natural-sciences-and-mathematics
+-
+  id: 1641
+  conspectus_id: 6
+  subcategory_id: 52
+  subcategory: Astronomy and allied sciences
+  url: astronomy-and-allied-sciences
+-
+  id: 1642
+  conspectus_id: 6
+  subcategory_id: 521
+  subcategory: Modern physics
+  url: modern-physics
+-
+  id: 1643
+  conspectus_id: 6
+  subcategory_id: 520
+  subcategory: Techniques, procedures, apparatus, equipment, material (Astronomy)
+  url: techniques-procedures-apparatus-equipment-material-astronomy
+-
+  id: 1644
+  conspectus_id: 6
+  subcategory_id: 523/524
+  subcategory: Specific celestial bodies and phenomena
+  url: specific-celestial-bodies-and-phenomena
+-
+  id: 1645
+  conspectus_id: 6
+  subcategory_id: 523,3
+  subcategory: Earth (astronomical geography)
+  url: earth-astronomical-geography
+-
+  id: 1646
+  conspectus_id: 6
+  subcategory_id: 53
+  subcategory: Physics
+  url: physics
+-
+  id: 1647
+  conspectus_id: 6
+  subcategory_id: 531
+  subcategory: Classical mechanics, solid mechanics
+  url: classical-mechanics-solid-mechanics
+-
+  id: 1648
+  conspectus_id: 6
+  subcategory_id: 532
+  subcategory: Fluid mechanics, liquid mechanics
+  url: fluid-mechanics-liquid-mechanics
+-
+  id: 1649
+  conspectus_id: 6
+  subcategory_id: 533
+  subcategory: Pneumatics (gas mechanics)
+  url: pneumatics-gas-mechanics
+-
+  id: 1650
+  conspectus_id: 6
+  subcategory_id: 534
+  subcategory: Sound and related vibrations
+  url: sound-and-related-vibrations
+-
+  id: 1651
+  conspectus_id: 6
+  subcategory_id: 535
+  subcategory: Light and paraphotic phenomena
+  url: light-and-paraphotic-phenomena
+-
+  id: 1652
+  conspectus_id: 6
+  subcategory_id: 536
+  subcategory: Heat
+  url: heat
+-
+  id: 1653
+  conspectus_id: 6
+  subcategory_id: 537
+  subcategory: Electricity and electronics
+  url: electricity-and-electronics
+-
+  id: 1654
+  conspectus_id: 6
+  subcategory_id: 537.6/.8
+  subcategory: Magnetism
+  url: magnetism
+-
+  id: 1655
+  conspectus_id: 6
+  subcategory_id: 539
+  subcategory: Celestial mechanics
+  url: celestial-mechanics
+-
+  id: 1656
+  conspectus_id: 7
+  subcategory_id: 528
+  subcategory: Geodesy
+  url: geodesy
+-
+  id: 1657
+  conspectus_id: 7
+  subcategory_id: 549
+  subcategory: Mineralogy
+  url: mineralogy
+-
+  id: 1658
+  conspectus_id: 7
+  subcategory_id: 55
+  subcategory: Earth sciences
+  url: earth-sciences
+-
+  id: 1659
+  conspectus_id: 7
+  subcategory_id: 550
+  subcategory: Economic geology
+  url: economic-geology
+-
+  id: 1660
+  conspectus_id: 7
+  subcategory_id: 551
+  subcategory: Geology, meteorology
+  url: geology-meteorology
+-
+  id: 1661
+  conspectus_id: 7
+  subcategory_id: 552
+  subcategory: Petrology
+  url: petrology
+-
+  id: 1662
+  conspectus_id: 7
+  subcategory_id: 553
+  subcategory: Geophysics
+  url: geophysics
+-
+  id: 1663
+  conspectus_id: 7
+  subcategory_id: 556
+  subcategory: Hydrology
+  url: hydrology
+-
+  id: 1664
+  conspectus_id: 7
+  subcategory_id: 56
+  subcategory: Paleontology, paleozoology
+  url: paleontology-paleozoology
+-
+  id: 1665
+  conspectus_id: 7
+  subcategory_id: 91
+  subcategory: Geography and travel
+  url: geography-and-travel
+-
+  id: 1666
+  conspectus_id: 7
+  subcategory_id: 911
+  subcategory: Physical geography, philosophy and theory of geography and travel
+  url: physical-geography-philosophy-and-theory-of-geography-and-travel
+-
+  id: 1667
+  conspectus_id: 7
+  subcategory_id: 912
+  subcategory: Maps
+  url: maps
+-
+  id: 1668
+  conspectus_id: 7
+  subcategory_id: 912:51
+  subcategory: Mathematical geography
+  url: mathematical-geography
+-
+  id: 1669
+  conspectus_id: 7
+  subcategory_id: 913
+  subcategory: Geography of and travel in specific continents, countries, localities
+  url: geography-of-and-travel-in-specific-continents-countries-localities
+-
+  id: 1670
+  conspectus_id: 7
+  subcategory_id: 913(3)
+  subcategory: Geography of and travel in ancient world
+  url: geography-of-and-travel-in-ancient-world
+-
+  id: 1671
+  conspectus_id: 7
+  subcategory_id: 913(4)
+  subcategory: Geography of and travel in Europe
+  url: geography-of-and-travel-in-europe
+-
+  id: 1672
+  conspectus_id: 7
+  subcategory_id: 913(437)
+  subcategory: Geography of and travel in Czech and Slovak country
+  url: geography-of-and-travel-in-czech-and-slovak-country
+-
+  id: 1673
+  conspectus_id: 7
+  subcategory_id: 913(5)
+  subcategory: Geography of and Travel in Asia
+  url: geography-of-and-travel-in-asia
+-
+  id: 1674
+  conspectus_id: 7
+  subcategory_id: 913(6)
+  subcategory: Geography of and travel in Africa
+  url: geography-of-and-travel-in-africa
+-
+  id: 1675
+  conspectus_id: 7
+  subcategory_id: 913(7)
+  subcategory: Geography of and travel in North America
+  url: geography-of-and-travel-in-north-america
+-
+  id: 1676
+  conspectus_id: 7
+  subcategory_id: 913(8)
+  subcategory: Geography of and travel in South America
+  url: geography-of-and-travel-in-south-america
+-
+  id: 1677
+  conspectus_id: 7
+  subcategory_id: 913(9)
+  subcategory: Geography of and travel in other parts of world
+  url: geography-of-and-travel-in-other-parts-of-world
+-
+  id: 1678
+  conspectus_id: 7
+  subcategory_id: 913:94
+  subcategory: Historical geography
+  url: historical-geography
+-
+  id: 1679
+  conspectus_id: 8
+  subcategory_id: 9
+  subcategory: Biography, genealogy, insignia
+  url: biography-genealogy-insignia
+-
+  id: 1680
+  conspectus_id: 8
+  subcategory_id: 902
+  subcategory: Archeology
+  url: archeology
+-
+  id: 1681
+  conspectus_id: 8
+  subcategory_id: 903
+  subcategory: Specific prehistoric ages
+  url: specific-prehistoric-ages
+-
+  id: 1682
+  conspectus_id: 8
+  subcategory_id: 904
+  subcategory: Archaeology (historical periods, material remains)
+  url: archaeology-historical-periods-material-remains
+-
+  id: 1683
+  conspectus_id: 8
+  subcategory_id: 908
+  subcategory: Areas, regions, places in general
+  url: areas-regions-places-in-general
+-
+  id: 1684
+  conspectus_id: 8
+  subcategory_id: 929
+  subcategory: Biography, genealogy, insignia
+  url: biography-genealogy-insignia
+-
+  id: 1685
+  conspectus_id: 8
+  subcategory_id: 929.5/.9
+  subcategory: Genealogy, names, insignia
+  url: genealogy-names-insignia
+-
+  id: 1686
+  conspectus_id: 8
+  subcategory_id: 93/94
+  subcategory: History (in general)
+  url: history-in-general
+-
+  id: 1687
+  conspectus_id: 8
+  subcategory_id: 930
+  subcategory: Philosophy and theory of history
+  url: philosophy-and-theory-of-history
+-
+  id: 1688
+  conspectus_id: 8
+  subcategory_id: 930,85
+  subcategory: Civilization
+  url: civilization
+-
+  id: 1689
+  conspectus_id: 8
+  subcategory_id: 94(100)
+  subcategory: World history
+  url: world-history
+-
+  id: 1690
+  conspectus_id: 8
+  subcategory_id: 94(100)
+  subcategory: World history (Specific historical periods)
+  url: world-history-specific-historical-periods
+-
+  id: 1691
+  conspectus_id: 8
+  subcategory_id: 94(3)
+  subcategory: History of Ancient World to ca. 499
+  url: history-of-ancient-world-to-ca-499
+-
+  id: 1692
+  conspectus_id: 8
+  subcategory_id: 94(4)
+  subcategory: General history of Europe, Western Europe
+  url: general-history-of-europe-western-europe
+-
+  id: 1693
+  conspectus_id: 8
+  subcategory_id: 94(41)
+  subcategory: British Isles
+  url: british-isles
+-
+  id: 1694
+  conspectus_id: 8
+  subcategory_id: 94(420/429)
+  subcategory: England and Wales
+  url: england-and-wales
+-
+  id: 1695
+  conspectus_id: 8
+  subcategory_id: 94(430/439)
+  subcategory: Central Europe, Germany
+  url: central-europe-germany
+-
+  id: 1696
+  conspectus_id: 8
+  subcategory_id: 94(437)
+  subcategory: Czechia and Slovakia
+  url: czechia-and-slovakia
+-
+  id: 1697
+  conspectus_id: 8
+  subcategory_id: 94(44/449.49)
+  subcategory: France and Monaco
+  url: france-and-monaco
+-
+  id: 1698
+  conspectus_id: 8
+  subcategory_id: 94(450/458.2)
+  subcategory: Italian peninsula and adjacent islands, Italy
+  url: italian-peninsula-and-adjacent-islands-italy
+-
+  id: 1699
+  conspectus_id: 8
+  subcategory_id: 94(46)
+  subcategory: Iberian peninsula and adjacent islands, Spain
+  url: iberian-peninsula-and-adjacent-islands-spain
+-
+  id: 1700
+  conspectus_id: 8
+  subcategory_id: 94(47)
+  subcategory: Eastern Europe, Russia
+  url: eastern-europe-russia
+-
+  id: 1701
+  conspectus_id: 8
+  subcategory_id: 94(48)
+  subcategory: Northern Europe, Scandinavia
+  url: northern-europe-scandinavia
+-
+  id: 1702
+  conspectus_id: 8
+  subcategory_id: 94(491.1/494.9)
+  subcategory: Other Parts of Europe
+  url: other-parts-of-europe
+-
+  id: 1703
+  conspectus_id: 8
+  subcategory_id: 94(495/498)
+  subcategory: Other parts of Europe, Balkan Peninsula
+  url: other-parts-of-europe-balkan-peninsula
+-
+  id: 1704
+  conspectus_id: 8
+  subcategory_id: 94(5)
+  subcategory: General history of Asia, Orient, Far East
+  url: general-history-of-asia-orient-far-east
+-
+  id: 1705
+  conspectus_id: 8
+  subcategory_id: 94(6)
+  subcategory: General History of Africa
+  url: general-history-of-africa
+-
+  id: 1706
+  conspectus_id: 8
+  subcategory_id: 94(7)
+  subcategory: General History of North America
+  url: general-history-of-north-america
+-
+  id: 1707
+  conspectus_id: 8
+  subcategory_id: 94(8)
+  subcategory: General History of South America
+  url: general-history-of-south-america
+-
+  id: 1708
+  conspectus_id: 8
+  subcategory_id: 94(9)
+  subcategory: Rest of World, Extrater. Worlds, Pac. Islands
+  url: rest-of-world-extrater-worlds-pac-islands
+-
+  id: 1709
+  conspectus_id: 8
+  subcategory_id: 908(437)
+  subcategory: Czech and Slovak local history
+  url: czech-and-slovak-local-history
+-
+  id: 1710
+  conspectus_id: 9
+  subcategory_id: 78
+  subcategory: Music
+  url: music
+-
+  id: 1711
+  conspectus_id: 9
+  subcategory_id: 78,01
+  subcategory: Musicology
+  url: musicology
+-
+  id: 1712
+  conspectus_id: 9
+  subcategory_id: 78,03
+  subcategory: Periods of stylistic development of music
+  url: periods-of-stylistic-development-of-music
+-
+  id: 1713
+  conspectus_id: 9
+  subcategory_id: 78,07
+  subcategory: Persons associated with music
+  url: persons-associated-with-music
+-
+  id: 1714
+  conspectus_id: 9
+  subcategory_id: 781
+  subcategory: General principles and musical forms
+  url: general-principles-and-musical-forms
+-
+  id: 1715
+  conspectus_id: 9
+  subcategory_id: 782
+  subcategory: Dramatic vocal forms. Operas
+  url: dramatic-vocal-forms-operas
+-
+  id: 1716
+  conspectus_id: 9
+  subcategory_id: 783
+  subcategory: Sacred music
+  url: sacred-music
+-
+  id: 1717
+  conspectus_id: 9
+  subcategory_id: 784
+  subcategory: Vocal music
+  url: vocal-music
+-
+  id: 1718
+  conspectus_id: 9
+  subcategory_id: 785
+  subcategory: Instruments and instrumental ensembles and their music
+  url: instruments-and-instrumental-ensembles-and-their-music
+-
+  id: 1719
+  conspectus_id: 9
+  subcategory_id: 786/789
+  subcategory: Music for individual instruments
+  url: music-for-individual-instruments
+-
+  id: 1720
+  conspectus_id: 9
+  subcategory_id: 786
+  subcategory: Keyboard, mechanical, electrophonic, percussion instruments
+  url: keyboard-mechanical-electrophonic-percussion-instruments
+-
+  id: 1721
+  conspectus_id: 9
+  subcategory_id: 787
+  subcategory: Stringed instruments (chordophones). Bowed instruments
+  url: stringed-instruments-chordophones-bowed-instruments
+-
+  id: 1722
+  conspectus_id: 9
+  subcategory_id: 788
+  subcategory: Wind instruments (aerophones)
+  url: wind-instruments-aerophones
+-
+  id: 1723
+  conspectus_id: 9
+  subcategory_id: 789
+  subcategory: Percussion instruments
+  url: percussion-instruments
+-
+  id: 1724
+  conspectus_id: 10
+  subcategory_id: 54
+  subcategory: Chemistry and allied sciences
+  url: chemistry-and-allied-sciences
+-
+  id: 1725
+  conspectus_id: 10
+  subcategory_id: 542
+  subcategory: Techniques, procedures, apparatus, equipment, materials (Chemistry)
+  url: techniques-procedures-apparatus-equipment-materials-chemistry
+-
+  id: 1726
+  conspectus_id: 10
+  subcategory_id: 543
+  subcategory: Analytical chemistry
+  url: analytical-chemistry
+-
+  id: 1727
+  conspectus_id: 10
+  subcategory_id: 544
+  subcategory: Physical and theoretical chemistry
+  url: physical-and-theoretical-chemistry
+-
+  id: 1728
+  conspectus_id: 10
+  subcategory_id: 546
+  subcategory: Organic chemistry
+  url: organic-chemistry
+-
+  id: 1729
+  conspectus_id: 10
+  subcategory_id: 547
+  subcategory: Crystallography
+  url: crystallography
+-
+  id: 1730
+  conspectus_id: 10
+  subcategory_id: 548
+  subcategory: Inorganic chemistry
+  url: inorganic-chemistry
+-
+  id: 1731
+  conspectus_id: 11
+  subcategory_id: 3
+  subcategory: Writing systems
+  url: writing-systems
+-
+  id: 1732
+  conspectus_id: 11
+  subcategory_id: 80
+  subcategory: Language
+  url: language
+-
+  id: 1733
+  conspectus_id: 11
+  subcategory_id: 808
+  subcategory: General topics in rhetoric
+  url: general-topics-in-rhetoric
+-
+  id: 1734
+  conspectus_id: 11
+  subcategory_id: 81
+  subcategory: Linguistics
+  url: linguistics
+-
+  id: 1735
+  conspectus_id: 11
+  subcategory_id: 811.1/.8
+  subcategory: Specific languages
+  url: specific-languages
+-
+  id: 1736
+  conspectus_id: 11
+  subcategory_id: 811,11
+  subcategory: Germanic languages
+  url: germanic-languages
+-
+  id: 1737
+  conspectus_id: 11
+  subcategory_id: 811,124
+  subcategory: Italic languages - Latin
+  url: italic-languages-latin
+-
+  id: 1738
+  conspectus_id: 11
+  subcategory_id: 811,13
+  subcategory: Romance languages
+  url: romance-languages
+-
+  id: 1739
+  conspectus_id: 11
+  subcategory_id: 811,14
+  subcategory: Hellenic languages - classical Greek
+  url: hellenic-languages-classical-greek
+-
+  id: 1740
+  conspectus_id: 11
+  subcategory_id: 811,16
+  subcategory: Slavic (Slavonic) languages
+  url: slavic-slavonic-languages
+-
+  id: 1741
+  conspectus_id: 11
+  subcategory_id: 811. 162.3
+  subcategory: Czech language
+  url: czech-language
+-
+  id: 1742
+  conspectus_id: 11
+  subcategory_id: 811,17
+  subcategory: Baltic languages
+  url: baltic-languages
+-
+  id: 1743
+  conspectus_id: 11
+  subcategory_id: 811,18
+  subcategory: Albanian language
+  url: albanian-language
+-
+  id: 1744
+  conspectus_id: 11
+  subcategory_id: 811.21/.22
+  subcategory: Indo-Iranian languages
+  url: indo-iranian-languages
+-
+  id: 1745
+  conspectus_id: 11
+  subcategory_id: 811,34
+  subcategory: Dead languages of unknown affiliation
+  url: dead-languages-of-unknown-affiliation
+-
+  id: 1746
+  conspectus_id: 11
+  subcategory_id: 811,35
+  subcategory: Caucasian languages
+  url: caucasian-languages
+-
+  id: 1747
+  conspectus_id: 11
+  subcategory_id: 811,41
+  subcategory: Afro-Asiatic languages
+  url: afro-asiatic-languages
+-
+  id: 1748
+  conspectus_id: 11
+  subcategory_id: 811,51
+  subcategory: Altaic, Uralic languages
+  url: altaic-uralic-languages
+-
+  id: 1749
+  conspectus_id: 11
+  subcategory_id: 811,58
+  subcategory: Chinese language
+  url: chinese-language
+-
+  id: 1750
+  conspectus_id: 11
+  subcategory_id: 811,9
+  subcategory: Artificial languages
+  url: artificial-languages
+-
+  id: 1751
+  conspectus_id: 11
+  subcategory_id: 82
+  subcategory: Literature
+  url: literature
+-
+  id: 1752
+  conspectus_id: 11
+  subcategory_id: 82
+  subcategory: Literature (Philosophy and theory)
+  url: literature-philosophy-and-theory
+-
+  id: 1753
+  conspectus_id: 11
+  subcategory_id: 82:03
+  subcategory: Dictionaries, encyclopaedias, concordances
+  url: dictionaries-encyclopaedias-concordances
+-
+  id: 1754
+  conspectus_id: 11
+  subcategory_id: 82:05
+  subcategory: Serial publications
+  url: serial-publications
+-
+  id: 1755
+  conspectus_id: 11
+  subcategory_id: 82:06
+  subcategory: Organizations
+  url: organizations
+-
+  id: 1756
+  conspectus_id: 11
+  subcategory_id: 82:37
+  subcategory: Education, research, related topics
+  url: education-research-related-topics
+-
+  id: 1757
+  conspectus_id: 11
+  subcategory_id: 82-1/-8
+  subcategory: Rhetoric in specific literary forms
+  url: rhetoric-in-specific-literary-forms
+-
+  id: 1758
+  conspectus_id: 11
+  subcategory_id: 82-31/-34
+  subcategory: Literature for and by other specific kinds of persons
+  url: literature-for-and-by-other-specific-kinds-of-persons
+-
+  id: 1759
+  conspectus_id: 11
+  subcategory_id: 82-9
+  subcategory: Literature for and by other specific kinds of persons
+  url: literature-for-and-by-other-specific-kinds-of-persons
+-
+  id: 1760
+  conspectus_id: 11
+  subcategory_id: 82-93
+  subcategory: Literature for and by other specific kinds of persons (on)
+  url: literature-for-and-by-other-specific-kinds-of-persons-on
+-
+  id: 1761
+  conspectus_id: 11
+  subcategory_id: 82-97
+  subcategory: Literature for and by other specific kinds of persons
+  url: literature-for-and-by-other-specific-kinds-of-persons
+-
+  id: 1762
+  conspectus_id: 11
+  subcategory_id: 821,09
+  subcategory: Literature of miscellaneous languages (on)
+  url: literature-of-miscellaneous-languages-on
+-
+  id: 1763
+  conspectus_id: 11
+  subcategory_id: 821.11.09
+  subcategory: Other Germanic literatures (on)
+  url: other-germanic-literatures-on
+-
+  id: 1764
+  conspectus_id: 11
+  subcategory_id: 821.13.09
+  subcategory: Romanian and Rhaeto-Romanic literatures(on)
+  url: romanian-and-rhaeto-romanic-literatures-on
+-
+  id: 1765
+  conspectus_id: 11
+  subcategory_id: 821.124.09
+  subcategory: Latin literature (on)
+  url: latin-literature-on
+-
+  id: 1766
+  conspectus_id: 11
+  subcategory_id: 821.14'02.09
+  subcategory: Greek (Hellenic) literature (on)
+  url: greek-hellenic-literature-on
+-
+  id: 1767
+  conspectus_id: 11
+  subcategory_id: 821.14.09
+  subcategory: Modern Greek literature (on)
+  url: modern-greek-literature-on
+-
+  id: 1768
+  conspectus_id: 11
+  subcategory_id: 821.162.3.09
+  subcategory: Czech literature (on)
+  url: czech-literature-on
+-
+  id: 1769
+  conspectus_id: 11
+  subcategory_id: 821.16.09
+  subcategory: Slovak literature (on)
+  url: slovak-literature-on
+-
+  id: 1770
+  conspectus_id: 11
+  subcategory_id: 821.17.09
+  subcategory: Baltic literatures (on)
+  url: baltic-literatures-on
+-
+  id: 1771
+  conspectus_id: 11
+  subcategory_id: 821.41.09
+  subcategory: Afro-Asiatic (Hamito-Semitic) literatures (on)
+  url: afro-asiatic-hamito-semitic-literatures-on
+-
+  id: 1772
+  conspectus_id: 11
+  subcategory_id: 821.51.09
+  subcategory: Altaic, Uralic, Hyperborean, Dravidian literatures (on)
+  url: altaic-uralic-hyperborean-dravidian-literatures-on
+-
+  id: 1773
+  conspectus_id: 11
+  subcategory_id: 821.521.09
+  subcategory: Japanese literature (on)
+  url: japanese-literature-on
+-
+  id: 1774
+  conspectus_id: 11
+  subcategory_id: 821.531.09
+  subcategory: Korean literature (on)
+  url: korean-literature-on
+-
+  id: 1775
+  conspectus_id: 11
+  subcategory_id: 821.58.09
+  subcategory: Literatures of East and SE Asia, Sino-Tibetian literatures
+  url: literatures-of-east-and-se-asia-sino-tibetian-literatures
+-
+  id: 1776
+  conspectus_id: 11
+  subcategory_id: 821.432.09
+  subcategory: African literatures (on)
+  url: african-literatures-on
+-
+  id: 1777
+  conspectus_id: 11
+  subcategory_id: 821.81/.82.09
+  subcategory: Literatures of North American native languages
+  url: literatures-of-north-american-native-languages
+-
+  id: 1778
+  conspectus_id: 11
+  subcategory_id: 821.873.09
+  subcategory: Literature of South American native languages (on)
+  url: literature-of-south-american-native-languages-on
+-
+  id: 1779
+  conspectus_id: 11
+  subcategory_id: 821.62.09
+  subcategory: Austronesian literatures (on)
+  url: austronesian-literatures-on
+-
+  id: 1780
+  conspectus_id: 12
+  subcategory_id: 0
+  subcategory: Generalities
+  url: generalities
+-
+  id: 1781
+  conspectus_id: 12
+  subcategory_id: 1
+  subcategory: Bibliography
+  url: bibliography
+-
+  id: 1782
+  conspectus_id: 12
+  subcategory_id: 2
+  subcategory: Library and information sciences
+  url: library-and-information-sciences
+-
+  id: 1783
+  conspectus_id: 12
+  subcategory_id: 21
+  subcategory: Relationship of libraries, archives, information centers
+  url: relationship-of-libraries-archives-information-centers
+-
+  id: 1784
+  conspectus_id: 12
+  subcategory_id: 22
+  subcategory: Administration of the physical plant
+  url: administration-of-the-physical-plant
+-
+  id: 1785
+  conspectus_id: 12
+  subcategory_id: 23
+  subcategory: Personnel administration
+  url: personnel-administration
+-
+  id: 1786
+  conspectus_id: 12
+  subcategory_id: 24
+  subcategory: Library services
+  url: library-services
+-
+  id: 1787
+  conspectus_id: 12
+  subcategory_id: 25
+  subcategory: Operations of libraries, archives, information centers
+  url: operations-of-libraries-archives-information-centers
+-
+  id: 1788
+  conspectus_id: 12
+  subcategory_id: 025.3/.4
+  subcategory: Bibliographic and subject analysis and control
+  url: bibliographic-and-subject-analysis-and-control
+-
+  id: 1789
+  conspectus_id: 12
+  subcategory_id: 026/027
+  subcategory: Specific kinds of institutions (libraries)
+  url: specific-kinds-of-institutions-libraries
+-
+  id: 1790
+  conspectus_id: 12
+  subcategory_id: 26
+  subcategory: Libraries, archives, information centres of special disciplines and subjects
+  url: libraries-archives-information-centres-of-special-disciplines-and-subjects
+-
+  id: 1791
+  conspectus_id: 12
+  subcategory_id: 27
+  subcategory: General libraries, archives, information centres
+  url: general-libraries-archives-information-centres
+-
+  id: 1792
+  conspectus_id: 12
+  subcategory_id: 28
+  subcategory: Reading and use of other information media
+  url: reading-and-use-of-other-information-media
+-
+  id: 1793
+  conspectus_id: 12
+  subcategory_id: 30
+  subcategory: General encyclopaedic works
+  url: general-encyclopaedic-works
+-
+  id: 1794
+  conspectus_id: 12
+  subcategory_id: 50
+  subcategory: General serial publications and their indexes
+  url: general-serial-publications-and-their-indexes
+-
+  id: 1795
+  conspectus_id: 12
+  subcategory_id: 6
+  subcategory: General organizations
+  url: general-organizations
+-
+  id: 1796
+  conspectus_id: 12
+  subcategory_id: 69
+  subcategory: Museology (museum science) in general
+  url: museology-museum-science-in-general
+-
+  id: 1797
+  conspectus_id: 12
+  subcategory_id: 70
+  subcategory: Documentary, educational, news media, journalism
+  url: documentary-educational-news-media-journalism
+-
+  id: 1798
+  conspectus_id: 12
+  subcategory_id: 8
+  subcategory: General collections
+  url: general-collections
+-
+  id: 1799
+  conspectus_id: 12
+  subcategory_id: 9
+  subcategory: Manuscripts, rare books, other rare printed materials
+  url: manuscripts-rare-books-other-rare-printed-materials
+-
+  id: 1800
+  conspectus_id: 12
+  subcategory_id: 93
+  subcategory: Incunabula
+  url: incunabula
+-
+  id: 1801
+  conspectus_id: 12
+  subcategory_id: 94
+  subcategory: Old prints
+  url: old-prints
+-
+  id: 1802
+  conspectus_id: 12
+  subcategory_id: 94,5
+  subcategory: Prints (19th century)
+  url: prints-19th-century
+-
+  id: 1803
+  conspectus_id: 12
+  subcategory_id: 095/096
+  subcategory: Rare prints
+  url: rare-prints
+-
+  id: 1804
+  conspectus_id: 12
+  subcategory_id: 316,77
+  subcategory: Information science
+  url: information-science
+-
+  id: 1805
+  conspectus_id: 12
+  subcategory_id: 655
+  subcategory: Publishing
+  url: publishing
+-
+  id: 1806
+  conspectus_id: 13
+  subcategory_id: 51
+  subcategory: Mathematics
+  url: mathematics
+-
+  id: 1807
+  conspectus_id: 13
+  subcategory_id: 510
+  subcategory: General principles (Mathematics)
+  url: general-principles-mathematics
+-
+  id: 1808
+  conspectus_id: 13
+  subcategory_id: 511
+  subcategory: Number theory
+  url: number-theory
+-
+  id: 1809
+  conspectus_id: 13
+  subcategory_id: 511,1
+  subcategory: Arithmetic
+  url: arithmetic
+-
+  id: 1810
+  conspectus_id: 13
+  subcategory_id: 512
+  subcategory: Algebra
+  url: algebra
+-
+  id: 1811
+  conspectus_id: 13
+  subcategory_id: 514
+  subcategory: Geometry
+  url: geometry
+-
+  id: 1812
+  conspectus_id: 13
+  subcategory_id: 515,1
+  subcategory: Topology
+  url: topology
+-
+  id: 1813
+  conspectus_id: 13
+  subcategory_id: 517
+  subcategory: Analysis
+  url: analysis
+-
+  id: 1814
+  conspectus_id: 13
+  subcategory_id: 519
+  subcategory: Probabilities and applied mathematics
+  url: probabilities-and-applied-mathematics
+-
+  id: 1815
+  conspectus_id: 14
+  subcategory_id: 61
+  subcategory: Medical sciences, medicine
+  url: medical-sciences-medicine
+-
+  id: 1816
+  conspectus_id: 14
+  subcategory_id: 611
+  subcategory: Human anatomy, cytology (cell), histology (tissues)
+  url: human-anatomy-cytology-cell-histology-tissues
+-
+  id: 1817
+  conspectus_id: 14
+  subcategory_id: 612
+  subcategory: Human physiology
+  url: human-physiology
+-
+  id: 1818
+  conspectus_id: 14
+  subcategory_id: 613
+  subcategory: Promotion of health
+  url: promotion-of-health
+-
+  id: 1819
+  conspectus_id: 14
+  subcategory_id: 614
+  subcategory: Forensic medicine, incidence of disease, public preventive medicine
+  url: forensic-medicine-incidence-of-disease-public-preventive-medicine
+-
+  id: 1820
+  conspectus_id: 14
+  subcategory_id: 614,8
+  subcategory: Public safety programs
+  url: public-safety-programs
+-
+  id: 1821
+  conspectus_id: 14
+  subcategory_id: 614,84
+  subcategory: Fire hazards
+  url: fire-hazards
+-
+  id: 1822
+  conspectus_id: 14
+  subcategory_id: 615
+  subcategory: Pharmacology
+  url: pharmacology
+-
+  id: 1823
+  conspectus_id: 14
+  subcategory_id: 615,8
+  subcategory: Specific therapies and alternative therapies
+  url: specific-therapies-and-alternative-therapies
+-
+  id: 1824
+  conspectus_id: 14
+  subcategory_id: 616
+  subcategory: Diseases. Clinical medicine
+  url: diseases-clinical-medicine
+-
+  id: 1825
+  conspectus_id: 14
+  subcategory_id: 616-053.2
+  subcategory: Pediatrics
+  url: pediatrics
+-
+  id: 1826
+  conspectus_id: 14
+  subcategory_id: 616-053.9
+  subcategory: Geriatrics
+  url: geriatrics
+-
+  id: 1827
+  conspectus_id: 14
+  subcategory_id: 616-092
+  subcategory: Experimental medicine
+  url: experimental-medicine
+-
+  id: 1828
+  conspectus_id: 14
+  subcategory_id: 616,31
+  subcategory: Diseases of mouth and throat
+  url: diseases-of-mouth-and-throat
+-
+  id: 1829
+  conspectus_id: 14
+  subcategory_id: 616,89
+  subcategory: Mental disorders. Psychiatry
+  url: mental-disorders-psychiatry
+-
+  id: 1830
+  conspectus_id: 14
+  subcategory_id: 617
+  subcategory: Surgery and related topics
+  url: surgery-and-related-topics
+-
+  id: 1831
+  conspectus_id: 14
+  subcategory_id: 618
+  subcategory: Gynecology and obstetrics (other branches of medicine)
+  url: gynecology-and-obstetrics-other-branches-of-medicine
+-
+  id: 1832
+  conspectus_id: 15
+  subcategory_id: 32
+  subcategory: Political science (politics and government)
+  url: political-science-politics-and-government
+-
+  id: 1833
+  conspectus_id: 15
+  subcategory_id: 321
+  subcategory: Systems of governments and states
+  url: systems-of-governments-and-states
+-
+  id: 1834
+  conspectus_id: 15
+  subcategory_id: 322
+  subcategory: Relation of state to organized groups and their members
+  url: relation-of-state-to-organized-groups-and-their-members
+-
+  id: 1835
+  conspectus_id: 15
+  subcategory_id: 323
+  subcategory: Civil and political rights
+  url: civil-and-political-rights
+-
+  id: 1836
+  conspectus_id: 15
+  subcategory_id: 324
+  subcategory: Political process
+  url: political-process
+-
+  id: 1837
+  conspectus_id: 15
+  subcategory_id: 325
+  subcategory: International migration and colonization
+  url: international-migration-and-colonization
+-
+  id: 1838
+  conspectus_id: 15
+  subcategory_id: 327
+  subcategory: International relations
+  url: international-relations
+-
+  id: 1839
+  conspectus_id: 15
+  subcategory_id: 328
+  subcategory: Legislative process
+  url: legislative-process
+-
+  id: 1840
+  conspectus_id: 15
+  subcategory_id: 329
+  subcategory: Political parties
+  url: political-parties
+-
+  id: 1841
+  conspectus_id: 15
+  subcategory_id: 35
+  subcategory: Public administration and military science
+  url: public-administration-and-military-science
+-
+  id: 1842
+  conspectus_id: 15
+  subcategory_id: 35,07
+  subcategory: General considerations of public administration
+  url: general-considerations-of-public-administration
+-
+  id: 1843
+  conspectus_id: 15
+  subcategory_id: 351
+  subcategory: Specific fields of public administration
+  url: specific-fields-of-public-administration
+-
+  id: 1844
+  conspectus_id: 15
+  subcategory_id: 352/354
+  subcategory: Administration of central governments
+  url: administration-of-central-governments
+-
+  id: 1845
+  conspectus_id: 15
+  subcategory_id: 355/359
+  subcategory: Military science
+  url: military-science
+-
+  id: 1846
+  conspectus_id: 15
+  subcategory_id: 356
+  subcategory: Foot forces and warfare
+  url: foot-forces-and-warfare
+-
+  id: 1847
+  conspectus_id: 15
+  subcategory_id: 357
+  subcategory: Mounted forces and warfare
+  url: mounted-forces-and-warfare
+-
+  id: 1848
+  conspectus_id: 15
+  subcategory_id: 358
+  subcategory: Air and other specialized forces and warfare; Engineering and related services
+  url: air-and-other-specialized-forces-and-warfare-engineering-and-related-services
+-
+  id: 1849
+  conspectus_id: 15
+  subcategory_id: 359
+  subcategory: Sea (naval) forces and warfare
+  url: sea-naval-forces-and-warfare
+-
+  id: 1850
+  conspectus_id: 16
+  subcategory_id: 34
+  subcategory: Law
+  url: law
+-
+  id: 1851
+  conspectus_id: 16
+  subcategory_id: 341
+  subcategory: International law
+  url: international-law
+-
+  id: 1852
+  conspectus_id: 16
+  subcategory_id: 342
+  subcategory: Constitutional law and administrative law
+  url: constitutional-law-and-administrative-law
+-
+  id: 1853
+  conspectus_id: 16
+  subcategory_id: 342,53
+  subcategory: Laws (statutes), regulations, cases
+  url: laws-statutes-regulations-cases
+-
+  id: 1854
+  conspectus_id: 16
+  subcategory_id: 343
+  subcategory: Criminal law
+  url: criminal-law
+-
+  id: 1855
+  conspectus_id: 16
+  subcategory_id: 343,9
+  subcategory: Criminal procedure
+  url: criminal-procedure
+-
+  id: 1856
+  conspectus_id: 16
+  subcategory_id: 344
+  subcategory: Military, defence, veteran's law
+  url: military-defence-veteran-s-law
+-
+  id: 1857
+  conspectus_id: 16
+  subcategory_id: 346
+  subcategory: Regulation of economic activity
+  url: regulation-of-economic-activity
+-
+  id: 1858
+  conspectus_id: 16
+  subcategory_id: 347
+  subcategory: Private law
+  url: private-law
+-
+  id: 1859
+  conspectus_id: 16
+  subcategory_id: 347,7
+  subcategory: Commercial law
+  url: commercial-law
+-
+  id: 1860
+  conspectus_id: 16
+  subcategory_id: 347,9
+  subcategory: Civil procedure and Courts
+  url: civil-procedure-and-courts
+-
+  id: 1861
+  conspectus_id: 16
+  subcategory_id: 349
+  subcategory: Labour, social service law
+  url: labour-social-service-law
+-
+  id: 1862
+  conspectus_id: 17
+  subcategory_id: 133
+  subcategory: Paranormal phenomena
+  url: paranormal-phenomena
+-
+  id: 1863
+  conspectus_id: 17
+  subcategory_id: 159,9
+  subcategory: Psychology
+  url: psychology
+-
+  id: 1864
+  conspectus_id: 17
+  subcategory_id: 159,92
+  subcategory: Differential and developmental psychology
+  url: differential-and-developmental-psychology
+-
+  id: 1865
+  conspectus_id: 17
+  subcategory_id: 159,929
+  subcategory: Comparative psychology
+  url: comparative-psychology
+-
+  id: 1866
+  conspectus_id: 17
+  subcategory_id: 159.93/.94
+  subcategory: Sensory perception, movement, emotions, physiological drives
+  url: sensory-perception-movement-emotions-physiological-drives
+-
+  id: 1867
+  conspectus_id: 17
+  subcategory_id: 159,95
+  subcategory: Conscious mental processes and intelligence
+  url: conscious-mental-processes-and-intelligence
+-
+  id: 1868
+  conspectus_id: 17
+  subcategory_id: 159,96
+  subcategory: Subconscious and altered states and processes
+  url: subconscious-and-altered-states-and-processes
+-
+  id: 1869
+  conspectus_id: 17
+  subcategory_id: 159,97
+  subcategory: Psychology (psychoanalytic systems)
+  url: psychology-psychoanalytic-systems
+-
+  id: 1870
+  conspectus_id: 17
+  subcategory_id: 159,98
+  subcategory: Applied psychology
+  url: applied-psychology
+-
+  id: 1871
+  conspectus_id: 18
+  subcategory_id: 61,2
+  subcategory: Associations
+  url: associations
+-
+  id: 1872
+  conspectus_id: 18
+  subcategory_id: 3
+  subcategory: Social sciences
+  url: social-sciences
+-
+  id: 1873
+  conspectus_id: 18
+  subcategory_id: 308
+  subcategory: Sociology (philosophy and theory)
+  url: sociology-philosophy-and-theory
+-
+  id: 1874
+  conspectus_id: 18
+  subcategory_id: 314
+  subcategory: Factors affecting social behaviour
+  url: factors-affecting-social-behaviour
+-
+  id: 1875
+  conspectus_id: 18
+  subcategory_id: 316
+  subcategory: Sociology
+  url: sociology
+-
+  id: 1876
+  conspectus_id: 18
+  subcategory_id: 316,3
+  subcategory: Social groups
+  url: social-groups
+-
+  id: 1877
+  conspectus_id: 18
+  subcategory_id: 316,33
+  subcategory: Communities
+  url: communities
+-
+  id: 1878
+  conspectus_id: 18
+  subcategory_id: 316,4
+  subcategory: Social processes
+  url: social-processes
+-
+  id: 1879
+  conspectus_id: 18
+  subcategory_id: 316.4/.7
+  subcategory: Social interaction
+  url: social-interaction
+-
+  id: 1880
+  conspectus_id: 18
+  subcategory_id: 316,8
+  subcategory: Marriage and family
+  url: marriage-and-family
+-
+  id: 1881
+  conspectus_id: 18
+  subcategory_id: 326
+  subcategory: Slavery and emancipation
+  url: slavery-and-emancipation
+-
+  id: 1882
+  conspectus_id: 18
+  subcategory_id: 343,8
+  subcategory: Penal and related institutions
+  url: penal-and-related-institutions
+-
+  id: 1883
+  conspectus_id: 18
+  subcategory_id: 343,97
+  subcategory: Criminology
+  url: criminology
+-
+  id: 1884
+  conspectus_id: 18
+  subcategory_id: 36
+  subcategory: Social problems and services
+  url: social-problems-and-services
+-
+  id: 1885
+  conspectus_id: 18
+  subcategory_id: 364
+  subcategory: Social problems and social welfare in general
+  url: social-problems-and-social-welfare-in-general
+-
+  id: 1886
+  conspectus_id: 18
+  subcategory_id: 364-1/-7
+  subcategory: Social welfare problems and services
+  url: social-welfare-problems-and-services
+-
+  id: 1887
+  conspectus_id: 18
+  subcategory_id: 364,3
+  subcategory: Social insurance
+  url: social-insurance
+-
+  id: 1888
+  conspectus_id: 18
+  subcategory_id: 365
+  subcategory: Other social problems and services
+  url: other-social-problems-and-services
+-
+  id: 1889
+  conspectus_id: 18
+  subcategory_id: 366
+  subcategory: Consumer problems and protection
+  url: consumer-problems-and-protection
+-
+  id: 1890
+  conspectus_id: 18
+  subcategory_id: 649
+  subcategory: Child rearing and home care of sick and infirm
+  url: child-rearing-and-home-care-of-sick-and-infirm
+-
+  id: 1891
+  conspectus_id: 19
+  subcategory_id: 62
+  subcategory: Technology (applied sciences)
+  url: technology-applied-sciences
+-
+  id: 1892
+  conspectus_id: 19
+  subcategory_id: 620.1/.2
+  subcategory: Engineering materials
+  url: engineering-materials
+-
+  id: 1893
+  conspectus_id: 19
+  subcategory_id: 620,9
+  subcategory: Energy engineering
+  url: energy-engineering
+-
+  id: 1894
+  conspectus_id: 19
+  subcategory_id: 621
+  subcategory: Engineering and allied operations
+  url: engineering-and-allied-operations
+-
+  id: 1895
+  conspectus_id: 19
+  subcategory_id: 621,039
+  subcategory: Nuclear engineering
+  url: nuclear-engineering
+-
+  id: 1896
+  conspectus_id: 19
+  subcategory_id: 621,3
+  subcategory: Applied physics
+  url: applied-physics
+-
+  id: 1897
+  conspectus_id: 19
+  subcategory_id: 621,38
+  subcategory: Electronics
+  url: electronics
+-
+  id: 1898
+  conspectus_id: 19
+  subcategory_id: 621,39
+  subcategory: Communication engineering
+  url: communication-engineering
+-
+  id: 1899
+  conspectus_id: 19
+  subcategory_id: 622
+  subcategory: Mining and related operations
+  url: mining-and-related-operations
+-
+  id: 1900
+  conspectus_id: 19
+  subcategory_id: 623
+  subcategory: Military and nautical engineering
+  url: military-and-nautical-engineering
+-
+  id: 1901
+  conspectus_id: 19
+  subcategory_id: 624
+  subcategory: Building Engineering
+  url: building-engineering
+-
+  id: 1902
+  conspectus_id: 19
+  subcategory_id: 625
+  subcategory: Engineering of railroads and roads
+  url: engineering-of-railroads-and-roads
+-
+  id: 1903
+  conspectus_id: 19
+  subcategory_id: 626/627
+  subcategory: Hydraulic engineering
+  url: hydraulic-engineering
+-
+  id: 1904
+  conspectus_id: 19
+  subcategory_id: 628
+  subcategory: Sanitary, municipal engineering; environmental protection engineering
+  url: sanitary-municipal-engineering-environmental-protection-engineering
+-
+  id: 1905
+  conspectus_id: 19
+  subcategory_id: 629
+  subcategory: Means of transportation
+  url: means-of-transportation
+-
+  id: 1906
+  conspectus_id: 19
+  subcategory_id: 629.056.2
+  subcategory: Celestial navigation
+  url: celestial-navigation
+-
+  id: 1907
+  conspectus_id: 19
+  subcategory_id: 64
+  subcategory: Home economics and family living
+  url: home-economics-and-family-living
+-
+  id: 1908
+  conspectus_id: 19
+  subcategory_id: 640,4
+  subcategory: Specific kinds of public households and institutions
+  url: specific-kinds-of-public-households-and-institutions
+-
+  id: 1909
+  conspectus_id: 19
+  subcategory_id: 641
+  subcategory: Food and drink
+  url: food-and-drink
+-
+  id: 1910
+  conspectus_id: 19
+  subcategory_id: 642
+  subcategory: Meals and table service
+  url: meals-and-table-service
+-
+  id: 1911
+  conspectus_id: 19
+  subcategory_id: 643
+  subcategory: Housing and household equipment
+  url: housing-and-household-equipment
+-
+  id: 1912
+  conspectus_id: 19
+  subcategory_id: 644
+  subcategory: Household utilities
+  url: household-utilities
+-
+  id: 1913
+  conspectus_id: 19
+  subcategory_id: 645
+  subcategory: Household furnishings
+  url: household-furnishings
+-
+  id: 1914
+  conspectus_id: 19
+  subcategory_id: 646
+  subcategory: Sewing, clothing
+  url: sewing-clothing
+-
+  id: 1915
+  conspectus_id: 19
+  subcategory_id: 647
+  subcategory: Management of public households (institutional housekeeping)
+  url: management-of-public-households-institutional-housekeeping
+-
+  id: 1916
+  conspectus_id: 19
+  subcategory_id: 648
+  subcategory: Housekeeping
+  url: housekeeping
+-
+  id: 1917
+  conspectus_id: 19
+  subcategory_id: 66
+  subcategory: Chemical engineering and related technologies
+  url: chemical-engineering-and-related-technologies
+-
+  id: 1918
+  conspectus_id: 19
+  subcategory_id: 661
+  subcategory: Technology of industrial chemicals
+  url: technology-of-industrial-chemicals
+-
+  id: 1919
+  conspectus_id: 19
+  subcategory_id: 662
+  subcategory: Technology of explosives, fuels, related products
+  url: technology-of-explosives-fuels-related-products
+-
+  id: 1920
+  conspectus_id: 19
+  subcategory_id: 663
+  subcategory: Beverage technology
+  url: beverage-technology
+-
+  id: 1921
+  conspectus_id: 19
+  subcategory_id: 664
+  subcategory: Food technology
+  url: food-technology
+-
+  id: 1922
+  conspectus_id: 19
+  subcategory_id: 665
+  subcategory: Technology of industrial oils, fats, waxes, gases
+  url: technology-of-industrial-oils-fats-waxes-gases
+-
+  id: 1923
+  conspectus_id: 19
+  subcategory_id: 666
+  subcategory: Ceramic and allied technologies
+  url: ceramic-and-allied-technologies
+-
+  id: 1924
+  conspectus_id: 19
+  subcategory_id: 667
+  subcategory: Cleaning, colour coating and related technologies
+  url: cleaning-colour-coating-and-related-technologies
+-
+  id: 1925
+  conspectus_id: 19
+  subcategory_id: 669
+  subcategory: Metallurgy
+  url: metallurgy
+-
+  id: 1926
+  conspectus_id: 19
+  subcategory_id: 67/68
+  subcategory: Manufacturing
+  url: manufacturing
+-
+  id: 1927
+  conspectus_id: 19
+  subcategory_id: 671
+  subcategory: Metalworking processes and primary metal products
+  url: metalworking-processes-and-primary-metal-products
+-
+  id: 1928
+  conspectus_id: 19
+  subcategory_id: 672
+  subcategory: Iron, steel, other iron alloys
+  url: iron-steel-other-iron-alloys
+-
+  id: 1929
+  conspectus_id: 19
+  subcategory_id: 673
+  subcategory: Nonferrous metals
+  url: nonferrous-metals
+-
+  id: 1930
+  conspectus_id: 19
+  subcategory_id: 674
+  subcategory: Lumber processing, wood products, cork
+  url: lumber-processing-wood-products-cork
+-
+  id: 1931
+  conspectus_id: 19
+  subcategory_id: 675
+  subcategory: Leather and fur processing
+  url: leather-and-fur-processing
+-
+  id: 1932
+  conspectus_id: 19
+  subcategory_id: 676
+  subcategory: Pulp and paper technology
+  url: pulp-and-paper-technology
+-
+  id: 1933
+  conspectus_id: 19
+  subcategory_id: 677
+  subcategory: Textiles
+  url: textiles
+-
+  id: 1934
+  conspectus_id: 19
+  subcategory_id: 678
+  subcategory: Elastomers and elastomer products
+  url: elastomers-and-elastomer-products
+-
+  id: 1935
+  conspectus_id: 19
+  subcategory_id: 679
+  subcategory: Other products of specific kinds of materials
+  url: other-products-of-specific-kinds-of-materials
+-
+  id: 1936
+  conspectus_id: 19
+  subcategory_id: 681
+  subcategory: Precision instruments and other devices
+  url: precision-instruments-and-other-devices
+-
+  id: 1937
+  conspectus_id: 19
+  subcategory_id: 681,5
+  subcategory: Automatic control engineering
+  url: automatic-control-engineering
+-
+  id: 1938
+  conspectus_id: 19
+  subcategory_id: 682
+  subcategory: Small force work (blacksmithing)
+  url: small-force-work-blacksmithing
+-
+  id: 1939
+  conspectus_id: 19
+  subcategory_id: 683
+  subcategory: Hardware and household appliances
+  url: hardware-and-household-appliances
+-
+  id: 1940
+  conspectus_id: 19
+  subcategory_id: 684
+  subcategory: Furnishing and home workshops
+  url: furnishing-and-home-workshops
+-
+  id: 1941
+  conspectus_id: 19
+  subcategory_id: 685
+  subcategory: Leather and fur goods and related products
+  url: leather-and-fur-goods-and-related-products
+-
+  id: 1942
+  conspectus_id: 19
+  subcategory_id: 686
+  subcategory: Printing and related activities
+  url: printing-and-related-activities
+-
+  id: 1943
+  conspectus_id: 19
+  subcategory_id: 687
+  subcategory: Clothing and accessories
+  url: clothing-and-accessories
+-
+  id: 1944
+  conspectus_id: 19
+  subcategory_id: 688
+  subcategory: Other final products and packaging technology
+  url: other-final-products-and-packaging-technology
+-
+  id: 1945
+  conspectus_id: 19
+  subcategory_id: 69
+  subcategory: Buildings
+  url: buildings
+-
+  id: 1946
+  conspectus_id: 19
+  subcategory_id: 691
+  subcategory: Building materials
+  url: building-materials
+-
+  id: 1947
+  conspectus_id: 19
+  subcategory_id: 692
+  subcategory: Auxiliary construction practices
+  url: auxiliary-construction-practices
+-
+  id: 1948
+  conspectus_id: 19
+  subcategory_id: 693
+  subcategory: Construction in specific types of materials and for specific purposes
+  url: construction-in-specific-types-of-materials-and-for-specific-purposes
+-
+  id: 1949
+  conspectus_id: 19
+  subcategory_id: 694
+  subcategory: Wood construction, carpentry
+  url: wood-construction-carpentry
+-
+  id: 1950
+  conspectus_id: 19
+  subcategory_id: 696
+  subcategory: Utilities
+  url: utilities
+-
+  id: 1951
+  conspectus_id: 19
+  subcategory_id: 697
+  subcategory: Heating, ventilating, air-conditioning
+  url: heating-ventilating-air-conditioning
+-
+  id: 1952
+  conspectus_id: 19
+  subcategory_id: 698
+  subcategory: Detail finishing
+  url: detail-finishing
+-
+  id: 1953
+  conspectus_id: 19
+  subcategory_id: 699,8
+  subcategory: Construction for specific purposes (protection of buildings)
+  url: construction-for-specific-purposes-protection-of-buildings
+-
+  id: 1954
+  conspectus_id: 20
+  subcategory_id: 613,7
+  subcategory: Physical fitness
+  url: physical-fitness
+-
+  id: 1955
+  conspectus_id: 20
+  subcategory_id: 79
+  subcategory: Recreational arts
+  url: recreational-arts
+-
+  id: 1956
+  conspectus_id: 20
+  subcategory_id: 793
+  subcategory: Indoor games and amusements
+  url: indoor-games-and-amusements
+-
+  id: 1957
+  conspectus_id: 20
+  subcategory_id: 794
+  subcategory: Indoor games of skill
+  url: indoor-games-of-skill
+-
+  id: 1958
+  conspectus_id: 20
+  subcategory_id: 794,9
+  subcategory: Games of chance
+  url: games-of-chance
+-
+  id: 1959
+  conspectus_id: 20
+  subcategory_id: 796
+  subcategory: Athletic and outdoor sports and games
+  url: athletic-and-outdoor-sports-and-games
+-
+  id: 1960
+  conspectus_id: 20
+  subcategory_id: 797
+  subcategory: Aquatic and air sports
+  url: aquatic-and-air-sports
+-
+  id: 1961
+  conspectus_id: 20
+  subcategory_id: 798
+  subcategory: Equestrian sports and animal racing
+  url: equestrian-sports-and-animal-racing
+-
+  id: 1962
+  conspectus_id: 20
+  subcategory_id: 799
+  subcategory: Fishing, hunting, shooting
+  url: fishing-hunting-shooting
+-
+  id: 1963
+  conspectus_id: 21
+  subcategory_id: 7.01/.09
+  subcategory: Arts
+  url: arts
+-
+  id: 1964
+  conspectus_id: 21
+  subcategory_id: 71
+  subcategory: Civic and landscape art
+  url: civic-and-landscape-art
+-
+  id: 1965
+  conspectus_id: 21
+  subcategory_id: 72/76
+  subcategory: Fine and decorative arts
+  url: fine-and-decorative-arts
+-
+  id: 1966
+  conspectus_id: 21
+  subcategory_id: 72
+  subcategory: Architecture
+  url: architecture
+-
+  id: 1967
+  conspectus_id: 21
+  subcategory_id: 73
+  subcategory: Plastic art - sculpture
+  url: plastic-art-sculpture
+-
+  id: 1968
+  conspectus_id: 21
+  subcategory_id: 74
+  subcategory: Drawing and decorative arts
+  url: drawing-and-decorative-arts
+-
+  id: 1969
+  conspectus_id: 21
+  subcategory_id: 75
+  subcategory: Painting and paintings
+  url: painting-and-paintings
+-
+  id: 1970
+  conspectus_id: 21
+  subcategory_id: 76
+  subcategory: Graphic arts, printmaking and prints
+  url: graphic-arts-printmaking-and-prints
+-
+  id: 1971
+  conspectus_id: 21
+  subcategory_id: 77
+  subcategory: Photography and photographs
+  url: photography-and-photographs
+-
+  id: 1972
+  conspectus_id: 22
+  subcategory_id: 37
+  subcategory: Education
+  url: education
+-
+  id: 1973
+  conspectus_id: 22
+  subcategory_id: 37,014
+  subcategory: Public policy issues in education
+  url: public-policy-issues-in-education
+-
+  id: 1974
+  conspectus_id: 22
+  subcategory_id: 37,016
+  subcategory: Curricula
+  url: curricula
+-
+  id: 1975
+  conspectus_id: 22
+  subcategory_id: 371
+  subcategory: Schools and their activities
+  url: schools-and-their-activities
+-
+  id: 1976
+  conspectus_id: 22
+  subcategory_id: 373.2/.3
+  subcategory: Elementary education
+  url: elementary-education
+-
+  id: 1977
+  conspectus_id: 22
+  subcategory_id: 373.5/.6
+  subcategory: Secondary education
+  url: secondary-education
+-
+  id: 1978
+  conspectus_id: 22
+  subcategory_id: 374
+  subcategory: Adult education
+  url: adult-education
+-
+  id: 1979
+  conspectus_id: 22
+  subcategory_id: 376
+  subcategory: Special education
+  url: special-education
+-
+  id: 1980
+  conspectus_id: 22
+  subcategory_id: 377
+  subcategory: Professional education
+  url: professional-education
+-
+  id: 1981
+  conspectus_id: 22
+  subcategory_id: 378
+  subcategory: Higher education
+  url: higher-education
+-
+  id: 1982
+  conspectus_id: 23
+  subcategory_id: 4
+  subcategory: Data processing, computer science
+  url: data-processing-computer-science
+-
+  id: 1983
+  conspectus_id: 23
+  subcategory_id: 4,2
+  subcategory: Computer architecture
+  url: computer-architecture
+-
+  id: 1984
+  conspectus_id: 23
+  subcategory_id: 4,3
+  subcategory: Computer engineering
+  url: computer-engineering
+-
+  id: 1985
+  conspectus_id: 23
+  subcategory_id: 004.4/.6
+  subcategory: Computer programming, programs, data
+  url: computer-programming-programs-data
+-
+  id: 1986
+  conspectus_id: 23
+  subcategory_id: 4,7
+  subcategory: Interfacing and communications
+  url: interfacing-and-communications
+-
+  id: 1987
+  conspectus_id: 23
+  subcategory_id: 4,8
+  subcategory: Artificial intelligence
+  url: artificial-intelligence
+-
+  id: 1988
+  conspectus_id: 23
+  subcategory_id: 4,9
+  subcategory: Special computer methods
+  url: special-computer-methods
+-
+  id: 1989
+  conspectus_id: 23
+  subcategory_id: 7
+  subcategory: Systems
+  url: systems
+-
+  id: 1990
+  conspectus_id: 24
+  subcategory_id: 63
+  subcategory: Fishing
+  url: fishing
+-
+  id: 1991
+  conspectus_id: 24
+  subcategory_id: 630
+  subcategory: Agriculture and related technologies
+  url: agriculture-and-related-technologies
+-
+  id: 1992
+  conspectus_id: 24
+  subcategory_id: 631
+  subcategory: Specific techniques, apparatus, equipment, materials (Agriculture)
+  url: specific-techniques-apparatus-equipment-materials-agriculture
+-
+  id: 1993
+  conspectus_id: 24
+  subcategory_id: 632
+  subcategory: Plant injuries, diseases, pests
+  url: plant-injuries-diseases-pests
+-
+  id: 1994
+  conspectus_id: 24
+  subcategory_id: 633
+  subcategory: Field and plantation crops
+  url: field-and-plantation-crops
+-
+  id: 1995
+  conspectus_id: 24
+  subcategory_id: 634
+  subcategory: Orchards, fruits
+  url: orchards-fruits
+-
+  id: 1996
+  conspectus_id: 24
+  subcategory_id: 635
+  subcategory: Forestry
+  url: forestry
+-
+  id: 1997
+  conspectus_id: 24
+  subcategory_id: 636
+  subcategory: Garden crops (horticulture), vegetables
+  url: garden-crops-horticulture-vegetables
+-
+  id: 1998
+  conspectus_id: 24
+  subcategory_id: 636,09
+  subcategory: Animal husbandry
+  url: animal-husbandry
+-
+  id: 1999
+  conspectus_id: 24
+  subcategory_id: 637
+  subcategory: Veterinary medicine
+  url: veterinary-medicine
+-
+  id: 2000
+  conspectus_id: 24
+  subcategory_id: 638
+  subcategory: Processing dairy and related products
+  url: processing-dairy-and-related-products
+-
+  id: 2001
+  conspectus_id: 24
+  subcategory_id: 639,1
+  subcategory: Insect culture
+  url: insect-culture
+-
+  id: 2002
+  conspectus_id: 24
+  subcategory_id: 639.2/.6
+  subcategory: Hunting
+  url: hunting
+-
+  id: 2003
+  conspectus_id: 24
+  subcategory_id: 712
+  subcategory: Landscape architecture (landscape design)
+  url: landscape-architecture-landscape-design
+-
+  id: 2004
+  conspectus_id: 25
+  subcategory_id: 821-1/-8
+  subcategory: Literature in specific forms
+  url: literature-in-specific-forms
+-
+  id: 2005
+  conspectus_id: 25
+  subcategory_id: 821-31/-34
+  subcategory: Literature for and by other specific kinds of persons
+  url: literature-for-and-by-other-specific-kinds-of-persons
+-
+  id: 2006
+  conspectus_id: 25
+  subcategory_id: 821
+  subcategory: Literature of miscellaneous languages
+  url: literature-of-miscellaneous-languages
+-
+  id: 2007
+  conspectus_id: 25
+  subcategory_id: 821,11
+  subcategory: Other Germanic literatures
+  url: other-germanic-literatures
+-
+  id: 2008
+  conspectus_id: 25
+  subcategory_id: 821,124
+  subcategory: Latin literature
+  url: latin-literature
+-
+  id: 2009
+  conspectus_id: 25
+  subcategory_id: 821,13
+  subcategory: Romanian and Rhaeto-Romanic literatures
+  url: romanian-and-rhaeto-romanic-literatures
+-
+  id: 2010
+  conspectus_id: 25
+  subcategory_id: 821.14'02
+  subcategory: Greek (Hellenic) literature
+  url: greek-hellenic-literature
+-
+  id: 2011
+  conspectus_id: 25
+  subcategory_id: 821,14
+  subcategory: Greek modern literature
+  url: greek-modern-literature
+-
+  id: 2012
+  conspectus_id: 25
+  subcategory_id: 821,16
+  subcategory: Slavic (Slavonic) literatures
+  url: slavic-slavonic-literatures
+-
+  id: 2013
+  conspectus_id: 25
+  subcategory_id: 821.162.3
+  subcategory: Czech literature
+  url: czech-literature
+-
+  id: 2014
+  conspectus_id: 25
+  subcategory_id: 821.162.3-1
+  subcategory: Czech poetry
+  url: czech-poetry
+-
+  id: 2015
+  conspectus_id: 25
+  subcategory_id: 821. 62.3-2
+  subcategory: Czech drama
+  url: czech-drama
+-
+  id: 2016
+  conspectus_id: 25
+  subcategory_id: 821.162.3-3
+  subcategory: Czech fiction
+  url: czech-fiction
+-
+  id: 2017
+  conspectus_id: 25
+  subcategory_id: 821,17
+  subcategory: Baltic literatures
+  url: baltic-literatures
+-
+  id: 2018
+  conspectus_id: 25
+  subcategory_id: 821,41
+  subcategory: Afro-Asiatic (Hamito-Semitic) literatures
+  url: afro-asiatic-hamito-semitic-literatures
+-
+  id: 2019
+  conspectus_id: 25
+  subcategory_id: 821,432
+  subcategory: African literatures
+  url: african-literatures
+-
+  id: 2020
+  conspectus_id: 25
+  subcategory_id: 821,51
+  subcategory: Altaic, Uralic, Hyperborean, Dravidian literatures
+  url: altaic-uralic-hyperborean-dravidian-literatures
+-
+  id: 2021
+  conspectus_id: 25
+  subcategory_id: 821,521
+  subcategory: Japanese literature
+  url: japanese-literature
+-
+  id: 2022
+  conspectus_id: 25
+  subcategory_id: 821,531
+  subcategory: Korean literature
+  url: korean-literature
+-
+  id: 2023
+  conspectus_id: 25
+  subcategory_id: 821,58
+  subcategory: Literatures of East and SE Asia, Sino-Tibetian Literatures
+  url: literatures-of-east-and-se-asia-sino-tibetian-literatures
+-
+  id: 2024
+  conspectus_id: 25
+  subcategory_id: 821,62
+  subcategory: Austronesian literatures
+  url: austronesian-literatures
+-
+  id: 2025
+  conspectus_id: 25
+  subcategory_id: 821.81/.82
+  subcategory: Literatures of North American native languages
+  url: literatures-of-north-american-native-languages
+-
+  id: 2026
+  conspectus_id: 25
+  subcategory_id: 821,873
+  subcategory: Literature of South American native languages
+  url: literature-of-south-american-native-languages
+-
+  id: 2027
+  conspectus_id: 25
+  subcategory_id: 821-97
+  subcategory: Literature for and by other specific kinds of persons
+  url: literature-for-and-by-other-specific-kinds-of-persons
+-
+  id: 2028
+  conspectus_id: 26
+  subcategory_id: 0/9-053.2
+  subcategory: Literature for and by other specific kinds of persons
+  url: literature-for-and-by-other-specific-kinds-of-persons
+-
+  id: 2029
+  conspectus_id: 26
+  subcategory_id: 821-93
+  subcategory: Literature for and by other specific kinds of persons
+  url: literature-for-and-by-other-specific-kinds-of-persons
+...
