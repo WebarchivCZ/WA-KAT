@@ -6,12 +6,9 @@
 # Imports =====================================================================
 import sys
 import json
+import argparse
 
 import yaml
-
-
-# Variables ===================================================================
-
 
 
 # Functions & classes =========================================================
@@ -58,10 +55,21 @@ def convert_to_dict_list(data):
     )
 
 
-
 # Main program ================================================================
 if __name__ == '__main__':
-    data = load_yaml_file(sys.argv[1])
+    parser = argparse.ArgumentParser(
+        description="""
+            This script is used to convert conspectus YAML database dump into
+            internal file format used by WA-KAT and Seeder.
+        """
+    )
+    parser.add_argument(
+        "FILE",
+        nargs=1,
+        help="Name of the input YAML file."
+    )
+    args = parser.parse_args()
 
-    # print json.dumps(data)
+    data = load_yaml_file(args.FILE[0])
+
     print to_json(convert_to_dict_list(data))
