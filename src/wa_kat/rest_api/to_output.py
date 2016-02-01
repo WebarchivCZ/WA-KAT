@@ -6,10 +6,7 @@
 # Imports =====================================================================
 import json
 import time
-import os.path
 from os.path import join
-
-from marcxml_parser import MARCXMLRecord
 
 from bottle import post
 from bottle import SimpleTemplate
