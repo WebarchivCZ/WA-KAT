@@ -54,6 +54,13 @@ def render_mrc(data):
     return SimpleTemplate(template_body).render(**data)
 
 
+def url_to_fn(url):
+    url = url.replace("http://", "").replace("https://", "")
+    url = url.split("?")[0]
+
+    return url.replace("%", "_").replace("/", "_")
+
+
 @post(join(API_PATH, "to_output"))
 @form_to_params
 def to_output(data):
@@ -76,6 +83,7 @@ def to_output(data):
 
     # create all output formats
     out = {
+        "url": url_to_fn(data["url"]),
         "mrc": mrc,
         "oai": mrc_to_marc(mrc),
         # "dc": mrc_to_marc(mrc),
