@@ -6,6 +6,7 @@
 # Imports =====================================================================
 import os
 import gzip
+import json
 import time
 import os.path
 import StringIO
@@ -93,3 +94,11 @@ def in_template_path(fn):
 def read_template(fn):
     with open(in_template_path(fn)) as f:
         return f.read()
+
+
+def to_json(data):
+    return json.dumps(
+        data,
+        indent=4,
+        separators=(',', ': ')
+    )

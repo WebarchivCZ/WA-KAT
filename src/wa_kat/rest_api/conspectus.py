@@ -10,6 +10,7 @@ from os.path import join
 from bottle import get
 from bottle import response
 
+from shared import to_json
 from shared import API_PATH
 from shared import RESPONSE_TYPE
 from shared import read_template
@@ -37,14 +38,6 @@ def conspect_to_dict(original):
         "conspect": conspect,
         "conspect_to_id": reverse,
     }
-
-
-def to_json(data):
-    return json.dumps(
-        data,
-        indent=4,
-        separators=(',', ': ')
-    )
 
 
 # Variables ===================================================================
