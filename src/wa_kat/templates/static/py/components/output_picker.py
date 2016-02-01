@@ -22,12 +22,14 @@ class OutputPicker(object):
     dc_out_el = document["dublin_core_output"]
 
     values = None
+    filename = "fn"
 
     @classmethod
     def set(cls, values):
         cls.mrc_out_el.text = values.get("mrc", "")
         cls.oai_out_el.text = values.get("oai", "")
         cls.dc_out_el.text = values.get("dc", "")
+        cls.filename = values.get("fn", "fn")
 
         cls.values = values
 
@@ -55,8 +57,13 @@ class OutputPicker(object):
             button_el = ev.target
             form_el = button_el.parent.parent.parent
 
-            # this allows to use disabled <textearea>
+            # this allows to use disabled <textearea>, which is normally not
+            # sent
             content = form_el.get(selector="textarea")[0].text
+
+            # change filename according to output
+            suffix = form_el.name
+            form_el.action = "/api_v1/as_file/%s.%s" % (cls.filename, suffix)
 
             input_el = form_el.get(selector="input")[0]
             input_el.value = content

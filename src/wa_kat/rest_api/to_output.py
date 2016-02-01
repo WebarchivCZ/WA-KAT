@@ -83,7 +83,7 @@ def to_output(data):
 
     # create all output formats
     out = {
-        "url": url_to_fn(data["url"]),
+        "fn": url_to_fn(data["url"]),
         "mrc": mrc,
         "oai": mrc_to_marc(mrc),
         # "dc": mrc_to_marc(mrc),

@@ -370,7 +370,7 @@ year = time.strftime("%Y")
 <div id="black_overlay"></div>
 <pre id="log_placeholder"></pre>
 <div id="output_picker">
-  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="/api_v1/as_file/fn.xml" method="POST" style="padding-top: 2em;">
+  <form id="application_form" class="form-horizontal form-group output_group" role="form" name="MRC" method="POST" style="padding-top: 2em;">
     <div class="form-group">
       <label for="mrc_output" class="control-label col-sm-2">MRC šablona</label>
       <div class="col-sm-10">
@@ -388,7 +388,7 @@ year = time.strftime("%Y")
     </div>
   </form>
 
-  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="/api_v1/as_file/fn.xml" method="POST">
+  <form id="application_form" class="form-horizontal form-group output_group" role="form" name="marc_oai.xml" method="POST">
     <div class="form-group">
       <label for="marc_oai_output" class="control-label col-sm-2">MARC OAI</label>
       <div class="col-sm-10">
@@ -406,7 +406,7 @@ year = time.strftime("%Y")
     </div>
   </form>
 
-  <form id="application_form" class="form-horizontal form-group output_group" role="form" action="/api_v1/as_file/fn.xml" method="POST">
+  <form id="application_form" class="form-horizontal form-group output_group" role="form" name="dublin_core.xml" method="POST">
     <div class="form-group">
       <label for="dublin_core_output" class="control-label col-sm-2">Dublin Core</label>
       <div class="col-sm-10">
