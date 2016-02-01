@@ -1,4 +1,5 @@
 tqdm==3.7.1
+PyYAML>=3.10
 paste==2.0.2
 bottle==0.12.9
 ipwhois>=0.11.1
