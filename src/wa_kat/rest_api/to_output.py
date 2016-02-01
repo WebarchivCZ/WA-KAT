@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import re
 import json
 import time
 from os.path import join
@@ -61,6 +62,28 @@ def url_to_fn(url):
     return url.replace("%", "_").replace("/", "_")
 
 
+def parse_date_range(date):
+    """
+    Parse input `date` string in free-text format for four-digit long groups.
+
+    Args:
+        date (str): Input containing years.
+
+    Returns:
+        tuple: ``(from, to)`` as four-digit strings.
+    """
+    NOT_ENDED = "9999"
+    all_years = re.findall(r"\d{4}", date)
+
+    if not all_years:
+        return "****", NOT_ENDED
+
+    elif len(all_years) == 1:
+        return all_years[0], NOT_ENDED
+
+    return all_years[0], all_years[1]
+
+
 @post(join(API_PATH, "to_output"))
 @form_to_params
 def to_output(data):
@@ -77,6 +100,11 @@ def to_output(data):
     data["annotation"] = data["annotation"].replace("\n", " ")
     data["en_conspect"] = find_en_conspectus(data["conspect"]["sub_code"])
     data["time"] = time  # for date generation
+
+    # handle date range in the 008
+    from_year, to_year = parse_date_range(data["creation_date"])
+    data["from_year"] = from_year
+    data["to_year"] = to_year
 
     # convert to MRC format
     mrc = render_mrc(data).encode("utf-8")
