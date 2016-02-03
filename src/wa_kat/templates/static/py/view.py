@@ -6,7 +6,6 @@
 # Imports =====================================================================
 from browser import alert  # TODO: Remove
 
-from browser import ajax
 from browser import window
 from browser import document
 
