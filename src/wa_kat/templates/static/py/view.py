@@ -23,33 +23,12 @@ from components import AanalysisKeywordHandler
 
 
 # Functions & classes =========================================================
-class View(object):
-    def __init__(self):
-        # this is used to track what kind of elements were added by typeahead
-        self._set_by_typeahead = set()
+class InputController(object):
+    # this is used to track what kind of elements were added by typeahead
+    _set_by_typeahead = set()
 
-        # all kind of progress bars and error boxes
-        self.log_view = LogView
-        self.progress_bar = ProgressBar
-        self.urlbox_error = UrlBoxError
-        self.issnbox_error = ISSNBoxError
-        self.conspect_handler = ConspectHandler
-        self.user_kw_handler = UserKeywordHandler
-        self.aleph_kw_handler = AlephKeywordHandler
-        self.analysis_kw_handler = AanalysisKeywordHandler
-
-        self._url_el = document["url"]
-        self._issn_el = document["issn"]
-        self._title_el = document["title"]
-        self._creation_date_el = document["creation_date"]
-        self._author_el = document["author"]
-        self._place_el = document["place"]
-        self._language_el = document["lang"]
-        self._annotation_el = document["annotation"]
-        self._periodicity_el = document["periode"]
-        self._frequency_el = document["freq"]
-
-    def _set_input(self, el, value):
+    @staticmethod
+    def _set_input(el, value):
         """
         Set content of given `el` to `value`.
 
@@ -64,7 +43,8 @@ class View(object):
         else:
             el.value = value
 
-    def _set_textarea(self, el, value):
+    @staticmethod
+    def _set_textarea(el, value):
         """
         Set content of given textarea element `el` to `value`.
 
@@ -82,7 +62,8 @@ class View(object):
         else:
             el.text = value
 
-    def _set_typeahead(self, el, value):
+    @classmethod
+    def _set_typeahead(cls, el, value):
         """
         Convert given `el` to typeahead input and set it to `value`.
 
@@ -124,7 +105,7 @@ class View(object):
             parent_id = el.parent.parent.id
 
         # TODO: preserve old values
-        if parent_id in self._set_by_typeahead:
+        if parent_id in cls._set_by_typeahead:
             window.destroy_typeahead_tag("#" + parent_id)
 
         # if there are multiple elements, put them to the typeahead and show
@@ -132,18 +113,20 @@ class View(object):
         window.make_typeahead_tag("#" + parent_id, value)
         DropdownHandler.set_dropdown_glyph(el.id, "glyphicon-menu-down")
         PlaceholderHandler.set_placeholder_dropdown(el)
-        self._set_by_typeahead.add(parent_id)
+        cls._set_by_typeahead.add(parent_id)
 
-    def _reset_typeaheads(self):
+    @classmethod
+    def _reset_typeaheads(cls):
         """
         Reset all values set by typeahead back to default.
         """
-        for el_id in self._set_by_typeahead:
+        for el_id in cls._set_by_typeahead:
             window.destroy_typeahead_tag("#" + el_id)
 
-        self._set_by_typeahead = set()
+        cls._set_by_typeahead = set()
 
-    def _set_el(self, el, value):
+    @classmethod
+    def set_el(cls, el, value):
         """
         Set given `el` tag element to `value`.
 
@@ -160,12 +143,12 @@ class View(object):
 
         tag_name = el.elt.tagName.lower()
         if tag_name == "textarea":
-            self._set_textarea(el, value)
+            cls._set_textarea(el, value)
         elif tag_name == "input":
             if "typeahead" in el.class_name.lower():
-                self._set_typeahead(el, value)
+                cls._set_typeahead(el, value)
             else:
-                self._set_input(el, value)
+                cls._set_input(el, value)
         elif tag_name == "select":
             pass  # TODO: implement selecting of the keywords
         else:  # TODO: Replace with exception
@@ -173,7 +156,8 @@ class View(object):
                 "Setter for %s (%s) not implemented!" % (tag_name, el.id)
             )
 
-    def _get_el(self, el):
+    @staticmethod
+    def get_el(el):
         tag_name = el.elt.tagName.lower()
         if tag_name == "textarea":
             return el.text
@@ -186,61 +170,86 @@ class View(object):
                 "Setter for %s (%s) not implemented!" % (tag_name, el.id)
             )
 
+
+class View(object):
+    def __init__(self):
+        # all kind of progress bars and error boxes
+        self.log_view = LogView
+        self.progress_bar = ProgressBar
+        self.urlbox_error = UrlBoxError
+        self.issnbox_error = ISSNBoxError
+        self.conspect_handler = ConspectHandler
+        self.user_kw_handler = UserKeywordHandler
+        self.aleph_kw_handler = AlephKeywordHandler
+        self.analysis_kw_handler = AanalysisKeywordHandler
+        self.input_controller = InputController
+
+        self._url_el = document["url"]
+        self._issn_el = document["issn"]
+        self._title_el = document["title"]
+        self._creation_date_el = document["creation_date"]
+        self._author_el = document["author"]
+        self._place_el = document["place"]
+        self._language_el = document["lang"]
+        self._annotation_el = document["annotation"]
+        self._periodicity_el = document["periode"]
+        self._frequency_el = document["freq"]
+
     def reset(self):
         self.progress_bar.reset()
         self.progress_bar.show([0, 0])
         self.urlbox_error.reset()
         self.issnbox_error.reset()
 
-        self._reset_typeaheads()
+        self.input_controller._reset_typeaheads()
 
     @property
     def url(self):
-        return self._get_el(self._url_el)
+        return self.input_controller.get_el(self._url_el)
 
     @url.setter
     def url(self, val):
-        self._set_el(self._url_el, val)
+        self.input_controller.set_el(self._url_el, val)
 
     @property
     def issn(self):
-        return self._get_el(self._issn_el)
+        return self.input_controller.get_el(self._issn_el)
 
     @issn.setter
     def issn(self, val):
-        self._set_el(self._issn_el, val)
+        self.input_controller.set_el(self._issn_el, val)
 
     @property
     def title(self):
-        return self._get_el(self._title_el)
+        return self.input_controller.get_el(self._title_el)
 
     @title.setter
     def title(self, val):
-        self._set_el(self._title_el, val)
+        self.input_controller.set_el(self._title_el, val)
 
     @property
     def creation_date(self):
-        return self._get_el(self._creation_date_el)
+        return self.input_controller.get_el(self._creation_date_el)
 
     @creation_date.setter
     def creation_date(self, val):
-        self._set_el(self._creation_date_el, val)
+        self.input_controller.set_el(self._creation_date_el, val)
 
     @property
     def author(self):
-        return self._get_el(self._author_el)
+        return self.input_controller.get_el(self._author_el)
 
     @author.setter
     def author(self, val):
-        self._set_el(self._author_el, val)
+        self.input_controller.set_el(self._author_el, val)
 
     @property
     def place(self):
-        return self._get_el(self._place_el)
+        return self.input_controller.get_el(self._place_el)
 
     @place.setter
     def place(self, val):
-        self._set_el(self._place_el, val)
+        self.input_controller.set_el(self._place_el, val)
 
     @property
     def keywords(self):
@@ -254,15 +263,15 @@ class View(object):
 
     @property
     def language(self):
-        return self._get_el(self._language_el)
+        return self.input_controller.get_el(self._language_el)
 
     @language.setter
     def language(self, val):
-        self._set_el(self._language_el, val)
+        self.input_controller.set_el(self._language_el, val)
 
     @property
     def annotation(self):
-        value = self._get_el(self._annotation_el)
+        value = self.input_controller.get_el(self._annotation_el)
 
         active_lines = [
             line.strip()
@@ -274,11 +283,11 @@ class View(object):
 
     @annotation.setter
     def annotation(self, val):
-        self._set_el(self._annotation_el, val)
+        self.input_controller.set_el(self._annotation_el, val)
 
     @property
     def periodicity(self):
-        return self._get_el(self._periodicity_el)
+        return self.input_controller.get_el(self._periodicity_el)
 
     @periodicity.setter
     def periodicity(self, val):
@@ -296,15 +305,15 @@ class View(object):
             return
 
         window.destroy_typeahead_tag("#" + parent_id)
-        self._set_el(self._periodicity_el, val)
+        self.input_controller.set_el(self._periodicity_el, val)
 
     @property
     def frequency(self):
-        return self._get_el(self._frequency_el)
+        return self.input_controller.get_el(self._frequency_el)
 
     @frequency.setter
     def frequency(self, val):
-        self._set_el(self._frequency_el, val)
+        self.input_controller.set_el(self._frequency_el, val)
 
     @property
     def conspect(self):
