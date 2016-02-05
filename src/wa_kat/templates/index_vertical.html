@@ -33,9 +33,9 @@
         <div class="input-group">
 % if registered:
           <!-- <p class="form-control-static"><a href="{{url}}">{{url}}</a></p> -->
-          <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." value="{{url}}"/>
+          <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." value="{{url}}" required />
 % else:
-          <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." value="http://vps4life.kitakitsune.org/example.html"/>
+          <input type="text" class="form-control" id="url" placeholder="URL webu ke katalogizaci." value="http://vps4life.kitakitsune.org/example.html" required />
 % end
           <span class="input-group-btn">
             <button type="button" class="btn btn-default" id="run_button">Spustit</button>
@@ -84,7 +84,7 @@
     <div class="form-group">
       <label for="title" class="control-label col-sm-2">Název</label>
       <div id="title_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="title" placeholder="Název katalogizovaných webstránek.">
+        <input class="typeahead form-control" type="text" id="title" placeholder="Název katalogizovaných webstránek." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -92,7 +92,7 @@
     <div class="form-group">
       <label for="creation_date" class="control-label col-sm-2">Datum vzniku</label>
       <div id="creation_date_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="creation_date" placeholder="Rok vzniku webstránek.">
+        <input class="typeahead form-control" type="text" id="creation_date" placeholder="Rok vzniku webstránek." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -100,7 +100,7 @@
     <div class="form-group">
       <label for="author" class="control-label col-sm-2">Autor, Vydavatel</label>
       <div id="author_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="author" placeholder="Autor či vydavatel stránek.">
+        <input class="typeahead form-control" type="text" id="author" placeholder="Autor či vydavatel stránek." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -108,7 +108,7 @@
     <div class="form-group">
       <label for="place" class="control-label col-sm-2">Místo</label>
       <div id="place_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="place" placeholder="Místo vzniku.">
+        <input class="typeahead form-control" type="text" id="place" placeholder="Místo vzniku." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -158,7 +158,7 @@
       <input class="conspect_switcher" type="checkbox" />
       <label for="conspect_subconspect" class="control-label col-sm-2">Konspekt</label>
       <div id="conspect_subconspect_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="conspect_subconspect" placeholder="Konspekt a subkonspekt - psaním vyberete.">
+        <input class="typeahead form-control" type="text" id="conspect_subconspect" placeholder="Konspekt a subkonspekt - psaním vyberete." />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -166,7 +166,7 @@
     <div class="form-group">
       <label for="lang" class="control-label col-sm-2">Jazyk</label>
       <div id="lang_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="lang" placeholder="Kód jazyka.">
+        <input class="typeahead form-control" type="text" id="lang" placeholder="Kód jazyka." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
@@ -174,7 +174,7 @@
     <div class="form-group">
       <label for="annotation" class="control-label col-sm-2">Anotace</label>
       <div class="col-sm-10">
-        <textarea class="form-control" rows="3" id="annotation" placeholder="Krátký popis zdroje. Řádky začínající na -- jsou ignorovány."></textarea>
+        <textarea class="form-control" rows="3" id="annotation" placeholder="Krátký popis zdroje. Řádky začínající na -- jsou ignorovány." required></textarea>
       </div>
     </div>
 
@@ -182,7 +182,7 @@
     <div class="form-group">
       <label for="periode" class="control-label col-sm-2">Periodicita</label>
       <div id="periode_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="periode" placeholder="Periodicita dílů.">
+        <input class="typeahead form-control" type="text" id="periode" placeholder="Periodicita dílů." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
