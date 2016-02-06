@@ -10,6 +10,8 @@ import dhtmlparser
 from .shared import parse_meta
 from .source_string import SourceString
 
+from ..convertors.iso_codes import normalize
+
 
 # Functions & classes =========================================================
 def _get_html_lang_tags(index_page):
@@ -69,4 +71,7 @@ def get_lang_tags(index_page):
         [_detect_language(dom)],
     ]
 
-    return sum(titles, [])  # return flattened list
+    return [
+        SourceString(normalize(lang), source=lang.source)
+        for lang in sum(titles, [])
+    ]
