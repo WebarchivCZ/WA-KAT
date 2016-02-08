@@ -9,6 +9,7 @@ import sys
 import json
 import os.path
 import argparse
+from collections import namedtuple
 
 import retrying
 import timeout_wrapper
@@ -21,17 +22,15 @@ from edeposit.amqp.aleph.aleph import InvalidAlephBaseException
 
 
 # Functions & classes =========================================================
-class KeywordInfo(object):
-    def __init__(self, uid, sysno, zahlavi, odkazovana_forma, angl_ekvivalent,
-                 zdroj_angl_ekvivalentu, poznamka):
-        self.uid = uid
-        self.sysno = sysno
-        self.zahlavi = zahlavi
-        self.odkazovana_forma = odkazovana_forma
-        self.angl_ekvivalent = angl_ekvivalent
-        self.zdroj_angl_ekvivalentu = zdroj_angl_ekvivalentu
-        self.poznamka = poznamka
-
+class KeywordInfo(namedtuple("KeywordInfo", ["uid",
+                                             "sysno",
+                                             "zahlavi",
+                                             "odkazovana_forma",
+                                             "angl_ekvivalent",
+                                             "mdt",
+                                             "mrf",
+                                             "zdroj_angl_ekvivalentu",
+                                             "poznamka"])):
     @classmethod
     def from_marc(cls, sysno, marc):
         def first_or_none(item):
@@ -43,18 +42,23 @@ class KeywordInfo(object):
 
             return item
 
+        def parse_mrf(mrf):
+            if not mrf:
+                return mrf
+
+            return mrf.split("_")[0]
+
         return cls(
             uid=first_or_none(marc["001"]),
             sysno=sysno,
             zahlavi=first_or_none(marc["150a"]),
             odkazovana_forma=marc.get("450a", []),
             angl_ekvivalent=first_or_none(marc["750a07"]),
+            mdt=first_or_none(marc["080  a"]),
+            mrf=parse_mrf(first_or_none(marc["080  2"])),
             zdroj_angl_ekvivalentu=first_or_none(marc["750a02"]),
             poznamka=first_or_none(marc["680i"]),
         )
-
-    def to_dict(self):
-        return self.__dict__.copy()
 
 
 @retrying.retry(stop_max_attempt_number=3)
@@ -229,7 +233,7 @@ if __name__ == '__main__':
     with bz2.BZ2File(args.output + ".bz2", "w") as f:
         f.write(
             json.dumps([
-                keyword.to_dict()
+                keyword._as_dict()
                 for keyword in generate(args.cache)
             ])
         )
