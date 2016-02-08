@@ -17,9 +17,9 @@ BAS   L $$aSML
 045   L $$a 
 072 7 L $$a{{conspect["sub_code"]}}$$x{{conspect["sub_name"]}}$$2Konspekt$$9{{conspect["consp_id"]}}
 072 9 L $$a{{en_conspect["sub_code"]}}$$x{{en_conspect["sub_name"]}}$$2Conspectus$$9{{en_conspect["consp_id"]}}
-080   L $$a{{conspect["sub_code"]}}
-080   L $$a{{conspect["sub_code"].split(".")[0]}}
-080   L $$a 
+% for rec in mdt:
+080   L $$a{{rec["mdt"]}}$$2{{rec["mrf"]}}
+% end
 080   L $$uwww dokumenty$$a(0.034.2)004.738.12$$2MRF
 1001  L $$a $$d $$4 
 1102  L $$a $$b 

@@ -26,6 +26,7 @@ from conspectus import find_en_conspectus
 # Variables ===================================================================
 # Functions & classes =========================================================
 def compile_keywords(keywords):
+    mdt = []
     cz_keywords = []
     en_keywords = []
     for keyword in keywords:
@@ -40,13 +41,19 @@ def compile_keywords(keywords):
                 "zdroj": "czenas",
         })
 
+        if keyword.get("mdt"):
+            mdt.append({
+                "mdt": keyword["mdt"],
+                "mrf": keyword["mrf"],
+            })
+
         if "angl_ekvivalent" in keyword:
             en_keywords.append({
                 "zahlavi": keyword["angl_ekvivalent"],
                 "zdroj": keyword.get("zdroj_angl_ekvivalentu") or "eczenas",
             })
 
-    return cz_keywords, en_keywords
+    return mdt, cz_keywords, en_keywords
 
 
 def render_mrc(data):
@@ -91,9 +98,10 @@ def to_output(data):
 
     # postprocessing
     if "keywords" in data:
-        cz_keywords, en_keywords = compile_keywords(data["keywords"])
+        mdt, cz_keywords, en_keywords = compile_keywords(data["keywords"])
         del data["keywords"]
 
+        data["mdt"] = mdt
         data["cz_keywords"] = cz_keywords
         data["en_keywords"] = en_keywords
 
