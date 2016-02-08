@@ -29,7 +29,7 @@ def compile_keywords(keywords):
     cz_keywords = []
     en_keywords = []
     for keyword in keywords:
-        keyword = keyword_to_info(keyword)
+        keyword = keyword_to_info(keyword.encode("utf-8"))
 
         if not keyword:
             continue
