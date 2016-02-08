@@ -233,7 +233,7 @@ if __name__ == '__main__':
     with bz2.BZ2File(args.output + ".bz2", "w") as f:
         f.write(
             json.dumps([
-                keyword._as_dict()
+                keyword._asdict()
                 for keyword in generate(args.cache)
             ])
         )
