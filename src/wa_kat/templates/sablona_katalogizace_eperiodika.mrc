@@ -24,7 +24,9 @@ BAS   L $$aSML
 1001  L $$a $$d $$4 
 1102  L $$a $$b 
 1112  L $$a $$d $$c 
+% if issn:
 222 0 L $$a{{title}}$$b 
+% end
 245*0 L $$a{{title}}$$b 
 246** L $$a 
 264 1 L $$a{{place}}$$b{{author}}$$c{{creation_date}}
