@@ -59,3 +59,8 @@ span.twitter-typeahead {
   margin-bottom: 0;
   cursor: pointer;
 }
+
+#keyword_adder_typeahead .tt-menu {
+  max-height: 40em;
+  overflow-y: auto;
+}

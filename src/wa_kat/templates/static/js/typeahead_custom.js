@@ -165,7 +165,7 @@ var make_keyword_typeahead_tag = function(tag_id, source, callback) {
       minLength: 0,
       highlight: false,
     }, {
-      limit: 20,
+      limit: 500,
       source: keywords,
       templates: {
           empty: "<p class='tt-footer'>Psaním vyberete.</p>",
