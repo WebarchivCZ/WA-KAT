@@ -60,11 +60,15 @@ def by_issn(issn):
             place_tags=remove_hairs(
                 _first_or_none(marc.get("260a")) or ""
             ),
-            author_tags=_first_or_none(marc.get("222a")),
-            publisher_tags=remove_hairs(
-                _first_or_none(marc.get("260b")) or "",
+            author_tags=remove_hairs(
+                (
+                    _first_or_none(marc.get("260b")) or
+                    _first_or_none(marc.get("264b")) or
+                    "",
+                ),
                 ", "
             ),
+            # publisher_tags=,
             creation_dates=_first_or_none(
                 marc.get("260c")
             ),
