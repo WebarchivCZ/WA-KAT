@@ -57,12 +57,14 @@ def by_issn(issn):
             title_tags=_first_or_none(
                 marc.get("222a")
             ),
-            place_tags=remove_hairs(_first_or_none(
-                marc.get("260a")
-            )),
-            author_tags=remove_hairs(_first_or_none(
-                marc.get("260b")
-            ), ", "),
+            place_tags=remove_hairs(
+                _first_or_none(marc.get("260a")) or ""
+            ),
+            author_tags=_first_or_none(marc.get("222a")),
+            publisher_tags=remove_hairs(
+                _first_or_none(marc.get("260b")) or "",
+                ", "
+            ),
             creation_dates=_first_or_none(
                 marc.get("260c")
             ),

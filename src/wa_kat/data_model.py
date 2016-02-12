@@ -26,6 +26,7 @@ class Model(KwargsObj):
         self.title_tags = None
         self.creation_dates = None
         self.author_tags = None
+        self.publisher_tags = None
         self.place_tags = None
         self.keyword_tags = None
         self.conspect = None
