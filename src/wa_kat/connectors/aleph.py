@@ -4,6 +4,8 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+from collections import namedtuple
+
 from remove_hairs import remove_hairs
 from marcxml_parser import MARCXMLRecord
 from edeposit.amqp.aleph import aleph
@@ -103,3 +105,20 @@ def by_issn(issn):
         )
 
         yield _add_source(model)
+
+
+class Author(namedtuple("Author", "name code linked_forms")):
+    @classmethod
+    def search_by_name(cls, name):
+        records = aleph.downloadRecords(
+            aleph.searchInAleph("aut", name, False, "wau")
+        )
+
+        for record in records:
+            marc = MARCXMLRecord(record)
+
+            yield cls(
+                name=_first_or_none(marc["110a"]),
+                code=_first_or_none(marc["1107"]),
+                linked_forms=marc["410a2 "],
+            )
