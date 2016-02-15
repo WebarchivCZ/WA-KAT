@@ -14,6 +14,9 @@ from ..analyzers.source_string import SourceString
 
 # Functions & classes =========================================================
 def _first_or_none(array):
+    """
+    Pick first item from `array`, or return `None`, if there is none.
+    """
     if not array:
         return None
 
@@ -21,6 +24,15 @@ def _first_or_none(array):
 
 
 def _add_source(model):
+    """
+    Go over all attributes in `model` and add :class:`SourceString` to them.
+
+    Args:
+        model (obj): :class:`Model` instance.
+
+    Returns:
+        obj: :class:`Model` instance with :class:`SourceString` descriptors.
+    """
     # convert all values to source strings
     source = "Aleph"
     for key, val in model.get_mapping().iteritems():
@@ -38,6 +50,15 @@ def _add_source(model):
 
 
 def by_issn(issn):
+    """
+    Query aleph for records with given `issn`.
+
+    Args:
+        issn (str): ISSN of the periodical.
+
+    Returns:
+        obj: :class:`Model` instances for each record.
+    """
     for record in aleph.getISSNsXML(issn):
         marc = MARCXMLRecord(record)
 
