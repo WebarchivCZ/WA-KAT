@@ -24,4 +24,12 @@ def issn():
 
 # Tests =======================================================================
 def test_by_issn(issn):
-    aleph.by_issn(issn)
+    assert aleph.by_issn(issn)
+
+
+def test_authors_by_name():
+    authors = list(aleph.Author.search_by_name("grada"))
+
+    assert len(authors) >= 16
+
+    assert "kn20080316009" in {aut.code for aut in authors}
