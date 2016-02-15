@@ -32,7 +32,7 @@ národní knihovně.
 
 # Tests =======================================================================
 def test_get_keyword_tags():
-    keywords = get_keyword_tags(TEST_TEMPLATE)
+    keywords = get_keyword_tags(TEST_TEMPLATE, map_to_nk_set=False)
 
     assert keywords[0] == "html"
     assert keywords[0].source == "HTML"

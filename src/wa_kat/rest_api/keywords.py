@@ -54,7 +54,7 @@ def init():
         for keyword_dict in KW_LIST
         if "zahlavi" in keyword_dict
     }
-    KEYWORDS = sorted(KW_DICT.keys())
+    KEYWORDS = [k.decode("utf-8") for k in sorted(KW_DICT.keys())]
     KEYWORDS_JSON = json.dumps(KEYWORDS)
     KW_CACHE_PATH = "/tmp/wa_kat_cache_keywords.json"
 
