@@ -28,4 +28,4 @@ Demo
 
 Demo of the project can be found here:
 
-- http://vps4life.kitakitsune.org:8080/
+- http://forpsi.kitakitsune.org:8080/
