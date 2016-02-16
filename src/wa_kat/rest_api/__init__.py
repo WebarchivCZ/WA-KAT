@@ -17,13 +17,14 @@ from bottle_rest import form_to_params
 
 from .. import settings
 from ..zeo import RequestDatabase
-from ..connectors import aleph
+
 
 from shared import API_PATH
 from shared import RESPONSE_TYPE
 
 
 # Other API modules
+import aleph_api
 from to_output import to_output
 from keywords import get_kw_list
 from conspectus import get_conspectus
@@ -76,17 +77,6 @@ def get_result(url):
         "body": ri.to_dict(),
         "log": ri.get_log(),
     }
-
-
-@post(join(API_PATH, "aleph"))
-@form_to_params
-def get_aleph_info(issn):
-    results = list(aleph.by_issn(issn))
-
-    return [
-        result.get_mapping()
-        for result in results
-    ]
 
 
 @post(join(API_PATH, "as_file/<fn:path>"))
