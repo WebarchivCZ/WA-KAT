@@ -64,7 +64,7 @@ body {
 }
 
 #black_overlay{
-    display: none;
+    /*display: none;*/
     position: absolute;
     top: 0%;
     left: 0%;
@@ -77,7 +77,7 @@ body {
     filter: alpha(opacity=80);
 }
 
-#log_placeholder, #output_picker {
+#log_placeholder, #output_picker, #author_picker {
     display: none;
     position: fixed;
     top: 10%;
@@ -100,6 +100,11 @@ body {
 /*#output_picker {
     display: block;
 }*/
+
+#author_picker {
+    display: block;
+    padding-right: 3em;
+}
 
 .output_group {
     width: 90%;

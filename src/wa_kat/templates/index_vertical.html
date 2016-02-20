@@ -376,8 +376,57 @@ year = time.strftime("%Y")
   </div>
 </footer>
 
+<!--
+  This provides transparent dark cover for all active elements, to focus
+  attention to active element at the front.
+-->
 <div id="black_overlay"></div>
+
+<!-- This provides place where the log is displayed. -->
 <pre id="log_placeholder"></pre>
+
+<!-- GUI for picking the author from Authority base in aleph -->
+<div id="author_picker">
+  <h2 style="text-align: center; padding-bottom: 1em">Výběr autora</h2>
+
+  <form id="application_form" class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="periode" class="control-label col-sm-2">Jméno autora</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input class="form-control" type="text" id="author_input" placeholder="Jméno autora v autoritní bázi." />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" id="search_author">Vyhledat</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="author_select" class="control-label col-sm-2">Možní autoři</label>
+      <div class="col-sm-10">
+        <select class="form-control" size="40" id="author_select" disabled>
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2"></label>
+    <span class="col-sm-2"></span>
+    <span class="col-sm-4">
+      <button id="storno_author" type="submit" class="btn btn-default">Storno</button>
+    </span>
+    <span class="col-sm-4">
+      <button id="pick_author" type="submit" class="btn btn-primary">Vybrat autora</button>
+    </span>
+  </div>
+</div>
+
+<!--
+  This is used as output display for various export formats - MRC, MARC XML,
+  Dublin core and so on.
+-->
 <div id="output_picker">
   <form id="application_form" class="form-horizontal form-group output_group" role="form" name="MRC" method="POST" style="padding-top: 2em;">
     <div class="form-group">
