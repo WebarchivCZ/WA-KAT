@@ -29,7 +29,7 @@ BAS   L $$aSML
 % end
 245*0 L $$a{{title}}$$b 
 246** L $$a 
-264 1 L $$a{{place}}$$b{{author}}$$c{{creation_date}}
+264 1 L $$a{{place}}$$b{{publisher or author.get("name", " ")}}$$c{{creation_date}}
 300   L $$a1 online zdroj
 310   L $$a{{periodicity}}
 336   L $$atext$$btxt$$2rdacontent
