@@ -107,7 +107,11 @@ def by_issn(issn):
         yield _add_source(model)
 
 
-class Author(namedtuple("Author", "name code linked_forms")):
+class Author(namedtuple("Author", ["name",
+                                   "code",
+                                   "linked_forms",
+                                   "is_corporation",
+                                   "record"])):
     @classmethod
     def search_by_name(cls, name):
         records = aleph.downloadRecords(
@@ -117,8 +121,19 @@ class Author(namedtuple("Author", "name code linked_forms")):
         for record in records:
             marc = MARCXMLRecord(record)
 
-            yield cls(
-                name=_first_or_none(marc["110a"]),
-                code=_first_or_none(marc["1107"]),
-                linked_forms=marc["410a2 "],
-            )
+            if marc["110a"]:  # corporations
+                yield cls(
+                    name=_first_or_none(marc["110a"]),
+                    code=_first_or_none(marc["1107"]),
+                    linked_forms=marc["410a2 "],
+                    is_corporation=True,
+                    record=marc.datafields["110"][0],  # transport all fields
+                )
+            elif marc["100a"]:  # persons
+                yield cls(
+                    name=_first_or_none(marc["100a"]),
+                    code=_first_or_none(marc["1007"]),
+                    linked_forms=marc["410a2 "],
+                    is_corporation=False,
+                    record=marc.datafields["100"][0],  # transport all fields
+                )
