@@ -35,9 +35,14 @@ def _add_source(model):
     Returns:
         obj: :class:`Model` instance with :class:`SourceString` descriptors.
     """
+    ignored_keys = {"author_tags"}
+
     # convert all values to source strings
     source = "Aleph"
     for key, val in model.get_mapping().iteritems():
+        if key in ignored_keys:
+            continue
+
         if type(val) in [list, tuple]:
             ss_val = [
                 SourceString(item, source).to_dict()
@@ -64,6 +69,8 @@ def by_issn(issn):
     for record in aleph.getISSNsXML(issn):
         marc = MARCXMLRecord(record)
 
+        author = Author.parse_author(marc)
+
         model = Model(
             url=_first_or_none(
                 marc.get("856u")
@@ -83,7 +90,8 @@ def by_issn(issn):
             place_tags=remove_hairs(
                 _first_or_none(marc.get("260a")) or ""
             ),
-            author_tags=remove_hairs(
+            author_tags=author._asdict() if author else None,
+            publisher_tags=remove_hairs(
                 (
                     _first_or_none(marc.get("260b")) or
                     _first_or_none(marc.get("264b")) or
@@ -102,6 +110,7 @@ def by_issn(issn):
             source_info=_first_or_none(
                 marc.get("500a")
             ),
+            original_xml=record,
         )
 
         yield _add_source(model)
@@ -111,7 +120,49 @@ class Author(namedtuple("Author", ["name",
                                    "code",
                                    "linked_forms",
                                    "is_corporation",
-                                   "record"])):
+                                   "record",
+                                   "alt_name"])):
+    @classmethod
+    def parse_author(cls, marc):
+        name = None
+        code = None
+        linked_forms = None
+        is_corporation = None
+        record = None
+
+        # parse informations from the record
+        if marc["100a"]:  # persons
+            name = _first_or_none(marc["100a"])
+            code = _first_or_none(marc["1007"])
+            is_corporation = False
+            record = marc.datafields["100"][0]  # transport all fields
+        elif marc["110a"]:  # corporations
+            name = _first_or_none(marc["110a"])
+            code = _first_or_none(marc["1107"])
+            linked_forms = marc["410a2 "]
+            is_corporation = True
+            record = marc.datafields["110"][0]  # transport all fields
+        else:
+            return None
+
+        # parse linked forms (alternative names)
+        linked_forms = marc["410a2 "]
+
+        # put together alt_name
+        type_descriptor = ["osoba", "organizace"]
+        alt_name = "%s [%s]" % (name, type_descriptor[is_corporation])
+        if linked_forms:
+            alt_name += " (" + ", ".join(linked_forms) + ")"
+
+        return cls(
+            name=name,
+            code=code,
+            linked_forms=linked_forms,
+            is_corporation=is_corporation,
+            record=record,
+            alt_name=alt_name,
+        )
+
     @classmethod
     def search_by_name(cls, name):
         records = aleph.downloadRecords(
@@ -121,19 +172,7 @@ class Author(namedtuple("Author", ["name",
         for record in records:
             marc = MARCXMLRecord(record)
 
-            if marc["110a"]:  # corporations
-                yield cls(
-                    name=_first_or_none(marc["110a"]),
-                    code=_first_or_none(marc["1107"]),
-                    linked_forms=marc["410a2 "],
-                    is_corporation=True,
-                    record=marc.datafields["110"][0],  # transport all fields
-                )
-            elif marc["100a"]:  # persons
-                yield cls(
-                    name=_first_or_none(marc["100a"]),
-                    code=_first_or_none(marc["1007"]),
-                    linked_forms=marc["410a2 "],
-                    is_corporation=False,
-                    record=marc.datafields["100"][0],  # transport all fields
-                )
+            author = cls.parse_author(marc)
+
+            if author:
+                yield author

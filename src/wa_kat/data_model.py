@@ -34,6 +34,7 @@ class Model(KwargsObj):
         self.annotation_tags = None
         self.periodicity = None
         self.source_info = None
+        self.original_xml = None
 
         self._kwargs_to_attributes(kwargs)
 
