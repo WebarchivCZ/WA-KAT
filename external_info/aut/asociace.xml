@@ -1,0 +1,171 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<find-doc>
+<record>
+<metadata>
+<oai_marc>
+<fixfield id="LDR">-----aai-a22------i-4500</fixfield>
+<fixfield id="FMT">SE</fixfield>
+<fixfield id="001">web20162776754</fixfield>
+<fixfield id="003">CZ-PrNK</fixfield>
+<fixfield id="005">20160215132052.0</fixfield>
+<fixfield id="006">m-----o--d--------</fixfield>
+<fixfield id="007">cr-cn-</fixfield>
+<fixfield id="008">160208c20159999xr--x-w-o-----0---b2cze--</fixfield>
+<varfield id="015" i1=" " i2=" ">
+<subfield label="a">cnb002776754</subfield>
+</varfield>
+<varfield id="040" i1=" " i2=" ">
+<subfield label="a">ABA001</subfield>
+<subfield label="b">cze</subfield>
+<subfield label="e">rda</subfield>
+</varfield>
+<varfield id="045" i1=" " i2=" ">
+<subfield label="a">v-y-</subfield>
+</varfield>
+<varfield id="072" i1=" " i2="7">
+<subfield label="a">902</subfield>
+<subfield label="x">Archeologie</subfield>
+<subfield label="2">Konspekt</subfield>
+<subfield label="9">8</subfield>
+</varfield>
+<varfield id="072" i1=" " i2="9">
+<subfield label="a">930.1</subfield>
+<subfield label="x">Archaeology</subfield>
+<subfield label="2">Conspectus</subfield>
+<subfield label="9">8</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">7.025.3/.4</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">902</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">904:62</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="080" i1=" " i2=" ">
+<subfield label="a">(0.034.2)004.738.12</subfield>
+<subfield label="2">MRF</subfield>
+</varfield>
+<varfield id="110" i1="2" i2=" ">
+<subfield label="a">Asociace recentní archeologie</subfield>
+<subfield label="7">ko2016901922</subfield>
+<subfield label="4">pbl</subfield>
+</varfield>
+<varfield id="245" i1="1" i2="0">
+<subfield label="a">ARA - Asociace recentní archeologie</subfield>
+</varfield>
+<varfield id="246" i1="3" i2="1">
+<subfield label="a">Asociation of recent archaeology</subfield>
+</varfield>
+<varfield id="264" i1=" " i2="1">
+<subfield label="a">Praha :</subfield>
+<subfield label="b">Asociace recentní archeologie,</subfield>
+<subfield label="c">[2015?]-</subfield>
+</varfield>
+<varfield id="300" i1=" " i2=" ">
+<subfield label="a">1 online zdroj</subfield>
+</varfield>
+<varfield id="310" i1=" " i2=" ">
+<subfield label="a">Aktualizováno nepravidelně</subfield>
+</varfield>
+<varfield id="336" i1=" " i2=" ">
+<subfield label="a">text</subfield>
+<subfield label="b">txt</subfield>
+<subfield label="2">rdacontent</subfield>
+</varfield>
+<varfield id="337" i1=" " i2=" ">
+<subfield label="a">počítač</subfield>
+<subfield label="b">c</subfield>
+<subfield label="2">rdamedia</subfield>
+</varfield>
+<varfield id="338" i1=" " i2=" ">
+<subfield label="a">online zdroj</subfield>
+<subfield label="b">cr</subfield>
+<subfield label="2">rdacarrier</subfield>
+</varfield>
+<varfield id="520" i1=" " i2=" ">
+<subfield label="a">Asociace recentní archeologie je občanské sdružení s cílem sdružovat zájemce o problematiku výzkumu, poznání a ochrany památek z období 18. – 21. století.</subfield>
+</varfield>
+<varfield id="588" i1=" " i2=" ">
+<subfield label="a">Popsáno podle celého zdroje; název z titulní obrazovky (verze z 08.02.2016)</subfield>
+<subfield label="5">CZ-PrNK</subfield>
+</varfield>
+<varfield id="610" i1="2" i2="7">
+<subfield label="a">Asociace recentní archeologie</subfield>
+<subfield label="7">ko2016901922</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="648" i1=" " i2="7">
+<subfield label="a">18.-21. století</subfield>
+<subfield label="7">ch757020</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="7">
+<subfield label="a">ochrana památek</subfield>
+<subfield label="7">ph135825</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="7">
+<subfield label="a">archeologie</subfield>
+<subfield label="7">ph118578</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="7">
+<subfield label="a">technické památky</subfield>
+<subfield label="7">ph126474</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="9">
+<subfield label="a">protection of monuments</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="9">
+<subfield label="a">archaeology</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="650" i1="0" i2="9">
+<subfield label="a">technical antiquities</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="7">
+<subfield label="a">www dokumenty</subfield>
+<subfield label="7">fd186892</subfield>
+<subfield label="2">czenas</subfield>
+</varfield>
+<varfield id="655" i1=" " i2="9">
+<subfield label="a">www documents</subfield>
+<subfield label="2">eczenas</subfield>
+</varfield>
+<varfield id="856" i1="4" i2="0">
+<subfield label="u">http://18-21century.com</subfield>
+<subfield label="q">text/html</subfield>
+<subfield label="4">N</subfield>
+</varfield>
+<varfield id="856" i1="4" i2="0">
+<subfield label="u">http://wayback.webarchiv.cz/wayback/http://18-21century.com</subfield>
+<subfield label="q">text/html</subfield>
+<subfield label="z">archivní verze stránek</subfield>
+<subfield label="4">N</subfield>
+</varfield>
+<varfield id="910" i1=" " i2=" ">
+<subfield label="a">ABA001</subfield>
+</varfield>
+<varfield id="929" i1=" " i2=" ">
+<subfield label="a">Text</subfield>
+</varfield>
+<varfield id="930" i1=" " i2=" ">
+<subfield label="a">cop. 2014-2016 Asociace recentní archeologie, z. s.</subfield>
+</varfield>
+<varfield id="998" i1=" " i2=" ">
+<subfield label="a">http://aleph.nkp.cz/F/?func=direct&amp;doc_number=002776754&amp;local_base=NKC</subfield>
+</varfield>
+</oai_marc>
+</metadata>
+</record>
+<session-id>H9RJV7K97Q81JCPK34D1LFXPUYA6F86GFCHAR57EIAHR2IRA8J</session-id>
+</find-doc>
+ 
