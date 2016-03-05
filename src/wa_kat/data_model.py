@@ -47,7 +47,7 @@ class Model(KwargsObj):
             ),
             lang_tags=_compose_func(analyzers.get_lang_tags),
             keyword_tags=_compose_func(analyzers.get_keyword_tags),
-            author_tags=_compose_func(analyzers.get_author_tags),
+            publisher_tags=_compose_func(analyzers.get_author_tags),  # authors of webpage are actually pubhsers
             annotation_tags=_compose_func(analyzers.get_annotation_tags),
             creation_dates=_compose_func(
                 analyzers.get_creation_date_tags,
