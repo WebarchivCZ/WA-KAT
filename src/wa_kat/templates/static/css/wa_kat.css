@@ -64,7 +64,7 @@ body {
 }
 
 #black_overlay{
-    /*display: none;*/
+    display: none;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -91,7 +91,7 @@ body {
 }
 
 #author_picker {
-    display: block;
+    display: none;
     position: fixed;
 
     top: 10%;
