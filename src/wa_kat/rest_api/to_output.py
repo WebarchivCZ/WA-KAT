@@ -13,6 +13,8 @@ from bottle import post
 from bottle import SimpleTemplate
 from bottle_rest import form_to_params
 
+from marcxml_parser.tools.resorted import resorted
+
 from shared import API_PATH
 from shared import read_template
 
@@ -23,7 +25,6 @@ from ..convertors import mrc_to_marc
 from conspectus import find_en_conspectus
 
 
-# Variables ===================================================================
 # Functions & classes =========================================================
 def compile_keywords(keywords):
     mdt = []
@@ -91,6 +92,77 @@ def parse_date_range(date):
     return all_years[0], all_years[1]
 
 
+def serialize_author(author_data):
+    """
+    Author is passed as dictionary with parsed and raw data. This function adds
+    *experimental support* for transport of all author fields based on RAW
+    data, instead of parsed fields.
+
+    If this proves as wrong, the code will be switched to use of parsed data
+    again.
+
+    Example of the input `author_data`::
+
+       "author":{
+          "name":"Grada Publishing",
+          "code":"kn20080316009",
+          "linked_forms":[
+             "Grada Publishing a.s.",
+             "Grada (nakladatelství)",
+             "Nakladatelství Grada"
+          ],
+          "is_corporation":true,
+          "record":{
+             "7":[
+                "kn20080316009"
+             ],
+             "i1":"2",
+             "i2":" ",
+             "a":[
+                "Grada Publishing"
+             ]
+          },
+          "alt_name":"Grada Publishing [organizace] (Grada Publishing a.s.,
+                      Grada (nakladatelství), Nakladatelství Grada)"
+        }
+
+    This is transformed into::
+
+        1102  L $$aGrada Publishing$$b $$7kn20080316009
+
+    Fields used in the output are taken from the ``is_corporation``,
+    ``record`` fields (``i1``, ``i2``, ``7`` and ``a``).
+
+    Returns:
+        str: String containing the line which will be included to the MRC.
+    """
+    record = author_data["record"]
+    i1 = record["i1"]
+    i2 = record["i2"]
+
+    # make sure that all required fields will be created
+    if "a" not in record:
+        record["a"] = " "
+
+    if author_data["is_corporation"]:
+        code = "110"
+        if "b" not in record:
+            record["b"] = " "
+    else:
+        code = "100"
+        if "d" not in record:
+            record["d"] = " "
+        if "4" not in record:
+            record["4"] = " "
+
+    out = "%s%s%s L " % (code, i1, i2)
+    for key in resorted(key for key in record if len(key) == 1):
+        for item in record[key]:
+            out += "$$%s%s" % (key, item)
+
+    return out
+
+
 @post(join(API_PATH, "to_output"))
 @form_to_params
 def to_output(data):
@@ -113,6 +185,9 @@ def to_output(data):
     from_year, to_year = parse_date_range(data["creation_date"])
     data["from_year"] = from_year
     data["to_year"] = to_year
+
+    # serialize author
+    data["serialized_author"] = serialize_author(data["author"])
 
     # convert to MRC format
     mrc = render_mrc(data).encode("utf-8")

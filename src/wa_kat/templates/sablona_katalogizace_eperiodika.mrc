@@ -21,8 +21,9 @@ BAS   L $$aSML
 080   L $$a{{rec["mdt"]}}$$2{{rec["mrf"]}}
 % end
 080   L $$uwww dokumenty$$a(0.034.2)004.738.12$$2MRF
-1001  L $$a $$d $$4 
-1102  L $$a $$b 
+%# 1001  L $$a $$d $$4 
+%# 1102  L $$a $$b 
+{{!serialized_author}}
 1112  L $$a $$d $$c 
 % if issn:
 222 0 L $$a{{title}}$$b 
