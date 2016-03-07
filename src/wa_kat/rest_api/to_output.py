@@ -187,7 +187,8 @@ def to_output(data):
     data["to_year"] = to_year
 
     # serialize author
-    data["serialized_author"] = serialize_author(data["author"])
+    if data["author"]:
+        data["serialized_author"] = serialize_author(data["author"])
 
     # convert to MRC format
     mrc = render_mrc(data).encode("utf-8")
