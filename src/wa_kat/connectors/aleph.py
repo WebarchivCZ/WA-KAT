@@ -66,7 +66,13 @@ def by_issn(issn):
     Returns:
         obj: :class:`Model` instances for each record.
     """
-    for record in aleph.getISSNsXML(issn):
+    # Monkey patched to allow search in NTK's Aleph
+    old_url = aleph.ALEPH_URL
+    aleph.ALEPH_URL = "http://aleph.techlib.cz/X"
+    records = aleph.getISSNsXML(issn, base="STK02")
+    aleph.ALEPH_URL = old_url
+
+    for record in records:
         marc = MARCXMLRecord(record)
 
         author = Author.parse_author(marc)
