@@ -10,6 +10,7 @@ from remove_hairs import remove_hairs
 from marcxml_parser import MARCXMLRecord
 from edeposit.amqp.aleph import aleph
 
+from ..settings import NTK_ALEPH_URL
 from ..data_model import Model
 from ..analyzers.source_string import SourceString
 
@@ -66,12 +67,13 @@ def by_issn(issn):
     Returns:
         obj: :class:`Model` instances for each record.
     """
-    # Monkey patched to allow search in NTK's Aleph
+    # monkeypatched to allow search in NTK's Aleph
     old_url = aleph.ALEPH_URL
-    aleph.ALEPH_URL = "http://aleph.techlib.cz/X"
+    aleph.ALEPH_URL = NTK_ALEPH_URL
     records = aleph.getISSNsXML(issn, base="STK02")
     aleph.ALEPH_URL = old_url
 
+    # process all records
     for record in records:
         marc = MARCXMLRecord(record)
 
