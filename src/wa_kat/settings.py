@@ -49,7 +49,9 @@ WEB_DEBUG = False  #: Turn on web debug messages?
 WEB_RELOADER = False  #: Turn on reloader for webserver?
 WEB_BE_QUIET = False  #: Be quiet and don't emit debug messages to terminal.
 
-REMOTE_INFO_URL = "http://%s:%d/remote_info_mock" % (WEB_ADDR, WEB_PORT)  # TODO: fix
+# Settings for the Seeder API
+SEEDER_INFO_URL = "http://seeder.visgean.me/api/source/%s/"
+SEEDER_TOKEN = ""
 REQUEST_TIMEOUT = 5
 TIMEOUT_MESSAGE = "Požadovanou stránku nebylo možné stáhnout. Zkuste url s www."
 

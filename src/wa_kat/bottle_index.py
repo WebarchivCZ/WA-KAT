@@ -56,7 +56,7 @@ def render_unregistered(error=None):
 
 
 def get_remote_info(url_id):  # TODO: Add timeout, print error in case of exception
-    resp = requests.get(settings.REMOTE_INFO_URL)
+    resp = requests.get(settings.SEEDER_INFO_URL % url_id)  # TODO: autentization headers
     resp.raise_for_status()
     data = resp.json()
 
@@ -66,15 +66,6 @@ def get_remote_info(url_id):  # TODO: Add timeout, print error in case of except
 
 
 # API =========================================================================
-# TODO: REMOVE
-@get("/" + settings.REMOTE_INFO_URL.split("/")[-1])
-def mock_data():
-    return {
-        "url": "http://seznam.cz",
-    }
-# TODO: REMOVE
-
-
 @get("/static/js/brython_dist.js")
 def gzipped_brython():
     """
