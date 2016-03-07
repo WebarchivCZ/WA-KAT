@@ -98,23 +98,23 @@
     </div>
 
     <div class="form-group">
+      <label for="publisher" class="control-label col-sm-2">Vydavatel</label>
+      <input id="author_switcher" type="checkbox" checked="false" />
+      <div id="publisher_typeahead" class="col-sm-10">
+        <input class="typeahead form-control" type="text" id="publisher" placeholder="Vydavatel stránek, pokud je stejný jako Autor. Pokud není, rozklikněte vlevo." required />
+        <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
+      </div>
+    </div>
+
+    <div class="form-group" id="whole_author" style="display: none">
       <label for="author" class="control-label col-sm-2">Autor</label>
-      <input id="publisher_switcher" type="checkbox" checked="false" />
       <div class="col-sm-10">
         <div class="input-group">
-          <input type="text" disabled class="form-control" id="author" placeholder="Autor stránek, pokud je stejný jako vydavatel. Pokud není, rozklikněte." />
+          <input type="text" disabled class="form-control" id="author" placeholder="Autor stránek z autoritní báze. Klikněte na Vybrat pro načtení." />
           <span class="input-group-btn">
             <button type="button" class="btn btn-default" id="show_author_picker">Vybrat</button>
           </span>
         </div>
-      </div>
-    </div>
-
-    <div class="form-group" id="whole_publisher"  style="display: none">
-      <label for="publisher" class="control-label col-sm-2">Vydavatel</label>
-      <div id="publisher_typeahead" class="col-sm-10">
-        <input class="typeahead form-control" type="text" id="publisher" placeholder="Vydavatel stránek." required />
-        <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
       </div>
     </div>
 
