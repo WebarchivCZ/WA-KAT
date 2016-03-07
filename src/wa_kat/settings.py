@@ -59,6 +59,8 @@ GUI_TO_REST_PERIODE = 2  #: How often check the REST API.
 
 NTK_ALEPH_URL = "http://aleph.techlib.cz/X"
 
+ANALYZER_USER_AGENT = "http://webarchiv.cz catalogization tool WA-KAT."
+
 
 # User configuration reader (don't edit this) =================================
 _ALLOWED = [str, unicode, int, float, long, bool]  #: Allowed types.
