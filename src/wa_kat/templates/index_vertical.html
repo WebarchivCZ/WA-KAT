@@ -24,7 +24,21 @@
   <body onload="brython({debug: 1})">
   <h1 class="text-center">WA KAT</h1>
 
-  <div class="container">
+  <div class="container" id="whole_brython_progress_bar">
+  <form id="application_form" class="form-horizontal" role="form">
+    <div class="form-group">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-7">
+          <img src="/static/gears.gif" />
+          <br />
+          <br />
+          Načítám kód frontendu..
+      </div>
+    </div>
+  </form>
+  </div>
+
+  <div class="container" id="content" style="display: none">
   <form id="application_form" class="form-horizontal" role="form">
 
     <div class="form-group">
