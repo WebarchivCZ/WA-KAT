@@ -1,0 +1,4309 @@
+{
+    "1": {
+        "id": "1", 
+        "name": "Antropologie, etnografie", 
+        "subconspects": {
+            "304": {
+                "conspect_id": "1", 
+                "ddc": "306.2", 
+                "en_name": "Culture and institutions (Cultural policy)", 
+                "mdt": "304", 
+                "name": "Kulturn\u00ed politika"
+            }, 
+            "316.7": {
+                "conspect_id": "1", 
+                "ddc": "306", 
+                "en_name": "Culture and Institutions", 
+                "mdt": "316.7", 
+                "name": "Sociologie kultury. Kulturn\u00ed \u017eivot"
+            }, 
+            "39": {
+                "conspect_id": "1", 
+                "ddc": "390", 
+                "en_name": "Customs, etiquette, folklore", 
+                "mdt": "39", 
+                "name": "Etnologie. Etnografie. Folklor"
+            }, 
+            "391": {
+                "conspect_id": "1", 
+                "ddc": "391", 
+                "en_name": "Customs and personal apperance", 
+                "mdt": "391", 
+                "name": "Od\u011bv, m\u00f3da, ozdoby"
+            }, 
+            "392": {
+                "conspect_id": "1", 
+                "ddc": "392", 
+                "en_name": "Customs of life cycle and domestic life", 
+                "mdt": "392", 
+                "name": "Zvyky, mravy, oby\u010deje v soukrom\u00e9m \u017eivot\u011b"
+            }, 
+            "393": {
+                "conspect_id": "1", 
+                "ddc": "393", 
+                "en_name": "Death customs", 
+                "mdt": "393", 
+                "name": "Smrt. Poh\u0159by. Oby\u010deje p\u0159i \u00famrt\u00ed"
+            }, 
+            "394": {
+                "conspect_id": "1", 
+                "ddc": "394", 
+                "en_name": "General customs", 
+                "mdt": "394", 
+                "name": "Ve\u0159ejn\u00fd a spole\u010densk\u00fd \u017eivot. Ka\u017edodenn\u00ed \u017eivot"
+            }, 
+            "395": {
+                "conspect_id": "1", 
+                "ddc": "395", 
+                "en_name": "Etiquette (manners)", 
+                "mdt": "395", 
+                "name": "Spole\u010densk\u00e9 chov\u00e1n\u00ed. Etiketa"
+            }, 
+            "398": {
+                "conspect_id": "1", 
+                "ddc": "398", 
+                "en_name": "Folklore", 
+                "mdt": "398", 
+                "name": "Folklor"
+            }, 
+            "572": {
+                "conspect_id": "1", 
+                "ddc": "301", 
+                "en_name": "Sociology and anthropology", 
+                "mdt": "572", 
+                "name": "Antropologie"
+            }, 
+            "599.89": {
+                "conspect_id": "1", 
+                "ddc": "599.9", 
+                "en_name": "Hominidae Homo sapiens", 
+                "mdt": "599.89", 
+                "name": "Hominidae. Hominidi - lid\u00e9"
+            }
+        }
+    }, 
+    "10": {
+        "id": "10", 
+        "name": "Chemie. Krystalografie. Mineralogick\u00e9 v\u011bdy", 
+        "subconspects": {
+            "54": {
+                "conspect_id": "10", 
+                "ddc": "540", 
+                "en_name": "Chemistry and allied sciences", 
+                "mdt": "54", 
+                "name": "Chemie. Mineralogick\u00e9 v\u011bdy"
+            }, 
+            "542": {
+                "conspect_id": "10", 
+                "ddc": "542", 
+                "en_name": "Techniques, procedures, apparatus, equipment, materials (Chemistry)", 
+                "mdt": "542", 
+                "name": "Praktick\u00e1 laboratorn\u00ed chemie. Preparativn\u00ed a experiment\u00e1ln\u00ed chemie"
+            }, 
+            "543": {
+                "conspect_id": "10", 
+                "ddc": "543", 
+                "en_name": "Analytical chemistry", 
+                "mdt": "543", 
+                "name": "Analytick\u00e1 chemie"
+            }, 
+            "544": {
+                "conspect_id": "10", 
+                "ddc": "541", 
+                "en_name": "Physical and theoretical chemistry", 
+                "mdt": "544", 
+                "name": "Fyzik\u00e1ln\u00ed chemie"
+            }, 
+            "546": {
+                "conspect_id": "10", 
+                "ddc": "546", 
+                "en_name": "Inorganic chemistry", 
+                "mdt": "546", 
+                "name": "Anorganick\u00e1 chemie"
+            }, 
+            "547": {
+                "conspect_id": "10", 
+                "ddc": "547", 
+                "en_name": "Organic chemistry", 
+                "mdt": "547", 
+                "name": "Organick\u00e1 chemie"
+            }, 
+            "548": {
+                "conspect_id": "10", 
+                "ddc": "548", 
+                "en_name": "Crystallography", 
+                "mdt": "548", 
+                "name": "Krystalografie"
+            }
+        }
+    }, 
+    "11": {
+        "id": "11", 
+        "name": "Jazyk, lingvistika, liter\u00e1rn\u00ed v\u011bda", 
+        "subconspects": {
+            "003": {
+                "conspect_id": "11", 
+                "ddc": "411", 
+                "en_name": "Writing systems", 
+                "mdt": "003", 
+                "name": "Syst\u00e9my psan\u00ed a p\u00edsma"
+            }, 
+            "80": {
+                "conspect_id": "11", 
+                "ddc": "400", 
+                "en_name": "Language", 
+                "mdt": "80", 
+                "name": "Filologie"
+            }, 
+            "808": {
+                "conspect_id": "11", 
+                "ddc": "808", 
+                "en_name": "General topics in rhetoric", 
+                "mdt": "808", 
+                "name": "Liter\u00e1rn\u00ed styl. Liter\u00e1rn\u00ed \u010dinnost a technika. Efektivn\u00ed vyu\u017e\u00edv\u00e1n\u00ed jazyka. Spisovatelsk\u00e1 \u010dinnost"
+            }, 
+            "81": {
+                "conspect_id": "11", 
+                "ddc": "410", 
+                "en_name": "Linguistics", 
+                "mdt": "81", 
+                "name": "Lingvistika. Jazyky"
+            }, 
+            "811.1/.8": {
+                "conspect_id": "11", 
+                "ddc": "420-490", 
+                "en_name": "Specific languages", 
+                "mdt": "811.1/.8", 
+                "name": "R\u016fzn\u00e9 jazyky"
+            }, 
+            "811.11": {
+                "conspect_id": "11", 
+                "ddc": "420-439", 
+                "en_name": "Germanic languages", 
+                "mdt": "811.11", 
+                "name": "Germ\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.111": {
+                "conspect_id": "11", 
+                "ddc": "420", 
+                "en_name": "English and Old English (Anglo-Saxon)", 
+                "mdt": "811.111", 
+                "name": "Angli\u010dtina"
+            }, 
+            "811.111.8": {
+                "conspect_id": "11", 
+                "ddc": "427.9", 
+                "en_name": "Pidgins, creoles", 
+                "mdt": "811.111.8", 
+                "name": "Jazyky pidgin a kreolsk\u00e9 jazyky"
+            }, 
+            "811.112": {
+                "conspect_id": "11", 
+                "ddc": "439.1-439.4", 
+                "en_name": "Other Germanic (Teutonic) languages", 
+                "mdt": "811.112", 
+                "name": "Z\u00e1padogerm\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.112.2": {
+                "conspect_id": "11", 
+                "ddc": "430", 
+                "en_name": "German language", 
+                "mdt": "811.112.2", 
+                "name": "N\u011bm\u010dina"
+            }, 
+            "811.113": {
+                "conspect_id": "11", 
+                "ddc": "439.6-439.8", 
+                "en_name": "Specific Scandinavian languages", 
+                "mdt": "811.113", 
+                "name": "Severogerm\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.124": {
+                "conspect_id": "11", 
+                "ddc": "470", 
+                "en_name": "Italic Languages - Latin", 
+                "mdt": "811.124", 
+                "name": "Latina"
+            }, 
+            "811.13": {
+                "conspect_id": "11", 
+                "ddc": "440-469", 
+                "en_name": "Romance languages", 
+                "mdt": "811.13", 
+                "name": "Rom\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.131": {
+                "conspect_id": "11", 
+                "ddc": "450", 
+                "en_name": "Italian, Sardinian, Dalmatian, Romanian", 
+                "mdt": "811.131", 
+                "name": "Italo-rom\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.133": {
+                "conspect_id": "11", 
+                "ddc": "449", 
+                "en_name": "Proven\u00e7al, Franco- Proven\u00e7al, Catalan", 
+                "mdt": "811.133", 
+                "name": "Galsko-rom\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.133.1": {
+                "conspect_id": "11", 
+                "ddc": "440", 
+                "en_name": "French language", 
+                "mdt": "811.133.1", 
+                "name": "Francouz\u0161tina"
+            }, 
+            "811.134": {
+                "conspect_id": "11", 
+                "ddc": "460", 
+                "en_name": "Spanish and Portuguese languages", 
+                "mdt": "811.134", 
+                "name": "Iberorom\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.135": {
+                "conspect_id": "11", 
+                "ddc": "459", 
+                "en_name": "Romanian and Rhaeto-Romanic languages", 
+                "mdt": "811.135", 
+                "name": "Balk\u00e1nsk\u00e9 rom\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.14": {
+                "conspect_id": "11", 
+                "ddc": "480", 
+                "en_name": "Hellenic languages - classical Greek", 
+                "mdt": "811.14", 
+                "name": "\u0158e\u010dtina"
+            }, 
+            "811.16": {
+                "conspect_id": "11", 
+                "ddc": "491.8", 
+                "en_name": "Slavic (Slavonic) languages", 
+                "mdt": "811.16", 
+                "name": "Slovansk\u00e9 jazyky"
+            }, 
+            "811.161": {
+                "conspect_id": "11", 
+                "ddc": "491.7", 
+                "en_name": "East Slavic languages", 
+                "mdt": "811.161", 
+                "name": "V\u00fdchodoslovansk\u00e9 jazyky"
+            }, 
+            "811.161.1": {
+                "conspect_id": "11", 
+                "ddc": "491.7", 
+                "en_name": "Russian language", 
+                "mdt": "811.161.1", 
+                "name": "Ru\u0161tina"
+            }, 
+            "811.162": {
+                "conspect_id": "11", 
+                "ddc": "491.85", 
+                "en_name": "West Slavic languages", 
+                "mdt": "811.162", 
+                "name": "Z\u00e1padoslovansk\u00e9 jazyky"
+            }, 
+            "811.162.3": {
+                "conspect_id": "11", 
+                "ddc": "491.86", 
+                "en_name": "Czech language", 
+                "mdt": "811.162.3", 
+                "name": "\u010ce\u0161tina"
+            }, 
+            "811.163": {
+                "conspect_id": "11", 
+                "ddc": "491.81", 
+                "en_name": "South Slavic languages", 
+                "mdt": "811.163", 
+                "name": "Jihoslovansk\u00e9 jazyky"
+            }, 
+            "811.17": {
+                "conspect_id": "11", 
+                "ddc": "491.9", 
+                "en_name": "Baltic languages", 
+                "mdt": "811.17", 
+                "name": "Baltsk\u00e9 jazyky"
+            }, 
+            "811.18": {
+                "conspect_id": "11", 
+                "ddc": "491.991", 
+                "en_name": "Albanian language", 
+                "mdt": "811.18", 
+                "name": "Alb\u00e1n\u0161tina"
+            }, 
+            "811.21/.22": {
+                "conspect_id": "11", 
+                "ddc": "491.1", 
+                "en_name": "Indo-Iranian languages", 
+                "mdt": "811.21/.22", 
+                "name": "Indo\u00edr\u00e1nsk\u00e9 jazyky"
+            }, 
+            "811.34": {
+                "conspect_id": "11", 
+                "ddc": "499", 
+                "en_name": "Dead languages of unknown affiliation", 
+                "mdt": "811.34", 
+                "name": "Vym\u0159el\u00e9 jazyky nezn\u00e1m\u00e9 klasifikace"
+            }, 
+            "811.35": {
+                "conspect_id": "11", 
+                "ddc": "499.96", 
+                "en_name": "Caucasian languages", 
+                "mdt": "811.35", 
+                "name": "Kavkazsk\u00e9 jazyky"
+            }, 
+            "811.41": {
+                "conspect_id": "11", 
+                "ddc": "492", 
+                "en_name": "Afro-Asiatic languages", 
+                "mdt": "811.41", 
+                "name": "Afroasijsk\u00e9 (hamitosemitsk\u00e9) jazyky"
+            }, 
+            "811.51": {
+                "conspect_id": "11", 
+                "ddc": "494", 
+                "en_name": "Altaic, Uralic languages", 
+                "mdt": "811.51", 
+                "name": "Uraloaltajsk\u00e9 jazyky"
+            }, 
+            "811.58": {
+                "conspect_id": "11", 
+                "ddc": "495.1", 
+                "en_name": "Chinese language", 
+                "mdt": "811.58", 
+                "name": "\u010c\u00ednsk\u00e9 jazyky"
+            }, 
+            "811.9": {
+                "conspect_id": "11", 
+                "ddc": "499.99", 
+                "en_name": "Artificial languages", 
+                "mdt": "811.9", 
+                "name": "Um\u011bl\u00e9 jazyky"
+            }, 
+            "82": {
+                "conspect_id": "11", 
+                "ddc": "800", 
+                "en_name": "Literature", 
+                "mdt": "82", 
+                "name": "Literatura. Liter\u00e1rn\u00ed \u017eivot"
+            }, 
+            "82-1/-8": {
+                "conspect_id": "11", 
+                "ddc": "809.1-809.9", 
+                "en_name": "Literature in specific forms (on)", 
+                "mdt": "82-1/-8", 
+                "name": "Literatura r\u016fzn\u00fdch forem a \u017e\u00e1nr\u016f (o n\u00ed)"
+            }, 
+            "82-31/-34": {
+                "conspect_id": "11", 
+                "ddc": "809.933", 
+                "en_name": "Love, adventure and fantastic fiction (on)", 
+                "mdt": "82-31/-34", 
+                "name": "Milostn\u00e1, dobrodru\u017en\u00e1, fantastick\u00e1 pr\u00f3za (o n\u00ed)"
+            }, 
+            "82-9": {
+                "conspect_id": "11", 
+                "ddc": "809.1-809.7", 
+                "en_name": "Literary criticism", 
+                "mdt": "82-9", 
+                "name": "Liter\u00e1rn\u00ed kritika, v\u011bcn\u00e1 literatura a r\u016fzn\u00e9 dal\u0161\u00ed \u017e\u00e1nry"
+            }, 
+            "82-93": {
+                "conspect_id": "11", 
+                "ddc": "809.892 82", 
+                "en_name": "Children&apos;s and juvenile literature (on)", 
+                "mdt": "82-93", 
+                "name": "Literatura pro d\u011bti a ml\u00e1de\u017e (o n\u00ed)"
+            }, 
+            "82-97": {
+                "conspect_id": "11", 
+                "ddc": "809.933 82", 
+                "en_name": "Religious literature (on)", 
+                "mdt": "82-97", 
+                "name": "N\u00e1bo\u017eensk\u00e1 literatura. Duchovn\u00ed literatura (o n\u00ed)"
+            }, 
+            "82.0": {
+                "conspect_id": "11", 
+                "ddc": "801", 
+                "en_name": "Literature (Philosophy and theory)", 
+                "mdt": "82.0", 
+                "name": "Literatura (teorie)"
+            }, 
+            "821.09": {
+                "conspect_id": "11", 
+                "ddc": "899.09", 
+                "en_name": "Literature of miscellaneous languages (on)", 
+                "mdt": "821.09", 
+                "name": "Literatura v r\u016fzn\u00fdch jazyc\u00edch (o n\u00ed)"
+            }, 
+            "821.11.09": {
+                "conspect_id": "11", 
+                "ddc": "839.09", 
+                "en_name": "Other Germanic literatures (on)", 
+                "mdt": "821.11.09", 
+                "name": "Germ\u00e1nsk\u00e9 literatury (o nich)"
+            }, 
+            "821.111(73).09": {
+                "conspect_id": "11", 
+                "ddc": "810.9", 
+                "en_name": "American literature in English (on)", 
+                "mdt": "821.111(73).09", 
+                "name": "Americk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.111.09": {
+                "conspect_id": "11", 
+                "ddc": "820.9", 
+                "en_name": "English literature (on)", 
+                "mdt": "821.111.09", 
+                "name": "Anglick\u00e1 literatura, anglicky psan\u00e1 (o n\u00ed)"
+            }, 
+            "821.112.2.09": {
+                "conspect_id": "11", 
+                "ddc": "830.9", 
+                "en_name": "German literature (on)", 
+                "mdt": "821.112.2.09", 
+                "name": "N\u011bmeck\u00e1 literatura, n\u011bmecky psan\u00e1 (o n\u00ed)"
+            }, 
+            "821.124.09": {
+                "conspect_id": "11", 
+                "ddc": "870.9", 
+                "en_name": "Latin literature (on)", 
+                "mdt": "821.124.09", 
+                "name": "Latinsk\u00e1 literatura, latinsky psan\u00e1 (o n\u00ed)"
+            }, 
+            "821.13.09": {
+                "conspect_id": "11", 
+                "ddc": "859.09", 
+                "en_name": "Romanian and Rhaeto-Romanic literatures (on)", 
+                "mdt": "821.13.09", 
+                "name": "Rom\u00e1nsk\u00e9 literatury (o nich)"
+            }, 
+            "821.131.1.09": {
+                "conspect_id": "11", 
+                "ddc": "850.9", 
+                "en_name": "Italian literature (on)", 
+                "mdt": "821.131.1.09", 
+                "name": "Italsk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.133.1.09": {
+                "conspect_id": "11", 
+                "ddc": "840.9", 
+                "en_name": "French Literature (on)", 
+                "mdt": "821.133.1.09", 
+                "name": "Francouzsk\u00e1 literatura, francouzsky psan\u00e1 (o n\u00ed)"
+            }, 
+            "821.134.2.09": {
+                "conspect_id": "11", 
+                "ddc": "860.9", 
+                "en_name": "Spanish literature (on)", 
+                "mdt": "821.134.2.09", 
+                "name": "\u0160pan\u011blsk\u00e1 literatura, \u0161pan\u011blsky psan\u00e1 (o n\u00ed)"
+            }, 
+            "821.134.3.09": {
+                "conspect_id": "11", 
+                "ddc": "869.09", 
+                "en_name": "Portuguese literature (on)", 
+                "mdt": "821.134.3.09", 
+                "name": "Portugalsk\u00e1 literatura, portugalsky psan\u00e1 (o n\u00ed)"
+            }, 
+            "821.14&apos;02.09": {
+                "conspect_id": "11", 
+                "ddc": "880.9", 
+                "en_name": "Greek (Hellenic) literature (on)", 
+                "mdt": "821.14&apos;02.09", 
+                "name": "\u0158eck\u00e1 antick\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.14.09": {
+                "conspect_id": "11", 
+                "ddc": "889.09", 
+                "en_name": "Modern Greek literature (on)", 
+                "mdt": "821.14.09", 
+                "name": "\u0158eck\u00e1 literatura (st\u0159edov\u011bk\u00e1, novodob\u00e1) (o n\u00ed)"
+            }, 
+            "821.16.09": {
+                "conspect_id": "11", 
+                "ddc": "891.809", 
+                "en_name": "Slavic (Slavonic) literatures (on)", 
+                "mdt": "821.16.09", 
+                "name": "Slovansk\u00e9 literatury (o nich)"
+            }, 
+            "821.161.09": {
+                "conspect_id": "11", 
+                "ddc": "891.709", 
+                "en_name": "East Slavic literatures (on)", 
+                "mdt": "821.161.09", 
+                "name": "V\u00fdchodoslovansk\u00e9 literatury (o nich)"
+            }, 
+            "821.161.1.09": {
+                "conspect_id": "11", 
+                "ddc": "891.709", 
+                "en_name": "Russian literature (on)", 
+                "mdt": "821.161.1.09", 
+                "name": "Rusk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.162.09": {
+                "conspect_id": "11", 
+                "ddc": "891.809", 
+                "en_name": "West Slavic literatures (on)", 
+                "mdt": "821.162.09", 
+                "name": "Z\u00e1padoslovansk\u00e9 literatury (o nich)"
+            }, 
+            "821.162.1.09": {
+                "conspect_id": "11", 
+                "ddc": "891.8509", 
+                "en_name": "Polish literature (on)", 
+                "mdt": "821.162.1.09", 
+                "name": "Polsk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.162.3.09": {
+                "conspect_id": "11", 
+                "ddc": "891.8609", 
+                "en_name": "Czech literature (on)", 
+                "mdt": "821.162.3.09", 
+                "name": "\u010cesk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.162.4.09": {
+                "conspect_id": "11", 
+                "ddc": "891.8709", 
+                "en_name": "Slovak literature (on)", 
+                "mdt": "821.162.4.09", 
+                "name": "Slovensk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.163.09": {
+                "conspect_id": "11", 
+                "ddc": "891.8109", 
+                "en_name": "South Slavic literatures (on)", 
+                "mdt": "821.163.09", 
+                "name": "Jihoslovansk\u00e9 literatury (o nich)"
+            }, 
+            "821.163.1.09": {
+                "conspect_id": "11", 
+                "ddc": "891.8109", 
+                "en_name": "Old church Slavic literature (on)", 
+                "mdt": "821.163.1.09", 
+                "name": "Staroslov\u011bnsk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.17.09": {
+                "conspect_id": "11", 
+                "ddc": "891.909", 
+                "en_name": "Baltic literatures (on)", 
+                "mdt": "821.17.09", 
+                "name": "Baltsk\u00e9 literatury (o nich)"
+            }, 
+            "821.41.09": {
+                "conspect_id": "11", 
+                "ddc": "892-893.09", 
+                "en_name": "Afro-Asiatic (Hamito-Semitic) literatures (on)", 
+                "mdt": "821.41.09", 
+                "name": "Afroasijsk\u00e9 (hamitosemitsk\u00e9) literatury (o nich)"
+            }, 
+            "821.432.09": {
+                "conspect_id": "11", 
+                "ddc": "896.09", 
+                "en_name": "African literatures (on)", 
+                "mdt": "821.432.09", 
+                "name": "Nigerokon\u017esk\u00e9 literatury (o nich)"
+            }, 
+            "821.51.09": {
+                "conspect_id": "11", 
+                "ddc": "894.09", 
+                "en_name": "Altaic, Uralic, Hyperborean, Dravidian literatures (on)", 
+                "mdt": "821.51.09", 
+                "name": "Uraloaltajsk\u00e9 literatury (o nich)"
+            }, 
+            "821.521.09": {
+                "conspect_id": "11", 
+                "ddc": "895.609", 
+                "en_name": "Japanese literature (on)", 
+                "mdt": "821.521.09", 
+                "name": "Japonsk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.531.09": {
+                "conspect_id": "11", 
+                "ddc": "895.709", 
+                "en_name": "Korean literature (on)", 
+                "mdt": "821.531.09", 
+                "name": "Korejsk\u00e1 literatura (o n\u00ed)"
+            }, 
+            "821.58.09": {
+                "conspect_id": "11", 
+                "ddc": "895.09", 
+                "en_name": "Literatures of East and SE Asia, Sino-Tibetian Literatures (on)", 
+                "mdt": "821.58.09", 
+                "name": "Sino-tibetsk\u00e9 literatury (o nich)"
+            }, 
+            "821.62.09": {
+                "conspect_id": "11", 
+                "ddc": "899", 
+                "en_name": "Austronesian literatures (on)", 
+                "mdt": "821.62.09", 
+                "name": "Austron\u00e9sk\u00e9 literatury (o nich)"
+            }, 
+            "821.81/.82.09": {
+                "conspect_id": "11", 
+                "ddc": "897.09", 
+                "en_name": "Literatures of North American native languages (on)", 
+                "mdt": "821.81/.82.09", 
+                "name": "Literatury severoamerick\u00fdch Indi\u00e1n\u016f (o nich)"
+            }, 
+            "821.873.09": {
+                "conspect_id": "11", 
+                "ddc": "898.09", 
+                "en_name": "Literature of South American native languages (on)", 
+                "mdt": "821.873.09", 
+                "name": "Literatury andsko-rovn\u00edkov\u00fdch jazyk\u016f (o nich)"
+            }, 
+            "82:03": {
+                "conspect_id": "11", 
+                "ddc": "803", 
+                "en_name": "Dictionaries, encyclopedias, concordances", 
+                "mdt": "82:03", 
+                "name": "Liter\u00e1rn\u00ed slovn\u00edky, encyklopedie. Konkordance"
+            }, 
+            "82:05": {
+                "conspect_id": "11", 
+                "ddc": "805", 
+                "en_name": "Serial publications", 
+                "mdt": "82:05", 
+                "name": "Liter\u00e1rn\u00ed revue, \u010dasopisy"
+            }, 
+            "82:06": {
+                "conspect_id": "11", 
+                "ddc": "806", 
+                "en_name": "Organizations", 
+                "mdt": "82:06", 
+                "name": "Liter\u00e1rn\u00ed organizace, sout\u011b\u017ee"
+            }, 
+            "82:37": {
+                "conspect_id": "11", 
+                "ddc": "807", 
+                "en_name": "Education, research, related topics", 
+                "mdt": "82:37", 
+                "name": "Liter\u00e1rn\u00ed v\u00fdchovn\u00e9 programy"
+            }
+        }
+    }, 
+    "12": {
+        "id": "12", 
+        "name": "Knihovnictv\u00ed, informatika, v\u0161eobecn\u00e9, referen\u010dn\u00ed literatura", 
+        "subconspects": {
+            "00": {
+                "conspect_id": "12", 
+                "ddc": "000", 
+                "en_name": "Generalities", 
+                "mdt": "00", 
+                "name": "V\u011bda. V\u0161eobecnosti. Z\u00e1klady v\u011bdy a kultury. V\u011bdeck\u00e1 pr\u00e1ce"
+            }, 
+            "01": {
+                "conspect_id": "12", 
+                "ddc": "010", 
+                "en_name": "Bibliography", 
+                "mdt": "01", 
+                "name": "Bibliografie. Katalogy"
+            }, 
+            "02": {
+                "conspect_id": "12", 
+                "ddc": "020", 
+                "en_name": "Library and information sciences", 
+                "mdt": "02", 
+                "name": "Knihovnictv\u00ed. Informatika"
+            }, 
+            "021": {
+                "conspect_id": "12", 
+                "ddc": "021", 
+                "en_name": "Relationship of libraries, archives, information centers", 
+                "mdt": "021", 
+                "name": "Funkce, v\u00fdznam a vyu\u017e\u00edv\u00e1n\u00ed knihoven"
+            }, 
+            "022": {
+                "conspect_id": "12", 
+                "ddc": "022", 
+                "en_name": "Administration of the physical plant", 
+                "mdt": "022", 
+                "name": "Budovy, are\u00e1ly a za\u0159\u00edzen\u00ed knihoven"
+            }, 
+            "023": {
+                "conspect_id": "12", 
+                "ddc": "023", 
+                "en_name": "Personnel administration", 
+                "mdt": "023", 
+                "name": "\u0158\u00edzen\u00ed knihoven"
+            }, 
+            "024": {
+                "conspect_id": "12", 
+                "ddc": "025.5-025.6", 
+                "en_name": "Library services", 
+                "mdt": "024", 
+                "name": "Slu\u017eby knihoven"
+            }, 
+            "025": {
+                "conspect_id": "12", 
+                "ddc": "025", 
+                "en_name": "Operations of libraries, archives, information centers", 
+                "mdt": "025", 
+                "name": "Organizace knihoven a knihovn\u00edch fond\u016f"
+            }, 
+            "025.3/.4": {
+                "conspect_id": "12", 
+                "ddc": "025.3-025.4", 
+                "en_name": "Bibliographic and subject analysis and control", 
+                "mdt": "025.3/.4", 
+                "name": "Katalogizace. Selek\u010dn\u00ed jazyky"
+            }, 
+            "026": {
+                "conspect_id": "12", 
+                "ddc": "026", 
+                "en_name": "Libraries, archives, information centres of special disciplines and subjects", 
+                "mdt": "026", 
+                "name": "Odborn\u00e9/speci\u00e1ln\u00ed knihovny"
+            }, 
+            "026/027": {
+                "conspect_id": "12", 
+                "ddc": "026-027", 
+                "en_name": "Specific kinds of institutions (libraries)", 
+                "mdt": "026/027", 
+                "name": "Knihovny"
+            }, 
+            "027": {
+                "conspect_id": "12", 
+                "ddc": "027", 
+                "en_name": "General libraries, archives, information centres", 
+                "mdt": "027", 
+                "name": "Univerz\u00e1ln\u00ed knihovny. Ve\u0159ejn\u00e9 knihovny"
+            }, 
+            "028": {
+                "conspect_id": "12", 
+                "ddc": "028", 
+                "en_name": "Reading and use of other information media", 
+                "mdt": "028", 
+                "name": "\u010cten\u00ed. \u010cetba"
+            }, 
+            "030": {
+                "conspect_id": "12", 
+                "ddc": "030", 
+                "en_name": "General encyclopedic works", 
+                "mdt": "030", 
+                "name": "V\u0161eobecn\u00e1 p\u0159\u00edru\u010dkov\u00e1 d\u00edla"
+            }, 
+            "050": {
+                "conspect_id": "12", 
+                "ddc": "050", 
+                "en_name": "General serial publications and their indexes", 
+                "mdt": "050", 
+                "name": "Seri\u00e1lov\u00e9 publikace. Periodika"
+            }, 
+            "06": {
+                "conspect_id": "12", 
+                "ddc": "060", 
+                "en_name": "General organizations", 
+                "mdt": "06", 
+                "name": "Organizace v\u0161eobecn\u00e9 povahy"
+            }, 
+            "069": {
+                "conspect_id": "12", 
+                "ddc": "069", 
+                "en_name": "Museology (museum science) in general", 
+                "mdt": "069", 
+                "name": "Muzea. Muzeologie. Muzejnictv\u00ed. V\u00fdstavy"
+            }, 
+            "070": {
+                "conspect_id": "12", 
+                "ddc": "070", 
+                "en_name": "Documentary, educational, news media, journalism", 
+                "mdt": "070", 
+                "name": "Noviny. Tisk. \u017durnalistika"
+            }, 
+            "08": {
+                "conspect_id": "12", 
+                "ddc": "080", 
+                "en_name": "General collections", 
+                "mdt": "08", 
+                "name": "Souborn\u00e1 d\u00edla"
+            }, 
+            "09": {
+                "conspect_id": "12", 
+                "ddc": "090", 
+                "en_name": "Manuscripts, rare books, other rare printed materials", 
+                "mdt": "09", 
+                "name": "Rukopisy, prvotisky, star\u00e9 tisky. Vz\u00e1cn\u00e1 a pozoruhodn\u00e1 d\u00edla"
+            }, 
+            "093": {
+                "conspect_id": "12", 
+                "ddc": "093", 
+                "en_name": "Incunabula", 
+                "mdt": "093", 
+                "name": "Prvotisky"
+            }, 
+            "094": {
+                "conspect_id": "12", 
+                "ddc": "094", 
+                "en_name": "Old prints", 
+                "mdt": "094", 
+                "name": "Star\u00e9 tisky"
+            }, 
+            "094.5": {
+                "conspect_id": "12", 
+                "ddc": "094.4", 
+                "en_name": "Prints (19th century)", 
+                "mdt": "094.5", 
+                "name": "Tisky (19. stolet\u00ed)"
+            }, 
+            "095/096": {
+                "conspect_id": "12", 
+                "ddc": "095-097", 
+                "en_name": "Rare prints", 
+                "mdt": "095/096", 
+                "name": "Vz\u00e1cn\u00e1 d\u00edla"
+            }, 
+            "316.77": {
+                "conspect_id": "12", 
+                "ddc": "303.483", 
+                "en_name": "Development of science and technology", 
+                "mdt": "316.77", 
+                "name": "Informa\u010dn\u00ed v\u011bda"
+            }, 
+            "655": {
+                "conspect_id": "12", 
+                "ddc": "070.5", 
+                "en_name": "Publishing", 
+                "mdt": "655", 
+                "name": "Polygrafie. Vydavatelstv\u00ed a kni\u017en\u00ed obchod"
+            }
+        }
+    }, 
+    "13": {
+        "id": "13", 
+        "name": "Matematika", 
+        "subconspects": {
+            "51": {
+                "conspect_id": "13", 
+                "ddc": "510", 
+                "en_name": "Mathematics", 
+                "mdt": "51", 
+                "name": "Matematika"
+            }, 
+            "510": {
+                "conspect_id": "13", 
+                "ddc": "511", 
+                "en_name": "General principles", 
+                "mdt": "510", 
+                "name": "Obecn\u00e9 \u00favahy o matematice"
+            }, 
+            "511": {
+                "conspect_id": "13", 
+                "ddc": "512.7", 
+                "en_name": "Number theory", 
+                "mdt": "511", 
+                "name": "Teorie \u010d\u00edsel"
+            }, 
+            "511.1": {
+                "conspect_id": "13", 
+                "ddc": "513", 
+                "en_name": "Arithmetic", 
+                "mdt": "511.1", 
+                "name": "Aritmetika"
+            }, 
+            "512": {
+                "conspect_id": "13", 
+                "ddc": "512", 
+                "en_name": "Algebra", 
+                "mdt": "512", 
+                "name": "Algebra"
+            }, 
+            "514": {
+                "conspect_id": "13", 
+                "ddc": "516", 
+                "en_name": "Geometry", 
+                "mdt": "514", 
+                "name": "Geometrie"
+            }, 
+            "515.1": {
+                "conspect_id": "13", 
+                "ddc": "514", 
+                "en_name": "Topology", 
+                "mdt": "515.1", 
+                "name": "Topologie"
+            }, 
+            "517": {
+                "conspect_id": "13", 
+                "ddc": "515", 
+                "en_name": "Analysis", 
+                "mdt": "517", 
+                "name": "Matematick\u00e1 anal\u00fdza"
+            }, 
+            "519": {
+                "conspect_id": "13", 
+                "ddc": "519", 
+                "en_name": "Probabilities and applied mathematics", 
+                "mdt": "519", 
+                "name": "Kombinatorika. Teorie graf\u016f. Matematick\u00e1 statistika. Opera\u010dn\u00ed v\u00fdzkum. Matematick\u00e9 modelov\u00e1n\u00ed"
+            }
+        }
+    }, 
+    "14": {
+        "id": "14", 
+        "name": "L\u00e9ka\u0159stv\u00ed", 
+        "subconspects": {
+            "61": {
+                "conspect_id": "14", 
+                "ddc": "610", 
+                "en_name": "Medical sciences, medicine", 
+                "mdt": "61", 
+                "name": "L\u00e9ka\u0159sk\u00e9 v\u011bdy. L\u00e9ka\u0159stv\u00ed"
+            }, 
+            "611": {
+                "conspect_id": "14", 
+                "ddc": "611", 
+                "en_name": "Human anatomy, cytology (cell), histology (tissues)", 
+                "mdt": "611", 
+                "name": "Anatomie \u010dlov\u011bka a srovn\u00e1vac\u00ed anatomie"
+            }, 
+            "612": {
+                "conspect_id": "14", 
+                "ddc": "612", 
+                "en_name": "Human physiology", 
+                "mdt": "612", 
+                "name": "Fyziologie \u010dlov\u011bka a srovn\u00e1vac\u00ed fyziologie"
+            }, 
+            "613": {
+                "conspect_id": "14", 
+                "ddc": "613", 
+                "en_name": "Promotion of health", 
+                "mdt": "613", 
+                "name": "Hygiena. Lidsk\u00e9 zdrav\u00ed"
+            }, 
+            "614": {
+                "conspect_id": "14", 
+                "ddc": "614", 
+                "en_name": "Forensic medicine, incidence of disease, public preventive medicine", 
+                "mdt": "614", 
+                "name": "Ve\u0159ejn\u00e9 zdrav\u00ed a hygiena"
+            }, 
+            "614.8": {
+                "conspect_id": "14", 
+                "ddc": "363.1", 
+                "en_name": "Public safety programs", 
+                "mdt": "614.8", 
+                "name": "\u00darazy a jejich prevence"
+            }, 
+            "614.84": {
+                "conspect_id": "14", 
+                "ddc": "363.37", 
+                "en_name": "Fire hazards", 
+                "mdt": "614.84", 
+                "name": "Po\u017e\u00e1ry. Ochrana p\u0159ed po\u017e\u00e1ry"
+            }, 
+            "615": {
+                "conspect_id": "14", 
+                "ddc": "615", 
+                "en_name": "Pharmacology", 
+                "mdt": "615", 
+                "name": "Farmacie. Farmakologie"
+            }, 
+            "615.8": {
+                "conspect_id": "14", 
+                "ddc": "615.8", 
+                "en_name": "Specific therapies and alternative therapies", 
+                "mdt": "615.8", 
+                "name": "Fyzioterapie. Psychoterapie. Alternativn\u00ed l\u00e9ka\u0159stv\u00ed"
+            }, 
+            "616": {
+                "conspect_id": "14", 
+                "ddc": "616", 
+                "en_name": "Diseases. Clinical medicine", 
+                "mdt": "616", 
+                "name": "Patologie. Klinick\u00e1 medic\u00edna"
+            }, 
+            "616-053.2": {
+                "conspect_id": "14", 
+                "ddc": "618.92", 
+                "en_name": "Pediatrics", 
+                "mdt": "616-053.2", 
+                "name": "Pediatrie"
+            }, 
+            "616-053.9": {
+                "conspect_id": "14", 
+                "ddc": "618.97", 
+                "en_name": "Geriatrics", 
+                "mdt": "616-053.9", 
+                "name": "Geriatrie"
+            }, 
+            "616-092": {
+                "conspect_id": "14", 
+                "ddc": "619", 
+                "en_name": "Experimental medicine", 
+                "mdt": "616-092", 
+                "name": "Experiment\u00e1ln\u00ed medic\u00edna"
+            }, 
+            "616.31": {
+                "conspect_id": "14", 
+                "ddc": "616", 
+                "en_name": "Diseases of mouth and throat", 
+                "mdt": "616.31", 
+                "name": "Stomatologie"
+            }, 
+            "616.89": {
+                "conspect_id": "14", 
+                "ddc": "616.89", 
+                "en_name": "Mental disorders. Psychiatry", 
+                "mdt": "616.89", 
+                "name": "Psychiatrie"
+            }, 
+            "617": {
+                "conspect_id": "14", 
+                "ddc": "617", 
+                "en_name": "Surgery and related topics", 
+                "mdt": "617", 
+                "name": "Ortopedie. Chirurgie. Oftalmologie"
+            }, 
+            "618": {
+                "conspect_id": "14", 
+                "ddc": "618", 
+                "en_name": "Gynecology and obstetrics (other branches of medicine)", 
+                "mdt": "618", 
+                "name": "Gynekologie. Porodnictv\u00ed"
+            }
+        }
+    }, 
+    "15": {
+        "id": "15", 
+        "name": "Politick\u00e9 v\u011bdy (Politologie, politika, ve\u0159ejn\u00e1 spr\u00e1va, vojenstv\u00ed)", 
+        "subconspects": {
+            "32": {
+                "conspect_id": "15", 
+                "ddc": "320", 
+                "en_name": "Political science (politics and government)", 
+                "mdt": "32", 
+                "name": "Politika"
+            }, 
+            "321": {
+                "conspect_id": "15", 
+                "ddc": "321", 
+                "en_name": "Systems of governments and states", 
+                "mdt": "321", 
+                "name": "Politologie"
+            }, 
+            "322": {
+                "conspect_id": "15", 
+                "ddc": "322", 
+                "en_name": "Relation of state to organized groups and their members", 
+                "mdt": "322", 
+                "name": "Politika a n\u00e1bo\u017eenstv\u00ed. Vztahy mezi c\u00edrkv\u00ed a st\u00e1tem"
+            }, 
+            "323": {
+                "conspect_id": "15", 
+                "ddc": "323", 
+                "en_name": "Civil and political rights", 
+                "mdt": "323", 
+                "name": "Vnitropolitick\u00fd v\u00fdvoj, politick\u00fd \u017eivot"
+            }, 
+            "324": {
+                "conspect_id": "15", 
+                "ddc": "324", 
+                "en_name": "Political process", 
+                "mdt": "324", 
+                "name": "Volby, volebn\u00ed kampan\u011b, referenda"
+            }, 
+            "325": {
+                "conspect_id": "15", 
+                "ddc": "325", 
+                "en_name": "International migration and colonization", 
+                "mdt": "325", 
+                "name": "Mezin\u00e1rodn\u00ed migrace, exil, kolonizace"
+            }, 
+            "327": {
+                "conspect_id": "15", 
+                "ddc": "327", 
+                "en_name": "International relations", 
+                "mdt": "327", 
+                "name": "Mezin\u00e1rodn\u00ed vztahy, sv\u011btov\u00e1 politika"
+            }, 
+            "328": {
+                "conspect_id": "15", 
+                "ddc": "328", 
+                "en_name": "Legislative process", 
+                "mdt": "328", 
+                "name": "Zastupitelsk\u00e9 org\u00e1ny. Vl\u00e1dy. Politick\u00e9 syst\u00e9my jednotliv\u00fdch zem\u00ed"
+            }, 
+            "329": {
+                "conspect_id": "15", 
+                "ddc": "324.2", 
+                "en_name": "Political parties", 
+                "mdt": "329", 
+                "name": "Politick\u00e9 strany a hnut\u00ed"
+            }, 
+            "35": {
+                "conspect_id": "15", 
+                "ddc": "350", 
+                "en_name": "Public administration and military science", 
+                "mdt": "35", 
+                "name": "Ve\u0159ejn\u00e1 spr\u00e1va"
+            }, 
+            "35.07": {
+                "conspect_id": "15", 
+                "ddc": "352", 
+                "en_name": "General considerations of public administration", 
+                "mdt": "35.07", 
+                "name": "Organizace a \u0159\u00edzen\u00ed ve\u0159ejn\u00e9 spr\u00e1vy"
+            }, 
+            "351": {
+                "conspect_id": "15", 
+                "ddc": "353", 
+                "en_name": "Specific fields of public administration", 
+                "mdt": "351", 
+                "name": "\u00dakoly ve\u0159ejn\u00e9 spr\u00e1vy, spr\u00e1vn\u00ed opat\u0159en\u00ed, legislativa"
+            }, 
+            "352/354": {
+                "conspect_id": "15", 
+                "ddc": "351", 
+                "en_name": "Administration of central governments", 
+                "mdt": "352/354", 
+                "name": "Stupn\u011b m\u00edstn\u00ed, oblastn\u00ed a \u00fast\u0159edn\u00ed spr\u00e1vy"
+            }, 
+            "355/359": {
+                "conspect_id": "15", 
+                "ddc": "355", 
+                "en_name": "Military science", 
+                "mdt": "355/359", 
+                "name": "Vojenstv\u00ed. Obrana zem\u011b. Ozbrojen\u00e9 s\u00edly"
+            }, 
+            "356": {
+                "conspect_id": "15", 
+                "ddc": "356", 
+                "en_name": "Foot forces and warfare", 
+                "mdt": "356", 
+                "name": "Vojensk\u00e1 slu\u017eba. P\u011bchota"
+            }, 
+            "357": {
+                "conspect_id": "15", 
+                "ddc": "357", 
+                "en_name": "Mounted forces and warfare", 
+                "mdt": "357", 
+                "name": "Motorizovan\u00e9 jednotky. Jezdectvo"
+            }, 
+            "358": {
+                "conspect_id": "15", 
+                "ddc": "358", 
+                "en_name": "Air and other specialized forces and warfare; Engineering and related services", 
+                "mdt": "358", 
+                "name": "Vojensk\u00e9 letectvo. D\u011blost\u0159electvo. \u017denijn\u00ed jednotky. Technick\u00e9 slu\u017eby arm\u00e1dy. Chemick\u00e9 vojsko"
+            }, 
+            "359": {
+                "conspect_id": "15", 
+                "ddc": "359", 
+                "en_name": "Sea (naval) forces and warfare", 
+                "mdt": "359", 
+                "name": "Vojensk\u00e9 n\u00e1mo\u0159nictvo a lo\u010fstvo"
+            }
+        }
+    }, 
+    "16": {
+        "id": "16", 
+        "name": "Pr\u00e1vo", 
+        "subconspects": {
+            "34": {
+                "conspect_id": "16", 
+                "ddc": "340", 
+                "en_name": "Law", 
+                "mdt": "34", 
+                "name": "Pr\u00e1vo"
+            }, 
+            "341": {
+                "conspect_id": "16", 
+                "ddc": "341", 
+                "en_name": "International law", 
+                "mdt": "341", 
+                "name": "Mezin\u00e1rodn\u00ed pr\u00e1vo"
+            }, 
+            "342": {
+                "conspect_id": "16", 
+                "ddc": "342", 
+                "en_name": "Constitutional law and administrative law", 
+                "mdt": "342", 
+                "name": "\u00dastavn\u00ed pr\u00e1vo. Spr\u00e1vn\u00ed pr\u00e1vo"
+            }, 
+            "342.53": {
+                "conspect_id": "16", 
+                "ddc": "348", 
+                "en_name": "Laws (statutes), regulations, cases", 
+                "mdt": "342.53", 
+                "name": "Z\u00e1konod\u00e1rstv\u00ed"
+            }, 
+            "343": {
+                "conspect_id": "16", 
+                "ddc": "345", 
+                "en_name": "Criminal law", 
+                "mdt": "343", 
+                "name": "Trestn\u00ed pr\u00e1vo"
+            }, 
+            "343.9": {
+                "conspect_id": "16", 
+                "ddc": "345.05", 
+                "en_name": "Criminal procedure", 
+                "mdt": "343.9", 
+                "name": "Kriminalistika"
+            }, 
+            "344": {
+                "conspect_id": "16", 
+                "ddc": "343.01", 
+                "en_name": "Military, defence, veteran&apos;s law", 
+                "mdt": "344", 
+                "name": "Vojensk\u00e9 trestn\u00ed pr\u00e1vo"
+            }, 
+            "346": {
+                "conspect_id": "16", 
+                "ddc": "343.07", 
+                "en_name": "Regulation of economic activity", 
+                "mdt": "346", 
+                "name": "Hospod\u00e1\u0159sk\u00e9 pr\u00e1vo"
+            }, 
+            "347": {
+                "conspect_id": "16", 
+                "ddc": "346", 
+                "en_name": "Private law", 
+                "mdt": "347", 
+                "name": "Soukrom\u00e9 pr\u00e1vo"
+            }, 
+            "347.7": {
+                "conspect_id": "16", 
+                "ddc": "346.07", 
+                "en_name": "Commercial law", 
+                "mdt": "347.7", 
+                "name": "Obchodn\u00ed pr\u00e1vo. Finan\u010dn\u00ed pr\u00e1vo. Pr\u00e1vo pr\u016fmyslov\u00e9ho vlastnictv\u00ed. Patentov\u00e9 pr\u00e1vo. Autorsk\u00e9 pr\u00e1vo"
+            }, 
+            "347.9": {
+                "conspect_id": "16", 
+                "ddc": "347", 
+                "en_name": "Civil procedure and Courts", 
+                "mdt": "347.9", 
+                "name": "Ob\u010dansk\u00e9 soudn\u00ed \u0159\u00edzen\u00ed. Soudnictv\u00ed"
+            }, 
+            "349": {
+                "conspect_id": "16", 
+                "ddc": "344", 
+                "en_name": "Labor, social service law", 
+                "mdt": "349", 
+                "name": "Pracovn\u00ed, soci\u00e1ln\u00ed, stavebn\u00ed pr\u00e1vo. Pr\u00e1vo \u017eivotn\u00edho prost\u0159ed\u00ed"
+            }
+        }
+    }, 
+    "17": {
+        "id": "17", 
+        "name": "Psychologie", 
+        "subconspects": {
+            "133": {
+                "conspect_id": "17", 
+                "ddc": "130", 
+                "en_name": "Paranormal phenomena", 
+                "mdt": "133", 
+                "name": "Ezoterismus. Okultismus"
+            }, 
+            "159.9": {
+                "conspect_id": "17", 
+                "ddc": "150", 
+                "en_name": "Psychology", 
+                "mdt": "159.9", 
+                "name": "Psychologie"
+            }, 
+            "159.92": {
+                "conspect_id": "17", 
+                "ddc": "155", 
+                "en_name": "Differencial and developmental psychology", 
+                "mdt": "159.92", 
+                "name": "V\u00fdvojov\u00e1 psychologie. Individu\u00e1ln\u00ed psychologie"
+            }, 
+            "159.929": {
+                "conspect_id": "17", 
+                "ddc": "156", 
+                "en_name": "Comparative psychology", 
+                "mdt": "159.929", 
+                "name": "Srovn\u00e1vac\u00ed psychologie"
+            }, 
+            "159.93/.94": {
+                "conspect_id": "17", 
+                "ddc": "152", 
+                "en_name": "Sensory perception, movement, emotions, physiological drives", 
+                "mdt": "159.93/.94", 
+                "name": "Senzorick\u00e9 a motorick\u00e9 funkce. Emoce. V\u016fle"
+            }, 
+            "159.95": {
+                "conspect_id": "17", 
+                "ddc": "153", 
+                "en_name": "Conscious mental processes and intelligence", 
+                "mdt": "159.95", 
+                "name": "Vy\u0161\u0161\u00ed du\u0161evn\u00ed procesy"
+            }, 
+            "159.96": {
+                "conspect_id": "17", 
+                "ddc": "154", 
+                "en_name": "Subconscious and altered states and processes", 
+                "mdt": "159.96", 
+                "name": "Zvl\u00e1\u0161tn\u00ed du\u0161evn\u00ed stavy a procesy"
+            }, 
+            "159.97": {
+                "conspect_id": "17", 
+                "ddc": "150.195", 
+                "en_name": "Psychology (psychoanalytic systems)", 
+                "mdt": "159.97", 
+                "name": "Psychopatologie"
+            }, 
+            "159.98": {
+                "conspect_id": "17", 
+                "ddc": "158", 
+                "en_name": "Applied psychology", 
+                "mdt": "159.98", 
+                "name": "Aplikovan\u00e1 psychologie"
+            }
+        }
+    }, 
+    "18": {
+        "id": "18", 
+        "name": "Sociologie", 
+        "subconspects": {
+            "061.2": {
+                "conspect_id": "18", 
+                "ddc": "366", 
+                "en_name": "Associations", 
+                "mdt": "061.2", 
+                "name": "Nevl\u00e1dn\u00ed organizace a kooperace"
+            }, 
+            "3": {
+                "conspect_id": "18", 
+                "ddc": "300", 
+                "en_name": "Social sciences", 
+                "mdt": "3", 
+                "name": "Spole\u010densk\u00e9 v\u011bdy"
+            }, 
+            "308": {
+                "conspect_id": "18", 
+                "ddc": "300.1", 
+                "en_name": "Sociology (philosophy and theory)", 
+                "mdt": "308", 
+                "name": "Sociografie"
+            }, 
+            "314": {
+                "conspect_id": "18", 
+                "ddc": "304", 
+                "en_name": "Factors affecting social behavior", 
+                "mdt": "314", 
+                "name": "Demografie. Populace"
+            }, 
+            "316": {
+                "conspect_id": "18", 
+                "ddc": "301", 
+                "en_name": "Sociology and anthropology", 
+                "mdt": "316", 
+                "name": "Sociologie"
+            }, 
+            "316.3": {
+                "conspect_id": "18", 
+                "ddc": "305", 
+                "en_name": "Social groups", 
+                "mdt": "316.3", 
+                "name": "Glob\u00e1ln\u00ed spole\u010dnosti. Soci\u00e1ln\u00ed struktura. Soci\u00e1ln\u00ed skupiny"
+            }, 
+            "316.33": {
+                "conspect_id": "18", 
+                "ddc": "307", 
+                "en_name": "Communities", 
+                "mdt": "316.33", 
+                "name": "Ekonomick\u00e1 sociologie. Sociologie instituc\u00ed, lidsk\u00fdch s\u00eddel a komunit"
+            }, 
+            "316.4": {
+                "conspect_id": "18", 
+                "ddc": "303", 
+                "en_name": "Social processes", 
+                "mdt": "316.4", 
+                "name": "Soci\u00e1ln\u00ed procesy"
+            }, 
+            "316.4/.7": {
+                "conspect_id": "18", 
+                "ddc": "302", 
+                "en_name": "Social interaction", 
+                "mdt": "316.4/.7", 
+                "name": "Soci\u00e1ln\u00ed interakce"
+            }, 
+            "316.8": {
+                "conspect_id": "18", 
+                "ddc": "306.8", 
+                "en_name": "Marriage and family", 
+                "mdt": "316.8", 
+                "name": "Man\u017eelstv\u00ed a rodina. Sexu\u00e1ln\u00ed vztahy"
+            }, 
+            "326": {
+                "conspect_id": "18", 
+                "ddc": "326", 
+                "en_name": "Slavery and emancipation", 
+                "mdt": "326", 
+                "name": "Otroctv\u00ed"
+            }, 
+            "343.8": {
+                "conspect_id": "18", 
+                "ddc": "365", 
+                "en_name": "Penal and related institutions", 
+                "mdt": "343.8", 
+                "name": "V\u011bze\u0148stv\u00ed"
+            }, 
+            "343.97": {
+                "conspect_id": "18", 
+                "ddc": "364", 
+                "en_name": "Criminology", 
+                "mdt": "343.97", 
+                "name": "Kriminologie"
+            }, 
+            "36": {
+                "conspect_id": "18", 
+                "ddc": "360", 
+                "en_name": "Social problems and services", 
+                "mdt": "36", 
+                "name": "Zaji\u0161t\u011bn\u00ed du\u0161evn\u00edch a materi\u00e1ln\u00edch pot\u0159eb"
+            }, 
+            "364": {
+                "conspect_id": "18", 
+                "ddc": "361", 
+                "en_name": "Social problems and social welfare in general", 
+                "mdt": "364", 
+                "name": "Soci\u00e1ln\u00ed probl\u00e9my vy\u017eaduj\u00edc\u00ed podporu a pomoc. Soci\u00e1ln\u00ed zabezpe\u010den\u00ed"
+            }, 
+            "364-1/-7": {
+                "conspect_id": "18", 
+                "ddc": "362", 
+                "en_name": "Social welfare problems and services", 
+                "mdt": "364-1/-7", 
+                "name": "Druhy soci\u00e1ln\u00ed pomoci a slu\u017eeb"
+            }, 
+            "364.3": {
+                "conspect_id": "18", 
+                "ddc": "368.4", 
+                "en_name": "Social insurance", 
+                "mdt": "364.3", 
+                "name": "Soci\u00e1ln\u00ed poji\u0161t\u011bn\u00ed. Zdravotn\u00ed poji\u0161t\u011bn\u00ed. D\u016fchody"
+            }, 
+            "365": {
+                "conspect_id": "18", 
+                "ddc": "363", 
+                "en_name": "Other social problems and services", 
+                "mdt": "365", 
+                "name": "Po\u017eadavky na bydlen\u00ed a jejich uspokojov\u00e1n\u00ed"
+            }, 
+            "366": {
+                "conspect_id": "18", 
+                "ddc": "381.3", 
+                "en_name": "Consumer problems and protection", 
+                "mdt": "366", 
+                "name": "Ochrana spot\u0159ebitele. Chov\u00e1n\u00ed spot\u0159ebitele"
+            }, 
+            "649": {
+                "conspect_id": "18", 
+                "ddc": "649", 
+                "en_name": "Child rearing and home care of sick and infirm", 
+                "mdt": "649", 
+                "name": "Dom\u00e1c\u00ed p\u00e9\u010de o d\u011bti, nemocn\u00e9 a hosty"
+            }
+        }
+    }, 
+    "19": {
+        "id": "19", 
+        "name": "Technika, technologie, in\u017een\u00fdrstv\u00ed", 
+        "subconspects": {
+            "62": {
+                "conspect_id": "19", 
+                "ddc": "600", 
+                "en_name": "Technology (applied sciences)", 
+                "mdt": "62", 
+                "name": "Technika v\u0161eobecn\u011b"
+            }, 
+            "620.1/.2": {
+                "conspect_id": "19", 
+                "ddc": "620.11", 
+                "en_name": "Engineering materials", 
+                "mdt": "620.1/.2", 
+                "name": "Nauka o materi\u00e1lu"
+            }, 
+            "620.9": {
+                "conspect_id": "19", 
+                "ddc": "620.042", 
+                "en_name": "Energy engineering", 
+                "mdt": "620.9", 
+                "name": "Energetika"
+            }, 
+            "621": {
+                "conspect_id": "19", 
+                "ddc": "620", 
+                "en_name": "Engineering and allied operations", 
+                "mdt": "621", 
+                "name": "Stroj\u00edrenstv\u00ed"
+            }, 
+            "621.039": {
+                "conspect_id": "19", 
+                "ddc": "621.48", 
+                "en_name": "Nuclear engineering", 
+                "mdt": "621.039", 
+                "name": "Jadern\u00e1 technika"
+            }, 
+            "621.3": {
+                "conspect_id": "19", 
+                "ddc": "621", 
+                "en_name": "Applied physics", 
+                "mdt": "621.3", 
+                "name": "Elektrotechnika"
+            }, 
+            "621.38": {
+                "conspect_id": "19", 
+                "ddc": "621.381", 
+                "en_name": "Electronics", 
+                "mdt": "621.38", 
+                "name": "Elektronika"
+            }, 
+            "621.39": {
+                "conspect_id": "19", 
+                "ddc": "621.382", 
+                "en_name": "Communication engineering", 
+                "mdt": "621.39", 
+                "name": "Sd\u011blovac\u00ed technika"
+            }, 
+            "622": {
+                "conspect_id": "19", 
+                "ddc": "622", 
+                "en_name": "Mining and related operations", 
+                "mdt": "622", 
+                "name": "Hornictv\u00ed"
+            }, 
+            "623": {
+                "conspect_id": "19", 
+                "ddc": "623", 
+                "en_name": "Military and nautical engineering", 
+                "mdt": "623", 
+                "name": "Vojensk\u00e1 technika"
+            }, 
+            "624": {
+                "conspect_id": "19", 
+                "ddc": "624", 
+                "en_name": "Civil engineering", 
+                "mdt": "624", 
+                "name": "Stavebn\u00ed in\u017een\u00fdrstv\u00ed"
+            }, 
+            "625": {
+                "conspect_id": "19", 
+                "ddc": "625", 
+                "en_name": "Engineering of railroads and roads", 
+                "mdt": "625", 
+                "name": "Pozemn\u00ed komunikace. \u017delezni\u010dn\u00ed stavitelstv\u00ed"
+            }, 
+            "626/627": {
+                "conspect_id": "19", 
+                "ddc": "627", 
+                "en_name": "Hydraulic engineering", 
+                "mdt": "626/627", 
+                "name": "Vodn\u00ed stavitelstv\u00ed. Vodn\u00ed hospod\u00e1\u0159stv\u00ed"
+            }, 
+            "628": {
+                "conspect_id": "19", 
+                "ddc": "628", 
+                "en_name": "Sanitary, municipal engineering; environmental protection engineering", 
+                "mdt": "628", 
+                "name": "Sanit\u00e1rn\u00ed technika. Vod\u00e1renstv\u00ed. Odpadov\u00e9 hospod\u00e1\u0159stv\u00ed. Sv\u011bteln\u00e1 technika"
+            }, 
+            "629": {
+                "conspect_id": "19", 
+                "ddc": "629", 
+                "en_name": "Other branches of engineering", 
+                "mdt": "629", 
+                "name": "Dopravn\u00ed prost\u0159edky"
+            }, 
+            "629.056.2": {
+                "conspect_id": "19", 
+                "ddc": "527", 
+                "en_name": "Celestial navigation", 
+                "mdt": "629.056.2", 
+                "name": "Astronomick\u00e1 navigace"
+            }, 
+            "64": {
+                "conspect_id": "19", 
+                "ddc": "640", 
+                "en_name": "Home economics and family living", 
+                "mdt": "64", 
+                "name": "Dom\u00e1c\u00ed hospod\u00e1\u0159stv\u00ed"
+            }, 
+            "640.4": {
+                "conspect_id": "19", 
+                "ddc": "647.9", 
+                "en_name": "Specific kinds of public households and institutions", 
+                "mdt": "640.4", 
+                "name": "Hotelnictv\u00ed. Stravov\u00e1n\u00ed"
+            }, 
+            "641": {
+                "conspect_id": "19", 
+                "ddc": "641", 
+                "en_name": "Food and drink", 
+                "mdt": "641", 
+                "name": "Kucha\u0159stv\u00ed. Potraviny. Va\u0159en\u00e1 j\u00eddla"
+            }, 
+            "642": {
+                "conspect_id": "19", 
+                "ddc": "642", 
+                "en_name": "Meals and table service", 
+                "mdt": "642", 
+                "name": "\u010c\u00ed\u0161nictv\u00ed. Serv\u00edrov\u00e1n\u00ed"
+            }, 
+            "643": {
+                "conspect_id": "19", 
+                "ddc": "643", 
+                "en_name": "Housing and household equipment", 
+                "mdt": "643", 
+                "name": "Byt. M\u00edstnosti. Vybaven\u00ed bytu"
+            }, 
+            "644": {
+                "conspect_id": "19", 
+                "ddc": "644", 
+                "en_name": "Household utilities", 
+                "mdt": "644", 
+                "name": "Bytov\u00e9 za\u0159\u00edzen\u00ed (sanit\u00e1rn\u00ed)"
+            }, 
+            "645": {
+                "conspect_id": "19", 
+                "ddc": "645", 
+                "en_name": "Household furnishings", 
+                "mdt": "645", 
+                "name": "N\u00e1bytek"
+            }, 
+            "646": {
+                "conspect_id": "19", 
+                "ddc": "646", 
+                "en_name": "Sewing, clothing", 
+                "mdt": "646", 
+                "name": "Od\u00edv\u00e1n\u00ed. P\u00e9\u010de o t\u011blo"
+            }, 
+            "647": {
+                "conspect_id": "19", 
+                "ddc": "647", 
+                "en_name": "Management of public households (institutional housekeeping)", 
+                "mdt": "647", 
+                "name": "Dom\u00e1c\u00ed person\u00e1l"
+            }, 
+            "648": {
+                "conspect_id": "19", 
+                "ddc": "648", 
+                "en_name": "Housekeeping", 
+                "mdt": "648", 
+                "name": "Pran\u00ed. \u010ci\u0161t\u011bn\u00ed"
+            }, 
+            "66": {
+                "conspect_id": "19", 
+                "ddc": "660", 
+                "en_name": "Chemical engineering and related technologies", 
+                "mdt": "66", 
+                "name": "Chemick\u00fd pr\u016fmysl. Chemick\u00e1 technologie"
+            }, 
+            "661": {
+                "conspect_id": "19", 
+                "ddc": "661", 
+                "en_name": "Technology of industrial chemicals", 
+                "mdt": "661", 
+                "name": "Chemik\u00e1lie"
+            }, 
+            "662": {
+                "conspect_id": "19", 
+                "ddc": "662", 
+                "en_name": "Technology of explosives, fuels, related products", 
+                "mdt": "662", 
+                "name": "V\u00fdbu\u0161niny. Paliva"
+            }, 
+            "663": {
+                "conspect_id": "19", 
+                "ddc": "663", 
+                "en_name": "Beverage technology", 
+                "mdt": "663", 
+                "name": "Pr\u016fmysl n\u00e1poj\u016f. Kvasn\u00fd pr\u016fmysl. Pr\u016fmysl pochutin"
+            }, 
+            "664": {
+                "conspect_id": "19", 
+                "ddc": "664", 
+                "en_name": "Food technology", 
+                "mdt": "664", 
+                "name": "Potravin\u00e1\u0159sk\u00fd pr\u016fmysl"
+            }, 
+            "665": {
+                "conspect_id": "19", 
+                "ddc": "665", 
+                "en_name": "Technology of industrial oils, fats, waxes, gases", 
+                "mdt": "665", 
+                "name": "Oleje. Tuky. Vosky. Pojiva. Prysky\u0159ice"
+            }, 
+            "666": {
+                "conspect_id": "19", 
+                "ddc": "666", 
+                "en_name": "Ceramic and allied technologies", 
+                "mdt": "666", 
+                "name": "Skl\u00e1\u0159stv\u00ed. Keramika. Cement"
+            }, 
+            "667": {
+                "conspect_id": "19", 
+                "ddc": "667", 
+                "en_name": "Cleaning, color coating and related technologies", 
+                "mdt": "667", 
+                "name": "Pr\u016fmysl barviv"
+            }, 
+            "669": {
+                "conspect_id": "19", 
+                "ddc": "669", 
+                "en_name": "Metallurgy", 
+                "mdt": "669", 
+                "name": "Metalurgie"
+            }, 
+            "67/68": {
+                "conspect_id": "19", 
+                "ddc": "670", 
+                "en_name": "Manufacturing", 
+                "mdt": "67/68", 
+                "name": "\u0158emesla. R\u016fzn\u00e1 odv\u011btv\u00ed pr\u016fmyslu"
+            }, 
+            "671": {
+                "conspect_id": "19", 
+                "ddc": "671", 
+                "en_name": "Metalworking processes and primary metal products", 
+                "mdt": "671", 
+                "name": "P\u0159edm\u011bty z drah\u00fdch kov\u016f"
+            }, 
+            "672": {
+                "conspect_id": "19", 
+                "ddc": "672", 
+                "en_name": "Iron, steel, other iron alloys", 
+                "mdt": "672", 
+                "name": "P\u0159edm\u011bty ze \u017eeleza a oceli"
+            }, 
+            "673": {
+                "conspect_id": "19", 
+                "ddc": "673", 
+                "en_name": "Nonferrous metals", 
+                "mdt": "673", 
+                "name": "P\u0159edm\u011bty z ne\u017eelezn\u00fdch kov\u016f"
+            }, 
+            "674": {
+                "conspect_id": "19", 
+                "ddc": "674", 
+                "en_name": "Lumber processing, wood products, cork", 
+                "mdt": "674", 
+                "name": "D\u0159evo. D\u0159eva\u0159sk\u00fd pr\u016fmysl"
+            }, 
+            "675": {
+                "conspect_id": "19", 
+                "ddc": "675", 
+                "en_name": "Leather and fur processing", 
+                "mdt": "675", 
+                "name": "Ko\u017eed\u011bln\u00fd pr\u016fmysl"
+            }, 
+            "676": {
+                "conspect_id": "19", 
+                "ddc": "676", 
+                "en_name": "Pulp and paper technology", 
+                "mdt": "676", 
+                "name": "Pap\u00edrensk\u00fd pr\u016fmysl"
+            }, 
+            "677": {
+                "conspect_id": "19", 
+                "ddc": "677", 
+                "en_name": "Textiles", 
+                "mdt": "677", 
+                "name": "Textiln\u00ed pr\u016fmysl"
+            }, 
+            "678": {
+                "conspect_id": "19", 
+                "ddc": "678", 
+                "en_name": "Elastomers and elastomer products", 
+                "mdt": "678", 
+                "name": "Pr\u016fmysl makromolekul\u00e1rn\u00edch l\u00e1tek. Gum\u00e1rensk\u00fd pr\u016fmysl. Pr\u016fmysl plast\u016f"
+            }, 
+            "679": {
+                "conspect_id": "19", 
+                "ddc": "679", 
+                "en_name": "Other products of specific kinds of materials", 
+                "mdt": "679", 
+                "name": "V\u00fdroba kabel\u016f, provaz\u016f a lan. Pr\u016fmysl kamene"
+            }, 
+            "681": {
+                "conspect_id": "19", 
+                "ddc": "681", 
+                "en_name": "Precision instruments and other devices", 
+                "mdt": "681", 
+                "name": "P\u0159esn\u00e1 mechanika a p\u0159\u00edstroje. Hudebn\u00ed n\u00e1stroje"
+            }, 
+            "681.5": {
+                "conspect_id": "19", 
+                "ddc": "629.8", 
+                "en_name": "Automatic control engineering", 
+                "mdt": "681.5", 
+                "name": "Automatiza\u010dn\u00ed a \u0159\u00eddic\u00ed technika"
+            }, 
+            "682": {
+                "conspect_id": "19", 
+                "ddc": "682", 
+                "en_name": "Small force work (blacksmithing)", 
+                "mdt": "682", 
+                "name": "Kov\u00e1\u0159stv\u00ed"
+            }, 
+            "683": {
+                "conspect_id": "19", 
+                "ddc": "683", 
+                "en_name": "Hardware and household appliances", 
+                "mdt": "683", 
+                "name": "\u017delez\u00e1\u0159stv\u00ed. Z\u00e1me\u010dnictv\u00ed. Topn\u00e1 za\u0159\u00edzen\u00ed"
+            }, 
+            "684": {
+                "conspect_id": "19", 
+                "ddc": "684", 
+                "en_name": "Furnishing and home workshops", 
+                "mdt": "684", 
+                "name": "N\u00e1bytk\u00e1\u0159sk\u00fd pr\u016fmysl"
+            }, 
+            "685": {
+                "conspect_id": "19", 
+                "ddc": "685", 
+                "en_name": "Leather and fur goods and related products", 
+                "mdt": "685", 
+                "name": "Zpracov\u00e1n\u00ed k\u016f\u017ee. Obuvnictv\u00ed"
+            }, 
+            "686": {
+                "conspect_id": "19", 
+                "ddc": "686", 
+                "en_name": "Printing and related activities", 
+                "mdt": "686", 
+                "name": "Kniha\u0159stv\u00ed. Sklen\u00e1\u0159stv\u00ed. Kancel\u00e1\u0159sk\u00e9 pot\u0159eby"
+            }, 
+            "687": {
+                "conspect_id": "19", 
+                "ddc": "687", 
+                "en_name": "Clothing and accessories", 
+                "mdt": "687", 
+                "name": "Od\u011bvn\u00ed pr\u016fmysl. Kosmetika. Kade\u0159nictv\u00ed. P\u00e9\u010de o vzhled"
+            }, 
+            "688": {
+                "conspect_id": "19", 
+                "ddc": "688", 
+                "en_name": "Other final products and packaging technology", 
+                "mdt": "688", 
+                "name": "Dekora\u010dn\u00ed p\u0159edm\u011bty. Hra\u010dky. Galanterie"
+            }, 
+            "69": {
+                "conspect_id": "19", 
+                "ddc": "690", 
+                "en_name": "Buildings", 
+                "mdt": "69", 
+                "name": "Stavebnictv\u00ed"
+            }, 
+            "691": {
+                "conspect_id": "19", 
+                "ddc": "691", 
+                "en_name": "Building materials", 
+                "mdt": "691", 
+                "name": "Stavebn\u00ed hmoty"
+            }, 
+            "692": {
+                "conspect_id": "19", 
+                "ddc": "692", 
+                "en_name": "Auxiliary construction practices", 
+                "mdt": "692", 
+                "name": "Konstruk\u010dn\u00ed prvky a \u010d\u00e1sti staveb"
+            }, 
+            "693": {
+                "conspect_id": "19", 
+                "ddc": "693", 
+                "en_name": "Construction in specific types of materials and for specific purposes", 
+                "mdt": "693", 
+                "name": "Zednick\u00e9 pr\u00e1ce"
+            }, 
+            "694": {
+                "conspect_id": "19", 
+                "ddc": "694", 
+                "en_name": "Wood construction, carpentry", 
+                "mdt": "694", 
+                "name": "D\u0159ev\u011bn\u00e9 stavby. Tesa\u0159stv\u00ed. Truhl\u00e1\u0159stv\u00ed"
+            }, 
+            "696": {
+                "conspect_id": "19", 
+                "ddc": "696", 
+                "en_name": "Utilities", 
+                "mdt": "696", 
+                "name": "Instalace v budov\u00e1ch"
+            }, 
+            "697": {
+                "conspect_id": "19", 
+                "ddc": "697", 
+                "en_name": "Heating, ventilating, air-conditioning", 
+                "mdt": "697", 
+                "name": "Vyt\u00e1p\u011bn\u00ed, v\u011btr\u00e1n\u00ed, klimatizace"
+            }, 
+            "698": {
+                "conspect_id": "19", 
+                "ddc": "698", 
+                "en_name": "Detail finishing", 
+                "mdt": "698", 
+                "name": "Dokon\u010dovac\u00ed pr\u00e1ce"
+            }, 
+            "699.8": {
+                "conspect_id": "19", 
+                "ddc": "693.8", 
+                "en_name": "Construction for specific purposes (protection of buildings)", 
+                "mdt": "699.8", 
+                "name": "Ochrana budov"
+            }
+        }
+    }, 
+    "2": {
+        "id": "2", 
+        "name": "Biologick\u00e9 v\u011bdy", 
+        "subconspects": {
+            "502": {
+                "conspect_id": "2", 
+                "ddc": "363.7", 
+                "en_name": "Environmental protection", 
+                "mdt": "502", 
+                "name": "\u017divotn\u00ed prost\u0159ed\u00ed a jeho ochrana"
+            }, 
+            "504": {
+                "conspect_id": "2", 
+                "ddc": "363.73", 
+                "en_name": "Environmental pollution", 
+                "mdt": "504", 
+                "name": "Zne\u010di\u0161t\u011bn\u00ed a po\u0161kozen\u00ed \u017eivotn\u00edho prost\u0159ed\u00ed"
+            }, 
+            "57": {
+                "conspect_id": "2", 
+                "ddc": "570", 
+                "en_name": "Biology", 
+                "mdt": "57", 
+                "name": "Obecn\u00e1 biologie"
+            }, 
+            "57/59": {
+                "conspect_id": "2", 
+                "ddc": "570", 
+                "en_name": "Life sciences", 
+                "mdt": "57/59", 
+                "name": "Biologick\u00e9 v\u011bdy"
+            }, 
+            "574": {
+                "conspect_id": "2", 
+                "ddc": "577", 
+                "en_name": "Ecology (in general)", 
+                "mdt": "574", 
+                "name": "Obecn\u00e1 ekologie"
+            }, 
+            "575": {
+                "conspect_id": "2", 
+                "ddc": "576", 
+                "en_name": "Genetics and evolution", 
+                "mdt": "575", 
+                "name": "Obecn\u00e1 genetika. Obecn\u00e1 cytogenetika. Evoluce"
+            }, 
+            "576": {
+                "conspect_id": "2", 
+                "ddc": "571.6", 
+                "en_name": "Cell biology", 
+                "mdt": "576", 
+                "name": "Bun\u011b\u010dn\u00e1 biologie. Cytologie"
+            }, 
+            "577": {
+                "conspect_id": "2", 
+                "ddc": "572", 
+                "en_name": "Biochemistry", 
+                "mdt": "577", 
+                "name": "Biochemie. Molekul\u00e1rn\u00ed biologie. Biofyzika"
+            }, 
+            "578": {
+                "conspect_id": "2", 
+                "ddc": "579.2", 
+                "en_name": "Virology", 
+                "mdt": "578", 
+                "name": "Virologie"
+            }, 
+            "579": {
+                "conspect_id": "2", 
+                "ddc": "579", 
+                "en_name": "Microorganisms, fungi, algae", 
+                "mdt": "579", 
+                "name": "Mikrobiologie"
+            }, 
+            "58": {
+                "conspect_id": "2", 
+                "ddc": "580", 
+                "en_name": "Plants", 
+                "mdt": "58", 
+                "name": "Botanika"
+            }, 
+            "581": {
+                "conspect_id": "2", 
+                "ddc": "575", 
+                "en_name": "Specific physiological systems in plants", 
+                "mdt": "581", 
+                "name": "Obecn\u00e1 botanika"
+            }, 
+            "59": {
+                "conspect_id": "2", 
+                "ddc": "590", 
+                "en_name": "Animals", 
+                "mdt": "59", 
+                "name": "Zoologie"
+            }, 
+            "591": {
+                "conspect_id": "2", 
+                "ddc": "573", 
+                "en_name": "Specific physiological systems in animals", 
+                "mdt": "591", 
+                "name": "Obecn\u00e1 zoologie"
+            }, 
+            "60": {
+                "conspect_id": "2", 
+                "ddc": "660.6", 
+                "en_name": "Biotechnology", 
+                "mdt": "60", 
+                "name": "Biotechnologie. Genetick\u00e9 in\u017een\u00fdrstv\u00ed"
+            }
+        }
+    }, 
+    "20": {
+        "id": "20", 
+        "name": "T\u011blesn\u00e1 v\u00fdchova a sport. Rekreace", 
+        "subconspects": {
+            "613.7": {
+                "conspect_id": "20", 
+                "ddc": "613.7", 
+                "en_name": "Physical fitness", 
+                "mdt": "613.7", 
+                "name": "Zdrav\u00ed a hygiena voln\u00e9ho \u010dasu, rekreace a sp\u00e1nku"
+            }, 
+            "79": {
+                "conspect_id": "20", 
+                "ddc": "790", 
+                "en_name": "Recreational arts", 
+                "mdt": "79", 
+                "name": "Rekreace. Voln\u00fd \u010das. Z\u00e1bava. Hry. Sport"
+            }, 
+            "793": {
+                "conspect_id": "20", 
+                "ddc": "793", 
+                "en_name": "Indoor games and amusements", 
+                "mdt": "793", 
+                "name": "Spole\u010densk\u00e1 z\u00e1bava"
+            }, 
+            "794": {
+                "conspect_id": "20", 
+                "ddc": "794", 
+                "en_name": "Indoor games of skill", 
+                "mdt": "794", 
+                "name": "Deskov\u00e9 a stoln\u00ed hry, logick\u00e9 hry, hry zru\u010dnosti"
+            }, 
+            "794.9": {
+                "conspect_id": "20", 
+                "ddc": "795", 
+                "en_name": "Games of chance", 
+                "mdt": "794.9", 
+                "name": "Hry z\u00e1visl\u00e9 na n\u00e1hod\u011b"
+            }, 
+            "796": {
+                "conspect_id": "20", 
+                "ddc": "796", 
+                "en_name": "Athletic and outdoor sports and games", 
+                "mdt": "796", 
+                "name": "Sport. Hry. T\u011blesn\u00e1 cvi\u010den\u00ed"
+            }, 
+            "797": {
+                "conspect_id": "20", 
+                "ddc": "797", 
+                "en_name": "Aquatic and air sports", 
+                "mdt": "797", 
+                "name": "Vodn\u00ed sporty. Leteck\u00e9 sporty"
+            }, 
+            "798": {
+                "conspect_id": "20", 
+                "ddc": "798", 
+                "en_name": "Equestrian sports and animal racing", 
+                "mdt": "798", 
+                "name": "Jezdectv\u00ed. Sporty se zv\u00ed\u0159aty"
+            }, 
+            "799": {
+                "conspect_id": "20", 
+                "ddc": "799", 
+                "en_name": "Fishing, hunting, shooting", 
+                "mdt": "799", 
+                "name": "Sportovn\u00ed rybolov. Loveck\u00fd sport. Sportovn\u00ed st\u0159elba"
+            }
+        }
+    }, 
+    "21": {
+        "id": "21", 
+        "name": "Um\u011bn\u00ed, architektura", 
+        "subconspects": {
+            "7.01/.09": {
+                "conspect_id": "21", 
+                "ddc": "700", 
+                "en_name": "Arts", 
+                "mdt": "7.01/.09", 
+                "name": "Um\u011bn\u00ed"
+            }, 
+            "71": {
+                "conspect_id": "21", 
+                "ddc": "710", 
+                "en_name": "Civic and landscape art", 
+                "mdt": "71", 
+                "name": "\u00dazemn\u00ed pl\u00e1nov\u00e1n\u00ed. Urbanismus. Pam\u00e1tkov\u00e1 p\u00e9\u010de"
+            }, 
+            "72": {
+                "conspect_id": "21", 
+                "ddc": "720", 
+                "en_name": "Architecture", 
+                "mdt": "72", 
+                "name": "Architektura"
+            }, 
+            "72/76": {
+                "conspect_id": "21", 
+                "ddc": "701-770", 
+                "en_name": "Fine and decorative arts", 
+                "mdt": "72/76", 
+                "name": "V\u00fdtvarn\u00e9 um\u011bn\u00ed"
+            }, 
+            "73": {
+                "conspect_id": "21", 
+                "ddc": "730", 
+                "en_name": "Plastic art - sculpture", 
+                "mdt": "73", 
+                "name": "Socha\u0159stv\u00ed, keramika, porcel\u00e1n, um\u011bleck\u00e9 zpracov\u00e1n\u00ed kov\u016f"
+            }, 
+            "74": {
+                "conspect_id": "21", 
+                "ddc": "740", 
+                "en_name": "Drawing and decorative arts", 
+                "mdt": "74", 
+                "name": "Kresba. Um\u011bleck\u00e1 \u0159emesla"
+            }, 
+            "75": {
+                "conspect_id": "21", 
+                "ddc": "750", 
+                "en_name": "Painting and paintings", 
+                "mdt": "75", 
+                "name": "Mal\u00ed\u0159stv\u00ed"
+            }, 
+            "76": {
+                "conspect_id": "21", 
+                "ddc": "760", 
+                "en_name": "Graphic arts, printmaking and prints", 
+                "mdt": "76", 
+                "name": "Grafick\u00e9 um\u011bn\u00ed. Grafika"
+            }, 
+            "77": {
+                "conspect_id": "21", 
+                "ddc": "770", 
+                "en_name": "Photography and photographs", 
+                "mdt": "77", 
+                "name": "Fotografie. Fotografick\u00e9 postupy"
+            }
+        }
+    }, 
+    "22": {
+        "id": "22", 
+        "name": "V\u00fdchova a vzd\u011bl\u00e1v\u00e1n\u00ed", 
+        "subconspects": {
+            "37": {
+                "conspect_id": "22", 
+                "ddc": "370", 
+                "en_name": "Education", 
+                "mdt": "37", 
+                "name": "V\u00fdchova a vzd\u011bl\u00e1v\u00e1n\u00ed"
+            }, 
+            "37.014": {
+                "conspect_id": "22", 
+                "ddc": "379", 
+                "en_name": "Public policy issues in education", 
+                "mdt": "37.014", 
+                "name": "Vzd\u011bl\u00e1vac\u00ed a v\u00fdchovn\u00e1 politika"
+            }, 
+            "37.016": {
+                "conspect_id": "22", 
+                "ddc": "375", 
+                "en_name": "Curricula", 
+                "mdt": "37.016", 
+                "name": "U\u010debn\u00ed osnovy. Vyu\u010dovac\u00ed p\u0159edm\u011bty. U\u010debnice"
+            }, 
+            "371": {
+                "conspect_id": "22", 
+                "ddc": "370", 
+                "en_name": "Schools and their activities", 
+                "mdt": "371", 
+                "name": "\u0160kolstv\u00ed (organizace)"
+            }, 
+            "373.2/.3": {
+                "conspect_id": "22", 
+                "ddc": "372", 
+                "en_name": "Elementary education", 
+                "mdt": "373.2/.3", 
+                "name": "P\u0159ed\u0161koln\u00ed a prim\u00e1rn\u00ed v\u00fdchova a vzd\u011bl\u00e1v\u00e1n\u00ed"
+            }, 
+            "373.5/.6": {
+                "conspect_id": "22", 
+                "ddc": "373", 
+                "en_name": "Secondary education", 
+                "mdt": "373.5/.6", 
+                "name": "St\u0159edn\u00ed \u0161koly"
+            }, 
+            "374": {
+                "conspect_id": "22", 
+                "ddc": "374", 
+                "en_name": "Adult education", 
+                "mdt": "374", 
+                "name": "V\u00fdchova a vzd\u011bl\u00e1v\u00e1n\u00ed dosp\u011bl\u00fdch. Mimo\u0161koln\u00ed v\u00fdchova a vzd\u011bl\u00e1v\u00e1n\u00ed"
+            }, 
+            "376": {
+                "conspect_id": "22", 
+                "ddc": "371.9", 
+                "en_name": "Special education", 
+                "mdt": "376", 
+                "name": "V\u00fdchova a vzd\u011bl\u00e1v\u00e1n\u00ed zvl\u00e1\u0161tn\u00edch skupin osob"
+            }, 
+            "377": {
+                "conspect_id": "22", 
+                "ddc": "378.013", 
+                "en_name": "Professional education", 
+                "mdt": "377", 
+                "name": "Odborn\u00e9 vzd\u011bl\u00e1v\u00e1n\u00ed"
+            }, 
+            "378": {
+                "conspect_id": "22", 
+                "ddc": "378", 
+                "en_name": "Higher education", 
+                "mdt": "378", 
+                "name": "Vysok\u00e9 \u0161koly"
+            }
+        }
+    }, 
+    "23": {
+        "id": "23", 
+        "name": "V\u00fdpo\u010detn\u00ed technika", 
+        "subconspects": {
+            "004": {
+                "conspect_id": "23", 
+                "ddc": "004", 
+                "en_name": "Data processing, computer science", 
+                "mdt": "004", 
+                "name": "Po\u010d\u00edta\u010dov\u00e1 v\u011bda. V\u00fdpo\u010detn\u00ed technika. Informa\u010dn\u00ed technologie"
+            }, 
+            "004.2": {
+                "conspect_id": "23", 
+                "ddc": "004.22", 
+                "en_name": "Computer architecture", 
+                "mdt": "004.2", 
+                "name": "Po\u010d\u00edta\u010dov\u00e1 architektura"
+            }, 
+            "004.3": {
+                "conspect_id": "23", 
+                "ddc": "621.39", 
+                "en_name": "Computer engineering", 
+                "mdt": "004.3", 
+                "name": "Po\u010d\u00edta\u010de. Hardware"
+            }, 
+            "004.4/.6": {
+                "conspect_id": "23", 
+                "ddc": "005", 
+                "en_name": "Computer programming, programs, data", 
+                "mdt": "004.4/.6", 
+                "name": "Programov\u00e1n\u00ed. Software"
+            }, 
+            "004.7": {
+                "conspect_id": "23", 
+                "ddc": "004.6", 
+                "en_name": "Interfacing and communications", 
+                "mdt": "004.7", 
+                "name": "Po\u010d\u00edta\u010dov\u00e9 s\u00edt\u011b"
+            }, 
+            "004.8": {
+                "conspect_id": "23", 
+                "ddc": "006.3", 
+                "en_name": "Artificial intelligence", 
+                "mdt": "004.8", 
+                "name": "Um\u011bl\u00e1 inteligence"
+            }, 
+            "004.9": {
+                "conspect_id": "23", 
+                "ddc": "006", 
+                "en_name": "Special computer methods", 
+                "mdt": "004.9", 
+                "name": "Speci\u00e1ln\u00ed po\u010d\u00edta\u010dov\u00e9 metody. Po\u010d\u00edta\u010dov\u00e1 grafika"
+            }, 
+            "007": {
+                "conspect_id": "23", 
+                "ddc": "003", 
+                "en_name": "Systems", 
+                "mdt": "007", 
+                "name": "Teorie syst\u00e9m\u016f. Automatick\u00e9 syst\u00e9my. Informa\u010dn\u00ed syst\u00e9my. Kybernetika"
+            }
+        }
+    }, 
+    "24": {
+        "id": "24", 
+        "name": "Zem\u011bd\u011blstv\u00ed", 
+        "subconspects": {
+            "63": {
+                "conspect_id": "24", 
+                "ddc": "630", 
+                "en_name": "Agriculture and related technologies", 
+                "mdt": "63", 
+                "name": "Zem\u011bd\u011blstv\u00ed a p\u0159\u00edbuzn\u00e9 oblasti v\u011bdy a techniky"
+            }, 
+            "630": {
+                "conspect_id": "24", 
+                "ddc": "634", 
+                "en_name": "Forestry", 
+                "mdt": "630", 
+                "name": "Lesnictv\u00ed"
+            }, 
+            "631": {
+                "conspect_id": "24", 
+                "ddc": "631", 
+                "en_name": "Specific techniques, apparatus, equipment, materials (Agriculture)", 
+                "mdt": "631", 
+                "name": "Zem\u011bd\u011blstv\u00ed. Pedologie. Agrotechnika. Agroekologie"
+            }, 
+            "632": {
+                "conspect_id": "24", 
+                "ddc": "632", 
+                "en_name": "Plant injuries, diseases, pests", 
+                "mdt": "632", 
+                "name": "Ochrana rostlin. Fytopatologie"
+            }, 
+            "633": {
+                "conspect_id": "24", 
+                "ddc": "633", 
+                "en_name": "Field and plantation crops", 
+                "mdt": "633", 
+                "name": "Rostlinn\u00e1 v\u00fdroba"
+            }, 
+            "634": {
+                "conspect_id": "24", 
+                "ddc": "634", 
+                "en_name": "Orchards, fruits", 
+                "mdt": "634", 
+                "name": "Ovocn\u00e1\u0159stv\u00ed"
+            }, 
+            "635": {
+                "conspect_id": "24", 
+                "ddc": "635", 
+                "en_name": "Garden crops (horticulture), vegetables", 
+                "mdt": "635", 
+                "name": "Zahr\u00e1dk\u00e1\u0159stv\u00ed"
+            }, 
+            "636": {
+                "conspect_id": "24", 
+                "ddc": "636", 
+                "en_name": "Animal husbandry", 
+                "mdt": "636", 
+                "name": "Chov zv\u00ed\u0159at. \u017divo\u010di\u0161n\u00e1 v\u00fdroba"
+            }, 
+            "636.09": {
+                "conspect_id": "24", 
+                "ddc": "636.089", 
+                "en_name": "Veterinary medicine", 
+                "mdt": "636.09", 
+                "name": "Veterin\u00e1rn\u00ed l\u00e9ka\u0159stv\u00ed"
+            }, 
+            "637": {
+                "conspect_id": "24", 
+                "ddc": "637", 
+                "en_name": "Processing dairy and related products", 
+                "mdt": "637", 
+                "name": "\u017divo\u010di\u0161n\u00e9 produkty"
+            }, 
+            "638": {
+                "conspect_id": "24", 
+                "ddc": "638", 
+                "en_name": "Insect culture", 
+                "mdt": "638", 
+                "name": "V\u010dela\u0159stv\u00ed"
+            }, 
+            "639.1": {
+                "conspect_id": "24", 
+                "ddc": "639.1", 
+                "en_name": "Hunting", 
+                "mdt": "639.1", 
+                "name": "Myslivost"
+            }, 
+            "639.2/.6": {
+                "conspect_id": "24", 
+                "ddc": "639.2-639.7", 
+                "en_name": "Fishing", 
+                "mdt": "639.2/.6", 
+                "name": "Ryb\u00e1\u0159stv\u00ed"
+            }, 
+            "712": {
+                "conspect_id": "24", 
+                "ddc": "712", 
+                "en_name": "Landscape architecture (landscape design)", 
+                "mdt": "712", 
+                "name": "Pl\u00e1nov\u00e1n\u00ed krajiny. Parky. Zahrady"
+            }
+        }
+    }, 
+    "25": {
+        "id": "25", 
+        "name": "Beletrie", 
+        "subconspects": {
+            "821": {
+                "conspect_id": "25", 
+                "ddc": "899", 
+                "en_name": "Literature of miscellaneous languages", 
+                "mdt": "821", 
+                "name": "Literatura v r\u016fzn\u00fdch jazyc\u00edch"
+            }, 
+            "821-1/-8": {
+                "conspect_id": "25", 
+                "ddc": "808.8", 
+                "en_name": "Literature in specific forms", 
+                "mdt": "821-1/-8", 
+                "name": "Literatura r\u016fzn\u00fdch forem a \u017e\u00e1nr\u016f"
+            }, 
+            "821-31/-34": {
+                "conspect_id": "25", 
+                "ddc": "808.83", 
+                "en_name": "Love, adventure and fantastic fiction", 
+                "mdt": "821-31/-34", 
+                "name": "Milostn\u00e1, dobrodru\u017en\u00e1, fantastick\u00e1 pr\u00f3za"
+            }, 
+            "821-97": {
+                "conspect_id": "25", 
+                "ddc": "808.803 82", 
+                "en_name": "Religious literature", 
+                "mdt": "821-97", 
+                "name": "N\u00e1bo\u017eensk\u00e1 literatura. Duchovn\u00ed literatura"
+            }, 
+            "821.11": {
+                "conspect_id": "25", 
+                "ddc": "839", 
+                "en_name": "Other Germanic literatures", 
+                "mdt": "821.11", 
+                "name": "Germ\u00e1nsk\u00e9 literatury"
+            }, 
+            "821.111": {
+                "conspect_id": "25", 
+                "ddc": "820", 
+                "en_name": "English literature", 
+                "mdt": "821.111", 
+                "name": "Anglick\u00e1 literatura, anglicky psan\u00e1"
+            }, 
+            "821.111(73)": {
+                "conspect_id": "25", 
+                "ddc": "810", 
+                "en_name": "American literature in English", 
+                "mdt": "821.111(73)", 
+                "name": "Americk\u00e1 literatura"
+            }, 
+            "821.111(73)-1": {
+                "conspect_id": "25", 
+                "ddc": "811", 
+                "en_name": "American poetry", 
+                "mdt": "821.111(73)-1", 
+                "name": "Americk\u00e1 poezie"
+            }, 
+            "821.111(73)-2": {
+                "conspect_id": "25", 
+                "ddc": "812", 
+                "en_name": "American drama", 
+                "mdt": "821.111(73)-2", 
+                "name": "Americk\u00e9 drama"
+            }, 
+            "821.111(73)-3": {
+                "conspect_id": "25", 
+                "ddc": "813", 
+                "en_name": "American fiction", 
+                "mdt": "821.111(73)-3", 
+                "name": "Americk\u00e1 pr\u00f3za"
+            }, 
+            "821.111-1": {
+                "conspect_id": "25", 
+                "ddc": "821", 
+                "en_name": "English poetry", 
+                "mdt": "821.111-1", 
+                "name": "Anglick\u00e1 poezie, anglicky psan\u00e1"
+            }, 
+            "821.111-2": {
+                "conspect_id": "25", 
+                "ddc": "822", 
+                "en_name": "English drama", 
+                "mdt": "821.111-2", 
+                "name": "Anglick\u00e9 drama, anglicky psan\u00e9"
+            }, 
+            "821.111-3": {
+                "conspect_id": "25", 
+                "ddc": "823", 
+                "en_name": "English fiction", 
+                "mdt": "821.111-3", 
+                "name": "Anglick\u00e1 pr\u00f3za, anglicky psan\u00e1"
+            }, 
+            "821.112.2": {
+                "conspect_id": "25", 
+                "ddc": "830", 
+                "en_name": "German literature", 
+                "mdt": "821.112.2", 
+                "name": "N\u011bmeck\u00e1 literatura, n\u011bmecky psan\u00e1"
+            }, 
+            "821.112.2-1": {
+                "conspect_id": "25", 
+                "ddc": "831", 
+                "en_name": "German poetry", 
+                "mdt": "821.112.2-1", 
+                "name": "N\u011bmeck\u00e1 poezie, n\u011bmecky psan\u00e1"
+            }, 
+            "821.112.2-2": {
+                "conspect_id": "25", 
+                "ddc": "832", 
+                "en_name": "German drama", 
+                "mdt": "821.112.2-2", 
+                "name": "N\u011bmeck\u00e9 drama, n\u011bmecky psan\u00e9"
+            }, 
+            "821.112.2-3": {
+                "conspect_id": "25", 
+                "ddc": "833", 
+                "en_name": "German fiction", 
+                "mdt": "821.112.2-3", 
+                "name": "N\u011bmeck\u00e1 pr\u00f3za, n\u011bmecky psan\u00e1"
+            }, 
+            "821.124": {
+                "conspect_id": "25", 
+                "ddc": "870", 
+                "en_name": "Latin literature", 
+                "mdt": "821.124", 
+                "name": "Latinsk\u00e1 literatura, latinsky psan\u00e1"
+            }, 
+            "821.124-1": {
+                "conspect_id": "25", 
+                "ddc": "871", 
+                "en_name": "Latin poetry", 
+                "mdt": "821.124-1", 
+                "name": "Latinsk\u00e1 poezie, latinsky psan\u00e1"
+            }, 
+            "821.124-2": {
+                "conspect_id": "25", 
+                "ddc": "872", 
+                "en_name": "Latin drama", 
+                "mdt": "821.124-2", 
+                "name": "Latinsk\u00e9 drama, latinsky psan\u00e9"
+            }, 
+            "821.124-3": {
+                "conspect_id": "25", 
+                "ddc": "873", 
+                "en_name": "Latin fiction", 
+                "mdt": "821.124-3", 
+                "name": "Latinsk\u00e1 pr\u00f3za, latinsky psan\u00e1"
+            }, 
+            "821.13": {
+                "conspect_id": "25", 
+                "ddc": "859", 
+                "en_name": "Romanian and Rhaeto-Romanic literatures", 
+                "mdt": "821.13", 
+                "name": "Rom\u00e1nsk\u00e9 literatury"
+            }, 
+            "821.131.1": {
+                "conspect_id": "25", 
+                "ddc": "850", 
+                "en_name": "Italian literature", 
+                "mdt": "821.131.1", 
+                "name": "Italsk\u00e1 literatura"
+            }, 
+            "821.131.1-1": {
+                "conspect_id": "25", 
+                "ddc": "851", 
+                "en_name": "Italian poetry", 
+                "mdt": "821.131.1-1", 
+                "name": "Italsk\u00e1 poezie"
+            }, 
+            "821.131.1-2": {
+                "conspect_id": "25", 
+                "ddc": "852", 
+                "en_name": "Italian drama", 
+                "mdt": "821.131.1-2", 
+                "name": "Italsk\u00e9 drama"
+            }, 
+            "821.131.1-3": {
+                "conspect_id": "25", 
+                "ddc": "853", 
+                "en_name": "Italian fiction", 
+                "mdt": "821.131.1-3", 
+                "name": "Italsk\u00e1 pr\u00f3za"
+            }, 
+            "821.133.1": {
+                "conspect_id": "25", 
+                "ddc": "840", 
+                "en_name": "French literature", 
+                "mdt": "821.133.1", 
+                "name": "Francouzsk\u00e1 literatura, francouzsky psan\u00e1"
+            }, 
+            "821.133.1-1": {
+                "conspect_id": "25", 
+                "ddc": "841", 
+                "en_name": "French poetry", 
+                "mdt": "821.133.1-1", 
+                "name": "Francouzsk\u00e1 poezie, francouzsky psan\u00e1"
+            }, 
+            "821.133.1-2": {
+                "conspect_id": "25", 
+                "ddc": "842", 
+                "en_name": "French drama", 
+                "mdt": "821.133.1-2", 
+                "name": "Francouzsk\u00e9 drama, francouzsky psan\u00e9"
+            }, 
+            "821.133.1-3": {
+                "conspect_id": "25", 
+                "ddc": "843", 
+                "en_name": "French fiction", 
+                "mdt": "821.133.1-3", 
+                "name": "Francouzsk\u00e1 pr\u00f3za, francouzsky psan\u00e1"
+            }, 
+            "821.134.2": {
+                "conspect_id": "25", 
+                "ddc": "860", 
+                "en_name": "Spanish literature", 
+                "mdt": "821.134.2", 
+                "name": "\u0160pan\u011blsk\u00e1 literatura, \u0161pan\u011blsky psan\u00e1"
+            }, 
+            "821.134.2-1": {
+                "conspect_id": "25", 
+                "ddc": "861", 
+                "en_name": "Spanish poetry", 
+                "mdt": "821.134.2-1", 
+                "name": "\u0160pan\u011blsk\u00e1 poezie, \u0161pan\u011blsky psan\u00e1"
+            }, 
+            "821.134.2-2": {
+                "conspect_id": "25", 
+                "ddc": "862", 
+                "en_name": "Spanish drama", 
+                "mdt": "821.134.2-2", 
+                "name": "\u0160pan\u011blsk\u00e9 drama, \u0161pan\u011blsky psan\u00e9"
+            }, 
+            "821.134.2-3": {
+                "conspect_id": "25", 
+                "ddc": "863", 
+                "en_name": "Spanish fiction", 
+                "mdt": "821.134.2-3", 
+                "name": "\u0160pan\u011blsk\u00e1 pr\u00f3za, \u0161pan\u011blsky psan\u00e1"
+            }, 
+            "821.134.3": {
+                "conspect_id": "25", 
+                "ddc": "869", 
+                "en_name": "Portuguese literature", 
+                "mdt": "821.134.3", 
+                "name": "Portugalsk\u00e1 literatura, portugalsky psan\u00e1"
+            }, 
+            "821.14": {
+                "conspect_id": "25", 
+                "ddc": "889", 
+                "en_name": "Modern Greek literature", 
+                "mdt": "821.14", 
+                "name": "\u0158eck\u00e1 literatura (st\u0159edov\u011bk\u00e1, novodob\u00e1)"
+            }, 
+            "821.14&apos;02": {
+                "conspect_id": "25", 
+                "ddc": "880", 
+                "en_name": "Greek (Hellenic) literature", 
+                "mdt": "821.14&apos;02", 
+                "name": "\u0158eck\u00e1 antick\u00e1 literatura"
+            }, 
+            "821.14&apos;02-1": {
+                "conspect_id": "25", 
+                "ddc": "881", 
+                "en_name": "Greek (Hellenic) poetry", 
+                "mdt": "821.14&apos;02-1", 
+                "name": "\u0158eck\u00e1 antick\u00e1 poezie"
+            }, 
+            "821.14&apos;02-2": {
+                "conspect_id": "25", 
+                "ddc": "882", 
+                "en_name": "Greek (Hellenic) drama", 
+                "mdt": "821.14&apos;02-2", 
+                "name": "\u0158eck\u00e9 antick\u00e9 drama"
+            }, 
+            "821.14&apos;02-3": {
+                "conspect_id": "25", 
+                "ddc": "883", 
+                "en_name": "Greek (Hellenic) fiction", 
+                "mdt": "821.14&apos;02-3", 
+                "name": "\u0158eck\u00e1 antick\u00e1 pr\u00f3za"
+            }, 
+            "821.16": {
+                "conspect_id": "25", 
+                "ddc": "891.8", 
+                "en_name": "Slavic (Slavonic) literatures", 
+                "mdt": "821.16", 
+                "name": "Slovansk\u00e9 literatury"
+            }, 
+            "821.161": {
+                "conspect_id": "25", 
+                "ddc": "891.7", 
+                "en_name": "East Slavic literatures", 
+                "mdt": "821.161", 
+                "name": "V\u00fdchodoslovansk\u00e9 literatury"
+            }, 
+            "821.161.1": {
+                "conspect_id": "25", 
+                "ddc": "891.7", 
+                "en_name": "Russian literature", 
+                "mdt": "821.161.1", 
+                "name": "Rusk\u00e1 literatura"
+            }, 
+            "821.162": {
+                "conspect_id": "25", 
+                "ddc": "891.8", 
+                "en_name": "West Slavic literatures", 
+                "mdt": "821.162", 
+                "name": "Z\u00e1padoslovansk\u00e9 literatury"
+            }, 
+            "821.162.1": {
+                "conspect_id": "25", 
+                "ddc": "891.85", 
+                "en_name": "Polish literature", 
+                "mdt": "821.162.1", 
+                "name": "Polsk\u00e1 literatura"
+            }, 
+            "821.162.3": {
+                "conspect_id": "25", 
+                "ddc": "891.86", 
+                "en_name": "Czech literature", 
+                "mdt": "821.162.3", 
+                "name": "\u010cesk\u00e1 literatura"
+            }, 
+            "821.162.3-1": {
+                "conspect_id": "25", 
+                "ddc": "891.86-1", 
+                "en_name": "Czech poetry", 
+                "mdt": "821.162.3-1", 
+                "name": "\u010cesk\u00e1 poezie"
+            }, 
+            "821.162.3-2": {
+                "conspect_id": "25", 
+                "ddc": "891.86-2", 
+                "en_name": "Czech drama", 
+                "mdt": "821.162.3-2", 
+                "name": "\u010cesk\u00e9 drama"
+            }, 
+            "821.162.3-3": {
+                "conspect_id": "25", 
+                "ddc": "891.86-3", 
+                "en_name": "Czech fiction", 
+                "mdt": "821.162.3-3", 
+                "name": "\u010cesk\u00e1 pr\u00f3za"
+            }, 
+            "821.162.4": {
+                "conspect_id": "25", 
+                "ddc": "891.87", 
+                "en_name": "Slovak literature", 
+                "mdt": "821.162.4", 
+                "name": "Slovensk\u00e1 literatura"
+            }, 
+            "821.163": {
+                "conspect_id": "25", 
+                "ddc": "891.81", 
+                "en_name": "South Slavic literatures", 
+                "mdt": "821.163", 
+                "name": "Jihoslovansk\u00e9 literatury"
+            }, 
+            "821.163.1": {
+                "conspect_id": "25", 
+                "ddc": "891.81", 
+                "en_name": "Old church Slavic literature", 
+                "mdt": "821.163.1", 
+                "name": "Staroslov\u011bnsk\u00e1 literatura"
+            }, 
+            "821.17": {
+                "conspect_id": "25", 
+                "ddc": "891.9", 
+                "en_name": "Baltic literatures", 
+                "mdt": "821.17", 
+                "name": "Baltsk\u00e9 literatury"
+            }, 
+            "821.41": {
+                "conspect_id": "25", 
+                "ddc": "892-893", 
+                "en_name": "Afro-Asiatic (Hamito-Semitic) literatures", 
+                "mdt": "821.41", 
+                "name": "Afroasijsk\u00e9 (hamitosemitsk\u00e9) literatury"
+            }, 
+            "821.432": {
+                "conspect_id": "25", 
+                "ddc": "896", 
+                "en_name": "African literatures", 
+                "mdt": "821.432", 
+                "name": "Nigerokon\u017esk\u00e9 literatury"
+            }, 
+            "821.51": {
+                "conspect_id": "25", 
+                "ddc": "894", 
+                "en_name": "Altaic, Uralic, Hyperborean, Dravidian literatures", 
+                "mdt": "821.51", 
+                "name": "Uraloaltajsk\u00e9 literatury"
+            }, 
+            "821.521": {
+                "conspect_id": "25", 
+                "ddc": "895.6", 
+                "en_name": "Japanese literature", 
+                "mdt": "821.521", 
+                "name": "Japonsk\u00e1 literatura"
+            }, 
+            "821.531": {
+                "conspect_id": "25", 
+                "ddc": "895.7", 
+                "en_name": "Korean literature", 
+                "mdt": "821.531", 
+                "name": "Korejsk\u00e1 literatura"
+            }, 
+            "821.58": {
+                "conspect_id": "25", 
+                "ddc": "895", 
+                "en_name": "Literatures of East and SE Asia, Sino-Tibetian literatures", 
+                "mdt": "821.58", 
+                "name": "Sino-tibetsk\u00e9 literatury"
+            }, 
+            "821.62": {
+                "conspect_id": "25", 
+                "ddc": "899", 
+                "en_name": "Austronesian literatures", 
+                "mdt": "821.62", 
+                "name": "Austron\u00e9sk\u00e9 literatury"
+            }, 
+            "821.81/.82": {
+                "conspect_id": "25", 
+                "ddc": "897", 
+                "en_name": "Literatures of North American native languages", 
+                "mdt": "821.81/.82", 
+                "name": "Literatury severoamerick\u00fdch Indi\u00e1n\u016f"
+            }, 
+            "821.873": {
+                "conspect_id": "25", 
+                "ddc": "898", 
+                "en_name": "Literature of South American native languages", 
+                "mdt": "821.873", 
+                "name": "Literatury andsko-rovn\u00edkov\u00fdch jazyk\u016f"
+            }
+        }
+    }, 
+    "26": {
+        "id": "26", 
+        "name": "Literatura pro d\u011bti a ml\u00e1de\u017e", 
+        "subconspects": {
+            "0/9-053.2": {
+                "conspect_id": "26", 
+                "ddc": "000-999", 
+                "en_name": "Children&apos;s and juvenile literature (nonfiction)", 
+                "mdt": "0/9-053.2", 
+                "name": "Literatura pro d\u011bti a ml\u00e1de\u017e (nau\u010dn\u00e1)"
+            }, 
+            "821-93": {
+                "conspect_id": "26", 
+                "ddc": "808.899 282", 
+                "en_name": "Children&apos;s and juvenile literature (fiction)", 
+                "mdt": "821-93", 
+                "name": "Literatura pro d\u011bti a ml\u00e1de\u017e (beletrie)"
+            }
+        }
+    }, 
+    "3": {
+        "id": "3", 
+        "name": "Divadlo, film, tanec", 
+        "subconspects": {
+            "791": {
+                "conspect_id": "3", 
+                "ddc": "791", 
+                "en_name": "Public Performances", 
+                "mdt": "791", 
+                "name": "Film. Cirkus. Lidov\u00e1 z\u00e1bava"
+            }, 
+            "791/793": {
+                "conspect_id": "3", 
+                "ddc": "790.2", 
+                "en_name": "The Performing Arts in general", 
+                "mdt": "791/793", 
+                "name": "Divadlo, film, tanec (obecn\u011b)"
+            }, 
+            "792": {
+                "conspect_id": "3", 
+                "ddc": "792", 
+                "en_name": "Stage presentations", 
+                "mdt": "792", 
+                "name": "Divadlo. Divadeln\u00ed p\u0159edstaven\u00ed"
+            }, 
+            "793.3": {
+                "conspect_id": "3", 
+                "ddc": "793.3", 
+                "en_name": "Social, folk, national dancing", 
+                "mdt": "793.3", 
+                "name": "Pohybov\u00e9 um\u011bn\u00ed. Tanec"
+            }, 
+            "793.8": {
+                "conspect_id": "3", 
+                "ddc": "793.8", 
+                "en_name": "Magic and related activities", 
+                "mdt": "793.8", 
+                "name": "Z\u00e1bavn\u00e1 magie"
+            }
+        }
+    }, 
+    "4": {
+        "id": "4", 
+        "name": "Ekonomick\u00e9 v\u011bdy, obchod", 
+        "subconspects": {
+            "003.05": {
+                "conspect_id": "4", 
+                "ddc": "653", 
+                "en_name": "Shorthand", 
+                "mdt": "003.05", 
+                "name": "Psan\u00ed a stenografie"
+            }, 
+            "005": {
+                "conspect_id": "4", 
+                "ddc": "650", 
+                "en_name": "Management and auxiliary services", 
+                "mdt": "005", 
+                "name": "Management. \u0158\u00edzen\u00ed"
+            }, 
+            "005.91/.92": {
+                "conspect_id": "4", 
+                "ddc": "651", 
+                "en_name": "Office services", 
+                "mdt": "005.91/.92", 
+                "name": "Kancel\u00e1\u0159"
+            }, 
+            "005.91:82-6": {
+                "conspect_id": "4", 
+                "ddc": "652", 
+                "en_name": "Processes of written communication", 
+                "mdt": "005.91:82-6", 
+                "name": "\u00da\u0159edn\u00ed korespondence"
+            }, 
+            "311": {
+                "conspect_id": "4", 
+                "ddc": "310", 
+                "en_name": "General statistics", 
+                "mdt": "311", 
+                "name": "Statistika"
+            }, 
+            "33": {
+                "conspect_id": "4", 
+                "ddc": "330", 
+                "en_name": "Economics", 
+                "mdt": "33", 
+                "name": "Ekonomie"
+            }, 
+            "330.5+338": {
+                "conspect_id": "4", 
+                "ddc": "339", 
+                "en_name": "Macroeconomics and related topics", 
+                "mdt": "330.5+338", 
+                "name": "N\u00e1rodn\u00ed hospod\u00e1\u0159stv\u00ed a hospod\u00e1\u0159sk\u00e1 politika"
+            }, 
+            "330.8": {
+                "conspect_id": "4", 
+                "ddc": "330.1", 
+                "en_name": "Economic systems, schools, theories", 
+                "mdt": "330.8", 
+                "name": "Ekonomick\u00e9 teorie, doktr\u00edny, sm\u011bry"
+            }, 
+            "331": {
+                "conspect_id": "4", 
+                "ddc": "331", 
+                "en_name": "Labor economics", 
+                "mdt": "331", 
+                "name": "Pr\u00e1ce"
+            }, 
+            "332": {
+                "conspect_id": "4", 
+                "ddc": "333", 
+                "en_name": "Economics of land and energy", 
+                "mdt": "332", 
+                "name": "Region\u00e1ln\u00ed ekonomie, region\u00e1ln\u00ed ekonomika"
+            }, 
+            "334": {
+                "conspect_id": "4", 
+                "ddc": "334", 
+                "en_name": "Cooperatives", 
+                "mdt": "334", 
+                "name": "Formy organizace a spolupr\u00e1ce v ekonomice"
+            }, 
+            "336.1/.5": {
+                "conspect_id": "4", 
+                "ddc": "336", 
+                "en_name": "Public finance", 
+                "mdt": "336.1/.5", 
+                "name": "Ve\u0159ejn\u00e9 finance"
+            }, 
+            "336.7": {
+                "conspect_id": "4", 
+                "ddc": "332", 
+                "en_name": "Financial economics", 
+                "mdt": "336.7", 
+                "name": "Finance"
+            }, 
+            "338.3/.4": {
+                "conspect_id": "4", 
+                "ddc": "338", 
+                "en_name": "Production", 
+                "mdt": "338.3/.4", 
+                "name": "Hospod\u00e1\u0159sk\u00e1 a v\u00fdrobn\u00ed odv\u011btv\u00ed"
+            }, 
+            "339": {
+                "conspect_id": "4", 
+                "ddc": "380", 
+                "en_name": "Commerce, communication, transportation", 
+                "mdt": "339", 
+                "name": "Obchod"
+            }, 
+            "339.3": {
+                "conspect_id": "4", 
+                "ddc": "381", 
+                "en_name": "Internal commerce (domestic trade)", 
+                "mdt": "339.3", 
+                "name": "Vnit\u0159n\u00ed obchod"
+            }, 
+            "339.5": {
+                "conspect_id": "4", 
+                "ddc": "382", 
+                "en_name": "International commerce (foreign trade)", 
+                "mdt": "339.5", 
+                "name": "Zahrani\u010dn\u00ed obchod. Mezin\u00e1rodn\u00ed obchod"
+            }, 
+            "339.7/.9": {
+                "conspect_id": "4", 
+                "ddc": "337", 
+                "en_name": "International economics", 
+                "mdt": "339.7/.9", 
+                "name": "Sv\u011btov\u00e1 ekonomika a mezin\u00e1rodn\u00ed finance"
+            }, 
+            "368": {
+                "conspect_id": "4", 
+                "ddc": "368", 
+                "en_name": "Insurance", 
+                "mdt": "368", 
+                "name": "Poji\u0161\u0165ovnictv\u00ed"
+            }, 
+            "654": {
+                "conspect_id": "4", 
+                "ddc": "384", 
+                "en_name": "Communications, telecommunication", 
+                "mdt": "654", 
+                "name": "Telekomunikace a d\u00e1lkov\u00e9 \u0159\u00edzen\u00ed"
+            }, 
+            "656": {
+                "conspect_id": "4", 
+                "ddc": "388", 
+                "en_name": "Transportation", 
+                "mdt": "656", 
+                "name": "Doprava"
+            }, 
+            "656.1/.5": {
+                "conspect_id": "4", 
+                "ddc": "388.1-388.4", 
+                "en_name": "Ground transportation", 
+                "mdt": "656.1/.5", 
+                "name": "Pozemn\u00ed doprava"
+            }, 
+            "656.2": {
+                "conspect_id": "4", 
+                "ddc": "385", 
+                "en_name": "Railroad transportation", 
+                "mdt": "656.2", 
+                "name": "\u017delezni\u010dn\u00ed doprava"
+            }, 
+            "656.6/.7": {
+                "conspect_id": "4", 
+                "ddc": "387", 
+                "en_name": "Water, air, space transportation", 
+                "mdt": "656.6/.7", 
+                "name": "Vodn\u00ed a leteck\u00e1 doprava"
+            }, 
+            "656.62": {
+                "conspect_id": "4", 
+                "ddc": "386", 
+                "en_name": "Inland waterway and ferry transportation", 
+                "mdt": "656.62", 
+                "name": "\u0158\u00ed\u010dn\u00ed doprava"
+            }, 
+            "656.8": {
+                "conspect_id": "4", 
+                "ddc": "383", 
+                "en_name": "Postal communication", 
+                "mdt": "656.8", 
+                "name": "Po\u0161tovn\u00ed slu\u017eby a spr\u00e1va"
+            }, 
+            "657": {
+                "conspect_id": "4", 
+                "ddc": "657", 
+                "en_name": "Accounting", 
+                "mdt": "657", 
+                "name": "\u00da\u010detnictv\u00ed"
+            }, 
+            "658": {
+                "conspect_id": "4", 
+                "ddc": "658", 
+                "en_name": "General management", 
+                "mdt": "658", 
+                "name": "\u0158\u00edzen\u00ed a spr\u00e1va podniku"
+            }, 
+            "659": {
+                "conspect_id": "4", 
+                "ddc": "659", 
+                "en_name": "Advertising and public relations", 
+                "mdt": "659", 
+                "name": "Reklama. Public relations. M\u00e9dia"
+            }
+        }
+    }, 
+    "5": {
+        "id": "5", 
+        "name": "Filozofie a n\u00e1bo\u017eenstv\u00ed", 
+        "subconspects": {
+            "101": {
+                "conspect_id": "5", 
+                "ddc": "100", 
+                "en_name": "Philosophy", 
+                "mdt": "101", 
+                "name": "Filozofie"
+            }, 
+            "11": {
+                "conspect_id": "5", 
+                "ddc": "110", 
+                "en_name": "Metaphysics", 
+                "mdt": "11", 
+                "name": "Metafyzika"
+            }, 
+            "122/129": {
+                "conspect_id": "5", 
+                "ddc": "122-129", 
+                "en_name": "Special metaphysics", 
+                "mdt": "122/129", 
+                "name": "Speci\u00e1ln\u00ed metafyzika"
+            }, 
+            "13": {
+                "conspect_id": "5", 
+                "ddc": "128.2", 
+                "en_name": "Mind and spirit", 
+                "mdt": "13", 
+                "name": "Filozofie ducha"
+            }, 
+            "14": {
+                "conspect_id": "5", 
+                "ddc": "140", 
+                "en_name": "Specific phiosophical schools and viewpoints", 
+                "mdt": "14", 
+                "name": "Filozofick\u00e9 syst\u00e9my a hlediska"
+            }, 
+            "14(100)&quot;04/14&quot;": {
+                "conspect_id": "5", 
+                "ddc": "180", 
+                "en_name": "Medieval philosophy", 
+                "mdt": "14(100)&quot;04/14&quot;", 
+                "name": "St\u0159edov\u011bk\u00e1 filozofie"
+            }, 
+            "14(100-11)": {
+                "conspect_id": "5", 
+                "ddc": "180", 
+                "en_name": "Oriental philosophy", 
+                "mdt": "14(100-11)", 
+                "name": "Orient\u00e1ln\u00ed filozofie"
+            }, 
+            "14(100-15)&quot;15/20&quot;": {
+                "conspect_id": "5", 
+                "ddc": "190", 
+                "en_name": "Modern western philosophy", 
+                "mdt": "14(100-15)&quot;15/20&quot;", 
+                "name": "Modern\u00ed z\u00e1padn\u00ed filozofie"
+            }, 
+            "14(3)": {
+                "conspect_id": "5", 
+                "ddc": "180", 
+                "en_name": "Ancient philosophy", 
+                "mdt": "14(3)", 
+                "name": "Antick\u00e1, starov\u011bk\u00e1 filozofie"
+            }, 
+            "16": {
+                "conspect_id": "5", 
+                "ddc": "160", 
+                "en_name": "Logic", 
+                "mdt": "16", 
+                "name": "Logika"
+            }, 
+            "165": {
+                "conspect_id": "5", 
+                "ddc": "120", 
+                "en_name": "Epistemology, causation, humankind", 
+                "mdt": "165", 
+                "name": "Teorie pozn\u00e1n\u00ed. Epistemologie"
+            }, 
+            "17": {
+                "conspect_id": "5", 
+                "ddc": "170", 
+                "en_name": "Ethics (moral philosophy)", 
+                "mdt": "17", 
+                "name": "Etika. Mor\u00e1ln\u00ed filozofie"
+            }, 
+            "2": {
+                "conspect_id": "5", 
+                "ddc": "200", 
+                "en_name": "Religion", 
+                "mdt": "2", 
+                "name": "N\u00e1bo\u017eenstv\u00ed"
+            }, 
+            "2-1": {
+                "conspect_id": "5", 
+                "ddc": "210", 
+                "en_name": "Philosophy and theory of religion", 
+                "mdt": "2-1", 
+                "name": "P\u0159irozen\u00e1 teologie. N\u00e1bo\u017eensk\u00e1 filozofie"
+            }, 
+            "2-23/-27": {
+                "conspect_id": "5", 
+                "ddc": "220", 
+                "en_name": "Bible", 
+                "mdt": "2-23/-27", 
+                "name": "Bible. Biblistika"
+            }, 
+            "2-74": {
+                "conspect_id": "5", 
+                "ddc": "291.84", 
+                "en_name": "Religious law", 
+                "mdt": "2-74", 
+                "name": "N\u00e1bo\u017eensk\u00e9 pr\u00e1vo. C\u00edrkevn\u00ed pr\u00e1vo"
+            }, 
+            "21": {
+                "conspect_id": "5", 
+                "ddc": "291.042", 
+                "en_name": "Prehistoric religions and religions of nonliterate peoples", 
+                "mdt": "21", 
+                "name": "Prehistorick\u00e1 a primitivn\u00ed n\u00e1bo\u017eenstv\u00ed"
+            }, 
+            "22/24": {
+                "conspect_id": "5", 
+                "ddc": "294", 
+                "en_name": "Religions of Indic origin", 
+                "mdt": "22/24", 
+                "name": "N\u00e1bo\u017eenstv\u00ed D\u00e1ln\u00e9ho v\u00fdchodu. Indick\u00e1 n\u00e1bo\u017eenstv\u00ed. Hinduismus. Buddhismus"
+            }, 
+            "25": {
+                "conspect_id": "5", 
+                "ddc": "292-293", 
+                "en_name": "Classical (Greek and Roman), Germanic religion", 
+                "mdt": "25", 
+                "name": "N\u00e1bo\u017eenstv\u00ed, mytologie, kulty"
+            }, 
+            "26": {
+                "conspect_id": "5", 
+                "ddc": "296", 
+                "en_name": "Judaism", 
+                "mdt": "26", 
+                "name": "Judaismus"
+            }, 
+            "27": {
+                "conspect_id": "5", 
+                "ddc": "260", 
+                "en_name": "Christian social and ecclesiastical theology", 
+                "mdt": "27", 
+                "name": "K\u0159es\u0165anstv\u00ed. K\u0159es\u0165ansk\u00e1 c\u00edrkev v\u0161eobecn\u011b. Eklesiologie"
+            }, 
+            "27-1/-2": {
+                "conspect_id": "5", 
+                "ddc": "230", 
+                "en_name": "Christian theology, Christian doctrinal theology", 
+                "mdt": "27-1/-2", 
+                "name": "K\u0159es\u0165ansk\u00e1 teologie. Dogmatick\u00e1 teologie"
+            }, 
+            "27-4": {
+                "conspect_id": "5", 
+                "ddc": "240", 
+                "en_name": "Christian moral and devotional theology", 
+                "mdt": "27-4", 
+                "name": "Praktick\u00e1 teologie. Mor\u00e1ln\u00ed teologie"
+            }, 
+            "27-46/-48": {
+                "conspect_id": "5", 
+                "ddc": "250", 
+                "en_name": "Local Christian church and Christian religious orders", 
+                "mdt": "27-46/-48", 
+                "name": "Pastor\u00e1ln\u00ed teologie"
+            }, 
+            "27-5": {
+                "conspect_id": "5", 
+                "ddc": "246-248", 
+                "en_name": "Art in Christianity. Church furnishing. Christian experience, practice, life", 
+                "mdt": "27-5", 
+                "name": "Liturgie. K\u0159es\u0165ansk\u00e9 um\u011bn\u00ed a symbolika. Duchovn\u00ed \u017eivot"
+            }, 
+            "27-78": {
+                "conspect_id": "5", 
+                "ddc": "255", 
+                "en_name": "Religious congregations and orders", 
+                "mdt": "27-78", 
+                "name": "K\u0159es\u0165ansk\u00e1 sdru\u017een\u00ed, spolky a organizace. \u0158eholn\u00ed \u0159\u00e1dy"
+            }, 
+            "27-9": {
+                "conspect_id": "5", 
+                "ddc": "270", 
+                "en_name": "Church history", 
+                "mdt": "27-9", 
+                "name": "D\u011bjiny k\u0159es\u0165ansk\u00e9 c\u00edrkve"
+            }, 
+            "271/279": {
+                "conspect_id": "5", 
+                "ddc": "280", 
+                "en_name": "Denominations and sects of Christian church", 
+                "mdt": "271/279", 
+                "name": "K\u0159es\u0165ansk\u00e9 c\u00edrkve, sekty, denominace"
+            }, 
+            "28": {
+                "conspect_id": "5", 
+                "ddc": "297", 
+                "en_name": "Islam", 
+                "mdt": "28", 
+                "name": "Isl\u00e1m"
+            }, 
+            "29": {
+                "conspect_id": "5", 
+                "ddc": "299.9", 
+                "en_name": "Religions of other origin", 
+                "mdt": "29", 
+                "name": "Modern\u00ed duchovn\u00ed hnut\u00ed"
+            }
+        }
+    }, 
+    "6": {
+        "id": "6", 
+        "name": "Fyzika a p\u0159\u00edbuzn\u00e9 v\u011bdy", 
+        "subconspects": {
+            "006": {
+                "conspect_id": "6", 
+                "ddc": "389", 
+                "en_name": "Metrology and standardization", 
+                "mdt": "006", 
+                "name": "Metrologie. Standardizace"
+            }, 
+            "006.95": {
+                "conspect_id": "6", 
+                "ddc": "529", 
+                "en_name": "Chronology", 
+                "mdt": "006.95", 
+                "name": "Chronologie"
+            }, 
+            "5": {
+                "conspect_id": "6", 
+                "ddc": "500", 
+                "en_name": "Natural sciences and mathematics", 
+                "mdt": "5", 
+                "name": "P\u0159\u00edrodn\u00ed v\u011bdy. Matematick\u00e9 v\u011bdy"
+            }, 
+            "52": {
+                "conspect_id": "6", 
+                "ddc": "520", 
+                "en_name": "Astronomy and allied sciences", 
+                "mdt": "52", 
+                "name": "Astronomie"
+            }, 
+            "520": {
+                "conspect_id": "6", 
+                "ddc": "522", 
+                "en_name": "Techniques, procedures, apparatus, equipment, material (Astronomy)", 
+                "mdt": "520", 
+                "name": "Astronomick\u00e9 p\u0159\u00edstroje a metody"
+            }, 
+            "521": {
+                "conspect_id": "6", 
+                "ddc": "521", 
+                "en_name": "Celestial mechanics", 
+                "mdt": "521", 
+                "name": "Teoretick\u00e1 astronomie. Nebesk\u00e1 mechanika"
+            }, 
+            "523.3": {
+                "conspect_id": "6", 
+                "ddc": "525", 
+                "en_name": "Earth (astronomical geography)", 
+                "mdt": "523.3", 
+                "name": "Zem\u011b"
+            }, 
+            "523/524": {
+                "conspect_id": "6", 
+                "ddc": "523", 
+                "en_name": "Specific celestial bodies and phenomena", 
+                "mdt": "523/524", 
+                "name": "Slune\u010dn\u00ed soustava. Hv\u011bzdy. Vesm\u00edr"
+            }, 
+            "53": {
+                "conspect_id": "6", 
+                "ddc": "530", 
+                "en_name": "Physics", 
+                "mdt": "53", 
+                "name": "Fyzika"
+            }, 
+            "531": {
+                "conspect_id": "6", 
+                "ddc": "531", 
+                "en_name": "Classical mechanics, solid mechanics", 
+                "mdt": "531", 
+                "name": "Obecn\u00e1 mechanika. Mechanika pevn\u00fdch a tuh\u00fdch t\u011bles"
+            }, 
+            "532": {
+                "conspect_id": "6", 
+                "ddc": "532", 
+                "en_name": "Fluid mechanics, liquid mechanics", 
+                "mdt": "532", 
+                "name": "Mechanika tekutin obecn\u011b. Mechanika kapalin"
+            }, 
+            "533": {
+                "conspect_id": "6", 
+                "ddc": "533", 
+                "en_name": "Pneumatics (gas mechanics)", 
+                "mdt": "533", 
+                "name": "Mechanika plyn\u016f. Aeromechanika. Fyzika plazmatu"
+            }, 
+            "534": {
+                "conspect_id": "6", 
+                "ddc": "534", 
+                "en_name": "Sound and related vibrations", 
+                "mdt": "534", 
+                "name": "Mechanick\u00e9 kmity. Akustika"
+            }, 
+            "535": {
+                "conspect_id": "6", 
+                "ddc": "535", 
+                "en_name": "Light and paraphotic phenomena", 
+                "mdt": "535", 
+                "name": "Optika"
+            }, 
+            "536": {
+                "conspect_id": "6", 
+                "ddc": "536", 
+                "en_name": "Heat", 
+                "mdt": "536", 
+                "name": "Teplo. Termodynamika"
+            }, 
+            "537": {
+                "conspect_id": "6", 
+                "ddc": "537", 
+                "en_name": "Electricity and electronics", 
+                "mdt": "537", 
+                "name": "Elekt\u0159ina"
+            }, 
+            "537.6/.8": {
+                "conspect_id": "6", 
+                "ddc": "538", 
+                "en_name": "Magnetism", 
+                "mdt": "537.6/.8", 
+                "name": "Magnetismus. Elektromagnetismus"
+            }, 
+            "539": {
+                "conspect_id": "6", 
+                "ddc": "539", 
+                "en_name": "Modern physics", 
+                "mdt": "539", 
+                "name": "Fyzik\u00e1ln\u00ed stavba hmoty. Jadern\u00e1 fyzika. Molekul\u00e1rn\u00ed fyzika"
+            }
+        }
+    }, 
+    "7": {
+        "id": "7", 
+        "name": "Geografie. Geologie. V\u011bdy o Zemi", 
+        "subconspects": {
+            "528": {
+                "conspect_id": "7", 
+                "ddc": "526.1", 
+                "en_name": "Geodesy", 
+                "mdt": "528", 
+                "name": "Geodezie. Kartografie"
+            }, 
+            "549": {
+                "conspect_id": "7", 
+                "ddc": "549", 
+                "en_name": "Mineralogy", 
+                "mdt": "549", 
+                "name": "Mineralogie"
+            }, 
+            "55": {
+                "conspect_id": "7", 
+                "ddc": "550", 
+                "en_name": "Earth sciences", 
+                "mdt": "55", 
+                "name": "V\u011bdy o Zemi. Geologick\u00e9 v\u011bdy"
+            }, 
+            "550": {
+                "conspect_id": "7", 
+                "ddc": "550", 
+                "en_name": "Geophysics", 
+                "mdt": "550", 
+                "name": "Geofyzika. Geochemie. Geobiologie. U\u017eit\u00e1 geologie"
+            }, 
+            "551": {
+                "conspect_id": "7", 
+                "ddc": "551", 
+                "en_name": "Geology, meteorology", 
+                "mdt": "551", 
+                "name": "Geologie. Meteorologie. Klimatologie"
+            }, 
+            "552": {
+                "conspect_id": "7", 
+                "ddc": "552", 
+                "en_name": "Petrology", 
+                "mdt": "552", 
+                "name": "Petrologie"
+            }, 
+            "553": {
+                "conspect_id": "7", 
+                "ddc": "553", 
+                "en_name": "Economic geology", 
+                "mdt": "553", 
+                "name": "Lo\u017eiskov\u00e1 geologie"
+            }, 
+            "556": {
+                "conspect_id": "7", 
+                "ddc": "551.48", 
+                "en_name": "Hydrology", 
+                "mdt": "556", 
+                "name": "Hydrologie"
+            }, 
+            "56": {
+                "conspect_id": "7", 
+                "ddc": "560", 
+                "en_name": "Paleontology, paleozoology", 
+                "mdt": "56", 
+                "name": "Paleontologie"
+            }, 
+            "91": {
+                "conspect_id": "7", 
+                "ddc": "910", 
+                "en_name": "Geography and travel", 
+                "mdt": "91", 
+                "name": "Geografie jako v\u011bda. V\u00fdzkum. Cestov\u00e1n\u00ed"
+            }, 
+            "911": {
+                "conspect_id": "7", 
+                "ddc": "910.01-910.02", 
+                "en_name": "Physical geography, philosophy and theory of geography and travel", 
+                "mdt": "911", 
+                "name": "Obecn\u00e1 geografie. Systematick\u00e1 geografie"
+            }, 
+            "912": {
+                "conspect_id": "7", 
+                "ddc": "912", 
+                "en_name": "Graphic representations of surface of earth and of extraterrestrial worlds", 
+                "mdt": "912", 
+                "name": "Mapy. Atlasy. Gl\u00f3by"
+            }, 
+            "912:51": {
+                "conspect_id": "7", 
+                "ddc": "526", 
+                "en_name": "Mathematical geography", 
+                "mdt": "912:51", 
+                "name": "Matematick\u00e1 geografie"
+            }, 
+            "912:904": {
+                "conspect_id": "7", 
+                "ddc": "912", 
+                "en_name": "Graphic representations of surface of earth and of extraterrestrial worlds - to 1850", 
+                "mdt": "912:904", 
+                "name": "Star\u00e9 mapy"
+            }, 
+            "913": {
+                "conspect_id": "7", 
+                "ddc": "913-919", 
+                "en_name": "Geography of and travel in specific continents, countries, localities", 
+                "mdt": "913", 
+                "name": "Region\u00e1ln\u00ed geografie"
+            }, 
+            "913(3)": {
+                "conspect_id": "7", 
+                "ddc": "913", 
+                "en_name": "Geography of and travel in ancient world", 
+                "mdt": "913(3)", 
+                "name": "Geografie starov\u011bk\u00e9ho sv\u011bta"
+            }, 
+            "913(4)": {
+                "conspect_id": "7", 
+                "ddc": "914", 
+                "en_name": "Geography of and travel in Europe", 
+                "mdt": "913(4)", 
+                "name": "Geografie Evropy, re\u00e1lie, cestov\u00e1n\u00ed"
+            }, 
+            "913(437)": {
+                "conspect_id": "7", 
+                "ddc": "914.37", 
+                "en_name": "Geography of and travel in Czechia and Slovakia", 
+                "mdt": "913(437)", 
+                "name": "Geografie \u010ceska a Slovenska, re\u00e1lie, cestov\u00e1n\u00ed"
+            }, 
+            "913(5)": {
+                "conspect_id": "7", 
+                "ddc": "915", 
+                "en_name": "Geography of and travel in Asia", 
+                "mdt": "913(5)", 
+                "name": "Geografie Asie, re\u00e1lie, cestov\u00e1n\u00ed"
+            }, 
+            "913(6)": {
+                "conspect_id": "7", 
+                "ddc": "916", 
+                "en_name": "Geography of and travel in Africa", 
+                "mdt": "913(6)", 
+                "name": "Geografie Afriky, re\u00e1lie, cestov\u00e1n\u00ed"
+            }, 
+            "913(7)": {
+                "conspect_id": "7", 
+                "ddc": "917", 
+                "en_name": "Geography of and travel in North America", 
+                "mdt": "913(7)", 
+                "name": "Geografie Severn\u00ed Ameriky, re\u00e1lie, cestov\u00e1n\u00ed"
+            }, 
+            "913(8)": {
+                "conspect_id": "7", 
+                "ddc": "918", 
+                "en_name": "Geography of and travel in South America", 
+                "mdt": "913(8)", 
+                "name": "Geografie Ji\u017en\u00ed Ameriky, re\u00e1lie, cestov\u00e1n\u00ed"
+            }, 
+            "913(9)": {
+                "conspect_id": "7", 
+                "ddc": "919", 
+                "en_name": "Geography of and travel in other parts of world", 
+                "mdt": "913(9)", 
+                "name": "Geografie Oce\u00e1nie, pol\u00e1rn\u00edch oblast\u00ed, Austr\u00e1lie, atd."
+            }, 
+            "913:94": {
+                "conspect_id": "7", 
+                "ddc": "911", 
+                "en_name": "Historical geography", 
+                "mdt": "913:94", 
+                "name": "Historick\u00e1 geografie"
+            }
+        }
+    }, 
+    "8": {
+        "id": "8", 
+        "name": "Historie a pomocn\u00e9 historick\u00e9 v\u011bdy. Biografick\u00e9 studie", 
+        "subconspects": {
+            "9": {
+                "conspect_id": "8", 
+                "ddc": "900", 
+                "en_name": "Geography, history and their auxiliary disciplines", 
+                "mdt": "9", 
+                "name": "Geografie. Biografick\u00e9 studie. D\u011bjiny"
+            }, 
+            "902": {
+                "conspect_id": "8", 
+                "ddc": "930.1", 
+                "en_name": "Archaeology", 
+                "mdt": "902", 
+                "name": "Archeologie"
+            }, 
+            "903": {
+                "conspect_id": "8", 
+                "ddc": "930.11-930.16", 
+                "en_name": "Specific prehistoric ages", 
+                "mdt": "903", 
+                "name": "Prav\u011bk"
+            }, 
+            "904": {
+                "conspect_id": "8", 
+                "ddc": "930.2-930.5", 
+                "en_name": "Archaeology (historical periods, material remains)", 
+                "mdt": "904", 
+                "name": "Kulturn\u00ed pam\u00e1tky historick\u00e9ho obdob\u00ed obecn\u011b"
+            }, 
+            "908": {
+                "conspect_id": "8", 
+                "ddc": "909.09", 
+                "en_name": "Areas, regions, places in general", 
+                "mdt": "908", 
+                "name": "Studium oblast\u00ed a lokalit obecn\u011b"
+            }, 
+            "908(437)": {
+                "conspect_id": "8", 
+                "ddc": null, 
+                "en_name": null, 
+                "mdt": "908(437)", 
+                "name": "Vlastiv\u011bda \u010ceska a Slovenska"
+            }, 
+            "929": {
+                "conspect_id": "8", 
+                "ddc": "920", 
+                "en_name": "Biography, genealogy, insignia", 
+                "mdt": "929", 
+                "name": "Biografie"
+            }, 
+            "929.5/.9": {
+                "conspect_id": "8", 
+                "ddc": "929", 
+                "en_name": "Genealogy, names, insignia", 
+                "mdt": "929.5/.9", 
+                "name": "Genealogie. Heraldika. \u0160lechta. Vlajky"
+            }, 
+            "93/94": {
+                "conspect_id": "8", 
+                "ddc": "904", 
+                "en_name": "History (in general)", 
+                "mdt": "93/94", 
+                "name": "D\u011bjiny (obecn\u011b)"
+            }, 
+            "930": {
+                "conspect_id": "8", 
+                "ddc": "901", 
+                "en_name": "Philosophy and theory of history", 
+                "mdt": "930", 
+                "name": "Historick\u00e1 v\u011bda. Pomocn\u00e9 v\u011bdy historick\u00e9. Archivnictv\u00ed"
+            }, 
+            "930.85": {
+                "conspect_id": "8", 
+                "ddc": "909", 
+                "en_name": "Civilization", 
+                "mdt": "930.85", 
+                "name": "D\u011bjiny civilizace. Kulturn\u00ed d\u011bjiny"
+            }, 
+            "94(100)": {
+                "conspect_id": "8", 
+                "ddc": "909", 
+                "en_name": "World history", 
+                "mdt": "94(100)", 
+                "name": "Sv\u011btov\u00e9 d\u011bjiny"
+            }, 
+            "94(100)&quot;04/...&quot;": {
+                "conspect_id": "8", 
+                "ddc": "909.1-909.7", 
+                "en_name": "World history (Specific historical periods)", 
+                "mdt": "94(100)&quot;04/...&quot;", 
+                "name": "D\u011bjiny st\u0159edov\u011bku a novov\u011bku (obecn\u011b)"
+            }, 
+            "94(3)": {
+                "conspect_id": "8", 
+                "ddc": "930", 
+                "en_name": "History of Ancient World to ca. 499", 
+                "mdt": "94(3)", 
+                "name": "D\u011bjiny zem\u00ed starov\u011bk\u00e9ho sv\u011bta"
+            }, 
+            "94(4)": {
+                "conspect_id": "8", 
+                "ddc": "940", 
+                "en_name": "General history of Europe, Western Europe", 
+                "mdt": "94(4)", 
+                "name": "D\u011bjiny Evropy"
+            }, 
+            "94(41)": {
+                "conspect_id": "8", 
+                "ddc": "941", 
+                "en_name": "British Isles", 
+                "mdt": "94(41)", 
+                "name": "D\u011bjiny britsk\u00fdch ostrov\u016f"
+            }, 
+            "94(420/429)": {
+                "conspect_id": "8", 
+                "ddc": "942", 
+                "en_name": "England and Wales", 
+                "mdt": "94(420/429)", 
+                "name": "D\u011bjiny Anglie a Walesu"
+            }, 
+            "94(430/439)": {
+                "conspect_id": "8", 
+                "ddc": "943", 
+                "en_name": "Central Europe, Germany", 
+                "mdt": "94(430/439)", 
+                "name": "D\u011bjiny zem\u00ed st\u0159edn\u00ed Evropy"
+            }, 
+            "94(437)": {
+                "conspect_id": "8", 
+                "ddc": "943.7", 
+                "en_name": "Czechia and Slovakia", 
+                "mdt": "94(437)", 
+                "name": "D\u011bjiny \u010ceska a Slovenska"
+            }, 
+            "94(44/449.49)": {
+                "conspect_id": "8", 
+                "ddc": "944", 
+                "en_name": "France and Monaco", 
+                "mdt": "94(44/449.49)", 
+                "name": "D\u011bjiny Francie a Monaka"
+            }, 
+            "94(450/458.2)": {
+                "conspect_id": "8", 
+                "ddc": "945", 
+                "en_name": "Italian peninsula and adjacent islands, Italy", 
+                "mdt": "94(450/458.2)", 
+                "name": "D\u011bjiny It\u00e1lie a italsk\u00fdch ostrov\u016f, San Marina, Vatik\u00e1nu a Malty"
+            }, 
+            "94(46)": {
+                "conspect_id": "8", 
+                "ddc": "946", 
+                "en_name": "Iberian peninsula and adjacent islands, Spain", 
+                "mdt": "94(46)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a \u00fazem\u00ed na Pyrenejsk\u00e9m poloostrov\u011b"
+            }, 
+            "94(47)": {
+                "conspect_id": "8", 
+                "ddc": "947", 
+                "en_name": "Eastern Europe", 
+                "mdt": "94(47)", 
+                "name": "D\u011bjiny zem\u00ed v\u00fdchodn\u00ed Evropy"
+            }, 
+            "94(47+57)": {
+                "conspect_id": "8", 
+                "ddc": "947.01-947.08", 
+                "en_name": "Soviet Union. Russia", 
+                "mdt": "94(47+57)", 
+                "name": "D\u011bjiny SSSR a Ruska"
+            }, 
+            "94(48)": {
+                "conspect_id": "8", 
+                "ddc": "948", 
+                "en_name": "Northern Europe, Scandinavia", 
+                "mdt": "94(48)", 
+                "name": "D\u011bjiny skandin\u00e1vsk\u00fdch zem\u00ed"
+            }, 
+            "94(491.1/494.9)": {
+                "conspect_id": "8", 
+                "ddc": "949", 
+                "en_name": "Other parts of Europe", 
+                "mdt": "94(491.1/494.9)", 
+                "name": "D\u011bjiny ostatn\u00edch evropsk\u00fdch st\u00e1t\u016f"
+            }, 
+            "94(495/498)": {
+                "conspect_id": "8", 
+                "ddc": "949", 
+                "en_name": "Other parts of Europe, Balkan Peninsula", 
+                "mdt": "94(495/498)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a \u00fazem\u00ed na Balk\u00e1nsk\u00e9m poloostrov\u011b"
+            }, 
+            "94(5)": {
+                "conspect_id": "8", 
+                "ddc": "950", 
+                "en_name": "General history of Asia, Orient, Far East", 
+                "mdt": "94(5)", 
+                "name": "D\u011bjiny Asie. Orient"
+            }, 
+            "94(510/519)": {
+                "conspect_id": "8", 
+                "ddc": "951", 
+                "en_name": "China and adjacent areas", 
+                "mdt": "94(510/519)", 
+                "name": "D\u011bjiny \u010c\u00edny, Mongolska a Koreje"
+            }, 
+            "94(520)": {
+                "conspect_id": "8", 
+                "ddc": "952", 
+                "en_name": "Japan", 
+                "mdt": "94(520)", 
+                "name": "D\u011bjiny Japonska"
+            }, 
+            "94(53)": {
+                "conspect_id": "8", 
+                "ddc": "953", 
+                "en_name": "Arabian Peninsula and adjacent areas", 
+                "mdt": "94(53)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a \u00fazem\u00ed na Arabsk\u00e9m poloostrov\u011b"
+            }, 
+            "94(54)": {
+                "conspect_id": "8", 
+                "ddc": "954", 
+                "en_name": "South Asia, India", 
+                "mdt": "94(54)", 
+                "name": "D\u011bjiny st\u00e1t\u016f indick\u00e9ho subkontinentu"
+            }, 
+            "94(55)": {
+                "conspect_id": "8", 
+                "ddc": "955", 
+                "en_name": "Iran", 
+                "mdt": "94(55)", 
+                "name": "D\u011bjiny \u00cdr\u00e1nu"
+            }, 
+            "94(560/569.5)": {
+                "conspect_id": "8", 
+                "ddc": "956", 
+                "en_name": "Middle East (Near East)", 
+                "mdt": "94(560/569.5)", 
+                "name": "D\u011bjiny st\u00e1t\u016f z\u00e1padn\u00ed Asie. Bl\u00edzk\u00fd v\u00fdchod"
+            }, 
+            "94(574/575.4)": {
+                "conspect_id": "8", 
+                "ddc": "958", 
+                "en_name": "Central Asia", 
+                "mdt": "94(574/575.4)", 
+                "name": "D\u011bjiny st\u00e1t\u016f St\u0159edn\u00ed Asie"
+            }, 
+            "94(581)": {
+                "conspect_id": "8", 
+                "ddc": "958", 
+                "en_name": "Central Asia, Afghanistan", 
+                "mdt": "94(581)", 
+                "name": "D\u011bjiny Afgh\u00e1nist\u00e1nu"
+            }, 
+            "94(59)": {
+                "conspect_id": "8", 
+                "ddc": "959", 
+                "en_name": "Southeast Asia", 
+                "mdt": "94(59)", 
+                "name": "D\u011bjiny st\u00e1t\u016f jihov\u00fdchodn\u00ed Asie"
+            }, 
+            "94(6)": {
+                "conspect_id": "8", 
+                "ddc": "960", 
+                "en_name": "General History of Africa", 
+                "mdt": "94(6)", 
+                "name": "D\u011bjiny Afriky"
+            }, 
+            "94(61)": {
+                "conspect_id": "8", 
+                "ddc": "961", 
+                "en_name": "Tunisia and Libya", 
+                "mdt": "94(61)", 
+                "name": "D\u011bjiny Tunisu a Libye"
+            }, 
+            "94(62)": {
+                "conspect_id": "8", 
+                "ddc": "962", 
+                "en_name": "Egypt and Sudan", 
+                "mdt": "94(62)", 
+                "name": "D\u011bjiny Egypta a S\u00fad\u00e1nu"
+            }, 
+            "94(63)": {
+                "conspect_id": "8", 
+                "ddc": "963", 
+                "en_name": "Ethiopia and Eritrea", 
+                "mdt": "94(63)", 
+                "name": "D\u011bjiny Etiopie a Eritreje"
+            }, 
+            "94(64)": {
+                "conspect_id": "8", 
+                "ddc": "964", 
+                "en_name": "N.W. African Coast and Offshore Islands, Morocco", 
+                "mdt": "94(64)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a \u00fazem\u00ed severoz\u00e1padn\u00ed Afriky a p\u0159ilehl\u00fdch ostrov\u016f"
+            }, 
+            "94(65)": {
+                "conspect_id": "8", 
+                "ddc": "965", 
+                "en_name": "Algeria", 
+                "mdt": "94(65)", 
+                "name": "D\u011bjiny Al\u017e\u00edrska"
+            }, 
+            "94(66/67)": {
+                "conspect_id": "8", 
+                "ddc": "966", 
+                "en_name": "West Africa and Offshore islands", 
+                "mdt": "94(66/67)", 
+                "name": "D\u011bjiny Afriky na jih od Sahary a st\u00e1t\u016f/\u00fazem\u00ed z\u00e1padn\u00ed Afriky a p\u0159ilehl\u00fdch ostrov\u016f"
+            }, 
+            "94(671/679)": {
+                "conspect_id": "8", 
+                "ddc": "967", 
+                "en_name": "Central Africa and Offshore Islands", 
+                "mdt": "94(671/679)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a \u00fazem\u00ed st\u0159edn\u00ed Afriky a p\u0159ilehl\u00fdch ostrov\u016f. Rovn\u00edkov\u00e1 Afrika"
+            }, 
+            "94(680/689.7)": {
+                "conspect_id": "8", 
+                "ddc": "968", 
+                "en_name": "Southern Africa, Republic of South Africa", 
+                "mdt": "94(680/689.7)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a \u00fazem\u00ed ji\u017en\u00ed Afriky"
+            }, 
+            "94(69)": {
+                "conspect_id": "8", 
+                "ddc": "969", 
+                "en_name": "South Indian Ocean Islands", 
+                "mdt": "94(69)", 
+                "name": "D\u011bjiny africk\u00fdch ostrov\u016f v Indick\u00e9m a ji\u017en\u00edm Atlantsk\u00e9m oce\u00e1nu"
+            }, 
+            "94(7)": {
+                "conspect_id": "8", 
+                "ddc": "970", 
+                "en_name": "General history of North America", 
+                "mdt": "94(7)", 
+                "name": "D\u011bjiny Severn\u00ed a St\u0159edn\u00ed Ameriky"
+            }, 
+            "94(71)": {
+                "conspect_id": "8", 
+                "ddc": "971", 
+                "en_name": "Canada", 
+                "mdt": "94(71)", 
+                "name": "D\u011bjiny Kanady"
+            }, 
+            "94(72)": {
+                "conspect_id": "8", 
+                "ddc": "972", 
+                "en_name": "Middle America, Mexico", 
+                "mdt": "94(72)", 
+                "name": "D\u011bjiny St\u0159edn\u00ed Ameriky a Karibsk\u00e9 oblasti"
+            }, 
+            "94(73)": {
+                "conspect_id": "8", 
+                "ddc": "973", 
+                "en_name": "United States", 
+                "mdt": "94(73)", 
+                "name": "D\u011bjiny Spojen\u00fdch st\u00e1t\u016f americk\u00fdch"
+            }, 
+            "94(734)": {
+                "conspect_id": "8", 
+                "ddc": "974", 
+                "en_name": "Northeastern U.S. (New England and Mid. Atlantic St)", 
+                "mdt": "94(734)", 
+                "name": "D\u011bjiny severov\u00fdchodn\u00edch st\u00e1t\u016f USA"
+            }, 
+            "94(735)": {
+                "conspect_id": "8", 
+                "ddc": "975", 
+                "en_name": "Southeastern United States (South Atlantic States)", 
+                "mdt": "94(735)", 
+                "name": "D\u011bjiny jihov\u00fdchodn\u00edch st\u00e1t\u016f USA"
+            }, 
+            "94(736)": {
+                "conspect_id": "8", 
+                "ddc": "976", 
+                "en_name": "South Central United States (Gulf Coast States)", 
+                "mdt": "94(736)", 
+                "name": "D\u011bjiny st\u00e1t\u016f ji\u017en\u00ed \u010d\u00e1sti st\u0159edn\u00edch USA"
+            }, 
+            "94(737)": {
+                "conspect_id": "8", 
+                "ddc": "977", 
+                "en_name": "North Central United States", 
+                "mdt": "94(737)", 
+                "name": "D\u011bjiny st\u00e1t\u016f severn\u00ed \u010d\u00e1sti st\u0159edn\u00edch USA"
+            }, 
+            "94(738)": {
+                "conspect_id": "8", 
+                "ddc": "978", 
+                "en_name": "Western United States", 
+                "mdt": "94(738)", 
+                "name": "D\u011bjiny z\u00e1padn\u00edch st\u00e1t\u016f USA"
+            }, 
+            "94(739)": {
+                "conspect_id": "8", 
+                "ddc": "979", 
+                "en_name": "Great Basin, Pacific Slope Region, Pacific Coast States", 
+                "mdt": "94(739)", 
+                "name": "D\u011bjiny st\u00e1t\u016f na tichomo\u0159sk\u00e9m pob\u0159e\u017e\u00ed USA"
+            }, 
+            "94(8)": {
+                "conspect_id": "8", 
+                "ddc": "980", 
+                "en_name": "General history of South America", 
+                "mdt": "94(8)", 
+                "name": "D\u011bjiny Ji\u017en\u00ed Ameriky. Latinsk\u00e1 Amerika"
+            }, 
+            "94(81)": {
+                "conspect_id": "8", 
+                "ddc": "981", 
+                "en_name": "Brazil", 
+                "mdt": "94(81)", 
+                "name": "D\u011bjiny Braz\u00edlie"
+            }, 
+            "94(82)": {
+                "conspect_id": "8", 
+                "ddc": "982", 
+                "en_name": "Argentina", 
+                "mdt": "94(82)", 
+                "name": "D\u011bjiny Argentiny"
+            }, 
+            "94(83)": {
+                "conspect_id": "8", 
+                "ddc": "983", 
+                "en_name": "Chile", 
+                "mdt": "94(83)", 
+                "name": "D\u011bjiny Chile"
+            }, 
+            "94(84)": {
+                "conspect_id": "8", 
+                "ddc": "984", 
+                "en_name": "Bolivia", 
+                "mdt": "94(84)", 
+                "name": "D\u011bjiny Bol\u00edvie"
+            }, 
+            "94(85)": {
+                "conspect_id": "8", 
+                "ddc": "985", 
+                "en_name": "Peru", 
+                "mdt": "94(85)", 
+                "name": "D\u011bjiny Peru"
+            }, 
+            "94(861/866)": {
+                "conspect_id": "8", 
+                "ddc": "986", 
+                "en_name": "Colombia and Ecuador", 
+                "mdt": "94(861/866)", 
+                "name": "D\u011bjiny Kolumbie a Ekv\u00e1doru"
+            }, 
+            "94(87)": {
+                "conspect_id": "8", 
+                "ddc": "987", 
+                "en_name": "Venezuela", 
+                "mdt": "94(87)", 
+                "name": "D\u011bjiny Venezuely"
+            }, 
+            "94(88)": {
+                "conspect_id": "8", 
+                "ddc": "988", 
+                "en_name": "Guiana", 
+                "mdt": "94(88)", 
+                "name": "D\u011bjiny Guayany a Surinamu"
+            }, 
+            "94(892/899)": {
+                "conspect_id": "8", 
+                "ddc": "989", 
+                "en_name": "Paraguay and Uruguay", 
+                "mdt": "94(892/899)", 
+                "name": "D\u011bjiny Paraguaye a Uruguaye"
+            }, 
+            "94(9)": {
+                "conspect_id": "8", 
+                "ddc": "990", 
+                "en_name": "Rest of World, Extrater. Worlds, Pac. Islands", 
+                "mdt": "94(9)", 
+                "name": "D\u011bjiny Oce\u00e1nie, Austr\u00e1lie, Arktidy a Antarktidy"
+            }, 
+            "94(931)": {
+                "conspect_id": "8", 
+                "ddc": "993", 
+                "en_name": "New Zealand", 
+                "mdt": "94(931)", 
+                "name": "D\u011bjiny Nov\u00e9ho Z\u00e9landu"
+            }, 
+            "94(932/935)": {
+                "conspect_id": "8", 
+                "ddc": "995", 
+                "en_name": "Melanesia, New Guinea", 
+                "mdt": "94(932/935)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a oblast\u00ed Melan\u00e9sie"
+            }, 
+            "94(94)": {
+                "conspect_id": "8", 
+                "ddc": "994", 
+                "en_name": "Australia", 
+                "mdt": "94(94)", 
+                "name": "D\u011bjiny Austr\u00e1lie"
+            }, 
+            "94(954)": {
+                "conspect_id": "8", 
+                "ddc": "995.3-995.4", 
+                "en_name": "Papua New Guinea", 
+                "mdt": "94(954)", 
+                "name": "D\u011bjiny Papuy-Nov\u00e9 Guiney"
+            }, 
+            "94(961/968)": {
+                "conspect_id": "8", 
+                "ddc": "996", 
+                "en_name": "Other parts of Pacific, Polynesia", 
+                "mdt": "94(961/968)", 
+                "name": "D\u011bjiny st\u00e1t\u016f a oblast\u00ed Polyn\u00e9sie a Mikron\u00e9sie"
+            }, 
+            "94(97)": {
+                "conspect_id": "8", 
+                "ddc": "997", 
+                "en_name": "Atlantic Ocean Islands", 
+                "mdt": "94(97)", 
+                "name": "Ostrovy Tich\u00e9ho oce\u00e1nu"
+            }, 
+            "94(98/99)": {
+                "conspect_id": "8", 
+                "ddc": "998", 
+                "en_name": "Arctic Islands and Anarctica", 
+                "mdt": "94(98/99)", 
+                "name": "D\u011bjiny \u00fazem\u00ed Arktidy a Antarktidy"
+            }
+        }
+    }, 
+    "9": {
+        "id": "9", 
+        "name": "Hudba", 
+        "subconspects": {
+            "78": {
+                "conspect_id": "9", 
+                "ddc": "780", 
+                "en_name": "Music", 
+                "mdt": "78", 
+                "name": "Hudba"
+            }, 
+            "78.01": {
+                "conspect_id": "9", 
+                "ddc": "780.72", 
+                "en_name": "Musicology", 
+                "mdt": "78.01", 
+                "name": "Muzikologie. D\u011bjiny hudby"
+            }, 
+            "78.03": {
+                "conspect_id": "9", 
+                "ddc": "780.901-780.905", 
+                "en_name": "Periods of stylistic development of music", 
+                "mdt": "78.03", 
+                "name": "V\u00fdvojov\u00e1 obdob\u00ed v d\u011bjin\u00e1ch hudby"
+            }, 
+            "78.07": {
+                "conspect_id": "9", 
+                "ddc": "780.92", 
+                "en_name": "Persons associated with music", 
+                "mdt": "78.07", 
+                "name": "Hudebn\u00edci, skladatel\u00e9 a jin\u00e1 hudebn\u00ed povol\u00e1n\u00ed"
+            }, 
+            "781": {
+                "conspect_id": "9", 
+                "ddc": "781", 
+                "en_name": "General principles and musical forms", 
+                "mdt": "781", 
+                "name": "Hudebn\u00ed teorie"
+            }, 
+            "782": {
+                "conspect_id": "9", 
+                "ddc": "782.1", 
+                "en_name": "Dramatic vocal forms. Operas", 
+                "mdt": "782", 
+                "name": "Divadeln\u00ed hudba. Opera, opereta, muzik\u00e1l"
+            }, 
+            "783": {
+                "conspect_id": "9", 
+                "ddc": "781.7", 
+                "en_name": "Sacred music", 
+                "mdt": "783", 
+                "name": "C\u00edrkevn\u00ed hudba. Duchovn\u00ed hudba. N\u00e1bo\u017eensk\u00e1 hudba"
+            }, 
+            "784": {
+                "conspect_id": "9", 
+                "ddc": "782", 
+                "en_name": "Vocal music", 
+                "mdt": "784", 
+                "name": "Vok\u00e1ln\u00ed hudba"
+            }, 
+            "785": {
+                "conspect_id": "9", 
+                "ddc": "784-788", 
+                "en_name": "Instruments and instrumental ensembles and their music", 
+                "mdt": "785", 
+                "name": "Instrument\u00e1ln\u00ed hudba. Symfonick\u00e1 hudba. Hudba pro v\u00edce n\u00e1stroj\u016f"
+            }, 
+            "786": {
+                "conspect_id": "9", 
+                "ddc": "786", 
+                "en_name": "Keyboard, mechanical, electrophonic, percussion instruments", 
+                "mdt": "786", 
+                "name": "Hudba pro kl\u00e1vesov\u00e9 n\u00e1stroje"
+            }, 
+            "786/789": {
+                "conspect_id": "9", 
+                "ddc": "786-789", 
+                "en_name": "Music for individual instruments", 
+                "mdt": "786/789", 
+                "name": "Hudba pro jednotliv\u00e9 n\u00e1stroje"
+            }, 
+            "787": {
+                "conspect_id": "9", 
+                "ddc": "787", 
+                "en_name": "Stringed instruments (chordophones). Bowed instruments", 
+                "mdt": "787", 
+                "name": "Hudba pro strunn\u00e9 a smy\u010dcov\u00e9 n\u00e1stroje"
+            }, 
+            "788": {
+                "conspect_id": "9", 
+                "ddc": "788", 
+                "en_name": "Wind instruments (aerophones)", 
+                "mdt": "788", 
+                "name": "Hudba pro dechov\u00e9 n\u00e1stroje"
+            }, 
+            "789": {
+                "conspect_id": "9", 
+                "ddc": "786.8", 
+                "en_name": "Percussion instruments", 
+                "mdt": "789", 
+                "name": "Hudba pro bic\u00ed n\u00e1stroje"
+            }
+        }
+    }
+}
