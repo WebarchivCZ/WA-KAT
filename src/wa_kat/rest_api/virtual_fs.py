@@ -12,6 +12,7 @@ from os.path import join
 
 from bottle import get
 from bottle import response
+from backports.functools_lru_cache import lru_cache
 
 from .. import settings
 
@@ -19,12 +20,21 @@ from shared import in_template_path
 
 
 # Variables ===================================================================
+PY_HEADER = """#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+"""
+
+
 # Functions & classes =========================================================
 def in_virtual_path(fn):
     return join("/static/js/Lib/site-packages/virtual_fs", fn)
 
 
 def python_mime(fn):
+    """
+    Add correct MIME type to the decorated function.
+    """
     def python_mime_decorator(*args, **kwargs):
         response.content_type = "text/x-python"
 
@@ -37,31 +47,25 @@ def python_mime(fn):
 @get(in_virtual_path("__init__.py"))
 @python_mime
 def init_api():
-    return """#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-    """
+    return PY_HEADER
 
 
 @get(in_virtual_path("settings.py"))
 @python_mime
+@lru_cache()
 def settings_api():
-    out = "\n"
+    variables = [
+        "%s = %s" % (var, repr(getattr(settings, var)))
+        for var in sorted(dir(settings))
+        if not var.startswith("_") and var.upper() == var
+    ]
 
-    for var in sorted(dir(settings)):
-        if var.startswith("_") or var.upper() != var:
-            continue
-
-        out += "%s = %s\n\n" % (var, repr(getattr(settings, var)))
-
-    return """#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-#""" + out
+    return PY_HEADER + "\n\n".join(variables)
 
 
 # http://localhost:8080/static/js/Lib/site-packages/virtual_fs/__init__.py
 @get(in_virtual_path("conspectus.py"))
 @python_mime
+@lru_cache()
 def conspectus_api():
-    return """#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-    """
+    return PY_HEADER
