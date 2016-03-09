@@ -8,6 +8,7 @@ This file provides virtual fileystem for Brython files, so some of the values
 may be transported to the frontend from backend as pre-parsed python data.
 """
 # Imports =====================================================================
+import json
 from os.path import join
 
 from bottle import get
@@ -16,7 +17,7 @@ from backports.functools_lru_cache import lru_cache
 
 from .. import settings
 
-from shared import in_template_path
+from shared import read_template
 
 
 # Variables ===================================================================
@@ -63,9 +64,10 @@ def settings_api():
     return PY_HEADER + "\n\n".join(variables)
 
 
-# http://localhost:8080/static/js/Lib/site-packages/virtual_fs/__init__.py
 @get(in_virtual_path("conspectus.py"))
 @python_mime
 @lru_cache()
 def conspectus_api():
-    return PY_HEADER
+    conspectus_dict = json.loads(read_template("full_conspectus.json"))
+
+    return PY_HEADER + "consp_dict = %s\n" % repr(conspectus_dict)
