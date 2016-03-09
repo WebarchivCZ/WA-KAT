@@ -5,8 +5,8 @@
 #
 # Imports =====================================================================
 import traceback
-from StringIO import StringIO
 from os.path import join
+from StringIO import StringIO
 
 import requests  # for requests.exceptions.Timeout
 
@@ -25,6 +25,7 @@ from shared import RESPONSE_TYPE
 
 # Other API modules
 import aleph_api
+import virtual_fs
 from to_output import to_output
 from keywords import get_kw_list
 from conspectus import get_conspectus
@@ -33,7 +34,7 @@ from conspectus import get_conspectus
 # Functions & classes =========================================================
 @post(join(API_PATH, "analyze"))
 @form_to_params
-def get_result(url):
+def analyzer_api(url):
     rd = RequestDatabase()
     response.content_type = RESPONSE_TYPE
 
