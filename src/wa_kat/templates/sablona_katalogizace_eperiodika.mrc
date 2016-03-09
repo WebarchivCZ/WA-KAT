@@ -15,8 +15,10 @@ BAS   L $$aSML
 0410  L $$a{{!language}}
 043   L $$a $$b $$2 
 045   L $$a 
-072 7 L $$a{{conspect["sub_code"]}}$$x{{conspect["sub_name"]}}$$2Konspekt$$9{{conspect["consp_id"]}}
-072 9 L $$a{{en_conspect["sub_code"]}}$$x{{en_conspect["sub_name"]}}$$2Conspectus$$9{{en_conspect["consp_id"]}}
+072 7 L $$a{{conspect["mdt"]}}$$x{{conspect["name"]}}$$2Konspekt$$9{{conspect["conspect_id"]}}
+% if conspect.get("en_name") and conspect.get("ddc"):
+072 9 L $$a{{conspect["ddc"]}}$$x{{conspect["en_name"]}}$$2Conspectus$$9{{conspect["conspect_id"]}}
+% end
 % for rec in mdt:
 080   L $$a{{rec["mdt"]}}$$2{{rec["mrf"]}}
 % end
