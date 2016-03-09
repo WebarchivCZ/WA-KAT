@@ -20,8 +20,6 @@ from rest_api.shared import gzip_cache
 from rest_api.shared import read_template
 from rest_api.shared import in_template_path
 
-from rest_api.conspectus import CONSPECTUS_JSON
-
 
 # Variables ===================================================================
 INDEX_PATH = in_template_path("index_vertical.html")
@@ -38,7 +36,6 @@ def render_registered(remote_info):
         _index_template(),
         registered=True,
         url=remote_info["url"],
-        conspect=CONSPECTUS_JSON,
         periode=read_template("periode.txt"),
     )
 
@@ -48,7 +45,6 @@ def render_unregistered(error=None):
         _index_template(),
         registered=False,
         error=error,
-        conspect=CONSPECTUS_JSON,
         periode=read_template("periode.txt"),
     )
 

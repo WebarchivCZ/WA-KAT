@@ -28,7 +28,6 @@ import aleph_api
 import virtual_fs
 from to_output import to_output
 from keywords import get_kw_list
-from conspectus import get_conspectus
 
 
 # Functions & classes =========================================================

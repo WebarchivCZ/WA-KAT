@@ -22,8 +22,6 @@ from keywords import keyword_to_info
 
 from ..convertors import mrc_to_marc
 
-from conspectus import find_en_conspectus
-
 
 # Functions & classes =========================================================
 def compile_keywords(keywords):
@@ -178,7 +176,6 @@ def to_output(data):
         data["en_keywords"] = en_keywords
 
     data["annotation"] = data["annotation"].replace("\n", " ")
-    data["en_conspect"] = find_en_conspectus(data["conspect"]["sub_code"])
     data["time"] = time  # for date generation
 
     # handle date range in the 008
