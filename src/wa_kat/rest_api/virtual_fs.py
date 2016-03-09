@@ -32,6 +32,14 @@ def in_virtual_path(fn):
     return join("/static/js/Lib/site-packages/virtual_fs", fn)
 
 
+def in_second_virtual_path(fn):
+    """
+    Brython has problem with .. imports, so I have to insert the submodule
+    into the components path manually.
+    """
+    return join("/static/js/Lib/site-packages/components/virtual_fs", fn)
+
+
 def python_mime(fn):
     """
     Add correct MIME type to the decorated function.
@@ -46,12 +54,14 @@ def python_mime(fn):
 
 # API =========================================================================
 @get(in_virtual_path("__init__.py"))
+@get(in_second_virtual_path("__init__.py"))
 @python_mime
 def init_api():
     return PY_HEADER
 
 
 @get(in_virtual_path("settings.py"))
+@get(in_second_virtual_path("settings.py"))
 @python_mime
 @lru_cache()
 def settings_api():
@@ -65,9 +75,34 @@ def settings_api():
 
 
 @get(in_virtual_path("conspectus.py"))
+@get(in_second_virtual_path("conspectus.py"))
 @python_mime
 @lru_cache()
 def conspectus_api():
     conspectus_dict = json.loads(read_template("full_conspectus.json"))
 
-    return PY_HEADER + "consp_dict = %s\n" % repr(conspectus_dict)
+    # raw conspectus dictionary
+    out = PY_HEADER + "consp_dict = %s\n\n" % repr(conspectus_dict)
+
+    # (consp, id) pairs
+    cosp_id_pairs = sorted(
+        (x["name"], x["id"])
+        for x in conspectus_dict.values()
+    )
+    out += "cosp_id_pairs = %s\n\n" % repr(cosp_id_pairs)
+
+    # mdt -> subconspect mapping
+    subs_by_mdt = [
+        x["subconspects"].values()
+        for x in conspectus_dict.values()
+    ]
+    subs_by_mdt = {d["mdt"]: d for d in sum(subs_by_mdt, [])}
+    out += "subs_by_mdt = %s\n\n" % repr(subs_by_mdt)
+
+    # subconspect_name -> subconspect mapping
+    out += "mdt_by_name = %s\n\n" % repr({
+        d["name"]: d["mdt"]
+        for d in subs_by_mdt.values()
+    })
+
+    return out
