@@ -7,7 +7,6 @@
 import os
 import os.path
 
-
 from bottle import get
 from bottle import abort
 from bottle import request
