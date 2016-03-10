@@ -7,18 +7,18 @@
 import os
 import os.path
 
-import requests
+
 from bottle import get
 from bottle import abort
 from bottle import request
 from bottle import template
 from bottle import static_file
 
-import settings
-
 from rest_api.shared import gzip_cache
 from rest_api.shared import read_template
 from rest_api.shared import in_template_path
+
+from connectors import seeder
 
 
 # Variables ===================================================================
@@ -45,20 +45,6 @@ def render_unregistered(error=None):
         registered=False,
         error=error,
     )
-
-
-def get_remote_info(url_id):  # TODO: Add timeout, print error in case of exception
-    url = settings.SEEDER_INFO_URL % url_id
-    resp = requests.get(url, headers={
-        "User-Agent": settings.USER_AGENT,
-        "Authorization": settings.SEEDER_TOKEN,
-    })
-    resp.raise_for_status()
-    data = resp.json()
-
-    assert "url" in data
-
-    return data
 
 
 # API =========================================================================
@@ -94,7 +80,7 @@ def render_form_template():
     # try to read remote info, the the url_id parameter was specified
     if registered_user_id:
         try:
-            remote_info = get_remote_info(registered_user_id)
+            remote_info = seeder.get_remote_info(registered_user_id)
         except AssertionError:  #: TODO: requests error
             registered_user_id = False
             error = "Server neposlal očekávaná data."
