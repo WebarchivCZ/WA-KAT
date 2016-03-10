@@ -36,7 +36,6 @@ def render_registered(remote_info):
         _index_template(),
         registered=True,
         url=remote_info["url"],
-        periode=read_template("periode.txt"),
     )
 
 
@@ -45,7 +44,6 @@ def render_unregistered(error=None):
         _index_template(),
         registered=False,
         error=error,
-        periode=read_template("periode.txt"),
     )
 
 
