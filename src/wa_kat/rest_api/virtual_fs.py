@@ -106,3 +106,13 @@ def conspectus_api():
     })
 
     return out
+
+
+@get(in_virtual_path("periodes.py"))
+@get(in_second_virtual_path("periodes.py"))
+@python_mime
+@lru_cache()
+def periode_api():
+    periodes = read_template("periode.txt").decode("utf-8")
+
+    return PY_HEADER + "periode_list = %s\n\n" % repr(periodes.splitlines())
