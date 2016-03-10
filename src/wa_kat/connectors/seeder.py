@@ -4,8 +4,6 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-import json
-
 import requests
 
 from .. import settings
@@ -15,23 +13,44 @@ from ..data_model import Model
 # Variables ===================================================================
 # Functions & classes =========================================================
 def convert_to_mapping(seeder_struct):
+    def pick_active(seeder_struct, what):
+        items = seeder_struct.get(what)
+
+        if not items:
+            return None
+
+        active_items = [item for item in items if items.get("active")]
+
+        if not active_items:
+            return items[0]
+
+        return active_items[0]
+
     model = Model()
 
-    # prepsat všechno na .get()
-    url = seeder_struct["seeds"][0]["url"] # TODO: pick fist active: true
-    title_tags = seeder_struct["name"]
-    creation_dates = None
-    author_tags = None
-    publisher_tags = None
-    place_tags = None
-    keyword_tags = None
-    conspect = None
-    lang_tags = None
-    annotation_tags = seeder_struct["comment"]
-    periodicity = None
-    source_info = None
-    original_xml = None
-    issn = seeder_struct["issn"]
+    active_seed = pick_active(seeder_struct, "seeds")
+    publisher_contact = pick_active(
+        seeder_struct.get("publisher", {}),
+        "contacts"
+    )
+
+    if not active_seed:
+        return None
+
+    model.url = active_seed["url"]
+    model.issn = seeder_struct.get("issn")
+    model.title_tags = seeder_struct.get("name")
+    model.publisher_tags = seeder_struct.get("publisher", {}).get("name")
+    model.annotation_tags = seeder_struct.get("comment")  # annotation?
+
+    conspect = None  # TODO: !
+
+    if publisher_contact:
+        model.place_tags = publisher_contact.get("address")
+
+    # parse rules
+    model.rules = {}
+    model.rules["frequency"] = seeder_struct["frequency"]
 
 
 def get_remote_info(url_id):  # TODO: Add timeout, print error in case of exception

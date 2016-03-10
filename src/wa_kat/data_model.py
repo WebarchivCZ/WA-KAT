@@ -36,6 +36,7 @@ class Model(KwargsObj):
         self.source_info = None
         self.original_xml = None
         self.issn = None
+        self.rules = None
 
         self._kwargs_to_attributes(kwargs)
 
