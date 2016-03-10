@@ -46,9 +46,10 @@ def compile_keywords(keywords):
                 "mrf": keyword["mrf"],
             })
 
-        if "angl_ekvivalent" in keyword:
+        angl_ekvivalent = keyword.get("angl_ekvivalent")
+        if angl_ekvivalent:
             en_keywords.append({
-                "zahlavi": keyword["angl_ekvivalent"],
+                "zahlavi": angl_ekvivalent,
                 "zdroj": keyword.get("zdroj_angl_ekvivalentu") or "eczenas",
             })
 
