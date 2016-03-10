@@ -68,7 +68,8 @@ def settings_api():
     variables = [
         "%s = %s" % (var, repr(getattr(settings, var)))
         for var in sorted(dir(settings))
-        if not var.startswith("_") and var.upper() == var
+        if (not var.startswith("_") and var.upper() == var and
+            not var.startswith("SEEDER"))  # hide the private tokens and url
     ]
 
     return PY_HEADER + "\n\n".join(variables)
@@ -79,17 +80,32 @@ def settings_api():
 @python_mime
 @lru_cache()
 def conspectus_api():
+    def to_json(data):
+        """
+        JSON conversion is used, because brython has BIG performance issues
+        when parsing large python sources. It is actually cheaper to just load
+        it as JSON objects.
+
+        Load times:
+            Brython: 24s firefox, 54s chromium
+            JSON: 14s firefox, 9s chromium
+        """
+        return repr(json.dumps(data))
+
     conspectus_dict = json.loads(read_template("full_conspectus.json"))
 
     # raw conspectus dictionary
-    out = PY_HEADER + "consp_dict = %s\n\n" % repr(conspectus_dict)
+    out = PY_HEADER
+    out += "import json\n"
+
+    out += "consp_dict = json.loads(%s)\n\n" % to_json(conspectus_dict)
 
     # (consp, id) pairs
     cosp_id_pairs = sorted(
         (x["name"], x["id"])
         for x in conspectus_dict.values()
     )
-    out += "cosp_id_pairs = %s\n\n" % repr(cosp_id_pairs)
+    out += "cosp_id_pairs = json.loads(%s)\n\n" % to_json(cosp_id_pairs)
 
     # mdt -> subconspect mapping
     subs_by_mdt = [
@@ -97,10 +113,10 @@ def conspectus_api():
         for x in conspectus_dict.values()
     ]
     subs_by_mdt = {d["mdt"]: d for d in sum(subs_by_mdt, [])}
-    out += "subs_by_mdt = %s\n\n" % repr(subs_by_mdt)
+    out += "subs_by_mdt = json.loads(%s)\n\n" % to_json(subs_by_mdt)
 
     # subconspect_name -> subconspect mapping
-    out += "mdt_by_name = %s\n\n" % repr({
+    out += "mdt_by_name = json.loads(%s)\n\n" % to_json({
         d["name"]: d["mdt"]
         for d in subs_by_mdt.values()
     })
@@ -115,4 +131,4 @@ def conspectus_api():
 def periode_api():
     periodes = read_template("periode.txt").decode("utf-8")
 
-    return PY_HEADER + "periode_list = %s\n\n" % repr(periodes.splitlines())
+    return PY_HEADER + "periode_list = %s.splitlines()\n\n" % repr(periodes)
