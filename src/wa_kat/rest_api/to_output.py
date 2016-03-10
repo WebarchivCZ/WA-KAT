@@ -15,12 +15,12 @@ from bottle_rest import form_to_params
 
 from marcxml_parser.tools.resorted import resorted
 
-from shared import API_PATH
+from ..settings import API_PATH
+from ..convertors import mrc_to_marc
+
 from shared import read_template
 
 from keywords import keyword_to_info
-
-from ..convertors import mrc_to_marc
 
 
 # Functions & classes =========================================================

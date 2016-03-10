@@ -17,9 +17,8 @@ from bottle_rest import form_to_params
 
 from .. import settings
 from ..zeo import RequestDatabase
+from ..settings import API_PATH
 
-
-from shared import API_PATH
 from shared import RESPONSE_TYPE
 
 

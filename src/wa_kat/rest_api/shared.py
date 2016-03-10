@@ -18,7 +18,6 @@ from bottle import HTTPResponse
 
 
 # Variables ===================================================================
-API_PATH = "/api_v1/"
 RESPONSE_TYPE = "application/json; charset=utf-8"
 
 

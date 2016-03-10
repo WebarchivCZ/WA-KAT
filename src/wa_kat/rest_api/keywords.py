@@ -12,7 +12,8 @@ from os.path import join
 from bottle import get
 from bottle import response
 
-from shared import API_PATH
+from ..settings import API_PATH
+
 from shared import gzip_cache
 from shared import RESPONSE_TYPE
 from shared import to_gzipped_file

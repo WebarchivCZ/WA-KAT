@@ -10,8 +10,7 @@ from bottle import post
 from bottle_rest import form_to_params
 
 from ..connectors import aleph
-
-from shared import API_PATH
+from ..settings import API_PATH
 
 
 # Variables ===================================================================

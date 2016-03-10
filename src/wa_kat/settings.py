@@ -61,6 +61,8 @@ NTK_ALEPH_URL = "http://aleph.techlib.cz/X"
 
 ANALYZER_USER_AGENT = "http://webarchiv.cz catalogization tool WA-KAT."
 
+API_PATH = "/api_v1/"
+
 
 # User configuration reader (don't edit this) =================================
 _ALLOWED = [str, unicode, int, float, long, bool]  #: Allowed types.
