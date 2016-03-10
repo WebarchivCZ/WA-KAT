@@ -48,7 +48,11 @@ def render_unregistered(error=None):
 
 
 def get_remote_info(url_id):  # TODO: Add timeout, print error in case of exception
-    resp = requests.get(settings.SEEDER_INFO_URL % url_id)  # TODO: autentization headers
+    url = settings.SEEDER_INFO_URL % url_id
+    resp = requests.get(url, headers={
+        "User-Agent": settings.USER_AGENT,
+        "Authorization": settings.SEEDER_TOKEN,
+    })
     resp.raise_for_status()
     data = resp.json()
 
