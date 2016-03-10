@@ -16,6 +16,7 @@ from persistent import Persistent
 from zeo_connector import transaction_manager
 from backports.functools_lru_cache import lru_cache
 
+from ..settings import USER_AGENT
 from ..settings import ZEO_CACHE_TIME
 from ..settings import REQUEST_TIMEOUT
 from ..settings import ZEO_MAX_WAIT_TIME
@@ -95,7 +96,8 @@ class RequestInfo(Persistent):
         Returns:
             str: Content of the page.
         """
-        resp = requests.get(url, timeout=REQUEST_TIMEOUT)  # TODO: custom headers
+        headers = {"User-Agent": USER_AGENT}
+        resp = requests.get(url, timeout=REQUEST_TIMEOUT, headers=headers)
 
         return resp.text.encode("utf-8")  # TODO: what about binaries?
 
