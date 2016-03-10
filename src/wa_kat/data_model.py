@@ -35,6 +35,7 @@ class Model(KwargsObj):
         self.periodicity = None
         self.source_info = None
         self.original_xml = None
+        self.issn = None
 
         self._kwargs_to_attributes(kwargs)
 
@@ -48,7 +49,8 @@ class Model(KwargsObj):
             ),
             lang_tags=_compose_func(analyzers.get_lang_tags),
             keyword_tags=_compose_func(analyzers.get_keyword_tags),
-            publisher_tags=_compose_func(analyzers.get_author_tags),  # authors of webpage are actually pubhsers
+            # authors of webpage are actually publishers
+            publisher_tags=_compose_func(analyzers.get_author_tags),
             annotation_tags=_compose_func(analyzers.get_annotation_tags),
             creation_dates=_compose_func(
                 analyzers.get_creation_date_tags,
