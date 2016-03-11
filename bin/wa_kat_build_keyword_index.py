@@ -170,6 +170,10 @@ def _pick_keywords(db):
         if not code:
             continue
 
+        # record was disabled
+        if parsed["682i"]:
+            continue
+
         if code.lower().startswith("ph"):
             yield KeywordInfo.from_marc(
                 sysno=int(key.split("_")[-1]),  # item_xxx -> int(xxx)
