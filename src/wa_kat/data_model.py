@@ -24,6 +24,7 @@ class Model(KwargsObj):
     def __init__(self, **kwargs):
         self.url = None
         self.title_tags = None
+        self.subtitle_tags = None
         self.creation_dates = None
         self.author_tags = None
         self.publisher_tags = None

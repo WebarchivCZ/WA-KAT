@@ -33,7 +33,7 @@ BAS   L $$aSML
 % if issn:
 222 0 L $$a{{title}}$$b 
 % end
-245*0 L $$a{{title}}$$b 
+245*0 L $$a{{title}}$$b{{subtitle}}
 246** L $$a 
 264 1 L $$a{{place}}$$b{{publisher or author.get("name", " ")}}$$c{{creation_date}}
 300   L $$a1 online zdroj

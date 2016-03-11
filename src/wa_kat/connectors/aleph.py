@@ -95,6 +95,9 @@ def by_issn(issn):
             title_tags=_first_or_none(
                 marc.get("222a")
             ),
+            subtitle_tags=_first_or_none(
+                marc.get("245b")
+            ),
             place_tags=remove_hairs(
                 _first_or_none(marc.get("260a")) or ""
             ),
