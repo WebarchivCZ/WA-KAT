@@ -5,6 +5,8 @@
 #
 # Imports =====================================================================
 import os
+import json
+import base64
 import os.path
 
 from bottle import get
@@ -35,6 +37,7 @@ def render_registered(remote_info):
         _index_template(),
         registered=True,
         url=remote_info["url"],
+        seeder_data=base64.b64encode(json.dumps(remote_info)),
     )
 
 
@@ -43,6 +46,7 @@ def render_unregistered(error=None):
         _index_template(),
         registered=False,
         error=error,
+        seeder_data=None,
     )
 
 
