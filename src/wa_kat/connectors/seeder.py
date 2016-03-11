@@ -41,12 +41,15 @@ def convert_to_mapping(seeder_struct):
         if not items:
             return None
 
-        active_items = [item for item in items if items.get("active")]
+        active_items = [item for item in items if item.get("active")]
 
         if not active_items:
             return items[0]
 
         return active_items[0]
+
+    if not seeder_struct:
+        return None
 
     # pick active seed and active publisher
     active_seed = pick_active(seeder_struct, "seeds")
@@ -77,8 +80,10 @@ def convert_to_mapping(seeder_struct):
     model.rules = {}
     model.rules["frequency"] = seeder_struct["frequency"]
 
+    return model.get_mapping()
 
-def get_remote_info(url_id):  # TODO: Add timeout, print error in case of exception
+
+def download(url_id):  # TODO: Add timeout, print error in case of exception
     url = settings.SEEDER_INFO_URL % url_id
     resp = requests.get(url, headers={
         "User-Agent": settings.USER_AGENT,
@@ -87,6 +92,8 @@ def get_remote_info(url_id):  # TODO: Add timeout, print error in case of except
     resp.raise_for_status()
     data = resp.json()
 
-    print data
-
     return data
+
+
+def get_remote_info(url_id):
+    return convert_to_mapping(download(url_id))
