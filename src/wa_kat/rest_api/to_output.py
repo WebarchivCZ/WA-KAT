@@ -35,9 +35,9 @@ def compile_keywords(keywords):
             continue
 
         cz_keywords.append({
-                "uid": keyword["uid"],
-                "zahlavi": keyword["zahlavi"],
-                "zdroj": "czenas",
+            "uid": keyword["uid"],
+            "zahlavi": keyword["zahlavi"],
+            "zdroj": "czenas",
         })
 
         if keyword.get("mdt"):

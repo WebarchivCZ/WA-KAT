@@ -8,6 +8,7 @@ import bz2
 import json
 import os.path
 from os.path import join
+from collections import OrderedDict
 
 from bottle import get
 from bottle import response
@@ -32,6 +33,41 @@ def read_kw_file():
     return json.loads(kw_list)
 
 
+def build_kw_dict(kw_list):
+    kw_dict = OrderedDict()
+    sorted_list = sorted(
+        kw_list,
+        key=lambda x: x.get("zahlavi").encode("utf-8")
+    )
+
+    for keyword_data in sorted_list:
+        if "zahlavi" not in keyword_data:
+            continue
+
+        zahlavi = keyword_data["zahlavi"].encode("utf-8")
+        old_record = kw_dict.get(zahlavi)
+
+        if not old_record:
+            kw_dict[zahlavi] = keyword_data
+            continue
+
+        key = "angl_ekvivalent"
+        if not old_record.get(key) and keyword_data.get(key):
+            kw_dict[zahlavi] = keyword_data
+            continue
+
+        key = "zdroj_angl_ekvivalentu"
+        if not old_record.get(key) and keyword_data.get(key):
+            kw_dict[zahlavi] = keyword_data
+            continue
+
+        if len(str(keyword_data)) > len(str(old_record)):
+            kw_dict[zahlavi] = keyword_data
+            continue
+
+    return kw_dict
+
+
 # Variables ===================================================================
 _INITIALIZED = False
 KW_DICT = None
@@ -49,13 +85,8 @@ def init():
     global KEYWORDS
     global KW_CACHE_PATH
 
-    KW_LIST = read_kw_file()
-    KW_DICT = {
-        keyword_dict["zahlavi"].encode("utf-8"): keyword_dict
-        for keyword_dict in KW_LIST
-        if "zahlavi" in keyword_dict
-    }
-    KEYWORDS = [k.decode("utf-8") for k in sorted(KW_DICT.keys())]
+    KW_DICT = build_kw_dict(read_kw_file())
+    KEYWORDS = [k.decode("utf-8") for k in KW_DICT.keys()]
     KEYWORDS_JSON = json.dumps(KEYWORDS)
     KW_CACHE_PATH = "/tmp/wa_kat_cache_keywords.json"
 
