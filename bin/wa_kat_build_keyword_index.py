@@ -48,14 +48,22 @@ class KeywordInfo(namedtuple("KeywordInfo", ["uid",
 
             return mrf.split("_")[0]
 
+        def de_entity(s):
+            if not s:
+                return s
+
+            return s.replace("&nbsp;", " ") \
+                    .replace("&quot;", '"') \
+                    .replace("&amp;", "&")
+
         return cls(
             uid=first_or_none(marc["001"]),
             sysno=sysno,
-            zahlavi=first_or_none(marc["150a"]),
+            zahlavi=de_entity(first_or_none(marc["150a"])),
             odkazovana_forma=marc.get("450a", []),
-            angl_ekvivalent=first_or_none(marc["750a07"]),
             mdt=first_or_none(marc["080a"]),
             mrf=parse_mrf(first_or_none(marc["0802"])),
+            angl_ekvivalent=de_entity(first_or_none(marc["750a07"])),
             zdroj_angl_ekvivalentu=first_or_none(marc["750a02"]),
             poznamka=first_or_none(marc["680i"]),
         )
@@ -158,10 +166,11 @@ def _pick_keywords(db):
 
         parsed = MARCXMLRecord(val)
 
-        if not parsed["001"]:
+        code = parsed.get("001")
+        if not code:
             continue
 
-        if parsed["001"].lower().startswith("ph"):
+        if code.lower().startswith("ph"):
             yield KeywordInfo.from_marc(
                 sysno=int(key.split("_")[-1]),  # item_xxx -> int(xxx)
                 marc=parsed,
@@ -183,10 +192,8 @@ def generate(cache_fn):
         sys.exit(1)
 
     with SqliteDict(cache_fn) as db:
-        return [
-            item
-            for item in _pick_keywords(db)
-        ]
+        for item in _pick_keywords(db):
+            yield item
 
 
 # Main program ================================================================
@@ -232,8 +239,8 @@ if __name__ == '__main__':
 
     with bz2.BZ2File(args.output + ".bz2", "w") as f:
         f.write(
-            json.dumps([
-                keyword._asdict()
-                for keyword in generate(args.cache)
-            ])
+            json.dumps(
+                [keyword._asdict() for keyword in generate(args.cache)],
+                indent=4
+            )
         )
