@@ -8,6 +8,7 @@ import requests
 
 from .. import settings
 from ..data_model import Model
+from ..analyzers.source_string import SourceString
 
 
 # Functions & classes =========================================================
@@ -71,14 +72,20 @@ def convert_to_mapping(seeder_struct):
     model.publisher_tags = seeder_struct.get("publisher", {}).get("name")
     model.annotation_tags = seeder_struct.get("comment")  # annotation?
 
-    conspect = None  # TODO: !
+    # conspect = None  # TODO: !
 
     if publisher_contact:
         model.place_tags = publisher_contact.get("address")
 
     # rules are stored in custom subdictionary
     model.rules = {}
-    model.rules["frequency"] = seeder_struct["frequency"]
+    model.rules["frequency"] = str(seeder_struct.get("frequency"))
+
+    # add source info
+    for key in model.keys():
+        val = getattr(model, key)
+        if val and "tags" in key:
+            setattr(model, key, [{"val": val, "source": "Seeder"}])
 
     return model.get_mapping()
 

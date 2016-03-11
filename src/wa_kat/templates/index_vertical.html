@@ -507,7 +507,7 @@ year = time.strftime("%Y")
 </div>
 
 <!-- Data containers -->
-<span style="display: none" id="seeder_data" is_set="{{int(bool(seeder_data))}}">
+<span style="display: none" id="seeder_data" is_set="{{bool(seeder_data) or ''}}">
 {{seeder_data}}
 </span>
 

@@ -60,6 +60,9 @@ class Model(KwargsObj):
             ),
         )
 
+    def keys(self):
+        return self.__dict__.keys()
+
     def get_mapping(self):
         return {
             key: val
