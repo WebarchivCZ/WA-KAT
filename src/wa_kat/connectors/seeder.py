@@ -103,4 +103,13 @@ def download(url_id):  # TODO: Add timeout, print error in case of exception
 
 
 def get_remote_info(url_id):
+    """
+    Download data and convert them to dict used in frontend.
+
+    Args:
+        url_id (str): ID used as identification in Seeder.
+
+    Returns:
+        dict: Dict with data for frontend.
+    """
     return convert_to_mapping(download(url_id))
