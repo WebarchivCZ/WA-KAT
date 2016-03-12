@@ -4,6 +4,8 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import sys
+
 import requests
 
 from .. import settings
@@ -90,12 +92,25 @@ def convert_to_mapping(seeder_struct):
     return model.get_mapping()
 
 
-def download(url_id):  # TODO: Add timeout, print error in case of exception
+def download(url_id):
+    """
+    Download data from the Seeder's API.
+
+    Args:
+        url_id (str): ID used as identification in Seeder.
+
+    Returns:
+        dict: Data from Seeder.
+    """
     url = settings.SEEDER_INFO_URL % url_id
-    resp = requests.get(url, headers={
-        "User-Agent": settings.USER_AGENT,
-        "Authorization": settings.SEEDER_TOKEN,
-    })
+    resp = requests.get(
+        url,
+        timeout=settings.SEEDER_TIMEOUT,
+        headers={
+            "User-Agent": settings.USER_AGENT,
+            "Authorization": settings.SEEDER_TOKEN,
+        }
+    )
     resp.raise_for_status()
     data = resp.json()
 
@@ -110,6 +125,13 @@ def get_remote_info(url_id):
         url_id (str): ID used as identification in Seeder.
 
     Returns:
-        dict: Dict with data for frontend.
+        dict: Dict with data for frontend or None in case of error.
     """
-    return convert_to_mapping(download(url_id))
+    try:
+        data = download(url_id)
+    except Exception as e:
+        sys.stderr.write("Seeder error: ")  # TODO: better!
+        sys.stderr.write(str(e.message))
+        return None
+
+    return convert_to_mapping(data)
