@@ -85,9 +85,12 @@ def render_form_template():
             remote_info = seeder.get_remote_info(registered_user_id)
         except AssertionError:  #: TODO: requests error
             registered_user_id = False
-            error = "Server neposlal očekávaná data."
+            error = "Seeder neposlal očekávaná data.\n"
 
-    if registered_user_id:
+    if registered_user_id and remote_info:
         return render_registered(remote_info)
+
+    if not remote_info:
+        error += "Seeder je nedostupný!\n"
 
     return render_unregistered(error)
