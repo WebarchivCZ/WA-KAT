@@ -5,6 +5,8 @@ Changelog
 -----
     - Added Author picker and connection to Aleph.
     - Fixed lot of bugs, most of the components are now working.
+    - setup.py: Added definition of scripts.
+    - Added wa_kat prefix to all scripts in /bin.
     - Added timeout for seeder and some error handling. Closed #16.
     - Added docstrings (#25).
     - #16: Added settings.SEEDER_TIMEOUT.
