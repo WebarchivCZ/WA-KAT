@@ -38,6 +38,7 @@ class Model(KwargsObj):
         self.original_xml = None
         self.issn = None
         self.rules = None
+        self.additional_info = None  #: Additional fields from aleph
 
         self._kwargs_to_attributes(kwargs)
 

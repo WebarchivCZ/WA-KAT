@@ -36,7 +36,7 @@ def _add_source(model):
     Returns:
         obj: :class:`Model` instance with :class:`SourceString` descriptors.
     """
-    ignored_keys = {"author_tags"}
+    ignored_keys = {"author_tags", "original_xml", "additional_info"}
 
     # convert all values to source strings
     source = "Aleph"
@@ -76,6 +76,20 @@ def by_issn(issn):
     # process all records
     for record in records:
         marc = MARCXMLRecord(record)
+
+        # following values were requested by @bjackova in
+        # https://github.com/WebArchivCZ/WA-KAT/issues/66
+        additional_info = {
+            "222": marc.get("222", None),
+            "PER": marc.get("PER", None),
+            "776": marc.get("776", None),
+            "008": marc.get("008", None),
+        }
+        additional_info = {
+            key: val
+            for key, val in additional_info.iteritems()
+            if val
+        }
 
         author = Author.parse_author(marc)
 
@@ -122,6 +136,7 @@ def by_issn(issn):
                 marc.get("500a")
             ),
             original_xml=record,
+            additional_info=additional_info,
         )
 
         yield _add_source(model)
