@@ -52,6 +52,8 @@ WEB_BE_QUIET = False  #: Be quiet and don't emit debug messages to terminal.
 # Settings for the Seeder API
 SEEDER_INFO_URL = "http://seeder.visgean.me/api/source/%s/"
 SEEDER_TOKEN = ""
+SEEDER_TIMEOUT = 5
+
 REQUEST_TIMEOUT = 5
 TIMEOUT_MESSAGE = "Požadovanou stránku nebylo možné stáhnout. Zkuste url s www."
 
