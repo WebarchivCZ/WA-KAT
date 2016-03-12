@@ -4,6 +4,94 @@ Changelog
 0.3.0
 -----
     - Added Author picker and connection to Aleph.
+    - Fixed lot of bugs, most of the components are now working.
+    - Added timeout for seeder and some error handling. Closed #16.
+    - Added docstrings (#25).
+    - #16: Added settings.SEEDER_TIMEOUT.
+    - #16: Added handling of Seeder's avaliability (#51).
+    - Fixed bugs in .reset(). Closed #69.
+    - #69: Added cabability of basic .reset().
+    - #25: Added docstring.
+    - #51: Added adapters for reading data from Seeder. Basic dataset now works.
+    - #51: Added transport of Seeder's data to the frontend.
+    - #51: Fixed bugs in Seeder connector code.
+    - #25: Added docstrings and other comments.
+    - Added support for subtitle. Closed #64.
+    - Added updated dataset. Fixed #68.
+    - #68: Added skipping of deprecated records.
+    - #68: Fixed logic od the building of keyword cache.
+    - #68: Implemented better parser of keywords.
+    - Naming convention changed.
+    - build_keyword_index.py renamed to wa-kat_build_keyword_index.py.
+    - #51: Added parts of the connector to the Seeder.
+    - Removed unused space.
+    - #68: Fixed case, when the english equivalent is not available.
+    - #51: issn added to the data model.
+    - Removed no longer required file.
+    - #51: Seeder code moved to connectors/seeder.py.
+    - #32: Virtual fs / conspectus code optimized for performance. Fixed #67.
+    - Added custom headers for requests (#24) and Authentication headers (#51).
+    - Custom headers are now used for analysis. Fixed #24.
+    - #32: Added more frontend logging.
+    - #32: Rewritten to load API_PATH from settings.py / virtual fs.
+    - #32: Periodes are now transported to frontend using virtual fs.
+    - #32: Added new virtual fs / periodes.py.
+    - #59: Fixed output template to include data from new conspect dict.
+    - #59: Removed unused files and code replaced by new version.
+    - #32, #59: Completely rewritten conspect handler code.
+    - #32, #59: searchable_conspect class renamed to whole_conspect_subconspect.
+    - #32: Added conspect code (#59). Virtual filesystem is now implemented.
+    - #32: Implemented virtual fs / conspectus.py
+    - #32: Optimized.
+    - #32: GUI_TO_REST_PERIODE is now read from virtual fs / settings.py.
+    - #32: settings.py are now available in virtual fs.
+    - #32: Added first part of the virtual filesystem for brython configuration.
+    - #51: Rules data added to output dataset.
+    - #32: Author errors are now logged by LogView component.
+    - Added special requested default value to creation_date. Fixed #65.
+    - #59: Added processed JSON data. This will require rewrite of the web gui.
+    - #59: Added script, which processes the dataset from Dan Kindl to JSON.
+    - Removed unused file.
+    - #59: Added dataset from Dan Kindl.
+    - #32: Added loading gear animation.
+    - #32: Progress bar rewritten to use as instance instead of static class.
+    - Fixed minor bugs.
+    - #32: Fixed problems with scrolling on elements shadowed by overlay.
+    - Removed unused file.
+    - Output template fixed to not require Author field. Closed #62.
+    - #62: Restructured. Removed `required` flag from the Author picker.
+    - #62: publisher_switcher.py renamed to author_switcher.py.
+    - #62: Rewritten to make Publisher always visible and Author optional.
+    - #24: Added settings.ANALYZER_USER_AGENT.
+    - Adde new settings: NTK_ALEPH_URL. Fixed #61.
+    - Random comment updated.
+    - #51: REMOTE_INFO_URL renamed to SEEDER_TOKEN. Removed MOCK API.
+    - #61: ISSN requests redirected to NTK's Aleph.
+    - Changed python interpreter version description comment.
+    - #58: Added support of authors into the output.
+    - #58: Fixed bug in author picker.
+    - #58: Removed debug prints and GUI elements.
+    - #58: Fixed code for reading the author from aleph
+    - Added alternative author descriptions to main page.
+    - #58: Added nicer input text at the main page.
+    - #58: Added corporation/person indicator to the output.
+    - #58: Added better detection of persons/corporations.
+    - Full Author record is now transported to the frontend.
+    - Added another example with ISSN and author record.
+    - Added more examples of authority records.
+    - #58: Publisher is now put into the 264b.
+    - #58: Author analysis are now put into the publisher field.
+    - #58: Added descriptor protocol to AuthorPicker. Included to form data.
+    - Added better handling of event propagation.
+    - #58: Added rest of the logic for picking elements.
+    - #58: Disabled autocomplete on author's search input.
+    - Changelog updated.
+    - #58: Added working connection to Aleph REST API (AuthorPickerAdapter).
+    - #58: make_request() and func_on_enter() moved to components/shared.py.
+    - #58: Added `Vybrat` button to Author input.
+    - #58: Added sketch of the author picker.
+    - #58: Added better style definition for author picker.
+    - #58: Added GUI element for picking the authors.
 
 0.2.0
 -----
