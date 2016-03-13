@@ -7,6 +7,7 @@
 from collections import defaultdict
 
 from marcxml_parser import MARCXMLRecord
+from marcxml_parser.tools.resorted import resorted
 
 
 # Functions & classes =========================================================
@@ -64,3 +65,22 @@ def mrc_to_marc(mrc):
         )
 
     return record.to_XML()
+
+
+def dict_to_mrc(code, dicts):
+    def _dict_to_mrc(code, d):
+        i1 = d.get("i1", d.get("ind1"))
+        i2 = d.get("i2", d.get("ind2"))
+
+        one_chars = [k for k in d.keys() if len(k) == 1]
+        out = "%s%s%s L " % (code, i1, i2)
+        for key in resorted(one_chars):
+            for item in d[key]:
+                out += "$$%s%s" % (key, item)
+
+        return out
+
+    return [
+        _dict_to_mrc(code, d)
+        for d in dicts
+    ]
