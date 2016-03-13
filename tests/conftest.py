@@ -23,7 +23,7 @@ from zeo_connector_defaults import cleanup_environment
 # Variables ===================================================================
 PORT = random.randint(20000, 60000)
 URL = "http://127.0.0.1:%d" % PORT
-API_URL = URL + "/api/v1/"
+API_URL = URL + "/api_v1/"
 _SERVER_HANDLER = None
 
 
@@ -92,7 +92,7 @@ def bottle_server(request, zeo, client_conf_path):
         # prepare path to the command
         command_path = os.path.join(
             os.path.dirname(__file__),
-            "../bin/run_wa_kat_server.py"
+            "../bin/wa_kat_server.py"
         )
         assert os.path.exists(command_path)
 
@@ -110,7 +110,8 @@ def bottle_server(request, zeo, client_conf_path):
 
     # add finalizer which shutdowns the server and remove temporary file
     def shutdown_server():
-        _SERVER_HANDLER.terminate()
+        if _SERVER_HANDLER:
+            _SERVER_HANDLER.terminate()
         os.unlink(alt_conf_path)
 
     request.addfinalizer(shutdown_server)
