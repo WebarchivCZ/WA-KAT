@@ -1,4 +1,4 @@
-rest_api subpackage
+REST API subpackage
 ===================
 
 .. automodule:: wa_kat.rest_api
@@ -11,5 +11,11 @@ Submodules
 
 .. toctree::
 
-   detectors
+   keywords
+   aleph_api
+   virtual_fs
+   to_output
 
+.. toctree::
+
+   shared
