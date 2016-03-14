@@ -67,7 +67,7 @@ def mrc_to_marc(mrc):
     return record.to_XML()
 
 
-def dict_to_mrc(code, dicts):
+def dicts_to_mrc(code, dicts):
     def _dict_to_mrc(code, d):
         i1 = d.get("i1", d.get("ind1"))
         i2 = d.get("i2", d.get("ind2"))
@@ -84,3 +84,11 @@ def dict_to_mrc(code, dicts):
         _dict_to_mrc(code, d)
         for d in dicts
     ]
+
+
+def val_to_mrc(code, val):
+    code = str(code)
+    if len(code) < 3:
+        code += (3 - len(code)) * " "
+
+    return "%s   L %s" % (code, val)
