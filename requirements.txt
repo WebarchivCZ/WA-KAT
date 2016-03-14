@@ -18,6 +18,6 @@ iso_639_codes>=0.0.1
 
 zeo_connector>=0.4.2
 pydhtmlparser>=2.1.6
-marcxml-parser==1.2.2
+marcxml-parser==1.2.3
 backports.functools-lru-cache==1.2.1
 edeposit.amqp.aleph>=1.9.5
