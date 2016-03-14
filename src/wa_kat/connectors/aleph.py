@@ -84,6 +84,7 @@ def by_issn(issn):
             "PER": marc.get("PER", None),
             "776": marc.get("776", None),
             "008": marc.get("008", None),
+            "alt_end_date": ""  # just reminder that it is filled later
         }
         additional_info = {
             key: val
@@ -92,15 +93,19 @@ def by_issn(issn):
         }
 
         # check whether there is alternative date in 008
+        alt_end_date = None
         alt_creation_date = None
         if additional_info["008"]:
             # 131114c20139999xr-q||p|s||||||---a0eng-c -> 2013
             alt_creation_date = additional_info["008"][7:11]
 
             # 131114c20139999xr-q||p|s||||||---a0eng-c -> 9999
-            end_date = additional_info["008"][11:15]
-            if end_date == "9999":
+            alt_end_date = additional_info["008"][11:15]
+            if alt_end_date in ["9999", "****"]:
                 alt_creation_date += "-"  # library convention is xxxx-
+                alt_end_date = None
+
+            additional_info["alt_end_date"] = alt_end_date
 
         # parse author
         author = Author.parse_author(marc)
