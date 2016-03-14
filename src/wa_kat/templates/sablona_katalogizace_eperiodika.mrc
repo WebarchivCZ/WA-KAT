@@ -30,8 +30,8 @@ BAS   L $$aSML
 1102  L $$a $$b 
 % end
 1112  L $$a $$d $$c 
-% if issn:
-222 0 L $$a{{title}}$$b 
+% if "222" in additional_info:
+{{additional_info["222"]}}
 % end
 245*0 L $$a{{title}}$$b{{subtitle}}
 246** L $$a 
@@ -60,9 +60,15 @@ BAS   L $$aSML
 7001  L $$a $$4 
 7102  L $$a 
 7112  L $$a 
+% if "776" in additional_info:
+{{additional_info["776"]}}
+% end
 85640 L $$u{{url}}$$qtext/html$$4N
 85640 L $$uhttp://wayback.webarchiv.cz/wayback/{{url}}$$qtext/html$$zarchivní verze stránek$$4N
 929   L $$aText
 930   L $$acop.
+% if "PER" in additional_info:
+{{additional_info["PER"]}}
+% end
 NKC   L $$aČNB-w
 IST1  L $$awz********$$b****

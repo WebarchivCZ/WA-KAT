@@ -17,6 +17,7 @@ from marcxml_parser.tools.resorted import resorted
 
 from ..settings import API_PATH
 from ..convertors import mrc_to_marc
+from ..convertors import item_to_mrc
 
 from shared import read_template
 
@@ -69,7 +70,7 @@ def url_to_fn(url):
     return url.replace("%", "_").replace("/", "_")
 
 
-def parse_date_range(date):
+def parse_date_range(date, alt_end_date=None):
     """
     Parse input `date` string in free-text format for four-digit long groups.
 
@@ -81,6 +82,9 @@ def parse_date_range(date):
     """
     NOT_ENDED = "9999"
     all_years = re.findall(r"\d{4}", date)
+
+    if alt_end_date:
+        NOT_ENDED = alt_end_date
 
     if not all_years:
         return "****", NOT_ENDED
@@ -179,8 +183,21 @@ def to_output(data):
     data["annotation"] = data["annotation"].replace("\n", " ")
     data["time"] = time  # for date generation
 
+    # convert additional info values to MRC
+    alt_end_date = None
+
+    key = "additional_info"
+    if key in data and data[key]:
+        data[key] = {
+            key: "\n".join(item_to_mrc(key, val))
+            for key, val in data[key].iteritems()
+            if val
+        }
+
+        alt_end_date = data[key].get("alt_end_date", None)
+
     # handle date range in the 008
-    from_year, to_year = parse_date_range(data["creation_date"])
+    from_year, to_year = parse_date_range(data["creation_date"], alt_end_date)
     data["from_year"] = from_year
     data["to_year"] = to_year
 
