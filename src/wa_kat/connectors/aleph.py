@@ -91,6 +91,18 @@ def by_issn(issn):
             if val
         }
 
+        # check whether there is alternative date in 008
+        alt_creation_date = None
+        if additional_info["008"]:
+            # 131114c20139999xr-q||p|s||||||---a0eng-c -> 2013
+            alt_creation_date = additional_info["008"][7:11]
+
+            # 131114c20139999xr-q||p|s||||||---a0eng-c -> 9999
+            end_date = additional_info["008"][11:15]
+            if end_date == "9999":
+                alt_creation_date += "-"  # library convention is xxxx-
+
+        # parse author
         author = Author.parse_author(marc)
 
         model = Model(
@@ -124,9 +136,8 @@ def by_issn(issn):
                 ),
                 ", "
             ),
-            # publisher_tags=,
             creation_dates=_first_or_none(
-                marc.get("260c")
+                marc.get("260c", [alt_creation_date])
             ),
             lang_tags=_first_or_none(
                 marc.get("040b")
