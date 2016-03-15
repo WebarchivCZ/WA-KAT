@@ -195,6 +195,8 @@ def to_output(data):
         }
 
         alt_end_date = data[key].get("alt_end_date", None)
+    else:
+        data[key] = {}
 
     # handle date range in the 008
     from_year, to_year = parse_date_range(data["creation_date"], alt_end_date)
