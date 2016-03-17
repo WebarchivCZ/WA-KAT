@@ -1,5 +1,4 @@
 {
-   "subtitle":"",
    "periodicity":"\u010cast\xe9 aktualizace",
    "author":None,
    "url":"http://dav.soc.cas.cz",
@@ -25,9 +24,7 @@
       "gentle_fetch":"default",
       "local_traps":False
    },
-   "to_year":"9999",
    "place":"Praha",
-   "from_year":"2007",
    "en_keywords":[
       {
          "zahlavi":"keyboard (musical instrument)",

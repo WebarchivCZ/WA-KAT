@@ -21,16 +21,24 @@ def compose_metadata(data):
         arguments["#text"] = val
         return arguments
 
+    conspect = data.get("conspect", {})
+
     metadata = odict[
         "dc:title": data.get("title"),
+        "dcterms:alternative": data.get("subtitle"),
         "dc:publisher": data.get("publisher"),
         "dc:description": data.get("annotation"),
         "dc:language": compose(data.get("language"), {"@schema": "ISO 639-2"}),
+        "dcterms:created": data.get("from_year"),
         "dc:identifier": [
-            compose(data.get("issn"), {"@type": "ISSN"}),
-            compose(data.get("conspect", {}).get("mdt"), {"@type": "MDT"}),
-        ]
-        # "dc:identifier": 
+            compose(data.get("issn"), {"@xsi:type": "ISSN"}),
+            compose(conspect.get("mdt"), {"@xsi:type": "MDT"}),
+            compose(conspect.get("ddc"), {"@xsi:type": "DDC"}),
+        ],
+        "dc:subject": [
+            compose(conspect.get("mdt"), {"@xsi:type": "dcterms:UDC"}),
+            compose(conspect.get("ddc"), {"@xsi:type": "dcterms:DDC"}),
+        ],
     ]
 
     # filter unset identifiers - TODO: rewrite to recursive alg.
@@ -44,16 +52,23 @@ def to_dc(data):
         "metadata": odict[
             "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+            "@xmlns:dcterms": "http://purl.org/dc/terms/",
+            "@xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         ]
     ]
 
     # map metadata to the root element, skip None values
     for key, val in compose_metadata(data).iteritems():
-        if val is not None:
-            if isinstance(val, str):
-                val = val.decode("utf-8")
+        if val is None:
+            continue
 
-            root["metadata"][key] = val
+        if isinstance(val, basestring) and not val.strip():
+            continue
+
+        if isinstance(val, str):
+            val = val.decode("utf-8")
+
+        root["metadata"][key] = val
 
     return unparse(root, pretty=True)
 
