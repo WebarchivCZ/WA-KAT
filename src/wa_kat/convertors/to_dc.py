@@ -21,13 +21,6 @@ def compose_metadata(data):
         arguments["#text"] = val
         return arguments
 
-    def pick_keywords(data, source):
-        return [
-            x["zahlavi"]
-            for x in data.get(source, [])
-            if x.get("zahlavi")
-        ]
-
     conspect = data.get("conspect", {})
 
     metadata = odict[
@@ -49,7 +42,15 @@ def compose_metadata(data):
         ],
     ]
 
-    # parse and add keywords
+    def pick_keywords(data, source):
+        return [
+            x["zahlavi"]
+            for x in data.get(source, [])
+            if x.get("zahlavi")
+        ]
+
+    # parse and add keywords (keywords are in dicts with other data, I want
+    # just the free-text descriptions)
     cz_keywords = pick_keywords(data, "cz_keywords")
     en_keywords = pick_keywords(data, "en_keywords")
 
