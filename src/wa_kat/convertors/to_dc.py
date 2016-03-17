@@ -28,8 +28,13 @@ def compose_metadata(data):
         "dcterms:alternative": data.get("subtitle"),
         "dc:publisher": data.get("publisher"),
         "dc:description": data.get("annotation"),
+        "dc:coverage": compose(data.get("place"), {"@xml:lang": "cze"}),
         "dc:language": compose(data.get("language"), {"@schema": "ISO 639-2"}),
         "dcterms:created": data.get("from_year"),
+        "dcterms:accrualperiodicity": compose(
+            data.get("periodicity"),
+            {"@xml:lang": "cze"}
+        ),
         "dc:identifier": [
             {"@rdf:resource": data["url"]},
             compose(data.get("issn"), {"@xsi:type": "ISSN"}),
