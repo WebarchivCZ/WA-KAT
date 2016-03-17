@@ -163,4 +163,4 @@ def to_dc(data):
 
         root["metadata"][key] = val
 
-    return unparse(root, pretty=True)
+    return unparse(root, pretty=True, indent="    ")

@@ -6,9 +6,11 @@
 # Imports =====================================================================
 import pytest
 
+from wa_kat.convertors.to_dc import to_dc
+
 
 # Variables ===================================================================
-print to_dc({
+TEST_DATA = {
     "publisher": u"Sociologick\xfd \xfastav AV \u010cR v.v.i.,",
     "issn": "2336-2391",
     "subtitle": "",
@@ -92,7 +94,29 @@ print to_dc({
             "mdt": "616.13/.14-002:616.155.3-097"
         }
     ]
-})
+}
+
+
+EXPECTED_OUTPUT = u"""<?xml version="1.0" encoding="utf-8"?>
+<metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <dc:title>Data a výzkum - SDA Info</dc:title>
+    <dc:creator id="kn20080316009">Grada Publishing</dc:creator>
+    <dc:publisher>Sociologický ústav AV ČR v.v.i.,</dc:publisher>
+    <dc:description>Nějaký popisek.</dc:description>
+    <dc:coverage xml:lang="cze">Praha</dc:coverage>
+    <dc:language schema="ISO 639-2">cze</dc:language>
+    <dcterms:created>2007</dcterms:created>
+    <dcterms:accrualperiodicity xml:lang="cze">Časté aktualizace</dcterms:accrualperiodicity>
+    <dc:identifier rdf:resource="http://dav.soc.cas.cz"></dc:identifier>
+    <dc:identifier xsi:type="ISSN">2336-2391</dc:identifier>
+    <dc:identifier xsi:type="MDT">58</dc:identifier>
+    <dc:identifier xsi:type="DDC">580</dc:identifier>
+    <dc:subject xsi:type="dcterms:UDC">58</dc:subject>
+    <dc:subject xsi:type="dcterms:DDC">580</dc:subject>
+    <dc:subject xml:lang="cz">keyboard, ANCA asociovaná vaskulitida</dc:subject>
+    <dc:subject xml:lang="en">keyboard (musical instrument), ANCA-associated vasculitis</dc:subject>
+</metadata>
+"""
 
 
 # Fixtures ====================================================================
@@ -105,5 +129,5 @@ print to_dc({
 
 
 # Tests =======================================================================
-def test_():
-    pass
+def test_conversion():
+    assert to_dc(TEST_DATA).strip() == EXPECTED_OUTPUT.strip()
