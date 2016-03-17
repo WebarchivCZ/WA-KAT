@@ -21,6 +21,13 @@ def compose_metadata(data):
         arguments["#text"] = val
         return arguments
 
+    def pick_keywords(data, source):
+        return [
+            x["zahlavi"]
+            for x in data.get(source, [])
+            if x.get("zahlavi")
+        ]
+
     conspect = data.get("conspect", {})
 
     metadata = odict[
@@ -31,6 +38,7 @@ def compose_metadata(data):
         "dc:language": compose(data.get("language"), {"@schema": "ISO 639-2"}),
         "dcterms:created": data.get("from_year"),
         "dc:identifier": [
+            {"@rdf:resource": data["url"]},
             compose(data.get("issn"), {"@xsi:type": "ISSN"}),
             compose(conspect.get("mdt"), {"@xsi:type": "MDT"}),
             compose(conspect.get("ddc"), {"@xsi:type": "DDC"}),
@@ -41,8 +49,24 @@ def compose_metadata(data):
         ],
     ]
 
+    # parse and add keywords
+    cz_keywords = pick_keywords(data, "cz_keywords")
+    en_keywords = pick_keywords(data, "en_keywords")
+
+    if cz_keywords:
+        metadata["dc:subject"].append({
+            "@xml:lang": "cz",
+            "#text": ", ".join(cz_keywords)
+        })
+    if en_keywords:
+        metadata["dc:subject"].append({
+            "@xml:lang": "en",
+            "#text": ", ".join(en_keywords)
+        })
+
     # filter unset identifiers - TODO: rewrite to recursive alg.
     metadata["dc:identifier"] = [x for x in metadata["dc:identifier"] if x]
+    metadata["dc:subject"] = [x for x in metadata["dc:subject"] if x]
 
     return metadata
 
@@ -80,7 +104,7 @@ print to_dc({
     "periodicity": u"\u010cast\xe9 aktualizace",
     "language": "cze",
     "author": None,
-    "url": "http: //dav.soc.cas.cz",
+    "url": "http://dav.soc.cas.cz",
     "cz_keywords": [
         {
             "zahlavi": "keyboard",

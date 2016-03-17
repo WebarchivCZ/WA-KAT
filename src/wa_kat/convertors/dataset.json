@@ -1,54 +1,5 @@
 {
    "periodicity":"\u010cast\xe9 aktualizace",
    "author":None,
-   "url":"http://dav.soc.cas.cz",
-   "cz_keywords":[
-      {
-         "zahlavi":"keyboard",
-         "uid":"ph117670",
-         "zdroj":"czenas"
-      },
-      {
-         "zahlavi":"ANCA asociovan\xe1 vaskulitida",
-         "uid":"ph568406",
-         "zdroj":"czenas"
-      }
-   ],
-   "rules":{
-      "youtube":False,
-      "javascript":False,
-      "calendars":False,
-      "budget":15000,
-      "frequency":365,
-      "global_reject":True,
-      "gentle_fetch":"default",
-      "local_traps":False
-   },
    "place":"Praha",
-   "en_keywords":[
-      {
-         "zahlavi":"keyboard (musical instrument)",
-         "zdroj":"eczenas"
-      },
-      {
-         "zahlavi":"ANCA-associated vasculitis",
-         "zdroj":"eczenas"
-      }
-   ],
-   "additional_info":{
-      "776":"7760  L $$tData a v\xfdzkum (Print)$$x1802-8152",
-      "008":"008   L 131210c20079999xr-f||p|s||||||---b0mul-c",
-      "222":"222 0 L $$aData a v\xfdzkum - SDA Info$$b(On-line)",
-      "PER":"PER   L $$a2x za rok"
-   },
-   "mdt":[
-      {
-         "mrf":"MRF",
-         "mdt":"681.828:681.816"
-      },
-      {
-         "mrf":"MRF",
-         "mdt":"616.13/.14-002:616.155.3-097"
-      }
-   ]
 }
