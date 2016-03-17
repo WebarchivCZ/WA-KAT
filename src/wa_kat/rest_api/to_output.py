@@ -16,6 +16,8 @@ from bottle_rest import form_to_params
 from marcxml_parser.tools.resorted import resorted
 
 from ..settings import API_PATH
+
+from ..convertors import to_dc
 from ..convertors import mrc_to_marc
 from ..convertors import item_to_mrc
 
@@ -215,7 +217,7 @@ def to_output(data):
         "fn": url_to_fn(data["url"]),
         "mrc": mrc,
         "oai": mrc_to_marc(mrc),
-        # "dc": mrc_to_marc(mrc),
+        "dc": to_dc(data),
     }
 
     return out
