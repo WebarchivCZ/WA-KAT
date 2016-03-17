@@ -50,6 +50,7 @@ API
     :maxdepth: 1
 
     /api/convertors/mrc.rst
+    /api/convertors/to_dc.rst
     /api/convertors/seeder.rst
 
 :doc:`/api/rest_api/rest_api`:
