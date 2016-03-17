@@ -10,22 +10,28 @@ from xmltodict import unparse
 from odictliteral import odict
 
 
-# Variables ===================================================================
 # Functions & classes =========================================================
-def remove_none(data):
-    if isinstance(data, list) or isinstance(data, tuple):
-        return [x for x in data if x is not None]
+def _convert_metadata(data):
+    """
+    Convert metadata from WA-KAT to Dublin core dictionary like structure,
+    which may be easily converted to xml using :mod:`xmltodict` module.
 
-    out = OrderedDict()
-    for key, val in data.iteritems():
-        if val is not None:
-            out[key] = val
+    Args:
+        data (dict): Nested WA-KAT data. See tests for example.
 
-    return out
-
-
-def compose_metadata(data):
+    Returns:
+        dict: Dict in dublin core format.
+    """
     def compose(val, arguments=None):
+        """
+        If not val, return None.
+
+        If not arguments, return just val.
+
+        Otherwise, map val into `arguments` dict under the ``#text`` key.
+
+        This is format required by xmltodict.
+        """
         if val is None:
             return None
 
@@ -36,7 +42,6 @@ def compose_metadata(data):
         return arguments
 
     conspect = data.get("conspect", {})
-
     author_name = data.get("author", {}).get("name")
     author_code = data.get("author", {}).get("code")
 
@@ -66,6 +71,22 @@ def compose_metadata(data):
     ]
 
     def pick_keywords(data, source):
+        """
+        Convert::
+
+            "en_keywords": [
+                {
+                    "zahlavi": "keyboard (musical instrument)",
+                    "zdroj": "eczenas"
+                }, {
+                    "zahlavi": "ANCA-associated vasculitis",
+                    "zdroj": "eczenas"
+                }
+            ]
+
+        To::
+            ["keyboard (musical instrument)", "ANCA-associated vasculitis"]
+        """
         return [
             x["zahlavi"]
             for x in data.get(source, [])
@@ -95,7 +116,31 @@ def compose_metadata(data):
     return metadata
 
 
+def _remove_none(data):
+    """
+    Go thru `data` (dict / list) and remove ``None`` values.
+    """
+    if isinstance(data, list) or isinstance(data, tuple):
+        return [x for x in data if x is not None]
+
+    out = OrderedDict()
+    for key, val in data.iteritems():
+        if val is not None:
+            out[key] = val
+
+    return out
+
+
 def to_dc(data):
+    """
+    Convert WA-KAT `data` to Dublin core XML.
+
+    Args:
+        data (dict): Nested WA-KAT data. See tests for example.
+
+    Returns:
+        unicode: XML with dublin core.
+    """
     root = odict[
         "metadata": odict[
             "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
@@ -106,7 +151,7 @@ def to_dc(data):
     ]
 
     # map metadata to the root element, skip None values
-    for key, val in compose_metadata(remove_none(data)).iteritems():
+    for key, val in _convert_metadata(_remove_none(data)).iteritems():
         if val is None:
             continue
 
