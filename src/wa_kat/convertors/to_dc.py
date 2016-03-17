@@ -4,12 +4,26 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+from collections import OrderedDict
+
 from xmltodict import unparse
 from odictliteral import odict
 
 
 # Variables ===================================================================
 # Functions & classes =========================================================
+def remove_none(data):
+    if isinstance(data, list) or isinstance(data, tuple):
+        return [x for x in data if x is not None]
+
+    out = OrderedDict()
+    for key, val in data.iteritems():
+        if val is not None:
+            out[key] = val
+
+    return out
+
+
 def compose_metadata(data):
     def compose(val, arguments=None):
         if val is None:
@@ -23,9 +37,13 @@ def compose_metadata(data):
 
     conspect = data.get("conspect", {})
 
+    author_name = data.get("author", {}).get("name")
+    author_code = data.get("author", {}).get("code")
+
     metadata = odict[
         "dc:title": data.get("title"),
         "dcterms:alternative": data.get("subtitle"),
+        "dc:creator": compose(author_name, {"@id": author_code}),
         "dc:publisher": data.get("publisher"),
         "dc:description": data.get("annotation"),
         "dc:coverage": compose(data.get("place"), {"@xml:lang": "cze"}),
@@ -88,7 +106,7 @@ def to_dc(data):
     ]
 
     # map metadata to the root element, skip None values
-    for key, val in compose_metadata(data).iteritems():
+    for key, val in compose_metadata(remove_none(data)).iteritems():
         if val is None:
             continue
 
@@ -101,72 +119,3 @@ def to_dc(data):
         root["metadata"][key] = val
 
     return unparse(root, pretty=True)
-
-
-print to_dc({
-    "publisher": u"Sociologick\xfd \xfastav AV \u010cR v.v.i.,",
-    "issn": "2336-2391",
-    "subtitle": "",
-    "periodicity": u"\u010cast\xe9 aktualizace",
-    "language": "cze",
-    "author": None,
-    "url": "http://dav.soc.cas.cz",
-    "cz_keywords": [
-        {
-            "zahlavi": "keyboard",
-            "uid": "ph117670",
-            "zdroj": "czenas"
-        }, {
-            "zahlavi": u"ANCA asociovan\xe1 vaskulitida",
-            "uid": "ph568406",
-            "zdroj": "czenas"
-        }
-    ],
-    "conspect": {
-        "ddc": "580",
-        "en_name": "Plants",
-        "conspect_id": "2",
-        "mdt": "58",
-        "name": "Botanika"
-    },
-    "annotation": u"N\u011bjak\xfd popisek.",
-    "rules": {
-        "youtube": False,
-        "javascript": False,
-        "calendars": False,
-        "budget": 15000,
-        "frequency": 365,
-        "global_reject": True,
-        "gentle_fetch": "default",
-        "local_traps": False
-    },
-    "to_year": "9999",
-    "place": "Praha",
-    "from_year": "2007",
-    "title": u"Data a v\xfdzkum - SDA Info",
-    "creation_date": "2007-",
-    "en_keywords": [
-        {
-            "zahlavi": "keyboard (musical instrument)",
-            "zdroj": "eczenas"
-        }, {
-            "zahlavi": "ANCA-associated vasculitis",
-            "zdroj": "eczenas"
-        }
-    ],
-    "additional_info": {
-        "776": u"7760  L $$tData a v\xfdzkum (Print)$$x1802-8152",
-        "008": "008   L 131210c20079999xr-f||p|s||||||---b0mul-c",
-        "222": u"222 0 L $$aData a v\xfdzkum - SDA Info$$b(On-line)",
-        "PER": "PER   L $$a2x za rok"
-    },
-    "mdt": [
-        {
-            "mrf": "MRF",
-            "mdt": "681.828: 681.816"
-        }, {
-            "mrf": "MRF",
-            "mdt": "616.13/.14-002:616.155.3-097"
-        }
-    ]
-})
