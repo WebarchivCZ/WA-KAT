@@ -97,7 +97,13 @@ class RequestInfo(Persistent):
             str: Content of the page.
         """
         headers = {"User-Agent": USER_AGENT}
-        resp = requests.get(url, timeout=REQUEST_TIMEOUT, headers=headers)
+        resp = requests.get(
+            url,
+            timeout=REQUEST_TIMEOUT,
+            headers=headers,
+            allow_redirects=True,
+            verify=False,
+        )
 
         return resp.text.encode("utf-8")  # TODO: what about binaries?
 
