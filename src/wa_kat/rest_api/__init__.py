@@ -51,13 +51,18 @@ def analyzer_api(url):
             # run the processing
             ri.paralel_processing()
 
-    except (requests.exceptions.Timeout, requests.ConnectionError):
+    except (requests.exceptions.Timeout, requests.ConnectionError) as e:
         error_msg = """
             Požadovanou stránku {url} nebylo možné stáhnout během {timeout}
             vteřin. Zkuste URL zadat s `www.`, či zkontrolovat funkčnost
             stránek.
+            <span style="display: none">{message}</span>
         """
-        error_msg = error_msg.format(url=url, timeout=settings.REQUEST_TIMEOUT)
+        error_msg = error_msg.format(
+            url=url,
+            timeout=settings.REQUEST_TIMEOUT,
+            message=str(e.message)
+        )
 
         return {
             "status": False,
