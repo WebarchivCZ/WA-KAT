@@ -185,9 +185,13 @@ def to_output(data):
     data["annotation"] = data["annotation"].replace("\n", " ")
     data["time"] = time  # for date generation
 
+    # parse regularity - see https://github.com/WebArchivCZ/WA-KAT/issues/66
+    # for details
+    field_008 = data["additional_info"].get("008")
+    data["regularity"] = field_008[18] if field_008 else "-"
+
     # convert additional info values to MRC
     alt_end_date = None
-
     key = "additional_info"
     if key in data and data[key]:
         data[key] = {
