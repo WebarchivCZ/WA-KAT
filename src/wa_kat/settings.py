@@ -59,6 +59,7 @@ TIMEOUT_MESSAGE = "Požadovanou stránku nebylo možné stáhnout. Zkuste url s 
 
 GUI_TO_REST_PERIODE = 2  #: How often check the REST API.
 
+WHOIS_URL = "http://whois.icann.org/en/lookup?name=%s"
 NTK_ALEPH_URL = "http://aleph.techlib.cz/X"
 
 USER_AGENT = "http://webarchiv.cz catalogization tool WA-KAT."
