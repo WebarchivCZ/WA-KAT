@@ -42,7 +42,7 @@
   <form id="application_form" class="form-horizontal" role="form">
 
     <div class="form-group">
-      <label for="url" class="control-label col-sm-2">URL</label>
+      <label for="url" class="control-label col-sm-2"><span class="required_item">URL</span></label>
       <div class="col-sm-10">
         <div class="input-group">
 % if registered:
@@ -96,7 +96,7 @@
     </div>
 
     <div class="form-group">
-      <label for="title" class="control-label col-sm-2">Název</label>
+      <label for="title" class="control-label col-sm-2"><span class="required_item">Název</span></label>
       <div id="title_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="title" placeholder="Název katalogizovaných webstránek." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -112,7 +112,7 @@
     </div>
 
     <div class="form-group">
-      <label for="creation_date" class="control-label col-sm-2">Datum vzniku</label>
+      <label for="creation_date" class="control-label col-sm-2"><span class="required_item">Datum vzniku</span></label>
       <div id="creation_date_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="creation_date" placeholder="Rok vzniku webstránek." value="[XXXX?]-" required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -120,7 +120,7 @@
     </div>
 
     <div class="form-group">
-      <label for="publisher" class="control-label col-sm-2">Vydavatel</label>
+      <label for="publisher" class="control-label col-sm-2"><span class="required_item">Vydavatel</span></label>
       <input id="author_switcher" type="checkbox" checked="0" />
       <div id="publisher_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="publisher" placeholder="Vydavatel stránek, pokud je stejný jako Autor. Pokud není, rozklikněte vlevo." required />
@@ -141,7 +141,7 @@
     </div>
 
     <div class="form-group">
-      <label for="place" class="control-label col-sm-2">Místo</label>
+      <label for="place" class="control-label col-sm-2"><span class="required_item">Místo</span></label>
       <div id="place_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="place" placeholder="Místo vzniku." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -197,7 +197,7 @@
     </div>
 
     <div class="form-group">
-      <label for="lang" class="control-label col-sm-2">Jazyk</label>
+      <label for="lang" class="control-label col-sm-2"><span class="required_item">Jazyk</span></label>
       <div id="lang_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="lang" placeholder="Kód jazyka." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -205,14 +205,14 @@
     </div>
 
     <div class="form-group">
-      <label for="annotation" class="control-label col-sm-2">Anotace</label>
+      <label for="annotation" class="control-label col-sm-2"><span class="required_item">Anotace</span></label>
       <div class="col-sm-10">
         <textarea class="form-control" rows="3" id="annotation" placeholder="Krátký popis zdroje. Řádky začínající na -- jsou ignorovány." required></textarea>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="periode" class="control-label col-sm-2">Periodicita</label>
+      <label for="periode" class="control-label col-sm-2"><span class="required_item">Periodicita</span></label>
       <div id="periode_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="periode" placeholder="Periodicita dílů." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -220,7 +220,7 @@
     </div>
 
     <div class="form-group">
-      <label for="freq" class="control-label col-sm-2">Frekvence sklízení</label>
+      <label for="freq" class="control-label col-sm-2"><span class="required_item">Frekvence sklízení</span></label>
       <div class="col-sm-10">
         <select class="form-control" id="freq">
           <option value="365">Denně</option>
@@ -236,7 +236,7 @@
     </div>
 
     <div class="form-group">
-      <label for="rules" class="control-label col-sm-2">Pravidla</label>
+      <label for="rules" class="control-label col-sm-2"><span class="required_item">Pravidla</span></label>
 
       <span class="col-sm-2">
         <h4>Hloubka (budget)</h4>

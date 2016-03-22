@@ -121,3 +121,7 @@ body {
     transform: rotate(180deg);
     display: inline-block;
 }
+
+.required_item {
+    border-bottom: 1px solid red;
+}
