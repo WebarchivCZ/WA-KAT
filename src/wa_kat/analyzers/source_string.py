@@ -17,11 +17,12 @@ class SourceString(str):
         source (str, default None): Source of the `val`.
     """
     def __new__(self, val, *args, **kwargs):
-        return str.__new__(self, val)
+        try:
+            return str.__new__(self, val)
+        except UnicodeEncodeError:
+            return str.__new__(self, val.encode("utf-8"))
 
     def __init__(self, val, source=None):
-        super(SourceString, self).__init__(self, val)
-
         self.val = val
         self.source = source
 
