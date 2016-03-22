@@ -72,6 +72,7 @@ def build_kw_dict(kw_list):
 _INITIALIZED = False
 KW_DICT = None
 KEYWORDS = None
+KEYWORDS_LOWER = None
 KW_CACHE_PATH = None
 
 
@@ -84,9 +85,14 @@ def init():
     global KW_DICT
     global KEYWORDS
     global KW_CACHE_PATH
+    global KEYWORDS_LOWER
 
     KW_DICT = build_kw_dict(read_kw_file())
     KEYWORDS = [k.decode("utf-8") for k in KW_DICT.keys()]
+    KEYWORDS_LOWER = {
+        k.lower(): k
+        for k in KEYWORDS
+    }
     KEYWORDS_JSON = json.dumps(KEYWORDS)
     KW_CACHE_PATH = "/tmp/wa_kat_cache_keywords.json"
 
