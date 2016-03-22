@@ -5,7 +5,10 @@
 #
 # Imports =====================================================================
 import requests
+import pythonwhois
 from kwargs_obj import KwargsObj
+
+from ..settings import WHOIS_URL
 
 
 # Variables ===================================================================
@@ -34,7 +37,7 @@ class TimeResource(KwargsObj):
 
 
 # Functions & classes =========================================================
-def mementoweb_api(url):
+def _mementoweb_api_tags(url):
     memento_url = "http://labs.mementoweb.org/timemap/json/"
 
     r = requests.get(memento_url + url)  # TODO: error handling
@@ -55,8 +58,24 @@ def mementoweb_api(url):
     ]
 
 
-def get_creation_date_tags(url, domain):
+def _get_whois_tags(domain):
+    data = pythonwhois.get_whois("kitakitsune.org")
+
+    return [
+        TimeResource(
+            url=WHOIS_URL % domain.strip(),
+            date=date.isoformat("T"),
+            val=date.strftime("%Y"),
+            source="Whois",
+        )
+        for date in data.get("creation_date", [])
+    ]
+
+
+def get_creation_date_tags(url, domain, as_dicts=True):
     return []
 
 
-print mementoweb_api("http://kitakitsune.org")
+# print _mementoweb_api_tags("http://kitakitsune.org")[0].date
+print _get_whois_tags("http://kitakitsune.org")
+# print _get_whois_tags("188.213.170.140")
