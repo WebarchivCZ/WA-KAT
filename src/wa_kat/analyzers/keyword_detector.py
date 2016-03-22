@@ -94,17 +94,32 @@ def get_keyword_tags(index_page, map_to_nk_set=True):
     keywords = [
         _get_html_keywords(dom),
         _get_dc_keywords(dom),
-        _extract_keywords_from_text(dom),
     ]
+    # do not try to match extracted_keywords, because they are based on Aleph's
+    # dataset
+    extracted_keywords = _extract_keywords_from_text(dom)
+
     keywords = sum(keywords, [])  # flattern
 
     if not map_to_nk_set:
-        return keywords
+        return keywords + extracted_keywords
 
-    return [
+    def try_match(keyword):
+        """
+        This provides chance to speed up the process a little.
+        """
+        kw = KEYWORDS_LOWER.get(keyword.lower())
+        if kw:
+            return kw
+
+        return process.extractOne(str(keyword), KEYWORDS)[0].encode("utf-8")
+
+    keywords = [
         SourceString(
-            process.extractOne(str(keyword), KEYWORDS)[0].encode("utf-8"),
+            try_match(keyword),
             source=keyword.source,
         )
         for keyword in keywords
     ]
+
+    return sorted(list(set(keywords + extracted_keywords)))
