@@ -12,6 +12,7 @@ from shared import parse_meta
 from source_string import SourceString
 
 from ..rest_api.keywords import KEYWORDS
+from ..rest_api.keywords import KEYWORDS_LOWER
 
 
 # Functions & classes =========================================================
@@ -46,8 +47,34 @@ def _get_dc_keywords(index_page):
     ]
 
 
-# def _extract_keywords_from_text(index_page):  # TODO: implement keyword parsing
-#     pass
+def _extract_keywords_from_text(index_page):
+    index_page = dhtmlparser.removeTags(index_page).lower()
+
+    present_keywords = [
+        KEYWORDS_LOWER[key]
+        for key in KEYWORDS_LOWER.keys()
+        if len(key) > 3 and key in index_page
+    ]
+
+    def to_source_string(key):
+        source = "Keyword analysis"
+        try:
+            return SourceString(key, source)
+        except UnicodeEncodeError:
+            return SourceString(key.encode("utf-8"), source)
+
+    multi_keywords = [
+        to_source_string(key)
+        for key in present_keywords
+        if index_page.count(key) > 1
+    ]
+
+    multi_keywords = sorted(multi_keywords, key=lambda x: len(x), reverse=True)
+
+    if len(multi_keywords) > 5:
+        return multi_keywords[:5]
+
+    return multi_keywords
 
 
 def get_keyword_tags(index_page, map_to_nk_set=True):
@@ -67,7 +94,7 @@ def get_keyword_tags(index_page, map_to_nk_set=True):
     keywords = [
         _get_html_keywords(dom),
         _get_dc_keywords(dom),
-        # _extract_keywords_from_text(index_page),  # TODO: implement
+        _extract_keywords_from_text(dom),
     ]
     keywords = sum(keywords, [])  # flattern
 
