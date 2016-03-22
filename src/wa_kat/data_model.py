@@ -64,7 +64,7 @@ class Model(KwargsObj):
     def keys(self):
         return self.__dict__.keys()
 
-    def get_mapping(self):
+    def get_mapping(self):  # TODO: rename to _as_dict
         return {
             key: val
             for key, val in self.__dict__.iteritems()

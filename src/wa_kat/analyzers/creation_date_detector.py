@@ -23,7 +23,7 @@ class TimeResource(KwargsObj):
 
         self._kwargs_to_attributes(kwargs)
 
-    def _as_dict(self):
+    def to_dict(self):
         return {
             key: val
             for key, val in self.__dict__.iteritems()
@@ -37,10 +37,13 @@ class TimeResource(KwargsObj):
 
 
 # Functions & classes =========================================================
-def _mementoweb_api_tags(url):
+def mementoweb_api_tags(url):
     memento_url = "http://labs.mementoweb.org/timemap/json/"
 
     r = requests.get(memento_url + url)  # TODO: error handling
+
+    if r.status_code != 200:
+        return []
 
     data = r.json().get("mementos", {}).get("list", [])
 
@@ -58,7 +61,7 @@ def _mementoweb_api_tags(url):
     ]
 
 
-def _get_whois_tags(domain):
+def get_whois_tags(domain):
     data = pythonwhois.get_whois("kitakitsune.org")
 
     return [
@@ -72,10 +75,21 @@ def _get_whois_tags(domain):
     ]
 
 
-def get_creation_date_tags(url, domain, as_dicts=True):
-    return []
+def get_creation_date_tags(url, domain, as_dicts=False):
+    creation_date_tags = [
+        mementoweb_api_tags(url),
+        get_whois_tags(domain),
+    ]
 
+    creation_date_tags = sorted(
+        sum(creation_date_tags, []),
+        key=lambda x: x.date
+    )
 
-# print _mementoweb_api_tags("http://kitakitsune.org")[0].date
-print _get_whois_tags("http://kitakitsune.org")
-# print _get_whois_tags("188.213.170.140")
+    if not as_dicts:
+        return creation_date_tags
+
+    return [
+        item._as_dict()
+        for item in creation_date_tags
+    ]
