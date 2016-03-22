@@ -71,7 +71,7 @@ def get_lang_tags(index_page):
         [_detect_language(dom)],
     ]
 
-    return [
+    return list({
         SourceString(normalize(lang), source=lang.source)
         for lang in sum(titles, [])
-    ]
+    })
