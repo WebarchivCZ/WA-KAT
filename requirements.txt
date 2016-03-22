@@ -22,7 +22,7 @@ remove_hairs==1.0.1
 iso3166
 iso_639_codes>=0.0.1
 
-pydhtmlparser>=2.1.6
+pydhtmlparser>=2.1.7
 marcxml-parser==1.2.3
 edeposit.amqp.aleph>=1.9.5
 
