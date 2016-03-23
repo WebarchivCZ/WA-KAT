@@ -3,6 +3,11 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+Functions for parsing informations about date when the page / domain was
+created.
+"""
+#
 # Imports =====================================================================
 import requests
 import pythonwhois
@@ -34,6 +39,9 @@ class TimeResource(KwargsObj):
         self._kwargs_to_attributes(kwargs)
 
     def to_dict(self):
+        """
+        Convert yourself to dictionary.
+        """
         return {
             key: val
             for key, val in self.__dict__.iteritems()
@@ -48,6 +56,15 @@ class TimeResource(KwargsObj):
 
 # Functions & classes =========================================================
 def mementoweb_api_tags(url):
+    """
+    Parse list of :class:`TimeResource` objects based on the mementoweb.org.
+
+    Args:
+        url (str): Any url.
+
+    Returns:
+        list: :class:`TimeResource` objects.
+    """
     memento_url = "http://labs.mementoweb.org/timemap/json/"
 
     r = requests.get(memento_url + url)
@@ -80,6 +97,15 @@ def mementoweb_api_tags(url):
 
 
 def get_whois_tags(domain):
+    """
+    Get :class:`TimeResource` objects with creation dates from Whois database.
+
+    Args:
+        domain (str): Domain without http://, relative paths and so on.
+
+    Returns:
+        list: :class:`TimeResource` objects.
+    """
     data = pythonwhois.get_whois("kitakitsune.org")
 
     return [
@@ -94,6 +120,18 @@ def get_whois_tags(domain):
 
 
 def get_creation_date_tags(url, domain, as_dicts=False):
+    """
+    Put together all data sources in this module and return it's output.
+
+    Args:
+        url (str): URL of the web. With relative paths and so on.
+        domain (str): Just the domain of the web.
+        as_dicts (bool, default False): Convert output to dictionaries
+            compatible with :class:`.SourceString`?
+
+    Returns:
+        list: Sorted list of :class:`TimeResource` objects or dicts.
+    """
     creation_date_tags = [
         mementoweb_api_tags(url),
         get_whois_tags(domain),
