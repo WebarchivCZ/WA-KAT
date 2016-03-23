@@ -1,6 +1,8 @@
 analyzers subpackage
 ====================
 
+This module is used to group all the analyzers of the webpage.
+
 .. automodule:: wa_kat.analyzers
     :members:
     :undoc-members:
