@@ -33,6 +33,9 @@ class SourceString(str):
         return "%s:%s" % (self.source, self.val)
 
     def to_dict(self):
+        """
+        Convert yourself to dict.
+        """
         return {
             "val": self.val,
             "source": self.source,
