@@ -174,6 +174,16 @@ class Author(namedtuple("Author", ["name",
                                    "alt_name"])):
     @classmethod
     def parse_author(cls, marc):
+        """
+        Parse author from `marc` data.
+
+        Args:
+            marc (obj): :class:`.MARCXMLRecord` instance. See module
+                :mod:`.marcxml_parser` for details.
+
+        Returns:
+            obj: :class:`Author`.
+        """
         name = None
         code = None
         linked_forms = None
@@ -215,6 +225,15 @@ class Author(namedtuple("Author", ["name",
 
     @classmethod
     def search_by_name(cls, name):
+        """
+        Look for author in NK Aleph authority base by `name`.
+
+        Args:
+            name (str): Author's name.
+
+        Yields:
+            obj: :class:`Author` instances.
+        """
         records = aleph.downloadRecords(
             aleph.searchInAleph("aut", name, False, "wau")
         )
