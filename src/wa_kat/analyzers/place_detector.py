@@ -3,6 +3,10 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+Parse informations about city where the web is located.
+"""
+#
 # Imports =====================================================================
 import socket
 from urlparse import urlparse
@@ -15,7 +19,7 @@ from source_string import SourceString
 
 
 # Functions & classes =========================================================
-def _get_ip_address(domain):
+def get_ip_address(domain):
     """
     Get IP address for given `domain`. Try to do smart parsing.
 
@@ -39,16 +43,28 @@ def _get_ip_address(domain):
     return socket.gethostbyname(hostname)
 
 
-def _get_html_geo_place_tags(index_page):
+def get_html_geo_place_tags(index_page):
     """
-    Return `languages` stored in dublin core ``<meta>`` tags.
+    Get `languages` stored in dublin core ``<meta>`` tags.
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
     return parse_meta(index_page, "geo.placename", "HTML")
 
 
-def _get_whois_tags(ip_address):
+def get_whois_tags(ip_address):
     """
-    Return list of tags with `address` for given `ip_address`.
+    Get list of tags with `address` for given `ip_address`.
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
     whois = IPWhois(ip_address).lookup()
     nets = whois.get("nets", None)
@@ -92,13 +108,20 @@ def _get_whois_tags(ip_address):
 def get_place_tags(index_page, domain):  #: TODO geoip to docstring
     """
     Return list of `place` tags parsed from `meta` and `whois`.
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+        domain (str): Domain of the web, without ``http://`` or other parts.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
-    ip_address = _get_ip_address(domain)
+    ip_address = get_ip_address(domain)
     dom = dhtmlparser.parseString(index_page)
 
     place_tags = [
-        _get_html_geo_place_tags(dom),
-        _get_whois_tags(ip_address),
+        get_html_geo_place_tags(dom),
+        get_whois_tags(ip_address),
         # [_get_geo_place_tag(ip_address)],  # TODO: implement geoip
     ]
 
