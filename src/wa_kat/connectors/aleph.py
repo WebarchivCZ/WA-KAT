@@ -172,6 +172,18 @@ class Author(namedtuple("Author", ["name",
                                    "is_corporation",
                                    "record",
                                    "alt_name"])):
+    """
+    Class for representing author metadata.
+
+    Attributes:
+        name (str): Name of the author.
+        code (str): Authority code of the author.
+        linked_forms (list): List of strings with alternative names.
+        is_corporation (bool): True if the record is for the corporation.
+        record (str): All author fields from ``100`` / ``110``.
+        alt_name (str): Alternative name composed from `name` and
+            `linked_forms`.
+    """
     @classmethod
     def parse_author(cls, marc):
         """
