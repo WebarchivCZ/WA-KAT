@@ -3,6 +3,11 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+This sub-module is used to convert data from the WA-KAT / user inputs to
+`Dublin core <http://dublincore.org>`_.
+"""
+#
 # Imports =====================================================================
 from collections import OrderedDict
 
