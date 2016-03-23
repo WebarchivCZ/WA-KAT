@@ -13,6 +13,16 @@ from ..settings import WHOIS_URL
 
 # Variables ===================================================================
 class TimeResource(KwargsObj):
+    """
+    This class is backward compatible with :class:`.SourceString`, so it may
+    be used to transport backend data to frontend.
+
+    Attributes:
+        url (str): URL of the additional informations.
+        date (str): ISO 8601 date strings.
+        val (str): Year as string.
+        source (str): Information about origin of the source.
+    """
     def __init__(self, **kwargs):
         self.url = None
         self.date = None
@@ -40,7 +50,7 @@ class TimeResource(KwargsObj):
 def mementoweb_api_tags(url):
     memento_url = "http://labs.mementoweb.org/timemap/json/"
 
-    r = requests.get(memento_url + url)  # TODO: error handling
+    r = requests.get(memento_url + url)
 
     if r.status_code != 200:
         return []
@@ -50,7 +60,7 @@ def mementoweb_api_tags(url):
     if not data:
         return []
 
-    return [
+    resources = (
         TimeResource(
             url=item.get("uri", ""),
             date=item.get("datetime", ""),
@@ -58,7 +68,15 @@ def mementoweb_api_tags(url):
             source="MementoWeb.org",
         )
         for item in data
-    ]
+    )
+
+    # deduplicate the resources
+    resource_dict = {
+        res.val: res
+        for res in resources
+    }
+
+    return resource_dict.values()
 
 
 def get_whois_tags(domain):
