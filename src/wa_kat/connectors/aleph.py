@@ -3,6 +3,14 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+This module is used to connect and interface with the Aleph system used in NK
+and NTK:
+
+    - http://aleph.nkp.cz
+    - http://aleph.techlib.cz
+"""
+#
 # Imports =====================================================================
 from collections import namedtuple
 

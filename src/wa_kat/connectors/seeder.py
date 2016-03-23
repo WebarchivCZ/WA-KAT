@@ -3,6 +3,11 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+This module is used as connector to Seeder - currator's application, which may
+act as a source for some of the metadata.
+"""
+#
 # Imports =====================================================================
 import sys
 
