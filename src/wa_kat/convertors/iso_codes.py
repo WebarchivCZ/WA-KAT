@@ -11,8 +11,8 @@ from iso_639_codes import translate
 # Functions & classes =========================================================
 def normalize(code):
     """
-    Normalize language codes using ISO conversion. If all conversions fails,
-    return the `code`.
+    Normalize language codes to ISO 639-2. If all conversions fails, return the
+    `code` as it was given.
 
     Args:
         code (str): Language / country code.

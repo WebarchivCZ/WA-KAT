@@ -51,7 +51,7 @@ API
 
     /api/convertors/mrc.rst
     /api/convertors/to_dc.rst
-    /api/convertors/seeder.rst
+    /api/convertors/iso_codes.rst
 
 :doc:`/api/rest_api/rest_api`:
 
