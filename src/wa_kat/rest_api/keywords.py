@@ -88,7 +88,7 @@ def init():
     global KEYWORDS_LOWER
 
     KW_DICT = build_kw_dict(read_kw_file())
-    KEYWORDS = [k.decode("utf-8") for k in KW_DICT.keys()]
+    KEYWORDS = sorted([k.decode("utf-8") for k in KW_DICT.keys()])
     KEYWORDS_LOWER = {
         k.lower(): k
         for k in KEYWORDS

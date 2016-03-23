@@ -5,10 +5,12 @@
 #
 # Imports =====================================================================
 import dhtmlparser
+from HTMLParser import HTMLParser
 
 from fuzzywuzzy import process
 
 from shared import parse_meta
+from textblob import TextBlob
 from source_string import SourceString
 
 from ..rest_api.keywords import KEYWORDS
@@ -16,7 +18,32 @@ from ..rest_api.keywords import KEYWORDS_LOWER
 
 
 # Functions & classes =========================================================
-def _get_html_keywords(index_page):
+class MLStripper(HTMLParser):
+    """
+    Class used to strip HTML from tags.
+    """
+    def __init__(self):
+        self.reset()
+        self.fed = []
+
+    def handle_data(self, d):
+        self.fed.append(d)
+
+    def get_data(self):
+        return ''.join(self.fed)
+
+    @classmethod
+    def strip_tags(cls, html):
+        """
+        This function may be used to remove HTML tags from data.
+        """
+        s = cls()
+        s.feed(html)
+
+        return s.get_data()
+
+
+def get_html_keywords(index_page):
     """
     Return list of `keywords` parsed from HTML ``<meta>`` tags.
     """
@@ -32,7 +59,7 @@ def _get_html_keywords(index_page):
     ]
 
 
-def _get_dc_keywords(index_page):
+def get_dc_keywords(index_page):
     """
     Return list of `keywords` parsed from dublin core.
     """
@@ -47,13 +74,21 @@ def _get_dc_keywords(index_page):
     ]
 
 
-def _extract_keywords_from_text(index_page):
-    index_page = dhtmlparser.removeTags(index_page).lower()
+def extract_keywords_from_text(index_page, no_items=5):
+    """
+    Try to process text on the `index_page` deduce the keywords and then try
+    to match them on the Aleph's dataset.
+
+    Function returns maximally `no_items` (default 5) items, to prevent
+    spamming the user.
+    """
+    index_page = MLStripper.strip_tags(index_page)
+    tokenized_index = TextBlob(index_page).lower()
 
     present_keywords = [
         KEYWORDS_LOWER[key]
         for key in KEYWORDS_LOWER.keys()
-        if len(key) > 3 and key in index_page
+        if len(key) > 3 and key in tokenized_index
     ]
 
     def to_source_string(key):
@@ -66,13 +101,13 @@ def _extract_keywords_from_text(index_page):
     multi_keywords = [
         to_source_string(key)
         for key in present_keywords
-        if index_page.count(key) > 1
+        if tokenized_index.words.count(key) >= 1
     ]
 
     multi_keywords = sorted(multi_keywords, key=lambda x: len(x), reverse=True)
 
-    if len(multi_keywords) > 5:
-        return multi_keywords[:5]
+    if len(multi_keywords) > no_items:
+        return multi_keywords[:no_items]
 
     return multi_keywords
 
@@ -92,12 +127,12 @@ def get_keyword_tags(index_page, map_to_nk_set=True):
     dom = dhtmlparser.parseString(index_page)
 
     keywords = [
-        _get_html_keywords(dom),
-        _get_dc_keywords(dom),
+        get_html_keywords(dom),
+        get_dc_keywords(dom),
     ]
     # do not try to match extracted_keywords, because they are based on Aleph's
     # dataset
-    extracted_keywords = _extract_keywords_from_text(dom)
+    extracted_keywords = extract_keywords_from_text(index_page)
 
     keywords = sum(keywords, [])  # flattern
 
