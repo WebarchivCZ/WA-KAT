@@ -3,6 +3,11 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+This module offers functions for working with MRC format used in Aleph's
+desktop client.
+"""
+#
 # Imports =====================================================================
 from collections import defaultdict
 
@@ -12,6 +17,15 @@ from marcxml_parser.tools.resorted import resorted
 
 # Functions & classes =========================================================
 def mrc_to_marc(mrc):
+    """
+    Convert MRC data format to MARC XML.
+
+    Args:
+        mrc (str): MRC as string.
+
+    Returns:
+        str: XML with MARC.
+    """
     # ignore blank lines
     lines = [
         line
@@ -68,6 +82,19 @@ def mrc_to_marc(mrc):
 
 
 def dicts_to_mrc(code, dicts):
+    """
+    Convert `dicts` under `code` to MRC. This is used to compose some of the
+    data from user's input to MRC template, which is then converted to
+    MARC XML / Dublin core.
+
+    Args:
+        code (str): Code of the aleph field, whic hshould be used.
+        dicts (dict): Dict with aleph fields (i1/i2, a..z, 0..9) and
+            informations in this fields.
+
+    Returns:
+        list: List of lines with MRC data.
+    """
     def _dict_to_mrc(code, d):
         i1 = d.get("i1", d.get("ind1"))
         i2 = d.get("i2", d.get("ind2"))
@@ -87,6 +114,18 @@ def dicts_to_mrc(code, dicts):
 
 
 def val_to_mrc(code, val):
+    """
+    Convert one single `val` to MRC.
+
+    This function may be used for control fields in MARC records.
+
+    Args:,
+        code (str): Code of the field.
+        val (str): Value of the field.
+
+    Returns:
+        str: Correctly padded MRC line with field.
+    """
     code = str(code)
     if len(code) < 3:
         code += (3 - len(code)) * " "
@@ -95,6 +134,16 @@ def val_to_mrc(code, val):
 
 
 def item_to_mrc(code, val):
+    """
+    Convert `val` to MRC, whether it is dict or string.
+
+    Args:
+        code (str): Code of the field.
+        val (str or dict): Value of the field.
+
+    Returns:
+        list: MRC lines for output template.
+    """
     if isinstance(val, basestring):
         return [val_to_mrc(code, val)]
 
