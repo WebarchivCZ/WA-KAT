@@ -5,7 +5,7 @@ Systém WA-KAT je nástroj soužící pro semi-automatickou katalogizaci a klasi
 
 Aplikace obsahuje rozhraní pro tvorbu katalogizačních záznamů nestrukturovaných elektronicých zdrojů, včetně možnosti definovat pravidla a katalogizovat zdroje podle pravidel sklízecí aplikace, které určují hloubku, restrikce a technické odchylky při sklízení stránek.
 
-Součástí zadání projektu bylo:
+Zadáním projektu mimo jiné bylo:
 
     - propojení se systémy ALEPH (báze NK, ISSN NTK)
     - extrakce textu z webových zdrojů a jejich analýza pro vytváření klíčových slov
@@ -18,7 +18,9 @@ Součástí zadání projektu bylo:
     - rozhraní pro ruční zadání dalších potřebných údajů
     - vytvoření API, které umožní pristupovat k jednotlivým funkcím samostatně
 
-Součástí zadání také byla specifikace projektu jako samostatné webové aplikace, které má návaznost na další systémy používané v Národní knihovně. Aplikace je vývíjena jako open-source pod licencí MIT, zdrojové kódy jsou dostupné na platformě GitHub.
+Součástí zadání také byla specifikace projektu jako samostatné webové aplikace, preferovaně v jazyce Python, a také návaznost na další systémy používané v Národní knihovně.
+
+Aplikace je vývíjena jako open-source pod licencí MIT, zdrojové kódy jsou dostupné na platformě GitHub.
 
 Uživatelská dokumentace
 -----------------------
@@ -53,6 +55,8 @@ Zdrojové kódy
 
 Instalace
 +++++++++
+
+python -m textblob.download_corpora
 
 TODO: Zmínit scripty co to nainstaluje do systémových cest.
 
