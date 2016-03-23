@@ -1,6 +1,8 @@
 convertors subpackage
 =====================
 
+Grouped sub-modules for various conversions used in the WA-KAT.
+
 .. automodule:: wa_kat.convertors
     :members:
     :undoc-members:
