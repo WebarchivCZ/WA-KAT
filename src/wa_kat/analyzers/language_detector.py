@@ -3,6 +3,11 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+Parse and guess information about language of the resource. Normalize the
+language tags to ISO 639-2 format.
+"""
+#
 # Imports =====================================================================
 import langdetect
 import dhtmlparser
@@ -14,11 +19,17 @@ from ..convertors.iso_codes import normalize
 
 
 # Functions & classes =========================================================
-def _get_html_lang_tags(index_page):
+def get_html_lang_tags(index_page):
     """
     Return `languages` stored in ``<meta>`` tags.
 
     ``<meta http-equiv="Content-language" content="cs">`` -> ``cs``
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
     dom = dhtmlparser.parseString(index_page)
 
@@ -35,16 +46,28 @@ def _get_html_lang_tags(index_page):
     ]
 
 
-def _get_dc_lang_tags(index_page):
+def get_dc_lang_tags(index_page):
     """
     Return `languages` stored in dublin core ``<meta>`` tags.
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
     return parse_meta(index_page, "dc.language", "DC")
 
 
-def _detect_language(index_page):
+def detect_language(index_page):
     """
     Detect `languages` using `langdetect` library.
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+
+    Returns:
+        obj: One :class:`.SourceString` object.
     """
     dom = dhtmlparser.parseString(index_page)
 
@@ -63,12 +86,22 @@ def _detect_language(index_page):
 
 
 def get_lang_tags(index_page):
+    """
+    Collect informations about language of the page from HTML and Dublin core
+    tags and langdetect guesses.
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
+    """
     dom = dhtmlparser.parseString(index_page)
 
     titles = [
-        _get_html_lang_tags(dom),
-        _get_dc_lang_tags(dom),
-        [_detect_language(dom)],
+        get_html_lang_tags(dom),
+        get_dc_lang_tags(dom),
+        [detect_language(dom)],
     ]
 
     return list({
