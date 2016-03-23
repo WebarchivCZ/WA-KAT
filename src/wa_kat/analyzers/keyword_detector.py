@@ -3,6 +3,14 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+Parse keywords from HTML meta tags and `Dublin core <http://dublincore.org>`_.
+Try to analyze the text on the page and return list of tags found there.
+
+Module maps the parserd keywords to currated keywords used in
+`Aleph <http://ntk.cz>`_.
+"""
+#
 # Imports =====================================================================
 import dhtmlparser
 from HTMLParser import HTMLParser
@@ -46,6 +54,12 @@ class MLStripper(HTMLParser):
 def get_html_keywords(index_page):
     """
     Return list of `keywords` parsed from HTML ``<meta>`` tags.
+
+    Args:
+        index_page (str): Content of the page as UTF-8 string
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
     keyword_lists = (
         keyword_list.split(",")
@@ -61,7 +75,13 @@ def get_html_keywords(index_page):
 
 def get_dc_keywords(index_page):
     """
-    Return list of `keywords` parsed from dublin core.
+    Return list of `keywords` parsed from Dublin core.
+
+    Args:
+        index_page (str): Content of the page as UTF-8 string
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
     keyword_lists = (
         keyword_list.split()
@@ -79,8 +99,14 @@ def extract_keywords_from_text(index_page, no_items=5):
     Try to process text on the `index_page` deduce the keywords and then try
     to match them on the Aleph's dataset.
 
-    Function returns maximally `no_items` (default 5) items, to prevent
-    spamming the user.
+    Function returns maximally `no_items` items, to prevent spamming the user.
+
+    Args:
+        index_page (str): Content of the page as UTF-8 string
+        no_items (int, default 5): Number of items to return.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
     """
     index_page = MLStripper.strip_tags(index_page)
     tokenized_index = TextBlob(index_page).lower()
@@ -122,7 +148,7 @@ def get_keyword_tags(index_page, map_to_nk_set=True):
             keywords used in NK?
 
     Returns:
-        list: List of :class:`SourceString` objects.
+        list: List of :class:`.SourceString` objects.
     """
     dom = dhtmlparser.parseString(index_page)
 
