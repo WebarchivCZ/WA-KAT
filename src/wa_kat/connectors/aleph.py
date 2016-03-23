@@ -67,7 +67,8 @@ def _add_source(model):
 
 def by_issn(issn):
     """
-    Query aleph for records with given `issn`.
+    Query aleph for records with given `issn`. The lookup is directed to the
+    NTK's Aleph.
 
     Args:
         issn (str): ISSN of the periodical.
