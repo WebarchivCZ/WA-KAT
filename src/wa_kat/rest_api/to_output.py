@@ -185,24 +185,23 @@ def to_output(data):
     data["annotation"] = data["annotation"].replace("\n", " ")
     data["time"] = time  # for date generation
 
+    # convert additional info values to MRC
+    ai_key = "additional_info"
+    if data.get(ai_key) is None:
+        data[ai_key] = {}
+
     # parse regularity - see https://github.com/WebArchivCZ/WA-KAT/issues/66
     # for details
-    field_008 = data["additional_info"].get("008")
-    data["regularity"] = field_008[18] if field_008 else "-"
+    fld_008 = data[ai_key].get("008")
+    data["regularity"] = fld_008[18] if fld_008 and len(fld_008) > 18 else "-"
 
-    # convert additional info values to MRC
-    alt_end_date = None
-    key = "additional_info"
-    if key in data and data[key]:
-        data[key] = {
-            key: "\n".join(item_to_mrc(key, val))
-            for key, val in data[key].iteritems()
-            if val
-        }
+    data[ai_key] = {
+        key: "\n".join(item_to_mrc(key, val))
+        for key, val in data[ai_key].iteritems()
+        if val
+    }
 
-        alt_end_date = data[key].get("alt_end_date", None)
-    else:
-        data[key] = {}
+    alt_end_date = data[ai_key].get("alt_end_date", None)
 
     # handle date range in the 008
     from_year, to_year = parse_date_range(data["creation_date"], alt_end_date)
