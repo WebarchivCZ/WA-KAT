@@ -42,7 +42,10 @@
   <form id="application_form" class="form-horizontal" role="form">
 
     <div class="form-group">
-      <label for="url" class="control-label col-sm-2"><span class="required_item">URL</span></label>
+      <label for="url" class="control-label col-sm-2">
+        <span class="required_item">URL</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div class="col-sm-10">
         <div class="input-group">
 % if registered:
@@ -77,7 +80,10 @@
     </div>
 
     <div class="form-group">
-      <label for="issn" class="control-label col-sm-2">ISSN</label>
+      <label for="issn" class="control-label col-sm-2">
+        ISSN
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div class="col-sm-10">
         <div class="input-group">
           <input type="text" class="form-control" id="issn" placeholder="ISSN. Bude použito pro získání dalších katalogizačních informací." />
@@ -96,7 +102,10 @@
     </div>
 
     <div class="form-group">
-      <label for="title" class="control-label col-sm-2"><span class="required_item">Název</span></label>
+      <label for="title" class="control-label col-sm-2">
+        <span class="required_item">Název</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="title_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="title" placeholder="Název katalogizovaných webstránek." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -104,7 +113,10 @@
     </div>
 
     <div class="form-group">
-      <label for="subtitle" class="control-label col-sm-2">Podnázev</label>
+      <label for="subtitle" class="control-label col-sm-2">
+        Podnázev
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="subtitle_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="subtitle" placeholder="Nepovinný podnázev stránek." />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -112,7 +124,10 @@
     </div>
 
     <div class="form-group">
-      <label for="creation_date" class="control-label col-sm-2"><span class="required_item">Datum vzniku</span></label>
+      <label for="creation_date" class="control-label col-sm-2">
+        <span class="required_item">Datum vzniku</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="creation_date_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="creation_date" placeholder="Rok vzniku webstránek." value="[XXXX?]-" required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -120,7 +135,10 @@
     </div>
 
     <div class="form-group">
-      <label for="publisher" class="control-label col-sm-2"><span class="required_item">Vydavatel</span></label>
+      <label for="publisher" class="control-label col-sm-2">
+        <span class="required_item">Vydavatel</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <input id="author_switcher" type="checkbox" checked="0" />
       <div id="publisher_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="publisher" placeholder="Vydavatel stránek, pokud je stejný jako Autor. Pokud není, rozklikněte vlevo." required />
@@ -129,7 +147,10 @@
     </div>
 
     <div class="form-group" id="whole_author" style="display: none">
-      <label for="author" class="control-label col-sm-2">Autor</label>
+      <label for="author" class="control-label col-sm-2">
+        Autor
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div class="col-sm-10">
         <div class="input-group">
           <input type="text" disabled class="form-control" id="author" placeholder="Autor stránek z autoritní báze. Klikněte na Vybrat pro načtení." />
@@ -141,7 +162,10 @@
     </div>
 
     <div class="form-group">
-      <label for="place" class="control-label col-sm-2"><span class="required_item">Místo</span></label>
+      <label for="place" class="control-label col-sm-2">
+        <span class="required_item">Místo</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="place_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="place" placeholder="Místo vzniku." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -149,7 +173,10 @@
     </div>
 
     <div class="form-group" id="whole_keyword_list" style="display: none">
-      <label for="keyword_list" class="control-label col-sm-2">Předmětová hesla</label>
+      <label for="keyword_list" class="control-label col-sm-2">
+        Předmětová hesla
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <span class="col-sm-1"></span>
       <span id="whole_user_keyword_list" class="col-sm-3">
         <h4>Uživatelské</h4>
@@ -166,22 +193,30 @@
     </div>
 
     <div class="form-group">
-      <label for="keywords" class="control-label col-sm-2">Přidat heslo</label>
+      <label for="keywords" class="control-label col-sm-2">
+        Přidat heslo
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="keyword_adder_typeahead" class="col-sm-10">
         <input type="text" class="typeahead form-control" id="keyword_adder" placeholder="Přidat předmětové heslo." />
       </div>
     </div>
 
     <div class="form-group two_conspect">
+      <label for="konspekt" class="control-label col-sm-2">
+        <span class="required_item">Konspekt</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <input class="conspect_switcher" type="checkbox" />
-      <label for="konspekt" class="control-label col-sm-2">Konspekt</label>
       <div class="col-sm-10">
         <select class="form-control" id="konspekt" size="4"></select>
       </div>
     </div>
 
     <div class="form-group two_conspect">
-      <label for="subkonspekt" class="control-label col-sm-2">SubKonspekt</label>
+      <label for="subkonspekt" class="control-label col-sm-2">
+        <span class="required_item">SubKonspekt</span>
+      </label>
       <div class="col-sm-10">
         <select class="form-control" id="subkonspekt" size="4"></select>
       </div>
@@ -189,7 +224,10 @@
 
     <div class="form-group" id="whole_conspect_subconspect">
       <input class="conspect_switcher" type="checkbox" />
-      <label for="conspect_subconspect" class="control-label col-sm-2">Konspekt</label>
+      <label for="conspect_subconspect" class="control-label col-sm-2">
+        <span class="required_item">Konspekt</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="conspect_subconspect_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="conspect_subconspect" placeholder="Konspekt a subkonspekt - psaním vyberete." />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -197,7 +235,10 @@
     </div>
 
     <div class="form-group">
-      <label for="lang" class="control-label col-sm-2"><span class="required_item">Jazyk</span></label>
+      <label for="lang" class="control-label col-sm-2">
+        <span class="required_item">Jazyk</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="lang_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="lang" placeholder="Kód jazyka." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -205,14 +246,20 @@
     </div>
 
     <div class="form-group">
-      <label for="annotation" class="control-label col-sm-2"><span class="required_item">Anotace</span></label>
+      <label for="annotation" class="control-label col-sm-2">
+        <span class="required_item">Anotace</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div class="col-sm-10">
         <textarea class="form-control" rows="3" id="annotation" placeholder="Krátký popis zdroje. Řádky začínající na -- jsou ignorovány." required></textarea>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="periode" class="control-label col-sm-2"><span class="required_item">Periodicita</span></label>
+      <label for="periode" class="control-label col-sm-2">
+        <span class="required_item">Periodicita</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div id="periode_typeahead" class="col-sm-10">
         <input class="typeahead form-control" type="text" id="periode" placeholder="Periodicita dílů." required />
         <i class="dropdown_hint glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -220,7 +267,10 @@
     </div>
 
     <div class="form-group">
-      <label for="freq" class="control-label col-sm-2"><span class="required_item">Frekvence sklízení</span></label>
+      <label for="freq" class="control-label col-sm-2">
+        <span class="required_item">Frekvence sklízení</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
       <div class="col-sm-10">
         <select class="form-control" id="freq">
           <option value="365">Denně</option>
@@ -236,7 +286,10 @@
     </div>
 
     <div class="form-group">
-      <label for="rules" class="control-label col-sm-2"><span class="required_item">Pravidla</span></label>
+      <label for="rules" class="control-label col-sm-2">
+        <span class="required_item">Pravidla</span>
+        <a href="" class="glyphicon glyphicon-question-sign"></a>
+      </label>
 
       <span class="col-sm-2">
         <h4>Hloubka (budget)</h4>

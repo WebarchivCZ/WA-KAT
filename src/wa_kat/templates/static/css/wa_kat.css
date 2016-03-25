@@ -125,3 +125,8 @@ body {
 .required_item {
     border-bottom: 1px solid red;
 }
+
+.glyphicon-question-sign {
+    margin-left: 0.2em;
+    font-size: 0.8em;
+}
