@@ -22,6 +22,8 @@ Součástí zadání také byla specifikace projektu jako samostatné webové ap
 
 Aplikace je vývíjena jako open-source pod licencí MIT, zdrojové kódy jsou dostupné na platformě GitHub.
 
+
+
 Uživatelská dokumentace
 -----------------------
 Z pohledu uživatele je aplikace reprezentována jednou dynamickou webstránkou, která umožňuje provádět analýzy zadané URL. Dále umožňuje načíst některé informace ze systému Aleph na základě zadaného ISSN, pokud takový záznam již v bázi NTK existuje.
@@ -29,6 +31,8 @@ Z pohledu uživatele je aplikace reprezentována jednou dynamickou webstránkou,
 Pokud je aplikace otevřena ze systému Seeder, WA-KAT umí stáhnout některé relevantní informace z jeho databáze a předvyplnit je do formulářů.
 
 Webová aplikace provádí dynamické validace zadaných dat. Další funkcí je vyhledání konkrétního autora v autoritní bázi NK. Posledním krokem je generování záznamu ve formátu MRC používaném v desktopové aplikaci Aleph, dále pak v XML formátu MARC, který je používaný backendovou a webovou částí systému Aleph a také ve formátu Dublin core, který je mezinárodním formátem pro přenos a uchovávání metadat.
+
+
 
 Jednotlivé komponenty
 +++++++++++++++++++++
@@ -46,6 +50,67 @@ ISSN
 ^^^^
 
 Pod polem `URL` následuje pole pro zadání `ISSN`.
+
+Název
+^^^^^
+
+Podnázev
+^^^^^^^^
+
+Datum vzniku
+^^^^^^^^^^^^
+
+Vydavatel
+^^^^^^^^^
+
+TODO: Nezapomenout zmínit přepínátko.
+
+Autor
+^^^^^
+
+Místo
+^^^^^
+
+Předmětová hesla
+^^^^^^^^^^^^^^^^
+TODO: Nezapomenout zmínit změnu popisku po přidání alespoň jednoho hesla.
+
+Konspekt / Subkonspekt
+^^^^^^^^^^^^^^^^^^^^^^
+
+TODO: Nezapomenout zmínit přepínátko.
+
+Jazyk
+^^^^^
+
+Anotace
+^^^^^^^
+
+TODO: Nezapomenout zmínit ignoraci komentářů.
+
+Periodicita
+^^^^^^^^^^^
+
+Frekvence sklízení
+^^^^^^^^^^^^^^^^^^
+
+Pravidla
+^^^^^^^^
+
+
+Tlačítka
+^^^^^^^^
+
+Vyčistit
+~~~~~~~~
+
+
+Generovat MARC
+~~~~~~~~~~~~~~
+
+
+
+
 
 Administrátorská dokumentace
 ----------------------------
