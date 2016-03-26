@@ -11,6 +11,7 @@ Submodules
 
 .. toctree::
 
+   bottle_index
    keywords
    analyzers_api
    aleph_api

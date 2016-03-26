@@ -9,7 +9,6 @@ API
 .. toctree::
     :maxdepth: 1
 
-    /api/bottle_index.rst
     /api/data_model.rst
     /api/settings.rst
 
@@ -58,6 +57,7 @@ API
 .. toctree::
     :maxdepth: 1
 
+    /api/rest_api/bottle_index.rst
     /api/rest_api/keywords.rst
     /api/rest_api/analyzers_api.rst
     /api/rest_api/aleph_api.rst
