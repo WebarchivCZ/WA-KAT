@@ -6,6 +6,14 @@
 """
 This module handles list of Aleph's keywords, provides REST API with this
 keywords and allows translation of those keywords to their codes and so on.
+
+This module cointains four major variables:
+
+    - KW_DICT (dict): ``keyword: {info}`` mapping.
+    - KEYWORDS (list): List of keywords.
+    - KEYWORDS_LOWER (list): List of keywords.lower()
+    - KW_CACHE_PATH (str): Path to the keyword file in ``/tmp`` (bottle
+      optimization).
 """
 #
 # Imports =====================================================================
@@ -90,9 +98,9 @@ def build_kw_dict(kw_list):
 
 # Variables ===================================================================
 _INITIALIZED = False
-KW_DICT = None  #: Output from :func:`build_kw_dict`.
-KEYWORDS = None  #: List of strings with keywords.
-KEYWORDS_LOWER = None  #: List of strings with keywords.lower()
+KW_DICT = None  # Output from :func:`build_kw_dict`.
+KEYWORDS = None  # List of strings with keywords.
+KEYWORDS_LOWER = None  # List of strings with keywords.lower()
 
 #: Path to the unpacked keyword list in /tmp. This is used as bottle
 #: optimization.
