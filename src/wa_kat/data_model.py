@@ -50,15 +50,15 @@ class Model(KwargsObj):
     """
     def __init__(self, **kwargs):
         self.url = None  #: URL of the resource.
-        self.title_tags = None  #: List of dicts ``{source: .., val:..}``.
-        self.subtitle_tags = None  #: List of dicts ``{source: .., val:..}``.
-        self.creation_dates = None  #: List of dicts ``{source: .., val:..}``.
-        self.author_tags = None  #: List of dicts ``{source: .., val:..}``.
-        self.publisher_tags = None  #: List of dicts ``{source: .., val:..}``.
-        self.place_tags = None  #: List of dicts ``{source: .., val:..}``.
-        self.keyword_tags = None  #: List of dicts ``{source: .., val:..}``.
+        self.title_tags = None  #: List of dicts ``{source: .., val: ..}``.
+        self.subtitle_tags = None  #: List of dicts ``{source: .., val: ..}``.
+        self.creation_dates = None  #: List of dicts ``{source: .., val: ..}``.
+        self.author_tags = None  #: List of dicts ``{source: .., val: ..}``.
+        self.publisher_tags = None  #: List of dicts ``{source: .., val: ..}``.
+        self.place_tags = None  #: List of dicts ``{source: .., val: ..}``.
+        self.keyword_tags = None  #: List of dicts ``{source: .., val: ..}``.
         self.conspect = None  #: Conspect code.
-        self.lang_tags = None  #: List of dicts ``{source: .., val:..}``.
+        self.lang_tags = None  #: List of dicts ``{source: .., val: ..}``.
         self.annotation_tags = None  #: List of dicts ``{source: .., val:..}``.
         self.periodicity = None  #: Periodicity string.
         self.source_info = None  #: 500a field from Aleph.
