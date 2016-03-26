@@ -3,6 +3,10 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+This file generates template with HTML / Brython application for the user.
+"""
+#
 # Imports =====================================================================
 import os
 import json
@@ -14,11 +18,11 @@ from bottle import request
 from bottle import template
 from bottle import static_file
 
-from rest_api.shared import gzip_cache
-from rest_api.shared import read_template
-from rest_api.shared import in_template_path
+from shared import gzip_cache
+from shared import read_template
+from shared import in_template_path
 
-from connectors import seeder
+from ..connectors import seeder
 
 
 # Variables ===================================================================
@@ -27,13 +31,29 @@ STATIC_PATH = in_template_path("static")
 
 
 # Functions & classes =========================================================
-def _index_template():
+def read_index_template():
+    """
+    Open the template file and return it's content.
+
+    Returns:
+        str: Template content.
+    """
     return read_template(INDEX_PATH)
 
 
 def render_registered(remote_info):
+    """
+    Render template file for the registered user, which has some of the values
+    prefilled.
+
+    Args:
+        remote_info (dict): Informations read from Seeder.
+
+    Returns:
+        str: Template filled with data.
+    """
     return template(
-        _index_template(),
+        read_index_template(),
         registered=True,
         url=remote_info["url"],
         seeder_data=json.dumps(remote_info),
@@ -41,8 +61,17 @@ def render_registered(remote_info):
 
 
 def render_unregistered(error=None):
+    """
+    Render template file for the unregistered user.
+
+    Args:
+        error (str, default None): Optional error message.
+
+    Returns:
+        str: Template filled with data.
+    """
     return template(
-        _index_template(),
+        read_index_template(),
         registered=False,
         error=error,
         seeder_data=None,
@@ -53,7 +82,8 @@ def render_unregistered(error=None):
 @get("/static/js/brython_dist.js")
 def gzipped_brython():
     """
-    Static cache to speed-up loading of `big` files.
+    Virtual file ``/static/js/brython_dist.js`` used as static GZIP cache to
+    speed-up loading of `big` files.
     """
     path = os.path.join(STATIC_PATH, "js/brython_dist.js")
     return gzip_cache(path)
@@ -61,6 +91,10 @@ def gzipped_brython():
 
 @get("/static/<fn:path>")
 def static_data(fn):
+    """
+    Static file handler. This functions accesses all static files in ``static``
+    directory.
+    """
     file_path = os.path.normpath(fn)
     full_path = os.path.join(STATIC_PATH, file_path)
 
@@ -75,6 +109,11 @@ def static_data(fn):
 
 @get("/")
 def render_form_template():
+    """
+    Rennder template for user.
+
+    Decide whether the user is registered or not, pull remote info and so on.
+    """
     error = ""
     remote_info = {}
     registered_user_id = request.query.get("url_id", False)

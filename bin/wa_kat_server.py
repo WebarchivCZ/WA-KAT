@@ -10,11 +10,9 @@ from os.path import dirname
 
 from bottle import run
 
-sys.path.insert(0, join(dirname(__file__), "../src"))  # TODO: relative/abs import
+sys.path.insert(0, join(dirname(__file__), "../src"))
 
-from wa_kat import rest_api
-from wa_kat import bottle_index
-
+from wa_kat import rest_api  # for Bottle applications
 from wa_kat import settings
 
 

@@ -22,6 +22,7 @@ from ..settings import API_PATH
 # REST API modules
 import aleph_api
 import virtual_fs
+import bottle_index
 import analyzers_api
 from to_output import to_output
 from keywords import get_kw_list
