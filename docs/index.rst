@@ -59,6 +59,7 @@ API
     :maxdepth: 1
 
     /api/rest_api/keywords.rst
+    /api/rest_api/analyzers_api.rst
     /api/rest_api/aleph_api.rst
     /api/rest_api/virtual_fs.rst
     /api/rest_api/to_output.rst

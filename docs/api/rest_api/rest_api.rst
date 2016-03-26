@@ -12,6 +12,7 @@ Submodules
 .. toctree::
 
    keywords
+   analyzers_api
    aleph_api
    virtual_fs
    to_output
