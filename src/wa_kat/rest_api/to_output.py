@@ -3,6 +3,12 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+This part of the REST API joins the frontend dataset created by user with
+convertors and connectors to various other parts of the WA-KAT backend, which
+are used to fill missing data, and emit required output data.
+"""
+#
 # Imports =====================================================================
 import re
 import json
@@ -28,6 +34,18 @@ from keywords import keyword_to_info
 
 # Functions & classes =========================================================
 def compile_keywords(keywords):
+    """
+    Translate `keywords` to full keyword records as they are used in Aleph.
+
+    Returns tuple with three lists, each of which is later used in different
+    part of the MRC/MARC record.
+
+    Args:
+        keywords (list): List of keyword strings.
+
+    Returns:
+        tuple: (mdt_list, cz_keyword_list, en_keyword_list)
+    """
     mdt = []
     cz_keywords = []
     en_keywords = []
@@ -60,12 +78,32 @@ def compile_keywords(keywords):
 
 
 def render_mrc(data):
+    """
+    Render MRC template.
+
+    Args:
+        data (dict): Dictionary with data from the WA-KAT frontend.
+
+    Returns:
+        str: MRC template filled with `data`.
+    """
     template_body = read_template("sablona_katalogizace_eperiodika.mrc")
 
     return SimpleTemplate(template_body).render(**data)
 
 
 def url_to_fn(url):
+    """
+    Convert `url` to filename used to download the datasets.
+
+    ``http://kitakitsune.org/xe`` -> ``kitakitsune.org_xe``.
+
+    Args:
+        url (str): URL of the resource.
+
+    Returns:
+        str: Normalized URL.
+    """
     url = url.replace("http://", "").replace("https://", "")
     url = url.split("?")[0]
 
@@ -168,9 +206,18 @@ def serialize_author(author_data):
     return out
 
 
+# REST API ====================================================================
 @post(join(API_PATH, "to_output"))
 @form_to_params
 def to_output(data):
+    """
+    Convert WA-KAT frontend dataset to three output datasets - `MRC`, `MARC`
+    and `Dublin core`.
+
+    Conversion is implemented as filling ofthe MRC template, which is then
+    converted to MARC record. Dublin core is converted standalone from the
+    input dataset.
+    """
     data = json.loads(data)
 
     # postprocessing
