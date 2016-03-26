@@ -3,6 +3,11 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+Worker definition for analyzers runner. Functions defined there are run as
+standalone processes.
+"""
+#
 # Imports =====================================================================
 import time
 import traceback
@@ -13,6 +18,15 @@ from ZODB.POSException import ConflictError
 
 # Functions & classes =========================================================
 def _save_to_database(req, property_name, data):
+    """
+    Store `data` under `property_name` in the `req` database object.
+
+    Args:
+        req (obj): ZODB database object.
+        property_name (str): Name of the property under which the `data` will
+            be stored.
+        data (obj): Any object.
+    """
     with transaction.manager:
         setattr(req, property_name, data)
 
@@ -25,16 +39,17 @@ def _save_to_database(req, property_name, data):
 def worker(url_key, property_name, function, function_arguments,
            conf_path=None):
     """
-    This function is meant to run as process on the background.
+    This function usually runs as process on the background.
 
-    It runs ``property_info.filler_func(*filler_params)`` and then stores them
-    in ZODB under `url_key`.
+    It runs ``function(*function_arguments)`` and then stores them in ZODB
+    in `url_key` under `property_name`.
 
     Warning:
-        This function doesn't return the data, but puts them to database!
+        This function puts data into DB, isntead of returning them.
 
     Args:
         url_key (str): Key which will be used for database lookup.
+        property_name (str): Name of the property used to store data.
         function (obj): Function used to load the data.
         function_arguments (list): List of parameters for function which will
             be called to retreive data.
