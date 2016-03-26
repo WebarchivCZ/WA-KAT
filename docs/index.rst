@@ -76,7 +76,6 @@ API
 
     /api/zeo/request_info.rst
     /api/zeo/request_database.rst
-    /api/zeo/conspect_database.rst
 
 .. toctree::
     :maxdepth: 1

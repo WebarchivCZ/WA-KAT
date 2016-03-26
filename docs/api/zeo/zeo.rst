@@ -13,7 +13,6 @@ Submodules
 
    request_info
    request_database
-   conspect_database
 
 .. toctree::
 
