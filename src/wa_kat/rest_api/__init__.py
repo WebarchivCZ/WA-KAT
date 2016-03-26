@@ -4,6 +4,7 @@
 # Interpreter version: python 2.7
 #
 """
+REST API definitions.
 """
 #
 # Imports =====================================================================
@@ -18,7 +19,7 @@ from bottle_rest import form_to_params
 from ..settings import API_PATH
 
 
-# Other API modules
+# REST API modules
 import aleph_api
 import virtual_fs
 import analyzers_api
@@ -26,10 +27,14 @@ from to_output import to_output
 from keywords import get_kw_list
 
 
-# Functions & classes =========================================================
+# REST API ====================================================================
 @post(join(API_PATH, "as_file/<fn:path>"))
 @form_to_params(return_json=False)
 def download_as_file(fn, data=None):
+    """
+    Download given `data` as file `fn`. This service exists to allow frontend
+    present user with downloadable files.
+    """
     if data is None:
         raise HTTPError(500, "This service require POST `data` parameter.")
 
