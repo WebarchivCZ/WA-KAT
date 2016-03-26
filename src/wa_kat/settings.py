@@ -24,7 +24,7 @@ Example of the configuration file (``$HOME/webarchive/wa_kat.json``)::
 
 Example of starting the program with env variable::
 
-    export WA_KAT_SETTINGS="/tmp/conf.json"; bin/run_wa_kat_server.py
+    export WA_KAT_SETTINGS="/tmp/conf.json"; bin/wa_kat_server.py
 
 Attributes
 ----------
@@ -49,22 +49,27 @@ WEB_DEBUG = False  #: Turn on web debug messages?
 WEB_RELOADER = False  #: Turn on reloader for webserver?
 WEB_BE_QUIET = False  #: Be quiet and don't emit debug messages to terminal.
 
-# Settings for the Seeder API
+#: Settings for the Seeder API
 SEEDER_INFO_URL = "http://seeder.visgean.me/api/source/%s/"
-SEEDER_TOKEN = ""
-SEEDER_TIMEOUT = 5
+SEEDER_TOKEN = ""  #: Token for the Seeder API
+SEEDER_TIMEOUT = 5  #: How long to wait for the Seeder.
 
-REQUEST_TIMEOUT = 5
-TIMEOUT_MESSAGE = "Požadovanou stránku nebylo možné stáhnout. Zkuste url s www."
+#: Error message in case that the analysis timeouted.
+TIMEOUT_MESSAGE = (
+    "Požadovanou stránku nebylo možné stáhnout. "
+    "Zkuste zadat URL s www."
+)
+REQUEST_TIMEOUT = 5  #: How long to wait until the analysed page loads.
 
 GUI_TO_REST_PERIODE = 2  #: How often check the REST API.
 
-WHOIS_URL = "http://whois.icann.org/en/lookup?name=%s"
-NTK_ALEPH_URL = "http://aleph.techlib.cz/X"
+WHOIS_URL = "http://whois.icann.org/en/lookup?name=%s"  #: Whois URL
+NTK_ALEPH_URL = "http://aleph.techlib.cz/X"  #: URL to the NTK aleph.
 
+#: User agent used in analysis.
 USER_AGENT = "http://webarchiv.cz catalogization tool WA-KAT."
 
-API_PATH = "/api_v1/"
+API_PATH = "/api_v1/"  #: Path for the REST API.
 
 
 # User configuration reader (don't edit this) =================================
