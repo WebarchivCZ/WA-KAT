@@ -19,7 +19,7 @@ from .. import settings
 from ..zeo import RequestDatabase
 from ..settings import API_PATH
 
-from shared import RESPONSE_TYPE
+from shared import JSON_MIME
 
 
 # Other API modules
@@ -34,7 +34,7 @@ from keywords import get_kw_list
 @form_to_params
 def analyzer_api(url):
     rd = RequestDatabase()
-    response.content_type = RESPONSE_TYPE
+    response.content_type = JSON_MIME
 
     # handle cacheing
     ri = rd.get_request(url)

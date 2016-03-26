@@ -22,7 +22,7 @@ from bottle import HTTPResponse
 
 
 # Variables ===================================================================
-RESPONSE_TYPE = "application/json; charset=utf-8"  # TODO: rename to JSON_MIME
+JSON_MIME = "application/json; charset=utf-8"
 
 
 # Functions ===================================================================

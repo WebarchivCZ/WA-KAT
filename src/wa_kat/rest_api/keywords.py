@@ -29,7 +29,7 @@ from bottle import response
 from ..settings import API_PATH
 
 from shared import gzip_cache
-from shared import RESPONSE_TYPE
+from shared import JSON_MIME
 from shared import to_gzipped_file
 
 
@@ -168,6 +168,6 @@ def get_kw_list():
     List of all keywords on one JSON page. This is later used by the typeahead
     script, which shows keyword hints to user.
     """
-    response.content_type = RESPONSE_TYPE
+    response.content_type = JSON_MIME
 
     return gzip_cache(KW_CACHE_PATH)
