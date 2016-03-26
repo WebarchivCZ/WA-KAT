@@ -3,6 +3,10 @@
 #
 # Interpreter version: python 2.7
 #
+"""
+Connect REST API with Analyzers runner.
+"""
+#
 # Imports =====================================================================
 import traceback
 from os.path import join
@@ -24,6 +28,9 @@ from shared import JSON_MIME
 @post(join(API_PATH, "analyze"))
 @form_to_params
 def analyzer_api(url):
+    """
+    Analyze given `url` and return output as JSON.
+    """
     rd = RequestDatabase()
     response.content_type = JSON_MIME
 
