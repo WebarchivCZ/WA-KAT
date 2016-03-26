@@ -54,6 +54,7 @@ class KeywordInfo(namedtuple("KeywordInfo", ["uid",
 
             return s.replace("&nbsp;", " ") \
                     .replace("&quot;", '"') \
+                    .replace("&apos;", "'") \
                     .replace("&amp;", "&")
 
         return cls(
