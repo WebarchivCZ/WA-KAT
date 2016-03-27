@@ -42,14 +42,14 @@ Jednotlivé komponenty
 
 Každá z komponent obsahuje nápovědu v podobě otazníku vedle popisku. V případě, že uživatel na otazník klikne, je mu zobrazena tato nápověda.
 
-Náselduje popis všech uživatelem ovlivnitelných elementů:
+Následuje popis všech uživatelem ovlivnitelných elementů:
 
 URL
 ^^^
 
-První komponentou na stránce je pole pro zadání adresy `URL`. Adresa může být zadána s ``http://``, či ``https://``. Pokud toto není zadáno chybí, automaticky je doplněn prefix ``http://``.
+První komponentou na stránce je pole pro zadání adresy `URL`. Adresa může být zadána s ``http://``, či ``https://``. Pokud toto není zadáno, automaticky je doplněn prefix ``http://``.
 
-V případě, že uživatel zadá do pole `URL` identifikátor `ISSN`, aplikace ho automaticky rozpozná a přemístí do patřičného pole, načež dojde ke spuštění požadavku na dohledání ISSN.
+V případě, že uživatel zadá do pole `URL` identifikátor `ISSN`, aplikace ho automaticky rozpozná a přemístí do patřičného pole, načež dojde ke spuštění požadavku na dohledání katalogizačního záznamu k tomuto ISSN.
 
 Na pravé straně pole pro zadání `URL` se nachází tlačítko `Spustit`. Jak název napovídá, stisknutím tlačítka je spuštěna analýza zadané adresy. Alternativní možností je stisknutí klávesy ENTER.
 
@@ -64,10 +64,28 @@ V případech, kdy není možné načíst webovou stránku je zobrazena chybová
 .. image:: /images/url_error.png
     :width: 600px
 
+Popisek pole `URL` úplně vlevo je červeně podtržený, pro zdůraznění nutnosti vyplnit toto pole. V případě, že uživatel pole nevyplní mu nebude dovoleno odeslat formulář a celé pole pro zadání informace bude zvýrazněno. Pod polem je zobrazeno vysvětlující chybové hlášení (v množném čísle, neboť se nevztahuje pouze k poli `URL`, ale ke všem nevyplněným):
+
+.. image:: /images/url_validation.png
+    :width: 600px
+
 ISSN
 ^^^^
 
-Pod polem `URL` následuje pole pro zadání `ISSN`.
+Pod polem `URL` následuje pole pro zadání `ISSN`_ - `mezinárodního standardního čísla seriálové publikace`. Tímto formulářem je možné načíst informace z `báze ISSN`_ Národní technické knihovny. Zde je v některých případech částečný záznam periodika, který je použit pro vyplnění některých z níže uvedených polí.
+
+.. _ISSN: https://cs.wikipedia.org/wiki/International_Standard_Serial_Number
+.. _báze ISSN: https://aleph.techlib.cz/F/?func=find-b-0&local_base=stk02
+
+.. image:: /images/issn.png
+    :width: 600px
+
+Formulář je možné spustit buďto kliknutím na tlačítko `Načíst`, či stisknutím klávesy ENTER. V případě chyby je zobrazeno varovné hlášení:
+
+.. image:: /images/issn_error.png
+    :width: 600px
+
+Pole ISSN je nepovinné.
 
 Název
 ^^^^^
