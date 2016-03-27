@@ -80,7 +80,12 @@ Pod polem `URL` následuje pole pro zadání `ISSN`_ - `mezinárodního standard
 .. image:: /images/issn.png
     :width: 600px
 
-Formulář je možné spustit buďto kliknutím na tlačítko `Načíst`, či stisknutím klávesy ENTER. V případě chyby je zobrazeno varovné hlášení:
+Načítání dat je indikováno `progressbarem`:
+
+.. image:: /images/issn_progressbar.png
+    :width: 600px
+
+Formulář je stejně jako v předchozím případě možné spustit buďto kliknutím na tlačítko `Načíst`, či stisknutím klávesy ENTER. V případě chyby je zobrazeno varovné hlášení:
 
 .. image:: /images/issn_error.png
     :width: 600px
