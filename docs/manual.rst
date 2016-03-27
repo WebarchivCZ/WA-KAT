@@ -26,25 +26,43 @@ Aplikace je vývíjena jako open-source pod licencí MIT, zdrojové kódy jsou d
 
 Uživatelská dokumentace
 -----------------------
-Z pohledu uživatele je aplikace reprezentována jednou dynamickou webstránkou, která umožňuje provádět analýzy zadané URL. Dále umožňuje načíst některé informace ze systému Aleph na základě zadaného ISSN, pokud takový záznam již v bázi NTK existuje.
+Z pohledu uživatele je aplikace reprezentována jednou dynamickou webstránkou, která umožňuje provádět analýzy zadané URL. Dále umožňuje načíst některé informace ze systému Aleph na základě zadaného ISSN, pokud takový záznam již v bázi NTK existuje. Ostatní informace je možné ručně doplnit.
 
-Pokud je aplikace otevřena ze systému Seeder, WA-KAT umí stáhnout některé relevantní informace z jeho databáze a předvyplnit je do formulářů.
+.. image:: /images/wa_kat.png
+    :width: 600px
 
-Webová aplikace provádí dynamické validace zadaných dat. Další funkcí je vyhledání konkrétního autora v autoritní bázi NK. Posledním krokem je generování záznamu ve formátu MRC používaném v desktopové aplikaci Aleph, dále pak v XML formátu MARC, který je používaný backendovou a webovou částí systému Aleph a také ve formátu Dublin core, který je mezinárodním formátem pro přenos a uchovávání metadat.
+Pokud je aplikace otevřena ze systému Seeder, WA-KAT umí stáhnout některé relevantní informace z jeho databáze a předvyplnit je do formulářů. Další funkcí je vyhledání konkrétního autora v autoritní bázi NK.
+
+Webová aplikace provádí dynamické validace vyplnění dat. Posledním krokem je generování záznamu ve formátu MRC používaném v desktopové aplikaci Aleph, dále pak v XML formátu MARC, který je používaný backendovou a webovou částí systému Aleph a také ve formátu Dublin core, který je mezinárodním formátem pro přenos a uchovávání metadat.
 
 
 
 Jednotlivé komponenty
 +++++++++++++++++++++
 
+Každá z komponent obsahuje nápovědu v podobě otazníku vedle popisku. V případě, že uživatel na otazník klikne, je mu zobrazena tato nápověda.
+
+Náselduje popis všech uživatelem ovlivnitelných elementů:
+
 URL
 ^^^
 
 První komponentou na stránce je pole pro zadání adresy `URL`. Adresa může být zadána s ``http://``, či ``https://``. Pokud toto není zadáno chybí, automaticky je doplněn prefix ``http://``.
 
-Odeslání tohoto formuláře je možné kliknutím na tlačítko `Spustit`, či stisknutím klávesy ENTER.
+V případě, že uživatel zadá do pole `URL` identifikátor `ISSN`, aplikace ho automaticky rozpozná a přemístí do patřičného pole, načež dojde ke spuštění požadavku na dohledání ISSN.
 
-Jelikož analýzy probíhají delší dobu (podle webu cca 20 vteřin), zobrazuje se pod polem `URL` aktivní `progress bar` zobrazující uživateli informaci o postupujících analýzách. `Progress bar` je postupně aktualizován v cca osmi krocích.
+Na pravé straně pole pro zadání `URL` se nachází tlačítko `Spustit`. Jak název napovídá, stisknutím tlačítka je spuštěna analýza zadané adresy. Alternativní možností je stisknutí klávesy ENTER.
+
+Jelikož analýzy probíhají delší dobu (podle složitosti stránek cca 20 vteřin), zobrazuje se pod polem `URL` aktivní `progress bar` zobrazující uživateli informaci o postupujících analýzách. `Progress bar` je postupně aktualizován v cca osmi krocích.
+
+.. image:: /images/url_progress_bar.png
+    :width: 600px
+
+
+V případech, kdy není možné načíst webovou stránku je zobrazena chybová hláška a tento fakt je zaznamenán do interního logu:
+
+.. image:: /images/url_error.png
+    :width: 600px
 
 ISSN
 ^^^^
@@ -109,6 +127,10 @@ Generovat MARC
 ~~~~~~~~~~~~~~
 
 
+Skrytý log
+^^^^^^^^^^
+
+
 
 
 
@@ -133,6 +155,8 @@ wa_kat_server.py
 
 Konfigurace
 +++++++++++
+
+Konfigurace pomocí ENV proměnné.
 
 Popis architektury systému
 ++++++++++++++++++++++++++
