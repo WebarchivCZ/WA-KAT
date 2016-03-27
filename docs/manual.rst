@@ -55,7 +55,7 @@ Na pravé straně pole pro zadání `URL` se nachází tlačítko `Spustit`. Jak
 
 Jelikož analýzy probíhají delší dobu (podle složitosti stránek cca 20 vteřin), zobrazuje se pod polem `URL` aktivní `progress bar` zobrazující uživateli informaci o postupujících analýzách. `Progress bar` je postupně aktualizován v cca osmi krocích.
 
-.. image:: /images/url_progress_bar.png
+.. image:: /images/url_progressbar.png
     :width: 600px
 
 
@@ -94,6 +94,48 @@ Pole ISSN je nepovinné.
 
 Název
 ^^^^^
+
+Název je možné buďto vyplnit ručně, či nechat načíst z analýz, či z báze ISSN. V případě analýz je vyhledáván v:
+
+    - HTML tagu ``<title>``
+    - HTML meta tagu ``<meta name="title" content="..">``
+    - HTML Dublin core tagu ``<meta name="DC.Title" content="..">``
+
+Existuje tedy pět možností zdroje dat. Widget (nejenom pro ISSN, ale i všechny následující inputy, pokud není řečeno jinak) s těmito možnostmi počítá a upravuje jim svůj vzhled.
+
+Pro ruční zadání se chová jako standardní HTML input:
+
+.. image:: /images/title.png
+    :width: 600px
+
+V případě načtení z báze ISSN národní knihovny zobrazí na pravé straně ikonu oka, která má upozornit uživatele na fakt, že se jedná o načtenou hodnutu. Vedle ikony oka se poté nachází zdroj informace, v tomto případě se jedná o systém `Aleph`.
+
+.. image:: /images/title_aleph.png
+    :width: 600px
+
+Poslední možností je vstup dat z `analýz`. Jelikož se jedná o tři potenciální pod-zdroje dat (HTML, meta a DC), existují dvě podvarianty chování widgetu:
+
+V případě, kdy analýzy nalezly jednu hodnotu bude widget vypadat stejně jako v případě ISSN, tedy ikona oka, vedle které se nachází informace o zdroji:
+
+.. image:: /images/title_analysis.png
+    :width: 600px
+
+V případě, že je nalezených možností více, zobrazí se místo ikony oka šipka nabízející výběr dalších hodnot. Input samotný bude prázdný, ale popisek na pozadí obsahuje informaci o možnosti výběru:
+
+.. image:: /images/title_analysis_choice.png
+    :width: 600px
+
+Po kliknutí se pak zobrazí nabídka možností, kde na levé straně se nachází zdroj informace:
+
+.. image:: /images/title_analysis_dropdown.png
+    :width: 600px
+
+Po výběru je možné hodnotu nadále upravovat jako textový vstup:
+
+.. image:: /images/title_analysis_choice_edit.png
+    :width: 600px
+
+Pole `Název` je povinné.
 
 Podnázev
 ^^^^^^^^
