@@ -140,7 +140,7 @@ Pole `Název` je povinné.
 Podnázev
 ^^^^^^^^
 
-Podnázev je doplňován pouze v případě načtení informací z ISSN.
+`Podnázev` je doplňován pouze v případě načtení informací z ISSN.
 
 .. image:: /images/subtitle.png
     :width: 600px
@@ -150,7 +150,7 @@ Pole `Podnázev` je nepovinné.
 Datum vzniku
 ^^^^^^^^^^^^
 
-Datum vzniku je v současné verzi vyhledáváno v registru Whois a kontrolou přítomnosti archivních záznamů ve Webarchivu prostřednictvím webu `mementoweb.com`_, který sleduje a prostřednictvím API zpřístupňuje `mnoho registrů`_.
+`Datum vzniku` webu je v současné verzi vyhledáváno v registru Whois a kontrolou přítomnosti archivních záznamů ve Webarchivu prostřednictvím webu `mementoweb.com`_, který sleduje a prostřednictvím jednotného API zpřístupňuje `mnoho registrů`_.
 
 .. _mementoweb.com: http://timetravel.mementoweb.org/
 .. _mnoho registrů: http://timetravel.mementoweb.org/about/
@@ -158,14 +158,30 @@ Datum vzniku je v současné verzi vyhledáváno v registru Whois a kontrolou p�
 .. image:: /images/creation_date.png
     :width: 600px
 
-Pokud není hodnota nalezena, či analýza není spuštěna, je pole na žádost kurátorů, kteří systém WA-KAT používají, předvyplněna na hodnotu ``[XXXX?]-``, což je konvence používaná dále v MRC / MARC záznamech.
+Pokud není hodnota nalezena, je pole na žádost kurátorů, kteří systém WA-KAT používají, předvyplněna hodnotou ``[XXXX?]-``, což je konvence používaná v MRC / MARC záznamech.
+
+`Datum vzniku` může být doplněn načtením dat z ISSN báze.
 
 Pole `Datum vzniku` je povinné.
 
 Vydavatel
 ^^^^^^^^^
 
-TODO: Nezapomenout zmínit přepínátko.
+`Vydavatel` slouží k zadání volně psaného názvu vydavatele stránek. Vydavatelem je obvykle myšlena osoba, která se stará o publikaci, či zajišťuje hosting.
+
+.. image:: /images/publisher.png
+    :width: 600px
+
+Na poli `Vydavatel` na první pohled zaujme `checkbox`, mezi popiskem pole a prostorem pro zadání hodnoty. Zašktnutím tohoto `checkboxu` je možné odkrýt dialog pro výběr `Autora` (viz dále).
+
+`Vydavatel` je analyzátory vyhledáván v:
+
+    - HTML meta tagu ``<meta name="author" content="..">``
+    - HTML Dublin core tagu ``<meta name="DC.Creator" content="..">``
+
+`Vydavatel` také může být doplněn načtením dat z ISSN báze.
+
+Pole `Vydavatel` je povinné.
 
 Autor
 ^^^^^
