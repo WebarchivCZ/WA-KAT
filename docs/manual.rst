@@ -108,7 +108,7 @@ Pro ruční zadání se chová jako standardní HTML input:
 .. image:: /images/title.png
     :width: 600px
 
-V případě načtení z báze ISSN národní knihovny zobrazí na pravé straně ikonu oka, která má upozornit uživatele na fakt, že se jedná o načtenou hodnutu. Vedle ikony oka se poté nachází zdroj informace, v tomto případě se jedná o systém `Aleph`.
+V případě načtení z báze ISSN národní knihovny zobrazí na pravé straně ikonu oka, která má upozornit uživatele na fakt, že se jedná o načtenou hodnotu. Vedle ikony oka se poté nachází zdroj informace, v tomto případě se jedná o systém `Aleph`.
 
 .. image:: /images/title_aleph.png
     :width: 600px
@@ -125,7 +125,7 @@ V případě, že je nalezených možností více, zobrazí se místo ikony oka 
 .. image:: /images/title_analysis_choice.png
     :width: 600px
 
-Po kliknutí se pak zobrazí nabídka možností, kde na levé straně se nachází zdroj informace:
+Po kliknutí se pak zobrazí nabídka nalezených hodnot, kde na levé straně se nachází zdroj informace:
 
 .. image:: /images/title_analysis_dropdown.png
     :width: 600px
@@ -140,8 +140,27 @@ Pole `Název` je povinné.
 Podnázev
 ^^^^^^^^
 
+Podnázev je doplňován pouze v případě načtení informací z ISSN.
+
+.. image:: /images/subtitle.png
+    :width: 600px
+
+Pole `Podnázev` je nepovinné.
+
 Datum vzniku
 ^^^^^^^^^^^^
+
+Datum vzniku je v současné verzi vyhledáváno v registru Whois a kontrolou přítomnosti archivních záznamů ve Webarchivu prostřednictvím webu `mementoweb.com`_, který sleduje a prostřednictvím API zpřístupňuje `mnoho registrů`_.
+
+.. _mementoweb.com: http://timetravel.mementoweb.org/
+.. _mnoho registrů: http://timetravel.mementoweb.org/about/
+
+.. image:: /images/creation_date.png
+    :width: 600px
+
+Pokud není hodnota nalezena, či analýza není spuštěna, je pole na žádost kurátorů, kteří systém WA-KAT používají, předvyplněna na hodnotu ``[XXXX?]-``, což je konvence používaná dále v MRC / MARC záznamech.
+
+Pole `Datum vzniku` je povinné.
 
 Vydavatel
 ^^^^^^^^^
