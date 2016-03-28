@@ -186,6 +186,35 @@ Pole `Vydavatel` je povinné.
 Autor
 ^^^^^
 
+V případě zaškrnutí `checkboxu` vedle pole `Vydavatel` se zobrazí dialog pro výběr autora:
+
+.. image:: /images/author.png
+    :width: 600px
+
+`Autorem` se v tomto případě chápe tvůrce obsahu webu, se kterým je sjednána smlouva u uložení do databází webarchivu. Jedná se tudíž vždy pouze o entitu uvedenou v `Autoritní bázi`_ Národní knihovny. Díky tomu se nejedná o volně vyplnitelné vstupní pole.
+
+.. _Autoritní bázi: http://aleph.nkp.cz/F/?func=file&file_name=find-b&local_base=AUT
+
+Kliknutím na tlačítko vybrat se zobrazí dialog pro vyhledání autora v autoritní bázi:
+
+.. image:: /images/author_picker.png
+    :width: 400px
+
+Vyhledání je možné po napsání názvu spustit buďto klávesou ENTER, či stisknutím tlačítka `Vyhledat`, po němž dojde k dotázání autoritní báze a zobrazení nalezených výsledků:
+
+.. image:: /images/author_picker_choices.png
+    :width: 400px
+
+Z nich je možné označit a vybrat konkrétního autora k dalšímu použití:
+
+.. image:: /images/author_chosen.png
+    :width: 600px
+
+`Autor` může být také doplněn načtením dat z báze ISSN.
+
+Pole `Autor` je nepovinné.
+
+
 Místo
 ^^^^^
 
