@@ -227,6 +227,18 @@ Místo
 
 `Místem` je chápáno nejčastěji město, kde jsou webstránky hostovány, může se ale také jednat o sídlo `Vydavatele`, či `Autora`.
 
+.. image:: /images/place.png
+    :width: 600px
+
+`Místo` je analyzátory vyhledáváno v:
+
+    - HTML Dublin core tagu ``<meta name="geo.placename" content="..">``
+    - Registru Whois
+
+`Místo` může být doplněno načtením dat z báze ISSN.
+
+Pole `Místo` je nepovinné.
+
 Předmětová hesla
 ^^^^^^^^^^^^^^^^
 TODO: Nezapomenout zmínit změnu popisku po přidání alespoň jednoho hesla.
