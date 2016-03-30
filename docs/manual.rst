@@ -140,7 +140,7 @@ Pole `Název` je povinné.
 Podnázev
 ^^^^^^^^
 
-`Podnázev` je doplňován pouze v případě načtení informací z ISSN.
+`Podnázev` může být kurátory vyplněn ručně, či doplněn automaticky načtením dat z báze ISSN.28.03.2016
 
 .. image:: /images/subtitle.png
     :width: 600px
@@ -160,7 +160,15 @@ Datum vzniku
 
 Pokud není hodnota nalezena, je pole na žádost kurátorů, kteří systém WA-KAT používají, předvyplněna hodnotou ``[XXXX?]-``, což je konvence používaná v MRC / MARC záznamech.
 
-`Datum vzniku` může být doplněn načtením dat z ISSN báze.
+`Datum vzniku` může být doplněn načtením dat z báze ISSN.
+
+Očekávaným vstupem pro `Datum vzniku` je **rok**, případně rozsah let::
+
+    2009
+    2009-
+    2009-2015
+
+Knihovnické konvence formátu MARC však dovolují různé reprezentace, program proto data do některých polí přenáší tak, jak jsou zadána a v jiných (specificky ``008``) provádí extrakce let a přenáší pouze číselnou hodnotu.
 
 Pole `Datum vzniku` je povinné.
 
@@ -179,7 +187,7 @@ Na poli `Vydavatel` na první pohled zaujme `checkbox`, mezi popiskem pole a pro
     - HTML meta tagu ``<meta name="author" content="..">``
     - HTML Dublin core tagu ``<meta name="DC.Creator" content="..">``
 
-`Vydavatel` také může být doplněn načtením dat z ISSN báze.
+`Vydavatel` také může být doplněn načtením dat z báze ISSN.
 
 Pole `Vydavatel` je povinné.
 
@@ -205,18 +213,19 @@ Vyhledání je možné po napsání názvu spustit buďto klávesou ENTER, či s
 .. image:: /images/author_picker_choices.png
     :width: 400px
 
-Z nich je možné označit a vybrat konkrétního autora k dalšímu použití:
+Z nich je možné označit a vybrat konkrétního autora.
 
 .. image:: /images/author_chosen.png
     :width: 600px
 
-`Autor` může být také doplněn načtením dat z báze ISSN.
+`Autor` také může být doplněn načtením dat z báze ISSN.
 
 Pole `Autor` je nepovinné.
 
-
 Místo
 ^^^^^
+
+`Místem` je chápáno nejčastěji město, kde jsou webstránky hostovány, může se ale také jednat o sídlo `Vydavatele`, či `Autora`.
 
 Předmětová hesla
 ^^^^^^^^^^^^^^^^
