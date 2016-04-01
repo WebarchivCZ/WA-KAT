@@ -287,9 +287,48 @@ Pole `Předmětová hesla` je nepovinné.
 Konspekt / Subkonspekt
 ^^^^^^^^^^^^^^^^^^^^^^
 
+Dalším polem je pole pro výběr `Konspektu` a `Subkonspektu`, což jsou ve své podstatě hlavní a vedlejší kategorie, do které katalogizované webstránky spadají.
 
+Widget respektuje toto rozdělení a nabízí dva výběrové elementy:
 
-TODO: Nezapomenout zmínit přepínátko.
+.. image:: /images/conspectus.png
+    :width: 600px
+
+Po výběru kategorie (`Konspektu`) jsou zobrazeny možnosti podkategorie (`subkonspektu`):
+
+.. image:: /images/conspectus_select.png
+    :width: 600px
+
+Podkategorii je poté možné vybrat stejně jako samotnou kategorii, čímž je proces výběru dokončen:
+
+.. image:: /images/conspectus_selected.png
+    :width: 600px
+
+Tento proces je vhodný, pokud uživatel ví, ve které kategorii se která podkategorie nachází, či pokud si chce procházet všechny subkategorie a teprve poté nějakou vybrat. Pokud ovšem má přesnou představu subkategorie, ale nezná správnou kategorii, stává se proces vybírání velmi neefektivním.
+
+Z tohoto důvodu existuje možnost zaškrtnout checkbox vedle popisku `Konspektu`, který přepne widget do vyhledávací podoby. Pokud je vybrána nějaká hodnota, je přenesena:
+
+.. image:: /images/conspectus_single.png
+    :width: 600px
+
+V tomto poli je poté možno psaním dynamicky vyhledávat:
+
+.. image:: /images/conspectus_search.png
+    :width: 600px
+
+Oba dva způsoby výběru jsou ekvivalentní.
+
+`Konspekt a subkonspekt` může být automaticky doplněn pouze načtením dat z báze ISSN.
+
+Pole `Konspet a subkonspekt` je povinné. Hodnotu je nutné správně vybrat z nabízeného datasetu, jinak bude při odeslání zobrazeno varování:
+
+.. image:: /images/conspectus_single_error.png
+    :width: 600px
+
+připadně:
+
+.. image:: /images/conspectus_error.png
+    :width: 600px
 
 Jazyk
 ^^^^^
