@@ -241,10 +241,53 @@ Pole `Místo` je nepovinné.
 
 Předmětová hesla
 ^^^^^^^^^^^^^^^^
-TODO: Nezapomenout zmínit změnu popisku po přidání alespoň jednoho hesla.
+
+Ke každému záznamu je možné přidat `předmětová hesla`, jejihž definice je převzata z bází Národní knihovny, je tedy možné vybírat pouze z omezeného setu dat.
+
+.. image:: /images/keyword_add.png
+    :width: 600px
+
+Jakmile uživatel začne do pole psát, zobrazí se mu nabídka odpovídajících hesel:
+
+.. image:: /images/keyword_choice.png
+    :width: 600px
+
+Poté co uživatel přidá alespoň jedno heslo, objeví se widget zobrazující momentálně přidaná hesla:
+
+.. image:: /images/keyword_added.png
+    :width: 600px
+
+Aktuálně přidaná `předmětová hesla` jsou v zobrazovacím widgetu pro přehlednost rozdělena na tři možné skupiny:
+
+    - Uživatelské
+    - Nalezeny analyzátory
+    - Z Alephu
+
+Tyto skupiny jsou použity pouze pro jednodušší orientaci v původu `předmětových hesel` a nehrají další roli při generování dat.
+
+.. image:: /images/keyword_groups.png
+    :width: 600px
+
+Ke všem `předmětovým heslům` je do výstupních datasetů přidán jejich jednoznačný identifikátor v bázi NK a anglický ekvalent, pokud je nalezen.
+
+Ačkoliv se definice `předmětových hesel` nachází primárně v systému Aleph v autoritní bázi Národní knihovny, aplikace WA-KAT obsahuje lokální kopii v souboru `/src/wa_kat/templates/keyword_list.json.bz2 <https://github.com/WebArchivCZ/WA-KAT/blob/master/src/wa_kat/templates/keyword_list.json.bz2>`_. Lokální kopie je nutná kvůli některým druhům analýz, ale také aby uživatel měl možnost rychlého vyhledávání v `heslech`.
+
+Získání `předmětových hesel` ze systému Aleph umožňuje script ``wa_kat_build_keyword_index.py``, který je součástí distribuce projektu `WA-KAT` (podrobnosti níže). Tento script také umožňuje konverzi získaných dat do formátu používaného aplikací WA-KAT.
+
+`Předmětová hesla` jsou analyzátory vyhledávána v:
+
+    - HTML meta tagu ``<meta name="keywords" content="..">``
+    - HTML Dublin core tagu ``<meta name="DC.keywords" content="..">``
+    - V textu odkazované stránky. Text je tokenizován, jednotlivé tokeny pak porovnávány s datasetem `hesel` existujících v bázi NK.
+
+`Předmětová hesla` také mohou být doplněna načtením dat z báze ISSN.
+
+Pole `Předmětová hesla` je nepovinné.
 
 Konspekt / Subkonspekt
 ^^^^^^^^^^^^^^^^^^^^^^
+
+
 
 TODO: Nezapomenout zmínit přepínátko.
 
@@ -302,6 +345,12 @@ Nasazení a spuštění
 
 wa_kat_server.py
 ^^^^^^^^^^^^^^^^
+
+wa_kat_build_keyword_index.py
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+wa_kat_build_conspects.py
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Konfigurace
 +++++++++++
