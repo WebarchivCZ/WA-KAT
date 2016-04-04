@@ -5,13 +5,13 @@
 #
 # Imports =====================================================================
 import sys
+import argparse
 from os.path import join
 from os.path import dirname
 
 from bottle import run
 
 sys.path.insert(0, join(dirname(__file__), "../src"))
-
 from wa_kat import rest_api  # for Bottle applications
 from wa_kat import settings
 
@@ -30,4 +30,11 @@ def main():
 
 # Main program ================================================================
 if __name__ == '__main__':
+    # to add help with name and short description
+    parser = argparse.ArgumentParser(
+        description="WA-KAT server runner."
+    )
+    args = parser.parse_args()
+
+    print "Waiting for ZEO connection.."
     main()
