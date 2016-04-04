@@ -416,17 +416,25 @@ Pole `Pravidla` je povinné.
 Tlačítka
 ^^^^^^^^
 
-Vyčistit
-~~~~~~~~
+Pod setem formulářů se nachází dvě ovládací tlačítka. První je
 
+.. image:: /images/button_clear.png
 
-Generovat MARC
-~~~~~~~~~~~~~~
+Toto tlačítko umožňuje kompletně smazat celý formulář.
 
+Nejdůležitějším tlačítkem je tlačítko
+
+.. image:: /images/button_generate.png
+
+Tímto tlačítkem dojde k odeslání formuláře a vygenerování výstupních setů dat.
+
+.. image:: /images/export.png
+    :width: 600px
+
+Zde je možné prohlížet vygenerovaná data, či kliknutím na patříčná tlačítka stáhnout soubory ve formátu MRC, MARC OAI a Dublin core.
 
 Skrytý log
 ^^^^^^^^^^
-
 
 
 
