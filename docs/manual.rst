@@ -379,13 +379,39 @@ Pole `Anotace` je povinné.
 
 Periodicita
 ^^^^^^^^^^^
+`Periodicita` slouží jako slovní popis jak často je obměňován obsah katalogizovaného zdroje. Popis může být libovolný, doporučuji ale používat nejčastěji využívané hodnoty, které jsou automaticky našeptávány při psaní.
+
+.. image:: /images/periodicity_choices.png
+    :width: 600px
+
+Seznam těchto hodnot je možné upravovat změnou souboru `/src/wa_kat/templates/periode.txt <https://github.com/WebArchivCZ/WA-KAT/blob/master/src/wa_kat/templates/periode.txt>`_
+
+`Periodicita` také může být doplněna načtením dat z báze ISSN.
+
+Pole `Periodicita` je povinné.
 
 Frekvence sklízení
 ^^^^^^^^^^^^^^^^^^
+Select `Frekvence sklízení` specifikovat periodu, se kterou bude web archivován v databázi českého Webarchivu. Tato hodnota má smysl pouze pro uživatele, kteří otevřeli WA-KAT přihlášeni do Seederu, pro všechny ostatní je ignorována.
+
+.. image:: /images/freq.png
+    :width: 600px
+
+Toto pole není načítáno z analýz, ani z báze ISSN, je ovšem vyplněno automaticky při spuštění přednastavenou hodnotou `Denně`.
+
+
+Pole `Frekvence sklízení` je povinné.
 
 Pravidla
 ^^^^^^^^
+Dalším specifickým nastavením smysluplnným pouze pro uživatele, jenž otevřeli odkaz ze Seederu jsou `Pravidla`. Zde je možné specifikovat dodatečná pravidla pro sklízení elektronických zdrojů.
 
+.. image:: /images/rules.png
+    :width: 600px
+
+Toto pole není načítáno z analýz, ani z báze ISSN, je ovšem vyplněno automaticky při spuštění přednastavenými hodnotami.
+
+Pole `Pravidla` je povinné.
 
 Tlačítka
 ^^^^^^^^
