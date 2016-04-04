@@ -50,7 +50,6 @@ setup(
 
     scripts=[
         "bin/wa_kat_server.py",
-        "bin/wa_kat_mrc_to_xml.py",
         "bin/wa_kat_build_conspects.py",
         "bin/wa_kat_build_keyword_index.py",
     ],
