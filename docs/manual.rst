@@ -333,10 +333,49 @@ připadně:
 Jazyk
 ^^^^^
 
+Do pole `Jazyk` je možné napsat `ISO639-2`_ kód jazyka (``cze`` pro češtinu ``eng`` pro angličtinu a tak dál).
+
+.. ISO639-2:: https://cs.wikipedia.org/wiki/Seznam_k%C3%B3d%C5%AF_ISO_639-1
+
+
+.. image:: /images/lang.png
+    :width: 600px
+
+Přestože jsem zvažoval normalizaci kódů a textových názvů jazyků, nakonec jsem se rozhodl, že `kurátor má vždycky pravdu`. Program setu tedy kódy jazyka nesnaží nijak upravovat a pokud uživatel zadá do pole ``angličtina``, bude tato hodnota propsána do výstupu. Toto rozhodnutí stojí na komplexnosti katalogizačních norem MARC, které připouštějí různé možnosti podle příznaků, které může kurátor ručně upravit.
+
+`Jazyk` je analyzátory vyhledáván v:
+
+    - HTML meta tagu ``<meta http-equiv="Content-language" content="..">`` (probíhá normalizace na ISO639-2)
+    - HTML Dublin core tagu ``<meta name="dc.language" content="..">`` (probíhá normalizace na ISO639-2)
+    - V textu odkazované stránky pomocí jazykových modelů knihovny langdetect.
+
+`Jazyk` také může být doplněn načtením dat z báze ISSN.
+
+Pole `Jazyk` je povinné.
+
 Anotace
 ^^^^^^^
 
-TODO: Nezapomenout zmínit ignoraci komentářů.
+`Anotace` slouží k vložení krátkých informačních popisků katalogizovaného webu. Ekvivalentem jsou informace ze zadní strany knihy.
+
+Anotace momentálně může obsahovat pouze jeden jediný řádek informací. Uživatel může vložit víceřádkovou informaci, ta však bude do výstupních formátů spojena na jeden.
+
+.. image:: /images/annotation.png
+    :width: 600px
+
+Řádky začínající na ``--`` jsou ignorovány. Tento systém `komentářů` slouží k zobrazení informace o původu hodnoty nalezné analyzátory.
+
+.. image:: /images/annotation_filled.png
+    :width: 600px
+
+`Anotace` je analyzátory vyhledávána v:
+
+    - HTML meta tagu ``<meta name="description" content="..">``
+    - HTML Dublin core tagu ``<meta name="dc.description" content="..">``
+
+`Anotace` také může být doplněna načtením dat z báze ISSN.
+
+Pole `Anotace` je povinné.
 
 Periodicita
 ^^^^^^^^^^^
