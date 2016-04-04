@@ -5,10 +5,11 @@ WA-KAT is a project that simplifies the job of curators of the Webarchive of Nat
 
 Project is written in Python as single page `bottle.py <http://bottlepy.org>`_ application.
 
-User manual
+Manual (cz)
 -----------
 
     - :doc:`manual`
+    - :doc:`admin_manual`
 
 Component documentation
 -----------------------
