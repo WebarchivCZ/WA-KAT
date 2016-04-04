@@ -1,5 +1,5 @@
-Uživatelská a administrátorská dokumentace projektu WA-KAT
-==========================================================
+Uživatelská dokumentace projektu WA-KAT
+=======================================
 
 Systém WA-KAT je nástroj soužící pro semi-automatickou katalogizaci a klasifikaci webových zdrojů.
 
@@ -436,49 +436,20 @@ Zde je možné prohlížet vygenerovaná data, či kliknutím na patříčná tl
 Skrytý log
 ^^^^^^^^^^
 
+Poslední grafickou komponentou systému je skrytý log akcí frontendu, který je v aplikaci k odstraňování chyb v frontendu.
+
+.. image:: /images/hidden_log.png
+
+Zobrazit ho je možné kliknutím na ikonu `copyleftu` úplně dole:
+
+.. image:: /images/hidden_log_widget.png
+    :width: 600px
 
 
 
 Administrátorská dokumentace
 ----------------------------
 
-Zdrojové kódy
-+++++++++++++
+Pro větší přehlednost byla přesunuta do samostatného souboru:
 
-Instalace
-+++++++++
-
-python -m textblob.download_corpora
-
-TODO: Zmínit scripty co to nainstaluje do systémových cest.
-
-Nasazení a spuštění
-+++++++++++++++++++
-
-wa_kat_server.py
-^^^^^^^^^^^^^^^^
-
-wa_kat_build_keyword_index.py
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-wa_kat_build_conspects.py
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Konfigurace
-+++++++++++
-
-Konfigurace pomocí ENV proměnné.
-
-Popis architektury systému
-++++++++++++++++++++++++++
-
-Zadání projektu jakožto webové aplikace si vyžádalo rozdělení aplikační logiky do komponent backendu, a frontendu. Díky použítí JavaScriptového Python interpretru Brython bylo možné zachovat jednotnost jazyka v rámci obou částí projektu
-
-Backend
-^^^^^^^
-
-Frontend
-^^^^^^^^
-
-REST API
---------
+    - :doc:`admin_manual`
