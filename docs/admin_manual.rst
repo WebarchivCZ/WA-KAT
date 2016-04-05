@@ -50,7 +50,6 @@ V případě Ubuntu / ``deb`` systémů je možné nainstalovat potřebné modul
 
     sudo apt-get install python-dev
 
-
 Na systémech openSuse lze použít příkaz::
 
     sudo zypper install python-devel
@@ -80,6 +79,7 @@ Což by mělo vypsat řádek podobný tomuto::
 
     /usr/local/bin/wa_kat_server.py
 
+
 wa_kat_server.py
 ^^^^^^^^^^^^^^^^
 Tento script slouží pro běh samotného Bottle serveru, jedná se tedy o hlavní script celého prokejtu.
@@ -106,21 +106,66 @@ Nápověda::
     optional arguments:
       -h, --help  show this help message and exit
 
+
 wa_kat_build_keyword_index.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jak už název napovídá, tento script slouží k sestavení indexu všech klíčových slov (`předmětových hesel`).
 
+Script umožňuje fungovat ve dvou módech:
+
+    #) Stáhnutí indexu záznamů z Alephu.
+    #) Generování souboru s indexem ze stažených záznamů (přepínač ``-g``).
+
+Výsledným souborem je poté možno nahradit starý index umístěný v `/src/wa_kat/templates/keyword_list.json.bz2 <https://github.com/WebArchivCZ/WA-KAT/blob/master/src/wa_kat/templates/keyword_list.json.bz2>`_.
+
+Nápověda::
+
+    $ bin/wa_kat_build_keyword_index.py -h
+    usage: wa_kat_build_keyword_index.py [-h] [-c CACHE] [-o OUTPUT] [-s N] [-g]
+
+    Aleph keyword index builder. This program may be used to build fast index for
+    the keywords from AUT base.
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -c CACHE, --cache CACHE
+                            Name of the cache file. Default
+                            `./aleph_kw_index.sqlite`.
+      -o OUTPUT, --output OUTPUT
+                            Name of the output file. Default
+                            `./keyword_list.json`.
+      -s N, --start-at N    Start from N instead of last used value.
+      -g, --generate        Don't download, only generate data from dataset.
 
 
 wa_kat_build_conspects.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+Dalším scriptem je nástroj, který ze zadaného setu záznamů (je možné na požádání získat od správců Alephu v NK) sestaví index Konspektů a Subkonspektů se správnými hodnotami MDT a DDC.
 
+Nápověda::
+
+    usage: wa_kat_build_conspects.py [-h] XML_FILE
+
+    This program may be used to convert Conspectus / Subconspectus set in MARC XML
+    to JSON.
+
+    positional arguments:
+      XML_FILE    MARC XML file packed in .bz2.
+
+    optional arguments:
+      -h, --help  show this help message and exit
 
 
 runzeo
 ^^^^^^
-Program `runzeo` není součástí projektu WA-KAT, je však součástí jeho distribuce, jelikož je nainstalován jako jedna ze závislostí.
+Poslední program `runzeo` není přímou součástí projektu WA-KAT, je však součástí jeho distribuce, jelikož je nainstalován jako jedna ze závislostí.
 
-Tento program slouží k provozu objektové databáze ZODB formou ZEO clusteru. Podrobnosti viz následující sekce.
+Tento program slouží k provozu objektové databáze ZODB formou ZEO clusteru. Typické spuštění vypadá následovně::
+
+    runzeo -C conf/zeo.conf
+
+Podrobnosti viz následující sekce.
+
 
 
 První spuštění a provoz
