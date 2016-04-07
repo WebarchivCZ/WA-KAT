@@ -1,0 +1,17 @@
+include README.rst
+include CHANGELOG.rst
+include CONTRIBUTORS.rst
+include LICENSE.txt
+include requirements.txt
+include run_tests.sh
+
+recursive-include tests *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-include docs *.rst *.py Makefile make.bat
+
+recursive-include bin *
+recursive-include conf *
+recursive-include src/wa_kat/templates *
+recursive-include src/wa_kat/templates *
