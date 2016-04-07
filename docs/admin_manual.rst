@@ -42,7 +42,9 @@ Ačkoliv nic nebrání provozování projektu pod alternativními operačními s
 
 Instalaci je možné provést pomocí standardního pythonního instalátoru `PIP <https://pip.pypa.io>`_. Ten by měl být automaticky přítomen ve většině linuxových distribucí.
 
-Pokud není, či je v příliš staré verzi, je možné ho nainstalovat pomocí pokynů `uvedených v dokumentaci <https://pip.pypa.io/en/stable/installing/>`_, či instalací z package manageru distribuce (balík ``python-pip``).
+Pokud není, či je v příliš staré verzi, je možné ho nainstalovat pomocí pokynů `uvedených v dokumentaci <https://pip.pypa.io/en/stable/installing/>`_, či instalací z package manageru distribuce (balík ``python-pip``)::
+
+    sudo apt-get install python-pip
 
 Dále je nutné se ujistit, že instalátor má všechny potřebné nástroje pro kompilování zdrojových kódů knihoven a závislostí. Tyto nástroje jsou většinou dostupné ve správci balíků konkrétní distribuce pod názvem ``python-dev`` či ``python-devel``.
 
@@ -67,9 +69,9 @@ Nainstalované scripty
 +++++++++++++++++++++
 Správně provedná instalace by měla do systémových cest nainstalovat následující scripty:
 
-    - ``wa_kat_server.py``
-    - ``wa_kat_build_conspects.py``
-    - ``wa_kat_build_keyword_index.py``
+- ``wa_kat_server.py``
+- ``wa_kat_build_conspects.py``
+- ``wa_kat_build_keyword_index.py``
 
 Ověření je možné provést například příkazem::
 
@@ -87,14 +89,15 @@ Tento script slouží pro běh samotného Bottle serveru, jedná se tedy o hlavn
 Script nepřijímá žádné parametry. Po spuštění vypíše hlášení::
 
     Waiting for ZEO connection..
-
-a čeká, dokud není zpřístupněno spojení na databázi. Jakmile je spojení navázáno, zobrazí informaci o URL, kde běží a dále pokračuje zobrazováním přístupového logu::
-
     Bottle v0.12.9 server starting up (using PasteServer())...
     Listening on http://localhost:8080/
     Hit Ctrl-C to quit.
 
     serving on http://127.0.0.1:8080
+
+.. warning::
+
+    Program ke svému běhu vyžaduje spuštěný ZEO cluster (podrobnosti dále). Pokud ZEO cluster není spuštěný, při přístupu do databáze (spuštění analýz) se zasekne a čeká na spojení.
 
 Nápověda::
 
@@ -160,9 +163,9 @@ runzeo
 ^^^^^^
 Poslední program `runzeo` není přímou součástí projektu WA-KAT, je však součástí jeho distribuce, jelikož je nainstalován jako jedna ze závislostí.
 
-Tento program slouží k provozu objektové databáze ZODB formou ZEO clusteru. Typické spuštění vypadá následovně::
+Tento program slouží k provozu objektové databáze ZODB formou `ZEO clusteru`. Typické spuštění vypadá následovně::
 
-    runzeo -C conf/zeo.conf
+    runzeo -C `python -c "from wa_kat.settings import *; print ZEO_SERVER_PATH"`
 
 Podrobnosti viz následující sekce.
 
@@ -173,10 +176,10 @@ První spuštění a provoz
 
 Pro běh projektu je nutné zajistit trvalé spuštění dvou procesů:
 
-    - ``wa_kat_server.py``
-    - runzeo -C conf/zeo.conf  TODO: !
+- ``wa_kat_server.py``
+- ``runzeo -C `python -c "from wa_kat.settings import *; print ZEO_SERVER_PATH"```
 
-První zajišťuje běh webové aplikace, druhý pak provoz databáze.
+První zajišťuje běh webové aplikace, druhý pak provoz databáze (`ZEO clusteru`).
 
 Tyto příkazy je možné pro otestování spustit ručně ve dvou samostatných konzolích, pro produkční nasazení ovšem doporučuji přidat scripty do systému Supervisor.
 
@@ -217,19 +220,139 @@ V případě ubuntu je možné použít následující příkazy::
     update-rc.d supervisord defaults
 
 
-Konfigurace pro WA-KAT
-^^^^^^^^^^^^^^^^^^^^^^
-Konfiguraci pro WA-KAT provedeme přidáním následujících řádek do konfiguračního souboru (``/etc/supervisord.conf`` či ``/etc/supervisor/supervisord.conf``, podle distribuce)::
+Konfigurace Supervisoru pro WA-KAT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Konfiguraci pro WA-KAT provedeme přidáním následujících řádek na konec konfiguračního souboru (``/etc/supervisord.conf`` či ``/etc/supervisor/supervisord.conf``, podle distribuce)::
+
+    [program:wa_kat]
+    command=wa_kat_server.py
+    autostart=true
+    user=bystrousak
+    redirect_stderr=true
+
+    [program:runzeo]
+    command=sh -c 'runzeo -C `python -c "from wa_kat.settings import *; print ZEO_SERVER_PATH"`'
+    autostart=true
+    user=bystrousak
+    redirect_stderr=true
 
 
-
+Kde ``bystrousak`` je jméno uživatele, pod který má program běžet.
 
 
 Konfigurace WA-KATu
 -------------------
+Různé detaily projektu WA-KAT je možné konfigurovat pomocí konfiguračního souboru ve formátu JSON_.
 
-Konfigurace pomocí ENV proměnné.
+.. _JSON: https://cs.wikipedia.org/wiki/JavaScript_Object_Notation
 
+Konfigurace funguje nahrazováním hodnot definovaných v souboru :mod:`.settings` hodnotami definovanými v JSON konfiguračním souboru.
+
+Konfigurační soubory jsou vyhledávány v tomto pořadí:
+
+- `env` proměnná ``SETTINGS_PATH``
+- ``$HOME/webarchive/wa_kat.json``
+- ``/etc/webarchive/wa_kat.json``
+
+Příklad (soubor ``/etc/webarchive/wa_kat.json``)::
+
+    {
+        "WEB_ADDR": "0.0.0.0",
+        "WEB_DEBUG": true,
+        "WEB_RELOADER": true,
+
+        "SEEDER_TOKEN": "1acedb1b6347d9d40fe2f055aa6d3c077f106894", 
+
+        "ZEO_CLIENT_PATH": "/home/bystrousak/web/WA-KAT/conf/zeo_client.conf",
+        "ZEO_MAX_WAIT_TIME": 60
+    }
+
+Nastavení databáze
+++++++++++++++++++
+Doporučuji nenestavovat, pokud nemáte zkušenost s konfigurací ZODB / `ZEO clusteru`.
+
+.. glossary::
+    :const:`~wa_kat.settings.ZEO_CLIENT_PATH`
+        Nastavení cesty ke konfiguračnímu souboru se specifikací spojení do databáze. V základu vždy cesta k nainstalovanému balíku. Doporučuji neměnit.
+
+    :const:`~wa_kat.settings.ZEO_SERVER_PATH`
+        Nastavení cesty ke konfiguračnímu souboru se specifikací spojení do databáze. V základu vždy cesta k nainstalovanému balíku. Doporučuji neměnit.
+
+    :const:`~wa_kat.settings.PROJECT_KEY`
+        Klíč k přístupu do databáze. Po nasazení neměnit.
+
+    :const:`~wa_kat.settings.ZEO_CACHE_TIME`
+        Jak dlouho uchovávat záznamy analýzy webu (v sekundách).
+
+    :const:`~wa_kat.settings.ZEO_MAX_WAIT_TIME`
+        Jak dlouho čekat na analyzátory (v sekundách).
+
+Nastavení webu
+++++++++++++++
+
+.. glossary::
+    :const:`~wa_kat.settings.WEB_ADDR`
+        Adresa, na které server naslouchá. ``localhost`` pro přístup z lokálního PC, ``0.0.0.0`` pro přístup ze sítě.
+
+    :const:`~wa_kat.settings.WEB_PORT`
+        Port na kterém webserver běží. V základu ``8080``, pro ``80`` je nutné spustit pod rootem.
+
+    :const:`~wa_kat.settings.WEB_SERVER`
+        Serverový backend. Doporučuji neměnit.
+
+    :const:`~wa_kat.settings.WEB_DEBUG`
+        Zobrazovat debugovací informace?
+
+    :const:`~wa_kat.settings.WEB_RELOADER`
+        Znovu spustit po změnách ve zdrojovém kódu?
+
+    :const:`~wa_kat.settings.WEB_BE_QUIET`
+        Nezobrazovat dodatečné informace v konzoli?
+
+
+Nastavení spojení do Seederu
+++++++++++++++++++++++++++++
+
+.. glossary::
+    :const:`~wa_kat.settings.SEEDER_INFO_URL`
+        Nastavení URL na API Seederu.
+
+    :const:`~wa_kat.settings.SEEDER_TOKEN`
+        Autentizační token. Nutno domluvit s administrátorem Seederu.
+
+    :const:`~wa_kat.settings.SEEDER_TIMEOUT`
+        Jak dlouho čekat na načtení dat ze Seederu (v sekundách).
+
+
+Nastavení analýz
+++++++++++++++++
+
+.. glossary::
+    :const:`~wa_kat.settings.REQUEST_TIMEOUT`
+        JAk dlouho čekat na stažení analyzované stránky (v sekundách).
+
+    :const:`~wa_kat.settings.TIMEOUT_MESSAGE`
+        Zpráva zobrazená při timeoutu analyzované stránky.
+
+    :const:`~wa_kat.settings.WHOIS_URL`
+        Adresa pro dotazování do WHOIS. Doporučuji neměnit.
+
+    :const:`~wa_kat.settings.NTK_ALEPH_URL`
+        Adresa NTK Alephu. Doporučuji neměnit.
+
+    :const:`~wa_kat.settings.USER_AGENT`
+        User agent používaný pro analýzy.
+
+
+Nastavení frontendu / REST API
+++++++++++++++++++++++++++++++
+
+.. glossary::
+    :const:`~wa_kat.settings.GUI_TO_REST_PERIODE`
+        Jak často updatovat progressbar při analýzách.
+
+    :const:`~wa_kat.settings.API_PATH`
+        Prefix REST API. Doporučuji neměnit.
 
 
 REST API
