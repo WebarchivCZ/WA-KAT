@@ -1,6 +1,161 @@
 Changelog
 =========
 
+0.4.3
+-----
+    - ``conf/`` directory moved to ``templates/``.
+
+0.4.2
+-----
+    - Added `settings.ZEO_SERVER_PATH`.
+
+0.4.1
+-----
+    - Added missing MANIFEST.in.
+
+0.4.0
+-----
+    - Beta version, almost ready for production use.
+    - #26: Added more of the admin documentation.
+    - #26: Added a lot of informations about administration of the project.
+    - Setup / bin scripts updated.
+    - Added argparse interface to the wa_kat_server.py.
+    - Removed no longer needed file.
+    - #26: Admin docs moved to admin_manual.rst.
+    - #26: Added description of Hidden log. Admin doc moved to own file.
+    - #26: Added description of the buttons.
+    - #26: Added description of Periodicit, Frequency and Rules.
+    - #26: Added description of Lanuage and Annotation.
+    - #26: Added Konspekt / Subkonspekt description.
+    - #26: Added keyword widget description.
+    - #26: Added Place info.
+    - Fixed bug in keywords.
+    - #26: Fixed small bugs in dynamic help subsystem.
+    - #26: Small fixes in manual.
+    - #26: Added HelpOverlay, so user may now show quick help.
+    - #26: Added Author picker documentation.
+    - Added progressbar to Author picker.
+    - #26: Added Publisher documentation.
+    - #26: Added documentation for Subtitle and Creation date.
+    - #26: Added description of Title.
+    - #26: Added more documentation of progressbar.
+    - url_progress_bar.png -> url_progressbar.png.
+    - Added progressbar to ISSN request.
+    - Fixed .reset() call on validation highlights.
+    - #25: Added ISSN documentation. Added more documentation to URL.
+    - #26: Added documentation for the URL field.
+    - #26: Added wa_kat.png with screenshot of the app.
+    - #26: Manual included to the index. Added basic description.
+    - Added docstrings to overlay_controller.py. Fixed #25.
+    - #25: Added docstrings to placeholder_handler.py.
+    - #25: Added docstrings to progressbar.py.
+    - #25: Added docstrings to shared.py.
+    - #25: Added docstrings for output_picker.py.
+    - #25: Added docstrings for log_view2.py.
+    - #25: Added docstrings for input_controllericker.py.
+    - #25: Added docstrings to conspect_handler.py.
+    - #25: Added docstrings for dropdown handler.
+    - #25: Added docstrings for errorbox.py.
+    - #25: Added docstrings for author_picker.py.
+    - #25: Added docstrings to author_picker.py.
+    - AlephReaderAdapter refactored to AlephISSNReaderAdapter.
+    - #25: Added docstrings for the wa_kat_main.py.
+    - #25: Updated docstrings for rules_view.py.
+    - #25: Added docstrings for view.py.
+    - #25: Added docstrings for descritors.py.
+    - #25: Fixed docstring for data_model.py.
+    - #25: Fixed documentation.
+    - bottle_index.py moved to rest_api/.
+    - #25: Added docstrings of data_model.py.
+    - #25: Added docstrings to settings.py.
+    - Fixed bug in cleanup button.
+    - #25: Removed no longer used file conspect_database.py.
+    - #25: Fixed docstrings for worker.py.
+    - Fixed height of the black overlay.
+    - #25: Added docstrings to rest_api/__init__.py.
+    - #25: Added docstrings to analyzers_api.py.
+    - rest_api/__init__.py split to the rst_api/analyzers_api.py.
+    - #25: Added docstrings to to_output.py.
+    - #25: Added docstrings to aleph_api.py.
+    - shared.RESPONSE_TYPE renamed to JSON_MIME.
+    - #25: Added docstrings to shared.py.
+    - Fixed HTML entity bug &apos; -> '.
+    - #25: Undocumented some global variables, because extenzive spamming in HTML
+    - #25: Added docstrings to keywords.py.
+    - #25: Added docstrings for virtual_fs.py.
+    - #26: Added links to the user manual.
+    - #26: Added more placeholders to the manual.rst.
+    - #33: Added question marks, which will open help (#26).
+    - Fixed #73.
+    - #25: Updated docstring for the convertors.rst.
+    - #25: Added docstrings for mrc.py.
+    - #25: Added docstrings for to_dc.py.
+    - #25: Fixed invalid paths in .rst files for convertors.
+    - #25: Added docstrings to iso_codes.py.
+    - #25: Updated.
+    - #25: Updated Author's docstring.
+    - #25: Updated aleph connector docstring.
+    - #25: Updated docstrings for connectors/.
+    - #25: Added docstrings for init.
+    - #25: Added docstrings to annotation_detector.py.
+    - #25: Added docstrings to author_detector.py.
+    - #25: Added docstrings to keyword_detector.py.
+    - #26: Manual updated.
+    - #25: Added docstrings to language_detector.py.
+    - #25: Added docstrings to place_detector.py.
+    - #25: Added docstrings to source_string.py.
+    - #25: Added docstrings to title_detector.py.
+    - #25: Added docstrings to creation_date_detector.py.
+    - Added new requirement for `textblob` to implrove keyword matching.
+    - #4: Improved creation date parsing. Removed duplicates.
+    - #2: Slightly improved keyword parsing. Added docstrings (#25).
+    - #26: Added first parts of the documentation.
+    - Fixed bug in language detector. Languages should now occur only once.
+    - Performance of keyword maching improved slightly. Fixed #2.
+    - #2: Added _extract_keywords_from_text().
+    - #2: Added better unicode decoder for analyzers.
+    - #2: Added better utf / unicode handling to SourceString constructor.
+    - #2: Added new precomputed dataset: KEYWORDS_LOWER.
+    - #2: Added requirement for newer version of dhtmlparser.
+    - Added red underline for all required elements.
+    - Implemented get_creation_date_tags(). Closed #4.
+    - #4: Implemented _get_whois_tags().
+    - #4: Added new requirement for `pythonwhois`.
+    - #4: settings.py: Added new variable WHOIS_URL.
+    - Added transport of the 18'th char from 008 field. Closing #66.
+    - #4: Implemented parsing of resources from the MementoWeb.org.
+    - Fixed #72 - problem with redirects to pages with broken SSL.
+    - #72: Added better logging of error messages.
+    - #25: Added Sphinx documentation files for Dublin core convertor (#13).
+    - Dublin core convertor integrated into the application. Closed #13.
+    - #13: Added tests (#22).
+    - #13: Reformatted. Added docstrings (#25).
+    - #22: Added sketch of the DC tests (#13).
+    - #13: Added parsing of the author.
+    - #13: Added periodicity and place parsing.
+    - #13: Imported in the convertors. Added docstring.
+    - #13: Added processing of the keywords. Added url.
+    - #13: Added dcterms:alternative, dcterms:created and DDC.
+    - #13: Added parsing of title, publisher, description, language, issn & MDT.
+    - #13: Added first sketch of to_dc().
+    - #13: Added requirements to xmltodict and odictliteral.
+    - Fixed bug in additional info getter. Closed #70, #71.
+    - #70: Fixed bug in urlbar.
+    - #66: Additional info is now transported to the output.
+    - #66: Added new function - item_to_mrc().
+    - #66: Added parsing of end_date to the aleph connector.
+    - #66: Added better parsing of creation date.
+    - #22, #66: Added tests of mrc convertor.
+    - #66: Added val_to_mrc().
+    - Added requirement for new version of marcxml-parser.
+    - Fixed bug in setup.py.
+    - #22: Fixed bugs in tests.
+    - #25, #26: Documentation files updated.
+    - #66: mrc_to_marc.py renamed to mrc.py, because new functions were added.
+    - #66: Added dict_to_mrc().
+    - #66: Added processing of the additional info in the frontend.
+    - #66: Added reading of additional info from Aleph.
+
 0.3.0
 -----
     - Added Author picker and connection to Aleph.
