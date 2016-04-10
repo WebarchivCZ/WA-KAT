@@ -1,0 +1,460 @@
+class "data_model.py" as data_model {
+    Model of the data transported
+    from backend to frontend
+    and soforth.
+    ---
+    _compose_func(func, args_func)
+    class FuncInfo
+        func
+        args_func
+    class Model
+        url
+        title_tags
+        subtitle_tags
+        creation_dates
+        author_tags
+        publisher_tags
+        place_tags
+        keyword_tags
+        conspect
+        lang_tags
+        annotation_tags
+        periodicity
+        source_info
+        original_xml
+        issn
+        rules
+        additional_info
+        analyzers_mapping() (static)
+        keys()
+        get_mapping
+}
+
+
+package "zeo/" as zeo {
+    class "__init__.py" as zeo_init {
+        Required by python
+        to indicate package.
+        ---
+        RequestDatabase
+    }
+
+    class "request_database.py" as request_database {
+        Database for RequestInfo
+        objects.
+        ---
+        DAY
+        YEAR
+        ---
+        class RequestDatabase
+            __init__(
+                conf_path=ZEO_CLIENT_PATH,
+                project_key=PROJECT_KEY
+            )
+            get_request(url, new=False)
+            garbage_collection(time_limit=YEAR/2.0)
+    }
+
+    class "request_info.py" as request_info {
+        Database record for analysed
+        url.
+        ---
+        worker_mapping()
+        class Progress
+            done
+            base
+        class RequestInfo
+            url
+            domain
+            index
+            _log
+            creation_ts
+            downloaded_ts
+            processing_started_ts
+            processing_ended_ts
+            __init__(url)
+            _download(url)
+            log(msg)
+            get_log()
+            paralel_processing(client_conf=None)
+            _reset_set_properties()
+            _get_all_set_properties()
+            progress()
+            is_all_set()
+            is_old()
+            to_dict()
+            _p_resolveConflict(oldState, savedState, newState)
+    }
+    
+    class "worker.py" as worker {
+        Function worker() runs
+        as standalone process
+        performing given
+        analysis.
+        ---
+        _save_to_database(req, property_name, data)
+        worker(
+            url_key,
+            property_name,
+            function,
+            function_arguments,
+            conf_path=None
+        )
+    }
+    
+    request_info -d-> request_database
+    request_info .r.> worker: launches
+    request_database --> zeo_init
+    worker --> request_info
+}
+
+package "connectors/" as connectors {
+    class "aleph.py" as aleph {
+        Connector to NK and NTK Alephs.
+        ---
+        _first_or_none(array)
+        _add_source(model)
+        by_issn(issn)
+        class Author
+            name
+            code
+            linked_forms
+            is_corporation
+            record
+            alt_name
+            parse_author(marc)
+            search_by_name(name)
+    }
+    class "seeder.py" as seeder {
+        Connector to Seeder.
+        ---
+        convert_to_mapping(seeder_struct)
+        download(url_id)
+        get_remote_info(url_id)
+    }
+    class "__init__.py" as connectors_init {
+        Required by python
+        for packages.
+    }
+    
+    aleph --> connectors_init
+    seeder --> connectors_init
+}
+
+package "convertors/" as convertors {
+    class "mrc.py" as mrc {
+        Convert dicts / values
+        to MRC strings.
+        ---
+        mrc_to_marc(mrc)
+        dicts_to_mrc(code, dicts)
+        val_to_mrc(code, val)
+        item_to_mrc(code, val)
+    }
+    class "to_dc.py" as to_dc {
+        Convert WA KAT dataset
+        to Dublin core.
+        ---
+        _convert_metadata(data)
+        _remove_none(data)
+        to_dc(data)
+    }
+    class "iso_codes.py" as iso_codes {
+        Normalize ISO639
+        codes.
+        ---
+        normalize(code)
+    }
+
+    class "__init__.py" as convertors_init {
+        Import functions to
+        package level.
+        ---
+        to_dc()
+        normalize()
+        mrc_to_marc()
+        item_to_mrc()
+    }
+
+    mrc --> convertors_init
+    to_dc --> convertors_init
+    iso_codes --> convertors_init
+}
+
+package "rest_api/" as rest_api {
+    class "__init__.py" as rest_api_init {
+        Imports all other API parts.
+
+        Provides API to download data as files.
+        ---
+        download_as_file()
+        ---
+        /rest_api/as_file/<fn:path> <-- POST content of the file
+    }
+    class "aleph_api.py" as aleph_api {
+        REST API connector to Aleph.
+        ---
+        API_PATH
+        ---
+        records_by_issn(issn)
+        authors_by_name(name)
+        ---
+        /rest_api/authors_by_name <-- POST name
+        /rest_api/records_by_issn <-- POST issn
+    }
+    class "analyzers_api.py" as analyzers_api {
+        Run analysis for given URL.
+        ---
+        analyzer_api(url)
+        ---
+        /rest_api/analyze <-- POST url
+    }
+    class "bottle_index.py" as bottle_index {
+        Render root page and static
+        files.
+        ---
+        INDEX_PATH
+        STATIC_PATH
+        ---
+        read_index_template()
+        render_registered(remote_info)
+        render_unregistered(error=None)
+        ---
+        gzipped_brython()
+        static_data(fn)
+        render_form_template()
+        ---
+        /static/js/brython_dist.js
+        /static/<fn:path>
+        /
+    }
+    class "keywords.py" as keywords {
+        API for the keywords.
+        ---
+        KW_DICT
+        KEYWORDS
+        KEYWORDS_LOWER
+        KW_CACHE_PATH
+        ---
+        read_kw_file()
+        build_kw_dict(kw_list)
+        keyword_to_info(keyword)
+        get_kw_list()
+        ---
+        /rest_api/kw_list.json
+    }
+    class "to_output.py" as to_output {
+        Converts data from frontend to output
+        structures.
+        ---
+        compile_keywords(keywords)
+        render_mrc(data)
+        url_to_fn(url)
+        parse_date_range(date, alt_end_date=None)
+        serialize_author(author_data)
+        to_output(data)
+        ---
+        /rest_api/to_output <-- POST json struct
+    }
+    class "virtual_fs.py" as virtual_fs {
+        Generates virtual files
+        used by frontend.
+        ---
+        PY_HEADER
+        in_virtual_path(fn)
+        in_second_virtual_path(fn)
+        @python_mime(fn)
+        ---
+        init_api()
+        settings_api()
+        conspectus_api()
+        periode_api()
+        ---
+        /virtual_fs/__init__.py
+        /virtual_fs/settings.py
+        /virtual_fs/conspectus.py
+        /virtual_fs/periodes.py
+    }
+
+    class "shared.py" as rest_api_shared {
+        Functions and constants
+        shared in REST API submodule
+        ---
+        JSON_MIME
+        ---
+        to_gzipped_file(data, out=None)
+        @gzipped(fn)
+        gzip_cache(path)
+        in_template_path(fn)
+        read_template(fn)
+        to_json(data)
+    }
+
+    aleph_api --> rest_api_init
+    analyzers_api --> rest_api_init
+    bottle_index --> rest_api_init
+    keywords --> rest_api_init
+    to_output --> rest_api_init
+    virtual_fs --> rest_api_init
+
+    rest_api_shared --> virtual_fs
+    rest_api_shared --> to_output
+    rest_api_shared --> keywords
+    rest_api_shared --> bottle_index
+    rest_api_shared --> analyzers_api
+
+    seeder ......> bottle_index
+    aleph .....> aleph_api
+}
+
+package "analyzers/" as analyzers {
+    class "__init__.py" as analyzers_init {
+        Import relevant functions
+        to package level.
+        ---
+        get_title_tags()
+        get_place_tags()
+        get_author_tags()
+        get_lang_tags()
+        get_keyword_tags()
+        get_annotation_tags()
+        get_creation_date_tags()
+    }
+    class "annotation_detector.py" as annotation_detector {
+        Annotation parsers.
+        ---
+        get_html_annotations(index_page)
+        get_dc_annotations(index_page)
+        get_annotation_tags(index_page)
+    }
+    class "author_detector.py" as author_detector {
+        Author parsers.
+        ---
+        get_html_authors(index_page)
+        get_dc_authors(index_page)
+        get_author_tags(index_page)
+    }
+    class "creation_date_detector.py" as creation_date_detector {
+        Creation date analyzers.
+        ---
+        class TimeResource
+            url
+            date
+            val
+            source
+            to_dict()
+        mementoweb_api_tags(url)
+        get_whois_tags(domain)
+        get_creation_date_tags(url, domain, as_dicts=False)
+    }
+    class "keyword_detector.py" as keyword_detector {
+        Keyword parsers.
+        ---
+        class MLStripper
+            handle_data(d)
+            get_data()
+            strip_tags(html) (static)
+        get_html_keywords(index_page)
+        get_dc_keywords(index_page)
+        extract_keywords_from_text(index_page, no_items=5)
+        get_keyword_tags(index_page, map_to_nk_set=True)
+    }
+    class "language_detector.py" as language_detector {
+        Language parsers.
+        ---
+        get_html_lang_tags(index_page)
+        get_dc_lang_tags(index_page)
+        detect_language(index_page)
+        get_lang_tags(index_page)
+    }
+    class "place_detector.py" as place_detector {
+        Place parsers.
+        ---
+        get_ip_address(domain)
+        get_html_geo_place_tags(index_page)
+        get_whois_tags(ip_address)
+        get_place_tags(index_page, domain):
+    }
+    class "title_detector.py" as title_detector {
+        Parse titles.
+        ---
+        get_html_titles(index_page)
+        get_html_meta_titles(index_page)
+        get_dublin_core_titles(index_page)
+        get_title_tags(index_page)
+    }
+
+    class "source_string.py" as source_string {
+        String with source
+        information.
+        ---
+        class SourceString
+            val
+            source
+    }
+    class "shared.py" as shared {
+        Shared function.
+        ---
+        parse_meta(
+            content,
+            meta_name,
+            source_descr,
+            content_attr_name="content"
+        )
+    }
+    
+    annotation_detector --> analyzers_init
+    author_detector --> analyzers_init
+    creation_date_detector --> analyzers_init
+    keyword_detector --> analyzers_init
+    language_detector --> analyzers_init
+    place_detector --> analyzers_init
+    title_detector --> analyzers_init
+
+    source_string --> title_detector
+    source_string --> place_detector
+    source_string --> language_detector
+    source_string --> keyword_detector
+    source_string --> shared
+
+    shared --> title_detector
+    shared --> place_detector
+    shared --> language_detector
+    shared --> keyword_detector
+    shared --> author_detector
+    shared --> annotation_detector
+}
+
+
+analyzers_init -u> data_model
+
+data_model --> aleph
+data_model --> seeder
+data_model --> request_info
+
+source_string --> aleph
+source_string --> seeder
+
+zeo_init -> analyzers_api
+
+convertors_init --> to_output
+
+connectors_init --> aleph_api
+connectors_init --> bottle_index
+
+iso_codes --> language_detector
+
+keywords -----> keyword_detector
+
+
+package "bin/" {
+    class "wa_kat_server.py" as wa_kat_server {
+    }
+    class "wa_kat_build_keyword_index.py" as wa_kat_build_keyword_index {
+    }
+    class "wa_kat_build_conspects.py" as wa_kat_build_conspects {
+    }
+}
+
+
+rest_api_init -d--> wa_kat_server

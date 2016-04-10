@@ -18,6 +18,9 @@ Backend je koncipován jako aplikace napsaná ve frameworku Bottle_.
 
 .. _Bottle: http://bottlepy.org/
 
+.. image:: /uml/backend.png
+    :width: 600px
+
 Zdrojové kódy je možné nalézt ve složce `src/wa_kat <https://github.com/WebArchivCZ/WA-KAT/tree/master/src/wa_kat>`_.
 
 
