@@ -15,10 +15,10 @@ Module maps the parserd keywords to currated keywords used in
 import dhtmlparser
 from HTMLParser import HTMLParser
 
+from textblob import TextBlob
 from fuzzywuzzy import process
 
 from shared import parse_meta
-from textblob import TextBlob
 from source_string import SourceString
 
 from ..rest_api.keywords import KEYWORDS

@@ -21,7 +21,7 @@ from ..settings import API_PATH
 API_PATH = join(API_PATH, "aleph")
 
 
-# Functions & classes =========================================================
+# API =========================================================================
 @post(join(API_PATH, "records_by_issn"))
 @form_to_params
 def records_by_issn(issn):
