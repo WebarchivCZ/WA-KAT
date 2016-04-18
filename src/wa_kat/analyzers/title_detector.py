@@ -20,7 +20,7 @@ def get_html_titles(index_page):
     Return list of titles parsed from HTML.
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         list: List of :class:`.SourceString` objects.
@@ -41,7 +41,7 @@ def get_html_meta_titles(index_page):
     Return list of titles parsed from ``<meta>`` tags.
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         list: List of :class:`.SourceString` objects.
@@ -55,7 +55,7 @@ def get_dublin_core_titles(index_page):
     tags.
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         list: List of :class:`.SourceString` objects.
@@ -70,7 +70,7 @@ def get_title_tags(index_page):
     ``<meta>`` tags.
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         list: List of :class:`.SourceString` objects.
