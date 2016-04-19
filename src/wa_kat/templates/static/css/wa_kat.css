@@ -122,10 +122,6 @@ body {
     display: inline-block;
 }
 
-.required_item {
-    border-bottom: 1px solid red;
-}
-
 .glyphicon-question-sign {
     margin-left: 0.2em;
     font-size: 0.8em;
@@ -134,4 +130,12 @@ body {
 .help_iframe {
     width: 100%;
     height: 99.5%;
+}
+
+#application_form label {
+    font-weight: normal;
+}
+
+.required_item {
+    font-weight: bold;
 }
