@@ -358,6 +358,24 @@ Nastavení frontendu / REST API
         Prefix REST API. Doporučuji neměnit.
 
 
+
+Docker
+------
+Celý projekt je možné sestavit a zkonfigurovat v základní konfiguraci pomocí Dockeru. K tomu je v rootu projektu uloženo následující ``Dockerfile``:
+
+.. literalinclude:: ../Dockerfile
+
+``Dockerfile`` je možné použít příkazem::
+
+    sudo docker build --rm -t wa_kat .
+
+Poté lze spustit kontejner pomocí::
+
+    sudo docker run -p 8080:8080 -it wa_kat
+
+Čímž je spuštěn WA-KAT na portu ``8080``.
+
+
 REST API
 --------
 
