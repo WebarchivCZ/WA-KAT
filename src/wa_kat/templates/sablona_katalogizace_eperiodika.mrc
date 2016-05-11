@@ -41,7 +41,7 @@ BAS   L $$aSML
 336   L $$atext$$btxt$$2rdacontent
 337   L $$apočítač$$bc$$2rdamedia
 338   L $$aonline zdroj$$bcr$$2rdacarrier
-5880  L $$aPopsáno podle celého zdroje; název z titulní obrazovky (verze z {{time.strftime("%d.%m.%Y")}})
+588   L $$aNázev z titulní obrazovky (náhled z {{time.strftime("%d.%m.%Y")}})
 520   L $$a{{annotation}}
 60017 L $$a 
 61027 L $$a 

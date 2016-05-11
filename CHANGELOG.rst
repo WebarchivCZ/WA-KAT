@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.4.4
+-----
+    - Template updated accordingly to #78.
+
 0.4.3
 -----
     - ``conf/`` directory moved to ``templates/``.
