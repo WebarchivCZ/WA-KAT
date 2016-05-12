@@ -206,6 +206,20 @@ def serialize_author(author_data):
     return out
 
 
+def get_008_lang_code(lang_code, default_lang="cze"):
+    """
+    008 lang code is always 3 characters long. Look at `language` info from the
+    user's dataset and use it, if it is exactly 3 chars long.
+    """
+    if not lang_code:
+        return default_lang
+
+    if len(lang_code) != 3:
+        return default_lang
+
+    return lang_code
+
+
 # REST API ====================================================================
 @post(join(API_PATH, "to_output"))
 @form_to_params
@@ -241,6 +255,9 @@ def to_output(data):
     # for details
     fld_008 = data[ai_key].get("008")
     data["regularity"] = fld_008[18] if fld_008 and len(fld_008) > 18 else "-"
+
+    # put lang code to 008
+    data["lang_code_008"] = get_008_lang_code(data.get("language"))
 
     data[ai_key] = {
         key: "\n".join(item_to_mrc(key, val))

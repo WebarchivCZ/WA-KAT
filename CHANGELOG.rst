@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.4.5
+-----
+    - #80: Language in 008 is now parsed from user input.
+
 0.4.4
 -----
     - Template updated accordingly to #78.

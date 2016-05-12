@@ -9,7 +9,7 @@ BAS   L $$aSML
 003   L CZ-PrNK
 006   L m-----o--d--------
 007   L cr-cn-
-008   L ******c{{from_year}}{{to_year}}xr-{{regularity}}x-w-o----*0---b2cze--
+008   L ******c{{from_year}}{{to_year}}xr-{{regularity}}x-w-o----*0---b2{{! lang_code_008}}--
 022   L $$a{{!issn}}
 040   L $$aABA001$$bcze$$erda
 0410  L $$a{{!language}}
