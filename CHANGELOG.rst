@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.0
+-----
+    - Connected with Seeder. First officaly working, production ready version.
+
 0.4.5
 -----
     - #80: Language in 008 is now parsed from user input.
