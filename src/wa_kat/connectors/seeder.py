@@ -49,6 +49,9 @@ def convert_to_mapping(seeder_struct):
         if not items:
             return None
 
+        if not (isinstance(items, list) or isinstance(items, tuple)):
+            items = [items]
+
         active_items = [item for item in items if item.get("active")]
 
         if not active_items:
@@ -69,7 +72,9 @@ def convert_to_mapping(seeder_struct):
     # seed contains `url`, which is used as primary key - if no seed is found,
     # it is meaningless to continue
     if not active_seed:
-        return None
+        active_seed = pick_active(seeder_struct, "seed")  # alt naming
+        if not active_seed:
+            return None
 
     # create the model and fill it with data
     model = Model()
@@ -97,19 +102,27 @@ def convert_to_mapping(seeder_struct):
     return model.get_mapping()
 
 
-def download(url_id):
+def send_request(url_id, data=None, req_type=None):
     """
-    Download data from the Seeder's API.
+    Send request to Seeder's API.
 
     Args:
         url_id (str): ID used as identification in Seeder.
+        data (obj): Optional parameter for data.
+        req_type (fn, default None): Request method used to send/download the
+            data. If none, `requests.get` is used.
 
     Returns:
         dict: Data from Seeder.
     """
     url = settings.SEEDER_INFO_URL % url_id
-    resp = requests.get(
+
+    if not req_type:
+        req_type = requests.get
+
+    resp = req_type(
         url,
+        data=data,
         timeout=settings.SEEDER_TIMEOUT,
         headers={
             "User-Agent": settings.USER_AGENT,
@@ -133,7 +146,7 @@ def get_remote_info(url_id):
         dict: Dict with data for frontend or None in case of error.
     """
     try:
-        data = download(url_id)
+        data = send_request(url_id)
     except Exception as e:
         sys.stderr.write("Seeder error: ")  # TODO: better!
         sys.stderr.write(str(e.message))
