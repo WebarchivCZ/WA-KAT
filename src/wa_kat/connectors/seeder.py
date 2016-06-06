@@ -19,7 +19,7 @@ from ..analyzers.source_string import SourceString
 
 
 # Functions & classes =========================================================
-def convert_to_mapping(seeder_struct):
+def _convert_to_wakat_format(seeder_struct):
     """
     Convert Seeder's structure to the internal structure used at frontend.
 
@@ -102,13 +102,14 @@ def convert_to_mapping(seeder_struct):
     return model.get_mapping()
 
 
-def send_request(url_id, data=None, req_type=None):
+def _send_request(url_id, data=None, json=None, req_type=None):
     """
     Send request to Seeder's API.
 
     Args:
         url_id (str): ID used as identification in Seeder.
-        data (obj): Optional parameter for data.
+        data (obj, default None): Optional parameter for data.
+        json (obj, default None): Optional parameter for JSON body.
         req_type (fn, default None): Request method used to send/download the
             data. If none, `requests.get` is used.
 
@@ -123,6 +124,7 @@ def send_request(url_id, data=None, req_type=None):
     resp = req_type(
         url,
         data=data,
+        json=json,
         timeout=settings.SEEDER_TIMEOUT,
         headers={
             "User-Agent": settings.USER_AGENT,
@@ -146,10 +148,74 @@ def get_remote_info(url_id):
         dict: Dict with data for frontend or None in case of error.
     """
     try:
-        data = send_request(url_id)
+        data = _send_request(url_id)
     except Exception as e:
-        sys.stderr.write("Seeder error: ")  # TODO: better!
+        sys.stderr.write("Seeder GET error: ")  # TODO: better!
         sys.stderr.write(str(e.message))
         return None
 
-    return convert_to_mapping(data)
+    return _convert_to_wakat_format(data)
+
+
+def _convert_to_seeder_format(dataset):
+    """
+    WA KAT dataset has different structure from Seeder. This is convertor
+    which converts WA-KAT -> Seeder data format.
+
+    Args:
+        dataset (dict): WA-KAT dataset sent from frontend.
+
+    Returns:
+        dict: Dict with converted data.
+    """
+    data = {}
+    seed = {}
+
+    def add_if_set(d, key, val):
+        if val:
+            d[key] = val
+
+    add_if_set(data, "name", dataset.get("title"))
+    add_if_set(data, "issn", dataset.get("issn"))
+    add_if_set(data, "annotation", dataset.get("annotation"))
+
+    rules = dataset.get("rules", {})
+    if rules:
+        add_if_set(data, "frequency", rules.get("frequency"))
+
+        # set seed info
+        add_if_set(seed, "budget", rules.get("budget"))
+        add_if_set(seed, "calendars", rules.get("calendars"))
+        add_if_set(seed, "global_reject", rules.get("global_reject"))
+        add_if_set(seed, "gentle_fetch", rules.get("gentle_fetch"))
+        add_if_set(seed, "javascript", rules.get("javascript"))
+        add_if_set(seed, "local_traps", rules.get("local_traps"))
+        add_if_set(seed, "youtube", rules.get("youtube"))
+
+        add_if_set(seed, "url", dataset.get("url"))
+
+    if seed:
+        data["seed"] = seed
+
+    return data
+
+
+def send_update(url_id, dataset):
+    """
+    Send request to Seeder's API with data changed by user.
+
+    Args:
+        url_id (str): ID used as identification in Seeder.
+        dataset (dict): WA-KAT dataset sent from frontend.
+    """
+    data = _convert_to_seeder_format(dataset)
+
+    if not data:
+        return
+
+    try:
+        _send_request(url_id, json=data, req_type=requests.patch)
+    except Exception as e:
+        sys.stderr.write("Seeder PATCH error: ")  # TODO: better!
+        sys.stderr.write(str(e.message))
+        return None
