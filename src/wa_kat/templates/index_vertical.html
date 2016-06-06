@@ -41,6 +41,10 @@
   <div class="container" id="content" style="display: none">
   <form id="application_form" class="form-horizontal" role="form">
 
+% if registered:
+    <input type="hidden" id="url_id" value="{{url_id}}" />
+% end
+
     <div class="form-group">
       <label for="url" class="control-label col-sm-2">
         <span class="required_item">URL</span>

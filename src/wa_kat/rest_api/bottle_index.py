@@ -41,12 +41,13 @@ def read_index_template():
     return read_template(INDEX_PATH)
 
 
-def render_registered(remote_info):
+def render_registered(url_id, remote_info):
     """
     Render template file for the registered user, which has some of the values
     prefilled.
 
     Args:
+        url_id (str): Seeder URL id.
         remote_info (dict): Informations read from Seeder.
 
     Returns:
@@ -57,6 +58,7 @@ def render_registered(remote_info):
         registered=True,
         url=remote_info["url"],
         seeder_data=json.dumps(remote_info),
+        url_id=url_id,
     )
 
 
@@ -75,6 +77,7 @@ def render_unregistered(error=None):
         registered=False,
         error=error,
         seeder_data=None,
+        url_id=None,
     )
 
 
@@ -127,7 +130,7 @@ def render_form_template():
             error = "Seeder neposlal očekávaná data.\n"
 
     if registered_user_id and remote_info:
-        return render_registered(remote_info)
+        return render_registered(registered_user_id, remote_info)
 
     if not remote_info:
         error += "Seeder je nedostupný!\n"
