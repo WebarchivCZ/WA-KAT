@@ -379,6 +379,21 @@ Poté lze spustit kontejner pomocí::
 REST API
 --------
 
+- POST ``/api_v1/analyze`` <- ``url``
+    - Spustit analýzy URL.
+    - Vrací progress informace, dokud analýzy neskončí, pak vrací data z analýz po dobu cacheování (:const:`~wa_kat.settings.ZEO_CACHE_TIME`).
+- GET ``/api_v1/conspectus.json``
+    - Seznam českých konspektů, k dispozici je několik mapování.
+- GET ``/api_v1/en_conspectus.json``
+    - Seznam anglických konspektů v JSON formátu.
+- POST ``/api_v1/to_output``
+    - Přijímá dict s daty z formuláře, vrací data konvertovaná do MRC, Dublin core a Marc XML.
+- GET ``/api_v1/as_file/<fn>`` <- ``data``
+    - Přijímá ``data`` a název souboru `fn`, který nabídne ke stažení.
+- POST ``/api_v1/aleph/records_by_issn`` <- ``issn``
+    - Vrací pole slovníků se záznamy s odpovídajícím ``issn``.
+- POST ``/api_v1/aleph/authors_by_name`` <- ``name``
+    - Vrací pole slovníků s daty o autorech odpovídajících ``name``.
 
 
 Uživatelská dokumentace
