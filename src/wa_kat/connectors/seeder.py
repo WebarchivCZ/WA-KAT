@@ -19,6 +19,14 @@ from ..analyzers.source_string import SourceString
 
 
 # Functions & classes =========================================================
+def _add_if_set(d, key, val):
+    """
+    To dictionary `d` add `key` only if the `val` is true-ish.
+    """
+    if val is not None:
+        d[key] = val
+
+
 def _convert_to_wakat_format(seeder_struct):
     """
     Convert Seeder's structure to the internal structure used at frontend.
@@ -90,8 +98,18 @@ def _convert_to_wakat_format(seeder_struct):
         model.place_tags = publisher_contact.get("address")
 
     # rules are stored in custom subdictionary
-    model.rules = {}
-    model.rules["frequency"] = str(seeder_struct.get("frequency"))
+    rules = {}
+    rules["frequency"] = str(seeder_struct.get("frequency"))
+
+    _add_if_set(rules, "budget", active_seed.get("budget"))
+    _add_if_set(rules, "youtube", active_seed.get("youtube"))
+    _add_if_set(rules, "calendars", active_seed.get("calendars"))
+    _add_if_set(rules, "javascript", active_seed.get("javascript"))
+    _add_if_set(rules, "local_traps", active_seed.get("local_traps"))
+    _add_if_set(rules, "gentle_fetch", active_seed.get("gentle_fetch"))
+    _add_if_set(rules, "global_reject", active_seed.get("global_reject"))
+
+    model.rules = rules
 
     # add source info
     for key in model.keys():
@@ -171,28 +189,24 @@ def _convert_to_seeder_format(dataset):
     data = {}
     seed = {}
 
-    def add_if_set(d, key, val):
-        if val:
-            d[key] = val
-
-    add_if_set(data, "name", dataset.get("title"))
-    add_if_set(data, "issn", dataset.get("issn"))
-    add_if_set(data, "annotation", dataset.get("annotation"))
+    _add_if_set(data, "name", dataset.get("title"))
+    _add_if_set(data, "issn", dataset.get("issn"))
+    _add_if_set(data, "annotation", dataset.get("annotation"))
 
     rules = dataset.get("rules", {})
     if rules:
-        add_if_set(data, "frequency", rules.get("frequency"))
+        _add_if_set(data, "frequency", rules.get("frequency"))
 
         # set seed info
-        add_if_set(seed, "budget", rules.get("budget"))
-        add_if_set(seed, "calendars", rules.get("calendars"))
-        add_if_set(seed, "global_reject", rules.get("global_reject"))
-        add_if_set(seed, "gentle_fetch", rules.get("gentle_fetch"))
-        add_if_set(seed, "javascript", rules.get("javascript"))
-        add_if_set(seed, "local_traps", rules.get("local_traps"))
-        add_if_set(seed, "youtube", rules.get("youtube"))
+        _add_if_set(seed, "budget", rules.get("budget"))
+        _add_if_set(seed, "calendars", rules.get("calendars"))
+        _add_if_set(seed, "global_reject", rules.get("global_reject"))
+        _add_if_set(seed, "gentle_fetch", rules.get("gentle_fetch"))
+        _add_if_set(seed, "javascript", rules.get("javascript"))
+        _add_if_set(seed, "local_traps", rules.get("local_traps"))
+        _add_if_set(seed, "youtube", rules.get("youtube"))
 
-        add_if_set(seed, "url", dataset.get("url"))
+        _add_if_set(seed, "url", dataset.get("url"))
 
     if seed:
         data["seed"] = seed

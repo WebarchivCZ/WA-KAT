@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.1
+-----
+    - Added better connection to Seeder.
+
 1.0.0
 -----
     - Connected with Seeder. First officaly working, production ready version.
