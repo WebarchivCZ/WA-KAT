@@ -27,6 +27,8 @@ from ..convertors import to_dc
 from ..convertors import mrc_to_marc
 from ..convertors import item_to_mrc
 
+from ..connectors.seeder import send_update
+
 from shared import read_template
 
 from keywords import keyword_to_info
@@ -275,6 +277,10 @@ def to_output(data):
     # serialize author
     if data["author"]:
         data["serialized_author"] = serialize_author(data["author"])
+
+    # send data to seeder
+    if data.get("url_id"):
+        send_update(data["url_id"], data)
 
     # convert to MRC format
     mrc = render_mrc(data).encode("utf-8")
