@@ -106,7 +106,7 @@ def get_whois_tags(domain):
     Returns:
         list: :class:`TimeResource` objects.
     """
-    data = pythonwhois.get_whois("kitakitsune.org")
+    data = pythonwhois.get_whois(domain)
 
     return [
         TimeResource(
