@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.2
+-----
+    - #85: Fixed bug in the whois parsing.
+    - #85: Updated API link for the memento web.
+
 1.0.1
 -----
     - Added better connection to Seeder.

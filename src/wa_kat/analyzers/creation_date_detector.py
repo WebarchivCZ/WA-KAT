@@ -65,7 +65,7 @@ def mementoweb_api_tags(url):
     Returns:
         list: :class:`TimeResource` objects.
     """
-    memento_url = "http://labs.mementoweb.org/timemap/json/"
+    memento_url = "http://timetravel.mementoweb.org/api/json/0/"
 
     r = requests.get(memento_url + url)
 
