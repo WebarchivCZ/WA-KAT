@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.5
+-----
+    - #86: Added custom error log path / option to switch to stderr.
+
 1.0.4
 -----
     - Fixed bug in error log path.

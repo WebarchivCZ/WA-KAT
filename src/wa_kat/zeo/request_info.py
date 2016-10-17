@@ -17,6 +17,7 @@ from zeo_connector import transaction_manager
 from backports.functools_lru_cache import lru_cache
 
 from ..settings import USER_AGENT
+from ..settings import ERROR_LOG_PATH
 from ..settings import ZEO_CACHE_TIME
 from ..settings import REQUEST_TIMEOUT
 from ..settings import ZEO_MAX_WAIT_TIME
@@ -179,6 +180,7 @@ class RequestInfo(Persistent):
                     "function": function_info.func,
                     "function_arguments": function_info.args_func(self),
                     "conf_path": client_conf,
+                    "error_log_path": ERROR_LOG_PATH,
                 }
             )
             p.start()

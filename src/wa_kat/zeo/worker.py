@@ -9,9 +9,11 @@ standalone processes.
 """
 #
 # Imports =====================================================================
+import os
+import sys
 import time
+import os.path
 import traceback
-from os.path import expanduser
 
 import transaction
 from ZODB.POSException import ConflictError
@@ -37,8 +39,27 @@ def _save_to_database(req, property_name, data):
     req.log("`%s` saved." % property_name)
 
 
+def is_writable_path(path):
+    if os.path.exists(path):
+        return os.access(path, os.W_OK)
+
+    dirname = os.path.dirname(path)
+    if not os.path.exists(dirname):
+        return False
+
+    return os.access(dirname, os.W_OK)
+
+
+def log_error(error_log_path, error_msg):
+    if error_log_path and is_writable_path(error_log_path):
+        with open(os.path.expanduser(error_log_path), "a") as f:
+            f.write(error_msg)
+    else:
+        sys.stderr.write(error_msg)
+
+
 def worker(url_key, property_name, function, function_arguments,
-           conf_path=None):
+           error_log_path, conf_path=None):
     """
     This function usually runs as process on the background.
 
@@ -54,6 +75,8 @@ def worker(url_key, property_name, function, function_arguments,
         function (obj): Function used to load the data.
         function_arguments (list): List of parameters for function which will
             be called to retreive data.
+        error_log_path (str): If set, log errors into this file, otherwise
+            stderr.
         conf_path (str, default None): Optional parameter used by tests to
             redirect the database connections to test's environment.
     """
@@ -66,8 +89,7 @@ def worker(url_key, property_name, function, function_arguments,
         error_msg = "Error: " + traceback.format_exc().strip()
         error_msg += "\n" + str(e.message)
 
-        with open(expanduser("~/wa_error.log"), "a") as f:
-            f.write(error_msg)
+        log_error(error_log_path, error_msg)
 
     # get the RequestInfo object from database
     from .request_database import RequestDatabase
