@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Bystroushaak
 
 RUN apt-get update && apt-get install -y \
@@ -14,4 +14,4 @@ ADD src/wa_kat/templates/conf/supervisord.conf /etc/supervisor/supervisord.conf
 
 EXPOSE 8080
 
-ENTRYPOINT service supervisor restart && tail -f /var/log/supervisor/wa_kat-stdout*
+ENTRYPOINT service supervisor --full-restart && tail -f /var/log/supervisor/wa_kat-stdout*

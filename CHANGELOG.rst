@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.3
+-----
+    - Dockerfile migrated to ubuntu 16.04.
+    - Removed duplicate line from MANIFEST.in.
+
 1.0.2
 -----
     - #85: Fixed bug in the whois parsing.
