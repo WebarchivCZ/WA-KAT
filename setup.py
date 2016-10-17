@@ -28,7 +28,7 @@ setup(
     url='https://github.com/WebArchivCZ/WA-KAT',
 
     author='Bystroushaak',
-    author_email='bystrousak[at]kitakitsune.org',
+    author_email='bystrousak@kitakitsune.org',
 
     classifiers=[
         "Development Status :: 3 - Alpha",
