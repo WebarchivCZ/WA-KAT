@@ -14,4 +14,3 @@ recursive-include docs *.rst *.py Makefile make.bat
 recursive-include bin *
 recursive-include conf *
 recursive-include src/wa_kat/templates *
-recursive-include src/wa_kat/templates *
