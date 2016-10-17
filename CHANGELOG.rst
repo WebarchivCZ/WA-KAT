@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.4
+-----
+    - Fixed bug in error log path.
+
 1.0.3
 -----
     - Dockerfile migrated to ubuntu 16.04.

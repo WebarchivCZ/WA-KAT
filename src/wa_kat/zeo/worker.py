@@ -11,6 +11,7 @@ standalone processes.
 # Imports =====================================================================
 import time
 import traceback
+from os.path import expanduser
 
 import transaction
 from ZODB.POSException import ConflictError
@@ -65,7 +66,7 @@ def worker(url_key, property_name, function, function_arguments,
         error_msg = "Error: " + traceback.format_exc().strip()
         error_msg += "\n" + str(e.message)
 
-        with open("/home/bystrousak/wa_error.log", "a") as f:
+        with open(expanduser("~/wa_error.log"), "a") as f:
             f.write(error_msg)
 
     # get the RequestInfo object from database
