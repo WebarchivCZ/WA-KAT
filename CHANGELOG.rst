@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.6
+-----
+    - Last attempt to pin requirements to older version.
+
 1.0.5
 -----
     - #86: Added custom error log path / option to switch to stderr.

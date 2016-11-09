@@ -1,12 +1,12 @@
 tqdm==3.7.1
-PyYAML>=3.10
+PyYAML==3.11
 
 paste==2.0.2
 bottle==0.12.9
-requests==2.9.1
+requests==2.11.1
 sqlitedict==1.4.0
 bottle-rest==0.4.1
-zeo_connector>=0.4.2
+zeo_connector>=0.4.4
 
 ipwhois>=0.11.1
 langdetect==1.0.5
@@ -31,3 +31,16 @@ backports.functools-lru-cache==1.2.1
 
 xmltodict==0.10.1
 odictliteral==1.0.0
+
+BTrees==4.2.0
+persistent==4.1.1
+ZConfig==3.1.0
+zc.lockfile==1.1.0
+transaction==1.4.4
+zdaemon==4.1.0
+ZEO==4.1.0
+ZODB==4.2.0
+ZODB3==3.11.0
+zodbpickle==0.6.0
+zope.event==4.1.0
+zope.interface==4.1.3
