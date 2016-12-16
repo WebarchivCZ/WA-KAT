@@ -83,8 +83,10 @@ NTK_ALEPH_URL = "http://aleph.techlib.cz/X"  #: URL to the NTK aleph.
 USER_AGENT = "http://webarchiv.cz catalogization tool WA-KAT."
 
 API_PATH = "/api_v1/"  #: Path for the REST API.
+_REQUEST_DB_PATH = os.path.join(API_PATH, "request_db")
+_REQUEST_DB_SAVE = os.path.join(_REQUEST_DB_PATH, "store")
 
-ERROR_LOG_PATH = ""
+ERROR_LOG_PATH = "/home/bystrousak/wa_error.log"
 
 
 # User configuration reader (don't edit this) =================================
