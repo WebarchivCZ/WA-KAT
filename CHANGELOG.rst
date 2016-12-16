@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.0
+-----
+    - Attempt to remove ZODB/ZEO, because it is horribly broken.
+
 1.0.6
 -----
     - Last attempt to pin requirements to older version.
