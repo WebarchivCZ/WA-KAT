@@ -4,12 +4,18 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import time
+
+from .settings import ERROR_LOG_PATH
 
 
 # Functions & classes =========================================================
 class Logger(object):
     def _log(self, message, level):
         print message
+
+        with open(ERROR_LOG_PATH, "a") as f:
+            f.write("%s %s\n" % (str(time.time()), message))
 
     def emergency(self, message):
         self._log(message, "emergency")
