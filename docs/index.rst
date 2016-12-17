@@ -21,6 +21,7 @@ Here is `programmer` documentation of all components.
 .. toctree::
     :maxdepth: 1
 
+    /api/logger.rst
     /api/data_model.rst
     /api/settings.rst
 
@@ -71,6 +72,7 @@ Here is `programmer` documentation of all components.
 
     /api/rest_api/bottle_index.rst
     /api/rest_api/keywords.rst
+    /api/rest_api/db.rst
     /api/rest_api/analyzers_api.rst
     /api/rest_api/aleph_api.rst
     /api/rest_api/virtual_fs.rst
@@ -81,18 +83,18 @@ Here is `programmer` documentation of all components.
 
     /api/rest_api/shared.rst
 
-:doc:`/api/zeo/zeo`:
+:doc:`/api/db/db`:
 
 .. toctree::
     :maxdepth: 1
 
-    /api/zeo/request_info.rst
-    /api/zeo/request_database.rst
+    /api/db/request_info.rst
 
 .. toctree::
     :maxdepth: 1
 
-    /api/zeo/worker.rst
+    /api/db/downloader.rst
+    /api/db/worker.rst
 
 Source code
 -----------
