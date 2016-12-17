@@ -17,11 +17,13 @@ from bottle import post
 from bottle import response
 from bottle_rest import form_to_params
 
-from ..zeo import RequestDatabase
 from ..settings import API_PATH
 from ..settings import REQUEST_TIMEOUT
 
+from ..logger import logger
+
 from shared import JSON_MIME
+from db import get_cached_or_new
 
 
 # REST API ====================================================================
@@ -31,20 +33,19 @@ def analyzer_api(url):
     """
     Analyze given `url` and return output as JSON.
     """
-    rd = RequestDatabase()
     response.content_type = JSON_MIME
 
     # handle cacheing
-    ri = rd.get_request(url)
+    ri = get_cached_or_new(url)
 
     try:
 
         if ri.is_old():
-            print "Running the analysis"  #: TODO: to log
+            logger.info("Running the analysis.")
 
             # forget the old one and create new request info - this prevents
             # conflict errors
-            ri = rd.get_request(url, new=True)
+            ri = get_cached_or_new(url, new=True)
 
             # run the processing
             ri.paralel_processing()
@@ -61,21 +62,24 @@ def analyzer_api(url):
             timeout=REQUEST_TIMEOUT,
             message=str(e.message)
         )
+        logger.error(error_msg)
 
         return {
             "status": False,
-            "log": ri.get_log(),
+            "log": "",  # TODO: get real log
             "error": error_msg,
         }
     except Exception as e:
+        error_msg = str(e.message) + "\n" + traceback.format_exc().strip()
+        logger.error(error_msg)
         return {
             "status": False,
-            "log": ri.get_log(),
-            "error": str(e.message) + "\n" + traceback.format_exc().strip()
+            "log": "ri.get_log()",
+            "error": error_msg,
         }
 
     return {
         "status": True,
         "body": ri.to_dict(),
-        "log": ri.get_log(),
+        "log": "ri.get_log()",
     }
