@@ -13,7 +13,6 @@ import json
 import traceback
 
 import requests
-from pony import orm
 
 from ..logger import logger
 
@@ -26,7 +25,7 @@ from ..settings import REQUEST_TIMEOUT
 # Functions & classes =========================================================
 def _save_to_database(url, property_name, data):
     """
-    Store `data` under `property_name` in the `url` key in DB.
+    Store `data` under `property_name` in the `url` key in REST API DB.
 
     Args:
         url (obj): URL of the resource to which `property_name` will be stored.
@@ -89,22 +88,19 @@ def worker(url_key, property_name, function, function_arguments):
         error_msg = "Error: " + traceback.format_exc().strip()
         error_msg += "\n" + str(e.message)
 
+    # handle logging of possible error message
+    if error_msg:
+        logger.error(error_msg)
+        error_msg = None
+
+    func_name = str(function.__name__)
+    logger.info(
+        "Attempting to save output from `%s`." % func_name
+    )
+
     # save `data` into RequestInfo object property
-    for i in xrange(5):
-        with orm.db_session:
-            # handle logging of possible error message
-            if error_msg:
-                logger.error(error_msg)
-                error_msg = None
-
-            func_name = str(function.__name__)
-            logger.info(
-                "Attempting to save output from `%s`." % func_name
-            )
-
-            # attempt to save the data into database
-            return _save_to_database(
-                url=url_key,
-                property_name=property_name,
-                data=data
-            )
+    return _save_to_database(
+        url=url_key,
+        property_name=property_name,
+        data=data
+    )
