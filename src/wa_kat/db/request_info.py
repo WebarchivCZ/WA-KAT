@@ -14,8 +14,8 @@ from backports.functools_lru_cache import lru_cache
 from ..logger import logger
 from ..data_model import Model
 
-from ..settings import ZEO_CACHE_TIME
-from ..settings import ZEO_MAX_WAIT_TIME
+from ..settings import DB_CACHE_TIME
+from ..settings import DB_MAX_WAIT_TIME
 
 from .worker import worker
 from .downloader import download
@@ -155,7 +155,7 @@ class RequestInfo(object):
         """
         Is the object cached for too long, so it should be redownloaded?
 
-        See :attr:`.ZEO_MAX_WAIT_TIME` and :attr:`.ZEO_CACHE_TIME` for details.
+        See :attr:`.DB_MAX_WAIT_TIME` and :attr:`.DB_CACHE_TIME` for details.
 
         Returns:
             bool: True if it is.
@@ -164,11 +164,11 @@ class RequestInfo(object):
             return True
 
         if self.processing_ended_ts:
-            return self.processing_ended_ts + ZEO_CACHE_TIME < time.time()
+            return self.processing_ended_ts + DB_CACHE_TIME < time.time()
 
         # in case that processing started, but didn't ended in
-        # ZEO_MAX_WAIT_TIME
-        expected_end_ts = self.creation_ts + ZEO_MAX_WAIT_TIME
+        # DB_MAX_WAIT_TIME
+        expected_end_ts = self.creation_ts + DB_MAX_WAIT_TIME
         if expected_end_ts < time.time():
             logger.error("Prosessing timeouted and properites were not set!")
 

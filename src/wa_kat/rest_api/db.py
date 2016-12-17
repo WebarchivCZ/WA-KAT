@@ -22,8 +22,8 @@ from ..settings import _REQUEST_DB_SAVE
 
 
 # Variables ===================================================================
-DATABASE = {}  #: Temporary, in-memory dict used as database.
 global DATABASE
+DATABASE = {}  #: Temporary, in-memory dict used as database.
 
 DAY = 60 * 60 * 24  #: Amount of seconds in one day.
 YEAR = DAY * 356  #: Amount of seconds in one year.

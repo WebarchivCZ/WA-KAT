@@ -49,11 +49,8 @@ def _in_conf_dir(filename):
 
 # Module configuration ========================================================
 #: Path to the file with zeo_client.conf.
-ZEO_CLIENT_PATH = _in_conf_dir("zeo_client.conf")
-ZEO_SERVER_PATH = _in_conf_dir("zeo.conf")  #: ZEO server configuration.
-PROJECT_KEY = "wa_kat"  #: This is used in ZODB. DON'T CHANGE THIS.
-ZEO_CACHE_TIME = 60 * 30  #: ZEO cache time - 30 minutes.
-ZEO_MAX_WAIT_TIME = 60 * 5  #: Time after which the processing is restarted. 5m
+DB_CACHE_TIME = 60 * 30  #: ZEO cache time - 30 minutes.
+DB_MAX_WAIT_TIME = 60 * 5  #: Time after which the processing is restarted. 5m
 
 WEB_ADDR = "0.0.0.0"  #: Address where the webserver should listen.
 WEB_PORT = 8080  #: Port for the webserver.
@@ -154,9 +151,6 @@ def _assert_constraints():
         msg += "file set in configuration (%s)!" % var
 
         assert os.path.exists(path) and os.access(path, perm), msg
-
-    _assert_var_is_set("ZEO_CLIENT_PATH")
-    _assert_exists_and_perm("ZEO_CLIENT_PATH", ZEO_CLIENT_PATH, os.R_OK)
 
 
 def _read_from_paths():

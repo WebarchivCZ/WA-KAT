@@ -266,8 +266,7 @@ Příklad (soubor ``/etc/webarchive/wa_kat.json``)::
 
         "SEEDER_TOKEN": "1acedb1b6347d9d40fe2f055aa6d3c077f106894", 
 
-        "ZEO_CLIENT_PATH": "/home/bystrousak/web/WA-KAT/conf/zeo_client.conf",
-        "ZEO_MAX_WAIT_TIME": 60
+        "DB_MAX_WAIT_TIME": 60
     }
 
 Nastavení databáze
@@ -284,10 +283,10 @@ Doporučuji nenestavovat, pokud nemáte zkušenost s konfigurací ZODB / `ZEO cl
     :const:`~wa_kat.settings.PROJECT_KEY`
         Klíč k přístupu do databáze. Po nasazení neměnit.
 
-    :const:`~wa_kat.settings.ZEO_CACHE_TIME`
+    :const:`~wa_kat.settings.DB_CACHE_TIME`
         Jak dlouho uchovávat záznamy analýzy webu (v sekundách).
 
-    :const:`~wa_kat.settings.ZEO_MAX_WAIT_TIME`
+    :const:`~wa_kat.settings.DB_MAX_WAIT_TIME`
         Jak dlouho čekat na analyzátory (v sekundách).
 
 Nastavení webu
@@ -381,7 +380,7 @@ REST API
 
 - POST ``/api_v1/analyze`` <- ``url``
     - Spustit analýzy URL.
-    - Vrací progress informace, dokud analýzy neskončí, pak vrací data z analýz po dobu cacheování (:const:`~wa_kat.settings.ZEO_CACHE_TIME`).
+    - Vrací progress informace, dokud analýzy neskončí, pak vrací data z analýz po dobu cacheování (:const:`~wa_kat.settings.DB_CACHE_TIME`).
 - GET ``/api_v1/conspectus.json``
     - Seznam českých konspektů, k dispozici je několik mapování.
 - GET ``/api_v1/en_conspectus.json``
