@@ -24,6 +24,13 @@ from .downloader import download
 # Functions ===================================================================
 @lru_cache()
 def worker_mapping():
+    """
+    Return properties from :class:`Model`, which are transported from backend
+    to frontend.
+
+    Returns:
+        dict: Dict {`property_name`: `func_info`} (func_info is for worker).
+    """
     return Model().analyzers_mapping().get_mapping()
 
 
@@ -40,7 +47,35 @@ class Progress(namedtuple("Progress", ["done", "base"])):
 
 # ORM =========================================================================
 class RequestInfo(object):
+    """
+    This object is used to hold informations about requests, which are
+    processed at that moment.
+
+    The object is basically used as cache AND progress bar indicator of work.
+
+    Attributes:
+        url (str): URL to which this info object is related.
+        domain (str): Domain of the URL.
+        index (str): Content of the index page of URL.
+        creation_ts (float): Timestamp of object creation.
+        downloaded_ts (float): Timestamp showing where the :attr:`index` was
+            downloaded.
+        processing_started_ts (float): Timestamp showing when the processing of
+            additional properties started.
+        processing_ended_ts (float): Timestamp showing when the processing of
+            additional properties stopped.
+
+    Warning:
+        There is more properties, one for all analyzator function from
+        :mod:`.analyzers` see :func:`worker_mapping` for details.
+    """
     def __init__(self, url):
+        """
+        Constructor.
+
+        Args:
+            url (str): URL to which this request is related.
+        """
         self.url = url
         self.domain = urlparse(url).netloc
         self.index = None
@@ -54,11 +89,25 @@ class RequestInfo(object):
             setattr(self, key, None)
 
     def _set_property(self, name, value):
+        """
+        Set property `name` to `value`, but only if it is part of the mapping
+        returned from `worker_mapping` (ie - data transported to frontend).
+
+        This method is used from the REST API DB, so it knows what to set and
+        what not, to prevent users from setting internal values.
+
+        Args:
+            name (str): Name of the property to set.
+            value (obj): Any python value.
+
+        Raises:
+            KeyError: If `name` can't be set.
+        """
         if name in worker_mapping().keys():
             setattr(self, name, value)
             return
 
-        raise ValueError("Can't set `%s`!" % name)
+        raise KeyError("Can't set `%s`!" % name)
 
     def _reset_set_properties(self):
         """
@@ -146,10 +195,8 @@ class RequestInfo(object):
 
     def paralel_processing(self):
         """
-        Lauch paralel processes (see :func:`.worker`) to fill properties with
-        data.
-
-        Args:
+        Lauch paralel processes (see :func:`.worker`) to asynchrnously fill
+        properties with data.
         """
         self._reset_set_properties()
 
