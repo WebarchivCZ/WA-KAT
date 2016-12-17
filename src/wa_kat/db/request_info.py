@@ -4,14 +4,11 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
-import os
 import time
-import os.path
 from urlparse import urlparse
 from collections import namedtuple
 from multiprocessing import Process
 
-from pony import orm
 from backports.functools_lru_cache import lru_cache
 
 from ..logger import logger
@@ -24,18 +21,16 @@ from .worker import worker
 from .downloader import download
 
 
-# Variables ===================================================================
-DB = orm.Database()
-# DB.bind('sqlite', ':memory:')
-
-if os.path.exists("/tmp/wa-kat_database.sqlite"):
-    os.remove("/tmp/wa-kat_database.sqlite")
-DB.bind('sqlite', '/tmp/wa-kat_database.sqlite', create_db=True)
-
-
 # Functions ===================================================================
 @lru_cache()
 def worker_mapping():
+    """
+    Return properties from :class:`Model`, which are transported from backend
+    to frontend.
+
+    Returns:
+        dict: Dict {`property_name`: `func_info`} (func_info is for worker).
+    """
     return Model().analyzers_mapping().get_mapping()
 
 
@@ -51,68 +46,75 @@ class Progress(namedtuple("Progress", ["done", "base"])):
 
 
 # ORM =========================================================================
-class RequestInfo(DB.Entity):
-    url = orm.PrimaryKey(str)
-    domain = orm.Required(str)
-    index = orm.Optional(str)
+class RequestInfo(object):
+    """
+    This object is used to hold informations about requests, which are
+    processed at that moment.
 
-    creation_ts = orm.Optional(float)
-    downloaded_ts = orm.Optional(float)
-    processing_started_ts = orm.Optional(float)
-    processing_ended_ts = orm.Optional(float)
+    The object is basically used as cache AND progress bar indicator of work.
 
-    title_tags = orm.Optional(orm.Json)
-    place_tags = orm.Optional(orm.Json)
-    lang_tags = orm.Optional(orm.Json)
-    keyword_tags = orm.Optional(orm.Json)
-    publisher_tags = orm.Optional(orm.Json)
-    annotation_tags = orm.Optional(orm.Json)
-    creation_dates = orm.Optional(orm.Json)
+    Attributes:
+        url (str): URL to which this info object is related.
+        domain (str): Domain of the URL.
+        index (str): Content of the index page of URL.
+        creation_ts (float): Timestamp of object creation.
+        downloaded_ts (float): Timestamp showing where the :attr:`index` was
+            downloaded.
+        processing_started_ts (float): Timestamp showing when the processing of
+            additional properties started.
+        processing_ended_ts (float): Timestamp showing when the processing of
+            additional properties stopped.
 
-    def __init__(self, url, domain=None):
-        if not domain:
-            domain = urlparse(url).netloc
+    Warning:
+        There is more properties, one for all analyzator function from
+        :mod:`.analyzers` see :func:`worker_mapping` for details.
+    """
+    def __init__(self, url):
+        """
+        Constructor.
 
-        super(self.__class__, self).__init__(url=url, domain=domain)
+        Args:
+            url (str): URL to which this request is related.
+        """
+        self.url = url
+        self.domain = urlparse(url).netloc
+        self.index = None
 
         self.creation_ts = time.time()
+        self.downloaded_ts = None
+        self.processing_started_ts = None
+        self.processing_ended_ts = None
+
         for key in worker_mapping().keys():
             setattr(self, key, None)
 
-    @classmethod
-    def get_by_url(cls, url, for_update=False):
-        if for_update:
-            return cls.get_for_update(url=url)
+    def _set_property(self, name, value):
+        """
+        Set property `name` to `value`, but only if it is part of the mapping
+        returned from `worker_mapping` (ie - data transported to frontend).
 
-        return cls.get(url=url)
+        This method is used from the REST API DB, so it knows what to set and
+        what not, to prevent users from setting internal values.
 
-    @classmethod
-    def get_cached_or_new(cls, url, new=False, for_update=False):
-        old_req = cls.get_by_url(url, for_update=for_update)
+        Args:
+            name (str): Name of the property to set.
+            value (obj): Any python value.
 
-        if old_req and not new:
-            print "cached"  # TODO: remove
-            return old_req
+        Raises:
+            KeyError: If `name` can't be set.
+        """
+        if name in worker_mapping().keys():
+            setattr(self, name, value)
+            return
 
-        if not (url.startswith("http://") or url.startswith("https://")):
-            raise ValueError("Invalid URL `%s`!" % url)
-
-        if old_req:
-            old_req.delete()
-
-        req = cls(url=url)
-        orm.commit()
-
-        print "new"  # TODO: remove
-        return req
+        raise KeyError("Can't set `%s`!" % name)
 
     def _reset_set_properties(self):
         """
         Reset the progress counter back to zero.
         """
-        obj = self.get_by_url(self.url, for_update=True)
         for property_name in worker_mapping().keys():
-            setattr(obj, property_name, None)
+            setattr(self, property_name, None)
 
     def _get_all_set_properties(self):
         """
@@ -182,77 +184,35 @@ class RequestInfo(DB.Entity):
             dict: ``{"all_set": bool, "progress": [int(done), int(how_many)], \
                   "values": {"property": [values], ..}}``
         """
-        def to_dict_list(seq):
-            return [
-                tag.to_dict()
-                for tag in seq
-            ]
-
-        def process_property(val):
-            if isinstance(val, dict):
-                return val
-
-            return to_dict_list(val)
-
-        obj = self.get_by_url(self.url)
         return {
-            "all_set": obj._is_all_set(),
-            "progress": obj.progress(),
+            "all_set": self._is_all_set(),
+            "progress": self.progress(),
             "values": {
-                property_name: process_property(
-                    getattr(obj, property_name) or []
-                )
+                property_name: getattr(self, property_name) or []
                 for property_name in worker_mapping().keys()
             }
         }
 
-    @orm.db_session
     def paralel_processing(self):
         """
-        Lauch paralel processes (see :func:`.worker`) to fill properties with
-        data.
-
-        Args:
+        Lauch paralel processes (see :func:`.worker`) to asynchrnously fill
+        properties with data.
         """
-        obj = self.get_by_url(self.url, for_update=True)
-        obj._reset_set_properties()
+        self._reset_set_properties()
 
-        obj.index = download(obj.url)
-        obj.downloaded_ts = time.time()
-        obj.processing_started_ts = time.time()
+        self.index = download(self.url)
+        self.downloaded_ts = time.time()
+        self.processing_started_ts = time.time()
 
         # launch all workers as paralel processes
         for name, function_info in worker_mapping().iteritems():
-            print "Launching %s, %s" % (name, function_info)
             p = Process(
                 target=worker,
                 kwargs={
-                    "url_key": obj.url,
+                    "url_key": self.url,
                     "property_name": name,
                     "function": function_info.func,
-                    "function_arguments": function_info.args_func(obj),
+                    "function_arguments": function_info.args_func(self),
                 }
             )
             p.start()
-
-
-DB.generate_mapping(create_tables=True)
-
-
-# if __name__ == '__main__':
-import os
-if os.getenv("XE"):
-    with orm.db_session:
-        req = RequestInfo.get_cached_or_new("http://kitakitsune.org")
-        req = RequestInfo.get_cached_or_new("http://kitakitsune.org")
-        req.paralel_processing()
-
-    while True:
-        try:
-            obj = RequestInfo.get_by_url("http://kitakitsune.org", for_update=True)
-            # print obj.to_dict()
-            orm.show(obj)
-        except KeyboardInterrupt:
-            break
-
-        time.sleep(1)

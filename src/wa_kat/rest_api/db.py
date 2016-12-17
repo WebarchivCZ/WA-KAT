@@ -14,7 +14,7 @@ import time
 from bottle import post
 from bottle_rest import form_to_params
 
-from ..db.request_info_no_db import RequestInfo
+from ..db.request_info import RequestInfo
 
 from ..logger import logger
 
