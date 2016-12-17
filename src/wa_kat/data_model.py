@@ -16,8 +16,6 @@ from collections import namedtuple
 
 from kwargs_obj import KwargsObj
 
-import analyzers
-
 
 # Functions & classes =========================================================
 class FuncInfo(namedtuple("FuncInfo", ["func", "args_func"])):
@@ -84,6 +82,7 @@ class Model(KwargsObj):
         Returns:
             obj: :class:`Model` instance.
         """
+        import analyzers
         return cls(
             title_tags=_compose_func(analyzers.get_title_tags),
             place_tags=_compose_func(
