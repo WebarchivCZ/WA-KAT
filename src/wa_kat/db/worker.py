@@ -9,6 +9,7 @@ standalone processes.
 """
 #
 # Imports =====================================================================
+import json
 import traceback
 
 import requests
@@ -16,8 +17,10 @@ from pony import orm
 
 from ..logger import logger
 
-from ..settings import REQUEST_TIMEOUT
+from ..settings import _WEB_URL
 from ..settings import _REQUEST_DB_SAVE
+
+from ..settings import REQUEST_TIMEOUT
 
 
 # Functions & classes =========================================================
@@ -31,24 +34,31 @@ def _save_to_database(url, property_name, data):
             be stored.
         data (obj): Any object.
     """
-    data = [
-        d.to_json() if hasattr(d, "to_json") else d
+    data = json.dumps([
+        d.to_dict() if hasattr(d, "to_dict") else d
         for d in data
-    ]
+    ])
+
+    logger.debug("_save_to_database() data: %s" % repr(data))
 
     requests.post(
-        _REQUEST_DB_SAVE,
+        _WEB_URL + _REQUEST_DB_SAVE,
         timeout=REQUEST_TIMEOUT,
         allow_redirects=True,
         verify=False,
         data={
             "url": url,
-            "data": data,
+            "value": data,
             "property_name": property_name,
         }
     )
 
-    logger.info("`%s` for `%s` saved." % (property_name, url))
+    logger.info(
+        "`%s` for `%s` sent to REST DB." % (
+            property_name,
+            url,
+        )
+    )
 
 
 def worker(url_key, property_name, function, function_arguments):
