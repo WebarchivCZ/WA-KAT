@@ -17,6 +17,7 @@ Submodules
    aleph_api
    virtual_fs
    to_output
+   db
 
 .. toctree::
 

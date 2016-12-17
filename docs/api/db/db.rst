@@ -1,7 +1,7 @@
-zeo subpackage
-==============
+DB subpackage
+=============
 
-.. automodule:: wa_kat.zeo
+.. automodule:: wa_kat.db
     :members:
     :undoc-members:
     :show-inheritance:
@@ -12,9 +12,9 @@ Submodules
 .. toctree::
 
    request_info
-   request_database
 
 .. toctree::
 
+   downloader
    worker
 

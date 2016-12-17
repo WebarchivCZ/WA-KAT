@@ -12,7 +12,7 @@ Subpackages
 .. toctree::
 
     wa_kat.analyzers
-    wa_kat.zeo
+    wa_kat.db
     wa_kat.rest_api
     wa_kat.exporters
 
