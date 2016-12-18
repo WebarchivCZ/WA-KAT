@@ -91,16 +91,11 @@ Tento script slouží pro běh samotného Bottle serveru, jedná se tedy o hlavn
 
 Script nepřijímá žádné parametry. Po spuštění vypíše hlášení::
 
-    Waiting for ZEO connection..
     Bottle v0.12.9 server starting up (using PasteServer())...
     Listening on http://localhost:8080/
     Hit Ctrl-C to quit.
 
     serving on http://127.0.0.1:8080
-
-.. warning::
-
-    Program ke svému běhu vyžaduje spuštěný ZEO cluster (podrobnosti dále). Pokud ZEO cluster není spuštěný, při přístupu do databáze (spuštění analýz) se zasekne a čeká na spojení.
 
 Nápověda::
 
@@ -162,29 +157,12 @@ Nápověda::
       -h, --help  show this help message and exit
 
 
-runzeo
-^^^^^^
-Poslední program `runzeo` není přímou součástí projektu WA-KAT, je však součástí jeho distribuce, jelikož je nainstalován jako jedna ze závislostí.
-
-Tento program slouží k provozu objektové databáze ZODB formou `ZEO clusteru`. Typické spuštění vypadá následovně::
-
-    runzeo -C `python -c "from wa_kat.settings import *; print ZEO_SERVER_PATH"`
-
-Podrobnosti viz následující sekce.
-
-
-
-První spuštění a provoz
+Spuštění a provoz
 -----------------------
 
-Pro běh projektu je nutné zajistit trvalé spuštění dvou procesů:
+Pro běh projektu je nutné zajistit trvalé spuštění proces ``wa_kat_server.py``.
 
-- ``wa_kat_server.py``
-- ``runzeo -C `python -c "from wa_kat.settings import *; print ZEO_SERVER_PATH"```
-
-První zajišťuje běh webové aplikace, druhý pak provoz databáze (`ZEO clusteru`).
-
-Tyto příkazy je možné pro otestování spustit ručně ve dvou samostatných konzolích, pro produkční nasazení ovšem doporučuji přidat scripty do systému Supervisor.
+Příkaz je možné pro otestování spustit ručně v samostatné konzoli, pro produkční nasazení ho ovšem doporučuji přidat do systému Supervisor, či ekvivalentního, jenž zajistí trvalé spuštění i po restartu (scriptu, či počítače).
 
 
 Supervisor
@@ -233,13 +211,6 @@ Konfiguraci pro WA-KAT provedeme přidáním následujících řádek na konec k
     user=bystrousak
     redirect_stderr=true
 
-    [program:runzeo]
-    command=sh -c 'runzeo -C `python -c "from wa_kat.settings import *; print ZEO_SERVER_PATH"`'
-    autostart=true
-    user=bystrousak
-    redirect_stderr=true
-
-
 Kde ``bystrousak`` je jméno uživatele, pod který má program běžet.
 
 
@@ -269,20 +240,10 @@ Příklad (soubor ``/etc/webarchive/wa_kat.json``)::
         "DB_MAX_WAIT_TIME": 60
     }
 
-Nastavení databáze
-++++++++++++++++++
-Doporučuji nenestavovat, pokud nemáte zkušenost s konfigurací ZODB / `ZEO clusteru`.
+Nastavení dočasné databáze
+++++++++++++++++++++++++++
 
 .. glossary::
-    :const:`~wa_kat.settings.ZEO_CLIENT_PATH`
-        Nastavení cesty ke konfiguračnímu souboru se specifikací spojení do databáze. V základu vždy cesta k nainstalovanému balíku. Doporučuji neměnit.
-
-    :const:`~wa_kat.settings.ZEO_SERVER_PATH`
-        Nastavení cesty ke konfiguračnímu souboru se specifikací spojení do databáze. V základu vždy cesta k nainstalovanému balíku. Doporučuji neměnit.
-
-    :const:`~wa_kat.settings.PROJECT_KEY`
-        Klíč k přístupu do databáze. Po nasazení neměnit.
-
     :const:`~wa_kat.settings.DB_CACHE_TIME`
         Jak dlouho uchovávat záznamy analýzy webu (v sekundách).
 
