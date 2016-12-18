@@ -31,28 +31,11 @@ class "data_model.py" as data_model {
 }
 
 
-package "zeo/" as zeo {
-    class "__init__.py" as zeo_init {
+package "db/" as db {
+    class "__init__.py" as db_init {
         Required by python
         to indicate package.
         ---
-        RequestDatabase
-    }
-
-    class "request_database.py" as request_database {
-        Database for RequestInfo
-        objects.
-        ---
-        DAY
-        YEAR
-        ---
-        class RequestDatabase
-            __init__(
-                conf_path=ZEO_CLIENT_PATH,
-                project_key=PROJECT_KEY
-            )
-            get_request(url, new=False)
-            garbage_collection(time_limit=YEAR/2.0)
     }
 
     class "request_info.py" as request_info {
@@ -67,25 +50,21 @@ package "zeo/" as zeo {
             url
             domain
             index
-            _log
             creation_ts
             downloaded_ts
             processing_started_ts
             processing_ended_ts
             __init__(url)
-            _download(url)
-            log(msg)
-            get_log()
-            paralel_processing(client_conf=None)
             _reset_set_properties()
             _get_all_set_properties()
+            log(msg)
+            paralel_processing(client_conf=None)
             progress()
             is_all_set()
             is_old()
             to_dict()
-            _p_resolveConflict(oldState, savedState, newState)
     }
-    
+
     class "worker.py" as worker {
         Function worker() runs
         as standalone process
@@ -98,14 +77,22 @@ package "zeo/" as zeo {
             property_name,
             function,
             function_arguments,
-            conf_path=None
         )
     }
-    
+
+    class "downloader.py" as downloader {
+        Function used to
+        download data
+        from the internet.
+        ---
+        download(url)
+    }
+
     request_info -d-> request_database
     request_info .r.> worker: launches
-    request_database --> zeo_init
+    request_database --> db_init
     worker --> request_info
+    downloader --> request_info
 }
 
 package "connectors/" as connectors {
@@ -189,7 +176,7 @@ package "rest_api/" as rest_api {
         ---
         download_as_file()
         ---
-        /rest_api/as_file/<fn:path> <-- POST content of the file
+        /api_v1/as_file/<fn:path> <-- POST content of the file
     }
     class "aleph_api.py" as aleph_api {
         REST API connector to Aleph.
@@ -199,15 +186,26 @@ package "rest_api/" as rest_api {
         records_by_issn(issn)
         authors_by_name(name)
         ---
-        /rest_api/authors_by_name <-- POST name
-        /rest_api/records_by_issn <-- POST issn
+        /api_v1/authors_by_name <-- POST name
+        /api_v1/records_by_issn <-- POST issn
     }
     class "analyzers_api.py" as analyzers_api {
         Run analysis for given URL.
         ---
         analyzer_api(url)
         ---
-        /rest_api/analyze <-- POST url
+        /api_v1/analyze <-- POST url
+    }
+    class "db.py" as db {
+        Temporary key-val storage
+        used by worker.
+        ---
+        DAY
+        YEAR
+        get_cached_or_new()
+        garbage_collection()
+        ---
+        /api_v1/request_db/store <-- POST url, property_name, value
     }
     class "bottle_index.py" as bottle_index {
         Render root page and static
@@ -241,7 +239,7 @@ package "rest_api/" as rest_api {
         keyword_to_info(keyword)
         get_kw_list()
         ---
-        /rest_api/kw_list.json
+        /api_v1/kw_list.json
     }
     class "to_output.py" as to_output {
         Converts data from frontend to output
@@ -254,7 +252,7 @@ package "rest_api/" as rest_api {
         serialize_author(author_data)
         to_output(data)
         ---
-        /rest_api/to_output <-- POST json struct
+        /api_v1/to_output <-- POST json struct
     }
     class "virtual_fs.py" as virtual_fs {
         Generates virtual files
@@ -435,7 +433,7 @@ data_model --> request_info
 source_string --> aleph
 source_string --> seeder
 
-zeo_init -> analyzers_api
+db_init -> analyzers_api
 
 convertors_init --> to_output
 
