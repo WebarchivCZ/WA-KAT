@@ -32,7 +32,7 @@ class "data_model.py" as data_model {
 
 
 package "db/" as db {
-    class "__init__.py" as db_init {
+    class "_​_init__.py" as db_init {
         Required by python
         to indicate package.
         ---
@@ -54,7 +54,7 @@ package "db/" as db {
             downloaded_ts
             processing_started_ts
             processing_ended_ts
-            __init__(url)
+            _​_init__.pyl)
             _reset_set_properties()
             _get_all_set_properties()
             log(msg)
@@ -88,10 +88,7 @@ package "db/" as db {
         download(url)
     }
 
-    request_info -d-> request_database
     request_info .r.> worker: launches
-    request_database --> db_init
-    worker --> request_info
     downloader --> request_info
 }
 
@@ -119,7 +116,7 @@ package "connectors/" as connectors {
         download(url_id)
         get_remote_info(url_id)
     }
-    class "__init__.py" as connectors_init {
+    class "_​_init__.py" as connectors_init {
         Required by python
         for packages.
     }
@@ -153,7 +150,7 @@ package "convertors/" as convertors {
         normalize(code)
     }
 
-    class "__init__.py" as convertors_init {
+    class "_​_init__.py" as convertors_init {
         Import functions to
         package level.
         ---
@@ -169,7 +166,7 @@ package "convertors/" as convertors {
 }
 
 package "rest_api/" as rest_api {
-    class "__init__.py" as rest_api_init {
+    class "_​_init__.py" as rest_api_init {
         Imports all other API parts.
 
         Provides API to download data as files.
@@ -196,7 +193,7 @@ package "rest_api/" as rest_api {
         ---
         /api_v1/analyze <-- POST url
     }
-    class "db.py" as db {
+    class "db.py" as db_api {
         Temporary key-val storage
         used by worker.
         ---
@@ -268,7 +265,7 @@ package "rest_api/" as rest_api {
         conspectus_api()
         periode_api()
         ---
-        /virtual_fs/__init__.py
+        /virtual_fs/_​_init__.py
         /virtual_fs/settings.py
         /virtual_fs/conspectus.py
         /virtual_fs/periodes.py
@@ -294,6 +291,8 @@ package "rest_api/" as rest_api {
     keywords --> rest_api_init
     to_output --> rest_api_init
     virtual_fs --> rest_api_init
+    worker ..> db_api: saves results
+
 
     rest_api_shared --> virtual_fs
     rest_api_shared --> to_output
@@ -306,7 +305,7 @@ package "rest_api/" as rest_api {
 }
 
 package "analyzers/" as analyzers {
-    class "__init__.py" as analyzers_init {
+    class "_​_init__.py" as analyzers_init {
         Import relevant functions
         to package level.
         ---
@@ -433,7 +432,8 @@ data_model --> request_info
 source_string --> aleph
 source_string --> seeder
 
-db_init -> analyzers_api
+request_info --> db_api
+request_info --> analyzers_api
 
 convertors_init --> to_output
 
