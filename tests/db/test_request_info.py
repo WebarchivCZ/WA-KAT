@@ -6,7 +6,7 @@
 # Imports =====================================================================
 import pytest
 
-from wa_kat.zeo import request_info
+from wa_kat.db import request_info
 from wa_kat.worker_mapping import worker_mapping
 
 
@@ -39,12 +39,6 @@ def test_RequestInfo(ri_obj):
 
     assert ri_obj.is_all_set()
     assert ri_obj.progress()[0] == ri_obj.progress()[1]
-
-
-def test_RequestInfo_download(ri_obj):  # TODO: rewrite to use rest
-    assert not ri_obj.is_all_set()  # make sure you've got new object
-
-    assert "bystrousak" in ri_obj._download("http://kitakitsune.org")
 
 
 def test_to_dict(ri_obj):

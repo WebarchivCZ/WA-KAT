@@ -15,10 +15,6 @@ import subprocess
 import pytest
 import requests
 
-from zeo_connector_defaults import tmp_context_name
-from zeo_connector_defaults import generate_environment
-from zeo_connector_defaults import cleanup_environment
-
 
 # Variables ===================================================================
 PORT = random.randint(20000, 60000)
@@ -39,10 +35,8 @@ def circuit_breaker_http_retry(max_retry=10):
     raise IOError("Couldn't connect to thread with HTTP server. Aborting.")
 
 
-def _create_alt_settings(path):
+def _create_alt_settings():
     alt_settings = {
-        "ZEO_CLIENT_PATH": path,
-
         "WEB_ADDR": "127.0.0.1",
         "WEB_PORT": web_port(),
         "WEB_SERVER": "paste",
@@ -57,17 +51,6 @@ def _create_alt_settings(path):
 
 
 # Setup =======================================================================
-@pytest.fixture(scope="session", autouse=True)
-def zeo(request):
-    generate_environment()
-    request.addfinalizer(cleanup_environment)
-
-
-@pytest.fixture(scope="session", autouse=True)
-def client_conf_path(zeo):
-    return tmp_context_name("zeo_client.conf")
-
-
 @pytest.fixture(scope="session", autouse=True)
 def web_port():
     return PORT
@@ -84,8 +67,8 @@ def web_api_url():
 
 
 @pytest.fixture(scope="session", autouse=True)
-def bottle_server(request, zeo, client_conf_path):
-    alt_conf_path = _create_alt_settings(client_conf_path)
+def bottle_server(request):
+    alt_conf_path = _create_alt_settings()
 
     # run the bottle REST server
     def run_bottle():
