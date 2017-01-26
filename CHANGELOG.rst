@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.1
+-----
+    - Fixed `download_as_file()` decorator to not to try to return result as JSON.
+
 1.1.0
 -----
     - Attempt to remove ZODB/ZEO, because it is horribly broken.

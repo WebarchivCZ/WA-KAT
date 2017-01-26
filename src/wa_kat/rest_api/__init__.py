@@ -31,7 +31,7 @@ from keywords import get_kw_list
 
 # REST API ====================================================================
 @post(join(API_PATH, "as_file/<fn:path>"))
-@form_to_params
+@form_to_params(return_json=False)
 def download_as_file(fn, data=None):
     """
     Download given `data` as file `fn`. This service exists to allow frontend
