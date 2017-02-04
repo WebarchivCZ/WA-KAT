@@ -94,6 +94,23 @@ def get_dc_keywords(index_page):
     ]
 
 
+def try_utf_and_unicode(fn):
+    def try_utf_and_unicode_decorator(*args, **kwargs):
+        try:
+            return fn(*args, **kwargs)
+        except UnicodeDecodeError as e:
+            if "index_page" in kwargs:
+                kwargs["index_page"] = kwargs["index_page"].decode("utf-8")
+            else:
+                args = list(args)
+                args[0] = args[0].decode("utf-8")
+
+            return fn(*args, **kwargs)
+
+    return try_utf_and_unicode_decorator
+
+
+@try_utf_and_unicode
 def extract_keywords_from_text(index_page, no_items=5):
     """
     Try to process text on the `index_page` deduce the keywords and then try
@@ -110,6 +127,12 @@ def extract_keywords_from_text(index_page, no_items=5):
     """
     index_page = MLStripper.strip_tags(index_page)
     tokenized_index = TextBlob(index_page).lower()
+
+    def to_str(key):
+        if isinstance(key, unicode):
+            return key.encode("utf-8")
+
+        return key
 
     present_keywords = [
         KEYWORDS_LOWER[key]
