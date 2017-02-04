@@ -7,7 +7,7 @@
 import pytest
 
 from wa_kat.db import request_info
-from wa_kat.worker_mapping import worker_mapping
+from wa_kat.db.request_info import worker_mapping
 
 
 # Variables ===================================================================
@@ -31,13 +31,13 @@ def test_RequestInfo(ri_obj):
     for property_name in request_info.worker_mapping().keys():
         assert hasattr(ri_obj, property_name)
 
-    assert not ri_obj.is_all_set()
+    assert not ri_obj._is_all_set()
     assert ri_obj.progress()[0] == 0
 
     for property_name in request_info.worker_mapping().keys():
         setattr(ri_obj, property_name, 1)
 
-    assert ri_obj.is_all_set()
+    assert ri_obj._is_all_set()
     assert ri_obj.progress()[0] == ri_obj.progress()[1]
 
 
