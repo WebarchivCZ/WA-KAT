@@ -1,4 +1,4 @@
 #! /usr/bin/env sh
 export PYTHONPATH="src/:$PYTHONPATH"
 
-py.test tests $@
+python2 -m pytest tests $@
