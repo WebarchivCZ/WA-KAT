@@ -9,7 +9,7 @@ bottle-rest==0.4.1
 
 ipwhois>=0.11.1
 langdetect==1.0.5
-pythonwhois
+pythonwhois>=2.4.3
 
 textblob==0.11.1
 fuzzywuzzy==0.8.0
