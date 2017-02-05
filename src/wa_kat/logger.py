@@ -5,6 +5,7 @@
 #
 # Imports =====================================================================
 import time
+import traceback
 
 from .settings import ERROR_LOG_PATH
 
@@ -15,7 +16,7 @@ class Logger(object):
         print message
 
         with open(ERROR_LOG_PATH, "a") as f:
-            f.write("%s %s\n" % (str(time.time()), message))
+            f.write("%f %s: %s\n" % (time.time(), level.upper(), message))
 
     def emergency(self, message):
         self._log(message, "emergency")
@@ -43,3 +44,29 @@ class Logger(object):
 
 
 logger = Logger()
+
+
+def log_exception(fn):
+    def _catch_type_error_from_traceback():
+        try:
+            return traceback.format_exc().strip()
+        except TypeError:
+            return "ERROR: Can't recover traceback."
+
+    def log_exception_decorator(*args, **kwargs):
+        try:
+            return fn(*args, **kwargs)
+        except Exception as e:
+            logger.error(_catch_type_error_from_traceback())
+            logger.error(
+                "%s while calling %s(*args=%r, **kwargs%r): %s" % (
+                    e.__name__,
+                    fn.__name__,
+                    args,
+                    kwargs,
+                    e.__str__(),
+                )
+            )
+            raise
+
+    return log_exception_decorator
