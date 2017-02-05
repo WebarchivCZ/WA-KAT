@@ -22,10 +22,3 @@ Documentation
 Module documentation and description can be found at Read the Docs:
 
 - http://wa-kat.readthedocs.org
-
-Demo
-----
-
-Demo of the project can be found here:
-
-- http://forpsi.kitakitsune.org:8080/
