@@ -14,10 +14,10 @@ TEST_TEMPLATE = """
     <title>HTML title</title>
 
     <meta name    = "DC.Language"
-          content = "cs">
+          content = "en">
 
     <meta http-equiv="Content-language"
-          content="cs">
+          content="fr">
 </head>
 <body>
 Zde je nějaký ten obsah, který by měl být rozpoznaný jako čeština.
@@ -30,11 +30,11 @@ Zde je nějaký ten obsah, který by měl být rozpoznaný jako čeština.
 def test_get_lang_tags():
     lang_tags = get_lang_tags(TEST_TEMPLATE)
 
-    assert lang_tags[0] == "cze"
-    assert lang_tags[0].source == "HTML"
+    assert str(lang_tags[0]) == "cze"
+    assert lang_tags[0].source == "langdetect"
 
-    assert lang_tags[1] == "cze"
+    assert str(lang_tags[1]) == "eng"
     assert lang_tags[1].source == "DC"
 
-    assert lang_tags[2] == "cze"
-    assert lang_tags[2].source == "langdetect"
+    assert str(lang_tags[2]) == "fre"
+    assert lang_tags[2].source == "HTML"
