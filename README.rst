@@ -1,6 +1,8 @@
 Introduction
 ============
 
+.. image:: https://img.shields.io/pypi/l/wa-kat.svg
+
 .. image:: https://badge.fury.io/py/wa_kat.png
     :target: https://pypi.python.org/pypi/wa_kat
 
@@ -10,10 +12,9 @@ Introduction
 .. image:: https://readthedocs.org/projects/wa-kat/badge/?version=latest
     :target: http://wa-kat.readthedocs.org/
 
-.. image:: https://img.shields.io/pypi/l/wa-kat.svg
-
 .. image:: https://img.shields.io/github/issues/WebArchivCZ/WA-KAT.svg
     :target: https://github.com/WebArchivCZ/WA-KAT/issues
+
 
 
 Documentation
