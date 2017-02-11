@@ -4,7 +4,7 @@ PyYAML==3.11
 paste==2.0.2
 bottle==0.12.9
 requests==2.11.1
-sqlitedict==1.4.0
+sqlitedict==1.4.2
 bottle-rest==0.4.1
 
 ipwhois>=0.11.1
