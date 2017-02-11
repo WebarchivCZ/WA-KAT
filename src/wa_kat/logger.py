@@ -22,11 +22,12 @@ class Logger(object):
         }
 
         with open(ERROR_LOG_PATH, "a") as f:
-            f.write(
-                "{timestamp} {level} {url}: {msg}\n{long_msg}\n".format(
-                    **logged_obj
-                )
-            )
+            if logged_obj["url"]:
+                log_format = "{timestamp} {level} {url}: {msg}\n{long_msg}\n"
+            else:
+                log_format = "{timestamp} {level}: {msg}\n{long_msg}\n"
+
+            f.write(log_format.format(**logged_obj))
 
     def emergency(self, msg, long_msg=None, url=None):
         self._log(msg, long_msg=long_msg, level="emergency", url=url)
