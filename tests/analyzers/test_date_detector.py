@@ -14,7 +14,7 @@ from wa_kat.analyzers.creation_date_detector import get_creation_date_tags
 
 # Tests =======================================================================
 def test_kitakitsune_mementoweb():
-    memento_tags = mementoweb_api_tags("kitakitsune.org")
+    memento_tags = mementoweb_api_tags("http://kitakitsune.org")
 
     assert memento_tags
 
