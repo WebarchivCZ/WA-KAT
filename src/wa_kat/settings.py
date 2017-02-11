@@ -87,7 +87,14 @@ API_PATH = "/api_v1/"  #: Path for the REST API.
 _REQUEST_DB_PATH = os.path.join(API_PATH, "request_db")
 _REQUEST_DB_SAVE = os.path.join(_REQUEST_DB_PATH, "store")
 
-ERROR_LOG_PATH = "/tmp/wa-kat.log"
+# Logging
+ERROR_LOG_PATH = "/tmp/wa-kat.log"  #: Path to the local logfile.
+LOG_UDP_ADDR = "127.0.0.1"  #: Address of the log server.
+LOG_UDP_PORT = 32000  #: Port for logging.
+
+LOG_TO_FILE = True  #: Should logs go into the :attr:`ERROR_LOG_PATH`?
+LOG_VIA_UDP = True  #: Should logs go to the log server?
+LOG_TO_STDOUT = False  #: Should logs go to the stdout?
 
 
 # User configuration reader (don't edit this) =================================

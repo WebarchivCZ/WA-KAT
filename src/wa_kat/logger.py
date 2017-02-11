@@ -4,30 +4,75 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import json
 import time
+import socket
 import traceback
 
+from .settings import LOG_TO_FILE
+from .settings import LOG_VIA_UDP
+from .settings import LOG_UDP_ADDR
+from .settings import LOG_UDP_PORT
+from .settings import LOG_TO_STDOUT
 from .settings import ERROR_LOG_PATH
 
 
 # Functions & classes =========================================================
 class Logger(object):
+    def __init__(self, url=None, fn=ERROR_LOG_PATH, address=LOG_UDP_ADDR,
+                 port=LOG_UDP_PORT):
+        self.url = url
+
+        self.fn = ERROR_LOG_PATH
+        self.address = LOG_UDP_ADDR
+        self.port = LOG_UDP_PORT
+
     def _log(self, msg, long_msg, level, url=None):
         logged_obj = {
             "msg": msg,
             "long_msg": long_msg,
             "level": level,
             "timestamp": time.time(),
-            "url": url
+            "url": url or self.url
         }
 
-        with open(ERROR_LOG_PATH, "a") as f:
-            if logged_obj["url"]:
-                log_format = "{timestamp} {level} {url}: {msg}\n{long_msg}\n"
-            else:
-                log_format = "{timestamp} {level}: {msg}\n{long_msg}\n"
+        if LOG_VIA_UDP:
+            self._log_to_udp(logged_obj)
 
-            f.write(log_format.format(**logged_obj))
+        if LOG_TO_FILE:
+            self._log_to_file(logged_obj)
+
+        if LOG_TO_STDOUT:
+            self._log_to_stdout(logged_obj)
+
+    @property
+    def address_pair(self):
+        return (self.address, self.port)
+
+    def _log_to_udp(self, logged_obj):
+        as_json = json.dumps(logged_obj)
+
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.sendto(as_json, self.address_pair)
+        sock.close()
+
+    def _format_obj_to_str(self, logged_obj):
+        if logged_obj["url"]:
+            log_format = "{timestamp} {level} {url}; {msg}\n"
+        else:
+            log_format = "{timestamp} {level}; {msg}\n"
+
+        if logged_obj["long_msg"]:
+            log_format += "{long_msg}\n"
+
+        return log_format.format(**logged_obj)
+
+    def _log_to_file(self, logged_obj):
+        with open(self.fn, "a") as f:
+            f.write(self._format_obj_to_str(logged_obj))
+
+    def _log_to_stdout(self, logged_obj):
+        print self._format_obj_to_str(logged_obj)
 
     def emergency(self, msg, long_msg=None, url=None):
         self._log(msg, long_msg=long_msg, level="emergency", url=url)
