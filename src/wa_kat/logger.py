@@ -12,35 +12,45 @@ from .settings import ERROR_LOG_PATH
 
 # Functions & classes =========================================================
 class Logger(object):
-    def _log(self, message, level):
-        print message
+    def _log(self, msg, long_msg, level, url=None):
+        logged_obj = {
+            "msg": msg,
+            "long_msg": long_msg,
+            "level": level,
+            "timestamp": time.time(),
+            "url": url
+        }
 
         with open(ERROR_LOG_PATH, "a") as f:
-            f.write("%f %s: %s\n" % (time.time(), level.upper(), message))
+            f.write(
+                "{timestamp} {level} {url}: {msg}\n{long_msg}\n".format(
+                    **logged_obj
+                )
+            )
 
-    def emergency(self, message):
-        self._log(message, "emergency")
+    def emergency(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="emergency", url=url)
 
-    def alert(self, message):
-        self._log(message, "alert")
+    def alert(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="alert", url=url)
 
-    def critical(self, message):
-        self._log(message, "critical")
+    def critical(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="critical", url=url)
 
-    def error(self, message):
-        self._log(message, "error")
+    def error(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="error", url=url)
 
-    def warning(self, message):
-        self._log(message, "warning")
+    def warning(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="warning", url=url)
 
-    def notice(self, message):
-        self._log(message, "notice")
+    def notice(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="notice", url=url)
 
-    def info(self, message):
-        self._log(message, "info")
+    def info(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="info", url=url)
 
-    def debug(self, message):
-        self._log(message, "debug")
+    def debug(self, msg, long_msg=None, url=None):
+        self._log(msg, long_msg=long_msg, level="debug", url=url)
 
 
 logger = Logger()
@@ -60,7 +70,7 @@ def log_exception(fn):
             logger.error(_catch_type_error_from_traceback())
             logger.error(
                 "%s while calling %s(*args=%r, **kwargs%r): %s" % (
-                    e.__name__,
+                    e.__class__.__name__,
                     fn.__name__,
                     args,
                     kwargs,

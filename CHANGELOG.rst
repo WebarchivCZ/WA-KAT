@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.2
+-----
+    - Improved logger capability with structured logs.
+
 1.1.1
 -----
     - Fixed `download_as_file()` decorator to not to try to return result as JSON.
