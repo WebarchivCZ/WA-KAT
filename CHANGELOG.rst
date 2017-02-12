@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.5
+-----
+    - URL added to logging.
+
 1.1.4
 -----
     - Fixed IP address for the structured logger.
@@ -23,55 +27,25 @@ Changelog
 -----
     - Attempt to remove ZODB/ZEO, because it is horribly broken.
 
-1.0.6
------
-    - Last attempt to pin requirements to older version.
-
-1.0.5
------
-    - #86: Added custom error log path / option to switch to stderr.
-
-1.0.4
------
-    - Fixed bug in error log path.
-
-1.0.3
------
-    - Dockerfile migrated to ubuntu 16.04.
-    - Removed duplicate line from MANIFEST.in.
-
-1.0.2
------
+1.0.0 - 1.0.6
+-------------
+    - Connected with Seeder. First officaly working, production ready version.
+    - Added better connection to Seeder.
     - #85: Fixed bug in the whois parsing.
     - #85: Updated API link for the memento web.
+    - Dockerfile migrated to ubuntu 16.04.
+    - Removed duplicate line from MANIFEST.in.
+    - Fixed bug in error log path.
+    - #86: Added custom error log path / option to switch to stderr.
+    - Last attempt to pin requirements to older version.
 
-1.0.1
------
-    - Added better connection to Seeder.
-
-1.0.0
------
-    - Connected with Seeder. First officaly working, production ready version.
-
-0.4.5
------
-    - #80: Language in 008 is now parsed from user input.
-
-0.4.4
------
-    - Template updated accordingly to #78.
-
-0.4.3
------
-    - ``conf/`` directory moved to ``templates/``.
-
-0.4.2
------
-    - Added `settings.ZEO_SERVER_PATH`.
-
-0.4.1
------
+0.4.1 - 0.4.5
+-------------
     - Added missing MANIFEST.in.
+    - Added `settings.ZEO_SERVER_PATH`.
+    - ``conf/`` directory moved to ``templates/``.
+    - Template updated accordingly to #78.
+    - #80: Language in 008 is now parsed from user input.
 
 0.4.0
 -----

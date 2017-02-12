@@ -44,6 +44,8 @@ def get_cached_or_new(url, new=False):
     Returns:
         obj: :class:`RequestInfo` instance.
     """
+    garbage_collection()
+
     old_req = DATABASE.get(url)
 
     if old_req and not new:
@@ -86,19 +88,19 @@ def store_property(url, property_name, value):
     This is part of the REST API.
     """
     logger.debug(
-        "store_property(): Received url=%s property_name=%s value=%s" % (
-            url,
+        "store_property(): Received property_name=%s value=%s" % (
             property_name,
             value,
-        )
+        ),
+        url=url,
     )
 
     ri = get_cached_or_new(url)
     ri._set_property(property_name, json.loads(value))
 
     logger.info(
-        "store_property(): Data for %s (property_name=%s) saved." % (
-            url,
+        "store_property(): property_name=%s saved." % (
             property_name,
-        )
+        ),
+        url=url,
     )
