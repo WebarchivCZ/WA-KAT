@@ -52,6 +52,12 @@ class KeywordInfo(namedtuple("KeywordInfo", ["uid",
             if not s:
                 return s
 
+            if isinstance(s, list) or isinstance(s, tuple):
+                return [de_entity(x) for x in s]
+
+            if isinstance(s, dict):
+                return {key: de_entity(val) for key, val in s.iteritems()}
+
             return s.replace("&nbsp;", " ") \
                     .replace("&quot;", '"') \
                     .replace("&apos;", "'") \
@@ -62,11 +68,11 @@ class KeywordInfo(namedtuple("KeywordInfo", ["uid",
             sysno=sysno,
             zahlavi=de_entity(first_or_none(marc["150a"])),
             odkazovana_forma=marc.get("450a", []),
-            mdt=first_or_none(marc["080a"]),
-            mrf=parse_mrf(first_or_none(marc["0802"])),
+            mdt=de_entity(first_or_none(marc["080a"])),
+            mrf=de_entity(parse_mrf(first_or_none(marc["0802"]))),
             angl_ekvivalent=de_entity(first_or_none(marc["750a07"])),
-            zdroj_angl_ekvivalentu=first_or_none(marc["750a02"]),
-            poznamka=first_or_none(marc["680i"]),
+            zdroj_angl_ekvivalentu=de_entity(first_or_none(marc["750a02"])),
+            poznamka=de_entity(first_or_none(marc["680i"])),
         )
 
 
@@ -108,7 +114,7 @@ def _download_items(db, last_id):
         print "Downloading %d.." % (doc_id)
 
         if not_found_cnt >= MAX_RETRY:
-            print "It looks like this is an end:", doc_id
+            print "It looks like this is an end:", doc_id - MAX_RETRY
             break
 
         try:
