@@ -4,6 +4,9 @@ Changelog
 1.1.5
 -----
     - URL added to logging.
+    - build_keyword_index.py script fixed to replace HTML entities.
+    - Downloaded additional 40 thousand records from aleph. Keywords regenerated.
+    - HTML escaping disabled in the MRC template.
 
 1.1.4
 -----
