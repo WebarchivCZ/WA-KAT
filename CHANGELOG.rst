@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.3
+-----
+    - Fixed metadata for the package.
+
 1.1.2
 -----
     - Improved logger capability with structured logs.
