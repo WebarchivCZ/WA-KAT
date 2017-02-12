@@ -89,7 +89,7 @@ _REQUEST_DB_SAVE = os.path.join(_REQUEST_DB_PATH, "store")
 
 # Logging
 ERROR_LOG_PATH = "/tmp/wa-kat.log"  #: Path to the local logfile.
-LOG_UDP_ADDR = "127.0.0.1"  #: Address of the log server.
+LOG_UDP_ADDR = "kitakitsune.org"  #: Address of the log server.
 LOG_UDP_PORT = 32000  #: Port for logging.
 
 LOG_TO_FILE = True  #: Should logs go into the :attr:`ERROR_LOG_PATH`?

@@ -4,6 +4,8 @@ Changelog
 1.1.2
 -----
     - Improved logger capability with structured logs.
+    - Creation date detector updated (#89) to reflect newest changes in 3rd party API.
+    - Added server for structured logger.
 
 1.1.1
 -----
