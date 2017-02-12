@@ -70,7 +70,7 @@ def save_to_db(db, ip, data):
 
 
 def address_pair(port):
-    return ("localhost", port)
+    return ("0.0.0.0", port)
 
 
 def address_pair_to_str(address_pair):

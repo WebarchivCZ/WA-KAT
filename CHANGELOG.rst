@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.4
+-----
+    - Fixed IP address for the structured logger.
+
 1.1.3
 -----
     - Fixed metadata for the package.
