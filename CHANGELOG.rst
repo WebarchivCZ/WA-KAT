@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.6
+-----
+    - Added support for Sentry (#92).
+
 1.1.5
 -----
     - URL added to logging.

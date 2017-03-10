@@ -9,12 +9,17 @@ import time
 import socket
 import traceback
 
+from .settings import SENTRY_DSN
+from .settings import LOG_TO_SENTRY
+
 from .settings import LOG_TO_FILE
+from .settings import ERROR_LOG_PATH
+
+from .settings import LOG_TO_STDOUT
+
 from .settings import LOG_VIA_UDP
 from .settings import LOG_UDP_ADDR
 from .settings import LOG_UDP_PORT
-from .settings import LOG_TO_STDOUT
-from .settings import ERROR_LOG_PATH
 
 
 # Functions & classes =========================================================
@@ -26,6 +31,19 @@ class Logger(object):
         self.fn = ERROR_LOG_PATH
         self.address = LOG_UDP_ADDR
         self.port = LOG_UDP_PORT
+
+        global LOG_TO_SENTRY
+        self.sentry_client = None
+        if LOG_TO_SENTRY and SENTRY_DSN:
+            from raven import Client
+            self.sentry_client = Client(SENTRY_DSN)
+        elif not SENTRY_DSN:
+            LOG_TO_SENTRY = False
+
+            self.error(
+                "settings.LOG_TO_SENTRY==True, but SENTRY_DSN property is not "
+                "set!"
+            )
 
     def _log(self, msg, long_msg, level, url=None):
         logged_obj = {
@@ -44,6 +62,9 @@ class Logger(object):
 
         if LOG_TO_STDOUT:
             self._log_to_stdout(logged_obj)
+
+        if LOG_TO_SENTRY:
+            self._log_to_sentry(logged_obj)
 
     @property
     def address_pair(self):
@@ -73,6 +94,13 @@ class Logger(object):
 
     def _log_to_stdout(self, logged_obj):
         print self._format_obj_to_str(logged_obj)
+
+    def _log_to_sentry(self, logged_obj):
+        self.sentry_client.captureMessage(
+            logged_obj["msg"],
+            data=logged_obj,
+            level=logged_obj["level"],
+        )
 
     def emergency(self, msg, long_msg=None, url=None):
         self._log(msg, long_msg=long_msg, level="emergency", url=url)

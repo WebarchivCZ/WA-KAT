@@ -30,3 +30,5 @@ backports.functools-lru-cache==1.2.1
 
 xmltodict==0.10.1
 odictliteral==1.0.0
+
+raven==6.0.0

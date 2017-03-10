@@ -92,9 +92,12 @@ ERROR_LOG_PATH = "/tmp/wa-kat.log"  #: Path to the local logfile.
 LOG_UDP_ADDR = "kitakitsune.org"  #: Address of the log server.
 LOG_UDP_PORT = 32000  #: Port for logging.
 
+SENTRY_DSN = ""  #: Sentry DSN string. You may find this in Sentry.
+
 LOG_TO_FILE = True  #: Should logs go into the :attr:`ERROR_LOG_PATH`?
 LOG_VIA_UDP = True  #: Should logs go to the log server?
 LOG_TO_STDOUT = False  #: Should logs go to the stdout?
+LOG_TO_SENTRY = True  #: Should logs go to Sentry?
 
 
 # User configuration reader (don't edit this) =================================
