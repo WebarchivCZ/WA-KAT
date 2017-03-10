@@ -318,6 +318,40 @@ Nastavení frontendu / REST API
         Prefix REST API. Doporučuji neměnit.
 
 
+Nastavení logování
+++++++++++++++++++
+
+Binární přepínače zapínající (``true``) či vypínající (``false``) logování.
+
+.. glossary::
+    :const:`~wa_kat.settings.LOG_TO_FILE`
+        Binární přepínač logování do souboru. Defaultně nastaven na ``true``.
+
+    :const:`~wa_kat.settings.LOG_VIA_UDP`
+        Binární přepínač logování přes UDP. Defaultně nastaven na ``true``.
+
+    :const:`~wa_kat.settings.LOG_TO_STDOUT`
+        Binární přepínač logování na ``stdout``. Defaultně nastaven na ``false``.
+
+    :const:`~wa_kat.settings.LOG_TO_SENTRY`
+        Binární přepínač logování do souboru. Defaultně nastaven na ``true`` (ovšem neloguje, pokud není zároveň nastaven :const:`~wa_kat.settings.SENTRY_DSN`).
+
+Dále pak:
+
+.. glossary::
+
+    :const:`~wa_kat.settings.ERROR_LOG_PATH`
+        Cesta k souboru, do kterého se ukládají logy. Defaultně ``/tmp/wa-kat.log``.
+
+    :const:`~wa_kat.settings.LOG_UDP_ADDR`
+        Adresa v síti na kterou se posílají UDP logy. Defaultně ``kitakitsune.org``.
+
+    :const:`~wa_kat.settings.LOG_UDP_PORT`
+        Port na který se posílají UDP logy. Defaultně ``32000``.
+
+    :const:`~wa_kat.settings.SENTRY_DSN`
+        DSN string pro systém logování Sentry. Defaultně není vyplněn, což znamená, že je vypnut.
+
 
 Docker
 ------
