@@ -11,6 +11,7 @@ RUN python -m textblob.download_corpora
 
 RUN rm /etc/supervisor/supervisord.conf
 ADD src/wa_kat/templates/conf/supervisord.conf /etc/supervisor/supervisord.conf
+ADD src/wa_kat/templates/conf/wa-kat.service /lib/systemd/system/wa-kat.service
 
 EXPOSE 8080
 

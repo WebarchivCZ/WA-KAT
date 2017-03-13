@@ -1,0 +1,11 @@
+[Unit]
+Description=WA-KAT
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/wa_kat_server.py
+ExecStop=/bin/kill -s TERM $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
