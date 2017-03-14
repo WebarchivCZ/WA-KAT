@@ -26,7 +26,7 @@ def get_html_lang_tags(index_page):
     ``<meta http-equiv="Content-language" content="cs">`` -> ``cs``
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         list: List of :class:`.SourceString` objects.
@@ -46,12 +46,53 @@ def get_html_lang_tags(index_page):
     ]
 
 
+def get_html_tag_lang_params(index_page):
+    """
+    Parse lang and xml:lang parameters in the ``<html>`` tag.
+
+    See
+      https://www.w3.org/International/questions/qa-html-language-declarations
+    for details.
+
+    Args:
+        index_page (str): HTML content of the page you wisht to analyze.
+
+    Returns:
+        list: List of :class:`.SourceString` objects.
+    """
+    dom = dhtmlparser.parseString(index_page)
+
+    html_tag = dom.find("html")
+
+    if not html_tag:
+        return []
+
+    html_tag = html_tag[0]
+
+    # parse parameters
+    lang = html_tag.params.get("lang")
+    xml_lang = html_tag.params.get("xml:lang")
+
+    if lang and lang == xml_lang:
+        return [SourceString(lang, source="<html> tag")]
+
+    out = []
+
+    if lang:
+        out.append(SourceString(lang, source="<html lang=..>"))
+
+    if xml_lang:
+        out.append(SourceString(xml_lang, source="<html xml:lang=..>"))
+
+    return out
+
+
 def get_dc_lang_tags(index_page):
     """
     Return `languages` stored in dublin core ``<meta>`` tags.
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         list: List of :class:`.SourceString` objects.
@@ -64,7 +105,7 @@ def detect_language(index_page):
     Detect `languages` using `langdetect` library.
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         obj: One :class:`.SourceString` object.
@@ -91,20 +132,21 @@ def get_lang_tags(index_page):
     tags and langdetect guesses.
 
     Args:
-        index_page (str): HTML content of the page you wisht to analyze.
+        index_page (str): HTML content of the page you wish to analyze.
 
     Returns:
         list: List of :class:`.SourceString` objects.
     """
     dom = dhtmlparser.parseString(index_page)
 
-    titles = [
+    lang_tags = [
         get_html_lang_tags(dom),
         get_dc_lang_tags(dom),
         [detect_language(dom)],
+        get_html_tag_lang_params(dom),
     ]
 
     return list(sorted(set(
         SourceString(normalize(lang), source=lang.source)
-        for lang in sum(titles, [])
+        for lang in sum(lang_tags, [])
     )))

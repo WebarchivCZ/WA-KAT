@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.7
+-----
+    - Implemented HTML lang and xml:lang parameters parsing (#88).
+
 1.1.6
 -----
     - Added support for Sentry (#92).
