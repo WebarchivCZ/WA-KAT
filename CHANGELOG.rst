@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.8
+-----
+    - Fixed #95 - bug in UDP logger / DNS name resolution.
+    - Logger rewritten to better architecture.
+
 1.1.7
 -----
     - Implemented HTML lang and xml:lang parameters parsing (#88).

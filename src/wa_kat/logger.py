@@ -24,26 +24,36 @@ from .settings import LOG_UDP_PORT
 
 # Functions & classes =========================================================
 class Logger(object):
-    def __init__(self, url=None, fn=ERROR_LOG_PATH, address=LOG_UDP_ADDR,
-                 port=LOG_UDP_PORT):
+    def __init__(self, url=None):
         self.url = url
 
-        self.fn = ERROR_LOG_PATH
-        self.address = LOG_UDP_ADDR
-        self.port = LOG_UDP_PORT
+        self.log_path = None
 
-        global LOG_TO_SENTRY
+        self.udp_address = None
+        self.udp_port = None
+
+        self.sentry_dsn = None
+
+        self.should_log_to_file = False
+        self.should_log_via_udp = False
+        self.should_log_to_sentry = False
+        self.should_log_to_stdout = True
+
         self.sentry_client = None
-        if LOG_TO_SENTRY and SENTRY_DSN:
-            from raven import Client
-            self.sentry_client = Client(SENTRY_DSN)
-        elif not SENTRY_DSN:
-            LOG_TO_SENTRY = False
 
-            self.error(
-                "settings.LOG_TO_SENTRY==True, but SENTRY_DSN property is not "
-                "set!"
-            )
+    def use_file(self, log_path):
+        self.log_path = log_path
+        self.should_log_to_file = True
+
+    def use_udp(self, address, port):
+        self.udp_address = address
+        self.udp_port = port
+        self.should_log_via_udp = True
+
+    def use_sentry(self, sentry_dsn):
+        from raven import Client
+        self.sentry_client = Client(SENTRY_DSN)
+        self.should_log_to_sentry = True
 
     def _log(self, msg, long_msg, level, url=None):
         logged_obj = {
@@ -54,28 +64,32 @@ class Logger(object):
             "url": url or self.url
         }
 
-        if LOG_VIA_UDP:
+        if self.should_log_via_udp:
             self._log_to_udp(logged_obj)
 
-        if LOG_TO_FILE:
+        if self.should_log_to_file:
             self._log_to_file(logged_obj)
 
-        if LOG_TO_STDOUT:
+        if self.should_log_to_stdout:
             self._log_to_stdout(logged_obj)
 
-        if LOG_TO_SENTRY:
+        if self.should_log_to_sentry:
             self._log_to_sentry(logged_obj)
 
     @property
     def address_pair(self):
-        return (self.address, self.port)
+        return (self.udp_address, self.udp_port)
 
     def _log_to_udp(self, logged_obj):
         as_json = json.dumps(logged_obj)
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.sendto(as_json, self.address_pair)
-        sock.close()
+        try:
+            sock.sendto(as_json, self.address_pair)
+        except socket.gaierror as e:
+            print "ERROR: Can't log to UDP logger - %s" % str(e)
+        finally:
+            sock.close()
 
     def _format_obj_to_str(self, logged_obj):
         if logged_obj["url"]:
@@ -89,13 +103,17 @@ class Logger(object):
         return log_format.format(**logged_obj)
 
     def _log_to_file(self, logged_obj):
-        with open(self.fn, "a") as f:
+        with open(self.log_path, "a") as f:
             f.write(self._format_obj_to_str(logged_obj))
 
     def _log_to_stdout(self, logged_obj):
         print self._format_obj_to_str(logged_obj)
 
     def _log_to_sentry(self, logged_obj):
+        if not self.sentry_client:
+            print "ERROR: Requested Sentry logging, but client is not set!"
+            return
+
         self.sentry_client.captureMessage(
             logged_obj["msg"],
             data=logged_obj,
@@ -127,7 +145,24 @@ class Logger(object):
         self._log(msg, long_msg=long_msg, level="debug", url=url)
 
 
-logger = Logger()
+def set_logger_by_settingspy():
+    logger = Logger()
+
+    logger.should_log_to_stdout = LOG_TO_STDOUT
+
+    if LOG_TO_FILE:
+        logger.use_file(ERROR_LOG_PATH)
+
+    if LOG_VIA_UDP:
+        logger.use_udp(LOG_UDP_ADDR, LOG_UDP_PORT)
+
+    if LOG_TO_SENTRY:
+        logger.use_sentry(SENTRY_DSN)
+
+    return logger
+
+
+logger = set_logger_by_settingspy()
 
 
 def log_exception(fn):
