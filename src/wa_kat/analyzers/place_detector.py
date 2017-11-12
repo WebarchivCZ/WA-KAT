@@ -66,7 +66,7 @@ def get_whois_tags(ip_address):
     Returns:
         list: List of :class:`.SourceString` objects.
     """
-    whois = IPWhois(ip_address).lookup()
+    whois = IPWhois(ip_address).lookup_whois()
     nets = whois.get("nets", None)
 
     if not nets:

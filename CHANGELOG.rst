@@ -1,10 +1,15 @@
 Changelog
 =========
 
+1.1.9
+-----
+    - Implemented #100 - date format in field 588.
+    - Fixed deprecated whois lookup call (#101).
+
 1.1.8
 -----
     - Fixed #95 - bug in UDP logger / DNS name resolution.
-    - Logger rewritten to better architecture.
+    - Logger (#87) rewritten to better architecture.
 
 1.1.7
 -----
