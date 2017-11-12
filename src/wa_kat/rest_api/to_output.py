@@ -276,6 +276,9 @@ def to_output(data):
     # put lang code to 008
     data["lang_code_008"] = get_008_lang_code(data.get("language"))
 
+    # special format of date - viz #100
+    data["date_of_generation"] = _to_date_in_588(time.strftime("%d.%m.%Y"))
+
     data[ai_key] = {
         key: "\n".join(item_to_mrc(key, val))
         for key, val in data[ai_key].iteritems()
