@@ -222,6 +222,21 @@ def get_008_lang_code(lang_code, default_lang="cze"):
     return lang_code
 
 
+def _to_date_in_588(date_str):
+    """
+    Convert date in the format ala 03.02.2017 to 3.2.2017.
+
+    Viz #100 for details.
+    """
+    try:
+        date_tokens = (int(x) for x in date_str.split("."))
+    except ValueError:
+        return date_str
+
+    return ".".join(str(x) for x in date_tokens)
+
+
+
 # REST API ====================================================================
 @post(join(API_PATH, "to_output"))
 @form_to_params
