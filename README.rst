@@ -15,6 +15,7 @@ Introduction
 
 .. image:: https://img.shields.io/pypi/l/wa-kat.svg
 
+WA-KAT is a project that simplifies the job of curators of the Webarchive of National Library of the Czech Republic by cataloging electronic resources using semi-automatic analysis.
 
 Documentation
 -------------
