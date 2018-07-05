@@ -4,7 +4,7 @@ pipeline {
 
   agent any
   environment {
-    WAKAT_VERSION=$(git describe --abbrev=0 --tags)
+    WAKAT_VERSION = 'git describe --abbrev=0 --tags'
   }
 
   stages {
