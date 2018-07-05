@@ -11,17 +11,17 @@ pipeline {
     stage('Build, tag and push docker image') {
       steps {
         sh '''
-          docker build -t NLCR/wa-kat:${GIT_COMMIT} .
-          docker tag NLCR/wa-kat:${GIT_COMMIT} NLCR/wa-kat:latest
-          docker tag NLCR/wa-kat:${GIT_COMMIT} NLCR/wa-kat:${WAKAT_VERSION}
-          docker push NLCR/wa-kat:${GIT_COMMIT}
-          docker push NLCR/wa-kat:${WAKAT_VERSION}
-          docker push NLCR/wa-kat:latest
+          docker build -t nlcr/wa-kat:${GIT_COMMIT} .
+          docker tag nlcr/wa-kat:${GIT_COMMIT} nlcr/wa-kat:latest
+          docker tag nlcr/wa-kat:${GIT_COMMIT} nlcr/wa-kat:${WAKAT_VERSION}
+          docker push nlcr/wa-kat:${GIT_COMMIT}
+          docker push nlcr/wa-kat:${WAKAT_VERSION}
+          docker push nlcr/wa-kat:latest
           '''
         }
     }
     stage('Inspect image') {
-      steps {sh 'docker push NLCR/wa-kat:${GIT_COMMIT}'}
+      steps {sh 'docker push nlcr/wa-kat:${GIT_COMMIT}'}
     }
   }
 }
