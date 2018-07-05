@@ -23,11 +23,5 @@ pipeline {
     stage('Inspect image') {
       steps {sh 'docker push NLCR/wa-kat:${GIT_COMMIT}'}
     }
-//  stage('Push image') {
-//    steps {}
-//  }
-//  stage('Deploy My Angelcam to Test') {
-//    steps {}
-//   }
-//  }
+  }
 }
