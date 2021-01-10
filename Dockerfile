@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Bystroushaak
+LABEL MAINTAINER="Bystroushaak"
 
 RUN apt-get update && apt-get install -y \
     python-dev \

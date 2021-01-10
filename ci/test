@@ -1,0 +1,8 @@
+---
+test:
+  hosts:
+    wa-dev-docker00:
+      ansible_host: 10.3.0.110
+  vars:
+    env: test
+    docker_tag: gehorak # develop
