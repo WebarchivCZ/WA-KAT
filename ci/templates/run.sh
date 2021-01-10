@@ -12,6 +12,7 @@ docker rm -f wa-kat >/dev/null 2>&1 || /bin/true
 docker run --restart=always -d \
  --name wa-kat \
  --label "traefik.http.routers.kat.rule=Host(\`kat.webarchiv.cz\`)" \
+ --network seeder_default \
  webarchiv/kat:{{docker_tag}}
 
  
