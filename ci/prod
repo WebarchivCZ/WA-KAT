@@ -1,0 +1,8 @@
+---
+prod:
+  hosts:
+    wa-docker00:
+      ansible_host: 10.3.0.50
+  vars:
+    env: prod
+    docker_tag: gehorak # latest

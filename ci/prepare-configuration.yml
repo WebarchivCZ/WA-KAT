@@ -1,0 +1,15 @@
+---
+    - name: "Prepare configuration from template"
+      hosts: all
+      tasks:
+    
+        - name: "Ensure direcotry for scipt exists"
+          file:
+            dest: /home/ansible/wakat
+            state: directory
+
+        - name: "Deploy run script"
+          template:
+            src: run.sh
+            dest: /home/ansible/wakat/run.sh
+            mode: u+x
