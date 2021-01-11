@@ -28,8 +28,8 @@ edeposit.amqp.aleph>=1.9.5
 
 backports.functools-lru-cache==1.2.1
 
+setuptools==40.8.0
 xmltodict==0.10.1
 odictliteral==1.0.0
 
 raven==6.0.0
-setuptools==40.8.0

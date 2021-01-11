@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.11
+------
+    - Another attempt to fix a syntax error in setuptools.
+
 1.1.10
 ------
     - Pinned setuptools==40.8.0 because of syntax error in newer version (#107).
