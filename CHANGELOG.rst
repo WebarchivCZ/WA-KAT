@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.12
+------
+    - Add pathlib to dependencies (#107).
+
 1.1.11
 ------
     - Another attempt to fix a syntax error in setuptools.
