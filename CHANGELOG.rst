@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.10
+------
+    - Pinned setuptools==40.8.0 because of syntax error in newer version (#107).
+
 1.1.9
 -----
     - Implemented #100 - date format in field 588.

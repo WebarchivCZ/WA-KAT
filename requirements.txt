@@ -32,3 +32,4 @@ xmltodict==0.10.1
 odictliteral==1.0.0
 
 raven==6.0.0
+setuptools==40.8.0

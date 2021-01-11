@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     python-dev \
     python-pip \
     supervisor \
+    python \
     curl
 RUN pip install -U wa-kat
 RUN python -m textblob.download_corpora
