@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.13
+------
+    - Sigh. Python package dependencies are really something (#107).
+
 1.1.12
 ------
     - Add pathlib to dependencies (#107).
