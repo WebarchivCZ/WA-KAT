@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.14
+------
+    - Dependencies pinned so that Docker file now builds again (#107).
+
 1.1.13
 ------
     - Sigh. Python package dependencies are really something (#107).
