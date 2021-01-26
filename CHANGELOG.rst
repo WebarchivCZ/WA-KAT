@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.15
+------
+    - Remove pinned version of pathlib.
+
 1.1.14
 ------
     - Dependencies pinned so that Docker file now builds again (#107).

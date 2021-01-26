@@ -1,4 +1,4 @@
-pathlib==1.1.13
+pathlib
 tqdm==3.7.1
 PyYAML==5.1
 
