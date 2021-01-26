@@ -8,7 +8,9 @@ requests>=2.20.0
 sqlitedict==1.4.2
 bottle-rest==0.4.1
 
-ipwhois>=0.11.1
+dnspython==1.16.0
+ipwhois==0.11.1
+
 langdetect==1.0.5
 pythonwhois>=2.4.3
 

@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.16
+------
+    - Pinned version of dnspython to last that supports Python 2.7 (1.16.0) (#107).
+    - Project now builds with provided Dockerfile and runs correctly.
+
 1.1.15
 ------
     - Remove pinned version of pathlib.
