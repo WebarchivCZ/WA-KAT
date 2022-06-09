@@ -3,7 +3,7 @@ tqdm==3.7.1
 PyYAML==5.4
 
 paste==2.0.2
-bottle==0.12.19
+bottle==0.12.20
 requests>=2.20.0
 sqlitedict==1.4.2
 bottle-rest==0.4.1
