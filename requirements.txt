@@ -36,5 +36,5 @@ setuptools==40.8.0
 xmltodict==0.10.1
 odictliteral==1.0.0
 
-joblib==0.14.1
+joblib==1.2.0
 raven==6.0.0
